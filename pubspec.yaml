@@ -36,6 +36,8 @@ dependencies:
   cached_network_image: ^3.2.0
   flutter_feather_icons: ^2.0.0+1
   table_calendar: ^3.0.3
+  timelines: ^0.1.0
+  get_storage: ^2.0.3
   flutter:
     sdk: flutter
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:grad/app/bindings/auth/auth_manager_binding.dart';
 import 'package:grad/app/routes/app_pages.dart';
 import 'package:grad/app/routes/app_routes.dart';
 import 'package:grad/app/translations/app_translations.dart';
@@ -12,8 +13,8 @@ class AndroidApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeData? selectedTheme;
-    ThemeData? darkTheme;
-    darkTheme = appThemeData[AppTheme.DarkTheme];
+    // ThemeData? darkTheme;
+    // darkTheme = appThemeData[AppTheme.DarkTheme];
     if (themeValue == 1) {
       selectedTheme = appThemeData[AppTheme.LightTheme];
     } else if (themeValue == 2) {
@@ -33,11 +34,12 @@ class AndroidApp extends StatelessWidget {
       ),
       child: GetMaterialApp(
         theme: selectedTheme,
-        darkTheme: darkTheme,
+        // darkTheme: darkTheme,
         defaultTransition: Transition.fade,
         locale: Locale('pt', 'BR'),
         getPages: AppPages.pages,
         initialRoute: Routes.INITIAL,
+        initialBinding: AuthManagerBinding(),
         translationsKeys: AppTranslation.translations,
       ),
     );

@@ -12,6 +12,8 @@ class AppInitializer {
   /// initialize the app
   /// check connectivity
   /// get theme
+  /// check if first time coming to the app if so check if login
+  ///
   ///
   Future<Map<String, dynamic>> appInitializer() async {
     /**

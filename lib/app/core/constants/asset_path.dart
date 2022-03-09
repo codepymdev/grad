@@ -27,3 +27,24 @@ const EXAM = "assets/images/icons/exam.svg";
 
 const SEEN = "assets/images/icons/seen.svg";
 const SENT = "assets/images/icons/sent.svg";
+
+const PASSWORD = "assets/images/icons/password.svg";
+const THEME = "assets/images/icons/theme.svg";
+
+const CAMPUS = "assets/images/icons/campus.svg";
+const LOGOUT = "assets/images/icons/logout.svg";
+
+const SUBJECTS = "assets/images/icons/subjects.svg";
+const CLASSES = "assets/images/icons/classes.svg";
+
+const SESSION = "assets/images/icons/session.svg";
+const TERM = "assets/images/icons/term.svg";
+
+const STAMP = "assets/images/icons/stamp.svg";
+const E_TEST = "assets/images/icons/e_test.svg";
+
+const SCHOOL_CONFIG = "assets/images/icons/config.svg";
+const HEART = "assets/images/icons/heart.svg";
+
+const BUG = "assets/images/icons/bug.svg";
+const RATE = "assets/images/icons/rate.svg";

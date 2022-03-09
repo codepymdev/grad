@@ -13,3 +13,14 @@ double getCollapseOpacity(context) {
   final opacity = 1.0 - Interval(fadeStart, fadeEnd).transform(t);
   return opacity;
 }
+
+List<Tab> eventTabbar() {
+  return [
+    Tab(
+      child: Text("Upcoming Events"),
+    ),
+    Tab(
+      child: Text("Passed Events"),
+    ),
+  ];
+}

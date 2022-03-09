@@ -6,11 +6,11 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     //set theme value here
     ThemeData? theme = appThemeData[AppTheme.LightTheme];
-    ThemeData? darkTheme = appThemeData[AppTheme.DarkTheme];
+    // ThemeData? darkTheme = appThemeData[AppTheme.DarkTheme];
 
     return MaterialApp(
       theme: theme,
-      darkTheme: darkTheme,
+      // darkTheme: darkTheme,
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: SafeArea(
