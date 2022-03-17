@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/controller/home/home_controller.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
+import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/ui/android/screen/menu/overlay.dart';
 import 'package:grad/app/ui/android/widgets/calendar/calendar.dart';
 import 'package:grad/app/ui/android/widgets/home/announcement.dart';
@@ -50,7 +51,7 @@ class HomePage extends GetView<HomeController> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      "Wed",
+                      "${currentDate()['day']}",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 15,
@@ -60,7 +61,7 @@ class HomePage extends GetView<HomeController> {
                       width: 3,
                     ),
                     Text(
-                      "10 Oct",
+                      "${currentDate()['date']}, ${currentDate()['month']}",
                       style: TextStyle(
                         fontSize: 14,
                       ),

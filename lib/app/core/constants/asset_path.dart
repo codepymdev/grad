@@ -48,3 +48,5 @@ const HEART = "assets/images/icons/heart.svg";
 
 const BUG = "assets/images/icons/bug.svg";
 const RATE = "assets/images/icons/rate.svg";
+
+const DEFAULT_AVATAR = "assets/images/icons/avatar.svg";

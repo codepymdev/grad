@@ -1,11 +1,17 @@
 import 'package:flutter/widgets.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:grad/app/core/utils/app_initializer.dart';
 import 'package:grad/app/ui/app.dart';
 import 'package:grad/app/ui/app_connectivity_error.dart';
 import 'package:grad/app/ui/app_error.dart';
 import 'package:grad/app/ui/app_splash_screen.dart';
 
-void main() {
+Future<void> main() async {
+  ///
+  /// Initialize storage driver
+  ///
+  await GetStorage.init();
+
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(

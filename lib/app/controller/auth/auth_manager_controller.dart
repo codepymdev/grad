@@ -5,15 +5,23 @@ class AuthManagerController extends GetxController with CacheManager {
   //obs login status
   final isLogin = false.obs;
 
-  void logOut() {
-    isLogin.value = false;
-    removeToken();
+  @override
+  void onInit() {
+    checkLoginStatus();
+    super.onInit();
   }
 
-  void login(String? token) async {
+  Future<void> logOut() async {
+    isLogin.value = false;
+    await removeToken();
+    await removeMe();
+  }
+
+  void login(Map<String, dynamic>? data) async {
     isLogin.value = true;
     //Token is cached
-    await saveToken(token);
+    await saveToken(data!['email']);
+    await saveMe(data);
   }
 
   void checkLoginStatus() {
@@ -21,10 +29,5 @@ class AuthManagerController extends GetxController with CacheManager {
     if (token != null) {
       isLogin.value = true;
     }
-  }
-
-  void checkFirstTimeStatus() {
-    final secondtoken = getSecondToken();
-    if (secondtoken != null) {}
   }
 }

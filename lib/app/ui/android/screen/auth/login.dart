@@ -81,7 +81,9 @@ class Login extends GetView<LoginController> {
                 /// Forgot password
                 ///
                 GestureDetector(
-                  onTap: () => Get.toNamed("/forgotten-password"),
+                  onTap: () => Get.toNamed("/forgotten-password", arguments: {
+                    "school": controller.school,
+                  }),
                   child: Container(
                     margin: EdgeInsets.only(
                       bottom: 10,
@@ -111,16 +113,21 @@ class Login extends GetView<LoginController> {
                 ///
                 /// create account
                 ///
-                Container(
-                  margin: EdgeInsets.only(
-                    top: 20,
-                    bottom: 10,
-                  ),
-                  child: Text(
-                    "Don't have an account yet? Contact us!",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: Color.fromARGB(255, 65, 63, 63),
+                GestureDetector(
+                  onTap: () => Get.toNamed("/create-account", arguments: {
+                    "school": controller.school,
+                  }),
+                  child: Container(
+                    margin: EdgeInsets.only(
+                      top: 20,
+                      bottom: 10,
+                    ),
+                    child: Text(
+                      "Don't have an account yet?",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromARGB(255, 65, 63, 63),
+                      ),
                     ),
                   ),
                 )

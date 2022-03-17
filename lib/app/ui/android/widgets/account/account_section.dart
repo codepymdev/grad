@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:grad/app/controller/account/account_controller.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
 
-class AccountSection extends StatelessWidget {
+class AccountSection extends GetView<AccountController> {
   const AccountSection({
     Key? key,
   }) : super(key: key);
@@ -69,15 +71,18 @@ class AccountSection extends StatelessWidget {
                     ),
                   ),
                   Divider(),
-                  ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    leading: SvgPicture.asset(
-                      LOGOUT,
-                      width: 25,
-                    ),
-                    title: Text(
-                      "Logout",
-                      style: Theme.of(context).textTheme.subtitle2,
+                  GestureDetector(
+                    onTap: () => showAlertDialog(context),
+                    child: ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: SvgPicture.asset(
+                        LOGOUT,
+                        width: 25,
+                      ),
+                      title: Text(
+                        "Logout",
+                        style: Theme.of(context).textTheme.subtitle2,
+                      ),
                     ),
                   ),
                 ],
@@ -86,6 +91,54 @@ class AccountSection extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  ///
+  /// Logout pop up
+  ///
+
+  showAlertDialog(BuildContext context) {
+    ///
+    ///No button
+    ///
+    Widget nobutton = TextButton(
+      child: Text("No"),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+
+    ///
+    /// yes button
+    ///
+    Widget yesButton = TextButton(
+      child: Text("Yes, Log me out"),
+      onPressed: () async {
+        await controller.logout();
+        Navigator.pop(context);
+
+        ///
+        /// Back to select school
+        ///
+        Get.offAllNamed("/");
+      },
+    );
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Logout"),
+      content: Text("Are you sure you want to logout?"),
+      actions: [
+        nobutton,
+        yesButton,
+      ],
+    );
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }

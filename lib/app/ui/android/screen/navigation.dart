@@ -9,7 +9,7 @@ import 'package:grad/app/ui/android/screen/chats/chats_page.dart';
 import 'package:grad/app/ui/android/screen/home/home_page.dart';
 import 'package:grad/app/ui/android/screen/settings/settings_page.dart';
 
-class Navigation extends StatelessWidget {
+class Navigation extends GetView<NavigationController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<NavigationController>(

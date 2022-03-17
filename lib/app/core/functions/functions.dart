@@ -1,6 +1,8 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:grad/app/core/constants/asset_path.dart';
+import 'package:jiffy/jiffy.dart';
 
 double getCollapseOpacity(context) {
   final settings =
@@ -12,6 +14,41 @@ double getCollapseOpacity(context) {
   const fadeEnd = 1.0;
   final opacity = 1.0 - Interval(fadeStart, fadeEnd).transform(t);
   return opacity;
+}
+
+Map<String, dynamic> greetings() {
+  String gt = "";
+  String icon = "";
+  var hour = DateTime.now().hour;
+  if (hour <= 12) {
+    gt = 'Good Morning';
+    icon = SUNRISE;
+  } else if ((hour > 12) && (hour <= 16)) {
+    gt = 'Good Afternoon';
+    icon = SUNRISE;
+  } else if ((hour > 16) && (hour < 20)) {
+    gt = 'Good Evening';
+    icon = SUNSET;
+  } else {
+    gt = 'Good Night';
+    icon = NIGHT;
+  }
+  return {
+    "greeting": gt,
+    "icon": icon,
+  };
+}
+
+Map<String, dynamic> currentDate() {
+  String month = Jiffy().MMM;
+  int date = Jiffy().day;
+  String day = Jiffy().E;
+
+  return {
+    "day": day,
+    "date": date,
+    "month": month,
+  };
 }
 
 List<Tab> eventTabbar() {

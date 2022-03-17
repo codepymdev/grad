@@ -17,9 +17,23 @@ mixin CacheManager {
     await box.remove(CacheManagerKey.TOKEN.toString());
   }
 
-  String? getSecondToken() {
+  Future<bool> saveMe(Map<String, dynamic>? data) async {
     final box = GetStorage();
-    return box.read(CacheManagerKey.TOKEN2.toString());
+    await box.write(CacheManagerKey.ME.toString(), data);
+    return true;
+  }
+
+  Map<String, dynamic>? getMe() {
+    final box = GetStorage();
+    return box.read(CacheManagerKey.ME.toString());
+  }
+
+  Future<void> removeMe() async {
+    final box = GetStorage();
+    await box.remove(CacheManagerKey.ME.toString());
   }
 }
-enum CacheManagerKey { TOKEN, TOKEN2 }
+enum CacheManagerKey {
+  TOKEN,
+  ME,
+}
