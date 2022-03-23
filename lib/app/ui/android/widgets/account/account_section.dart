@@ -47,6 +47,7 @@ class AccountSection extends GetView<AccountController> {
                 physics: NeverScrollableScrollPhysics(),
                 children: [
                   ListTile(
+                    onTap: () => Get.toNamed("/edit-profile"),
                     contentPadding: EdgeInsets.zero,
                     leading: Icon(
                       FeatherIcons.user,
@@ -60,6 +61,7 @@ class AccountSection extends GetView<AccountController> {
                   ),
                   Divider(),
                   ListTile(
+                    onTap: () => Get.toNamed("/change-password-account"),
                     contentPadding: EdgeInsets.zero,
                     leading: SvgPicture.asset(
                       PASSWORD,
@@ -71,18 +73,16 @@ class AccountSection extends GetView<AccountController> {
                     ),
                   ),
                   Divider(),
-                  GestureDetector(
+                  ListTile(
                     onTap: () => showAlertDialog(context),
-                    child: ListTile(
-                      contentPadding: EdgeInsets.zero,
-                      leading: SvgPicture.asset(
-                        LOGOUT,
-                        width: 25,
-                      ),
-                      title: Text(
-                        "Logout",
-                        style: Theme.of(context).textTheme.subtitle2,
-                      ),
+                    contentPadding: EdgeInsets.zero,
+                    leading: SvgPicture.asset(
+                      LOGOUT,
+                      width: 25,
+                    ),
+                    title: Text(
+                      "Logout",
+                      style: Theme.of(context).textTheme.subtitle2,
                     ),
                   ),
                 ],

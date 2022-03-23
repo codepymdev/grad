@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:get/state_manager.dart';
+import 'package:grad/app/controller/home/home_controller.dart';
+import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
 
-class Teachers extends StatelessWidget {
+class Teachers extends GetView<HomeController> {
   const Teachers({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    List<dynamic> users = controller.teaching;
+    if (users.isEmpty) return Container();
     return Container(
       margin: EdgeInsets.only(
         left: 5,
@@ -45,7 +50,7 @@ class Teachers extends StatelessWidget {
               ListView.separated(
                 shrinkWrap: true,
                 separatorBuilder: (context, index) => Divider(),
-                itemCount: 3,
+                itemCount: users.length,
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return Container(
@@ -56,9 +61,10 @@ class Teachers extends StatelessWidget {
                         child: Row(
                           children: [
                             ClipOval(
-                              child: Image.asset(
-                                "assets/images/sample/teacher.jpg",
-                                width: 40,
+                              child: CustomNetworkImage(
+                                ht: 40,
+                                url: "${users[index]['avatar']}",
+                                wd: 40,
                               ),
                             ),
                             SizedBox(
@@ -69,22 +75,22 @@ class Teachers extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Arafat Benson",
+                                    "${users[index]['first_name']} ${users[index]['last_name']} ${users[index]['middle_name']}",
                                     maxLines: 1,
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 17,
-                                      overflow: TextOverflow.clip,
+                                      overflow: TextOverflow.ellipsis,
                                     ),
                                   ),
                                   SizedBox(
                                     height: 4,
                                   ),
                                   Text(
-                                    "benpaul320@gmail.com",
+                                    "${users[index]['email']}",
                                     maxLines: 1,
                                     style: TextStyle(
-                                      overflow: TextOverflow.clip,
+                                      overflow: TextOverflow.ellipsis,
                                     ),
                                   )
                                 ],
@@ -98,7 +104,7 @@ class Teachers extends StatelessWidget {
                           children: [
                             Expanded(
                               child: Text(
-                                "Teaching",
+                                "${users[index]['class']['name']} ${users[index]['class']['arm']}",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                 ),

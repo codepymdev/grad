@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:get/get.dart';
 
-class Students extends StatelessWidget {
+import 'package:grad/app/controller/home/home_controller.dart';
+import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
+
+class Students extends GetView<HomeController> {
   const Students({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    List<dynamic> users = controller.students;
+
+    if (users.isEmpty) return Container();
     return Container(
       margin: EdgeInsets.only(
         left: 5,
@@ -46,7 +53,7 @@ class Students extends StatelessWidget {
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 separatorBuilder: (context, index) => Divider(),
-                itemCount: 3,
+                itemCount: users.length,
                 itemBuilder: (context, index) {
                   return Container(
                     margin: EdgeInsets.only(bottom: 10),
@@ -56,9 +63,10 @@ class Students extends StatelessWidget {
                         child: Row(
                           children: [
                             ClipOval(
-                              child: Image.asset(
-                                "assets/images/sample/teacher.jpg",
-                                width: 40,
+                              child: CustomNetworkImage(
+                                ht: 40,
+                                url: "${users[index]['avatar']}",
+                                wd: 40,
                               ),
                             ),
                             SizedBox(
@@ -69,21 +77,22 @@ class Students extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Arafat Benson",
+                                    "${users[index]['first_name']} ${users[index]['last_name']} ${users[index]['middle_name']}",
                                     maxLines: 1,
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 17,
-                                        overflow: TextOverflow.clip),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
                                   SizedBox(
                                     height: 4,
                                   ),
                                   Text(
-                                    "ICT/127039383",
+                                    "${users[index]['reg_no']}",
                                     maxLines: 1,
                                     style: TextStyle(
-                                      overflow: TextOverflow.clip,
+                                      overflow: TextOverflow.ellipsis,
                                     ),
                                   )
                                 ],
@@ -97,7 +106,7 @@ class Students extends StatelessWidget {
                           children: [
                             Expanded(
                               child: Text(
-                                "S.S.S 1 GOLD",
+                                "${users[index]['class']['name']} ${users[index]['class']['arm']}",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                 ),

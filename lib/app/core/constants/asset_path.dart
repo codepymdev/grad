@@ -50,3 +50,10 @@ const BUG = "assets/images/icons/bug.svg";
 const RATE = "assets/images/icons/rate.svg";
 
 const DEFAULT_AVATAR = "assets/images/icons/avatar.svg";
+
+const OFFICE = "assets/images/icons/office.svg";
+const PROJECT = "assets/images/icons/project.svg";
+
+const CAMERA = "assets/images/icons/camera.svg";
+
+const PADLOCK = "assets/images/icons/padlock.svg";

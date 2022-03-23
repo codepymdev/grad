@@ -13,7 +13,7 @@ class CustomNetworkImage extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    if (url != null || url != "") {
+    if (url != "") {
       return CachedNetworkImage(
         imageUrl: "$url",
         width: wd,

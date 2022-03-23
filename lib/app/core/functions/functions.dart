@@ -40,14 +40,12 @@ Map<String, dynamic> greetings() {
 }
 
 Map<String, dynamic> currentDate() {
-  String month = Jiffy().MMM;
-  int date = Jiffy().day;
+  String time = Jiffy().jm;
   String day = Jiffy().E;
 
   return {
     "day": day,
-    "date": date,
-    "month": month,
+    "time": time,
   };
 }
 

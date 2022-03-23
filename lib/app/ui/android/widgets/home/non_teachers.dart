@@ -4,14 +4,14 @@ import 'package:get/state_manager.dart';
 import 'package:grad/app/controller/home/home_controller.dart';
 import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
 
-class Parents extends GetView<HomeController> {
-  const Parents({
+class NonTeachers extends GetView<HomeController> {
+  const NonTeachers({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    List<dynamic> users = controller.parents;
+    List<dynamic> users = controller.non_teaching;
     if (users.isEmpty) return Container();
     return Container(
       margin: EdgeInsets.only(
@@ -37,7 +37,7 @@ class Parents extends GetView<HomeController> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Parents".toUpperCase(),
+                    "Non teachers".toUpperCase(),
                     style: Theme.of(context).textTheme.subtitle2,
                   ),
                   Text(
@@ -49,9 +49,9 @@ class Parents extends GetView<HomeController> {
               Divider(),
               ListView.separated(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
                 separatorBuilder: (context, index) => Divider(),
                 itemCount: users.length,
+                physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return Container(
                     margin: EdgeInsets.only(bottom: 10),
@@ -104,7 +104,7 @@ class Parents extends GetView<HomeController> {
                           children: [
                             Expanded(
                               child: Text(
-                                "",
+                                "${users[index]['user_role']['name']}",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                 ),

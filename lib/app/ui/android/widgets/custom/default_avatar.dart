@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
 
 class DefaultAvatar extends StatelessWidget {
@@ -11,7 +12,7 @@ class DefaultAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
+    return SvgPicture.asset(
       DEFAULT_AVATAR,
       width: wd,
       height: ht,

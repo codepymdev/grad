@@ -8,4 +8,7 @@ abstract class Routes {
   static const CREATE_ACCOUNT = '/create-account';
   static const VERIFY_ACCOUNT = '/verify-account';
   static const CHANGE_PASSWORD = '/change-password';
+  static const CHANGE_PASSWORD_ACCOUNT = '/change-password-account';
+  static const EDIT_PROFILE = '/edit-profile';
+  static const SUCCESS_PAGE = "/success-page";
 }

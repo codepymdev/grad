@@ -16,3 +16,13 @@ const RECOVERY_CODE = "auth/forgot-password";
 const VERIFY_ACCOUNT = "auth/verify-account";
 
 const CHANGE_PASSWORD = "auth/change-password";
+
+const PEOPLE = "people";
+
+const COUNTER = "counter";
+
+const UPDATE_PROFILE = "account/update-profile";
+
+const CHANGE_PASSWORD_ACCOUNT = "account/change-password-account";
+
+const RECENT_ACTIVITIES = "account/recent-activities";

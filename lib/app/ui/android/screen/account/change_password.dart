@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/auth/change_password_controller.dart';
+import 'package:grad/app/controller/account/change_password_controller.dart';
 import 'package:grad/app/ui/android/widgets/auth/change_password/confirm_password.dart';
 import 'package:grad/app/ui/android/widgets/auth/change_password/password.dart';
 
 late TextEditingController passwordController;
 late TextEditingController confirmPasswordController;
 
-class ChangePassword extends GetView<ChangePasswordController> {
+class ChangePasswordAccount extends GetView<ChangePasswordAccountController> {
   @override
   Widget build(BuildContext context) {
     passwordController = TextEditingController();
     confirmPasswordController = TextEditingController();
     return Scaffold(
-      appBar: _appBar(),
+      appBar: _appbar(),
       body: Obx(
         () => Container(
           margin: EdgeInsets.only(
@@ -110,7 +111,7 @@ class ChangePassword extends GetView<ChangePasswordController> {
             ///
             /// redirect to dashbaord
             ///
-            if (controller.redirect.value) await _loginSuccess();
+            if (controller.redirect.value) await _success();
           }
         },
         style: ButtonStyle(
@@ -135,29 +136,36 @@ class ChangePassword extends GetView<ChangePasswordController> {
     );
   }
 
-  AppBar _appBar() {
-    return AppBar(
-      title: Text(
-        'Change Password',
-        style: TextStyle(
-          color: Colors.grey,
-          fontSize: 14,
-          fontWeight: FontWeight.normal,
-        ),
-      ),
-      centerTitle: true,
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-      automaticallyImplyLeading: false,
-    );
-  }
-
   ///
   /// Redirect after login
   ///
-  Future<void> _loginSuccess() async {
+  Future<void> _success() async {
     Future.delayed(Duration(seconds: 1), () {
-      Get.offAllNamed("/");
+      Get.offAllNamed("/success-page", arguments: {
+        "type": "change_password",
+        "message": "Password changed successful"
+      });
     });
+  }
+
+  AppBar _appbar() {
+    return AppBar(
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      automaticallyImplyLeading: false,
+      title: Text(
+        "Change Password",
+        style: TextStyle(
+          color: Colors.black,
+        ),
+      ),
+      leading: IconButton(
+        icon: Icon(
+          FeatherIcons.cornerUpLeft,
+          color: Colors.black,
+        ),
+        onPressed: () => Get.back(),
+      ),
+    );
   }
 }

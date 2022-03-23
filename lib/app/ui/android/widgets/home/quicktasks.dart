@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:grad/app/controller/home/home_controller.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
 
 late bool themeMode;
 
-class QuickTasks extends StatelessWidget {
+class QuickTasks extends GetView<HomeController> {
   const QuickTasks({
     Key? key,
   }) : super(key: key);
@@ -51,7 +53,7 @@ class QuickTasks extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            "50",
+                            "${controller.counter['students']}",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
@@ -103,7 +105,7 @@ class QuickTasks extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            "50",
+                            "${controller.counter['teaching']}",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
@@ -120,6 +122,58 @@ class QuickTasks extends StatelessWidget {
                     ),
                     Container(
                       child: Text("Add Teacher"),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.all(5.0),
+            child: Card(
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              color: themeMode
+                  ? Theme.of(context).primaryColor
+                  : Color.fromARGB(255, 175, 140, 173),
+              child: Container(
+                padding: EdgeInsets.only(
+                  left: 8,
+                  right: 8,
+                  bottom: 8,
+                  top: 10,
+                ),
+                width: 200,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Non teaching".toUpperCase(),
+                      style: Theme.of(context).textTheme.subtitle2,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            "${controller.counter['non_teaching']}",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 30,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: SvgPicture.asset(
+                            OFFICE,
+                            width: 70,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      child: Text("Add Non teaching"),
                     ),
                   ],
                 ),
@@ -155,7 +209,7 @@ class QuickTasks extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            "50",
+                            "${controller.counter['parents']}",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
@@ -207,7 +261,7 @@ class QuickTasks extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            "50",
+                            "${controller.counter['class']}",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
@@ -259,7 +313,7 @@ class QuickTasks extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            "50",
+                            "${controller.counter['subjects']}",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
@@ -276,6 +330,58 @@ class QuickTasks extends StatelessWidget {
                     ),
                     Container(
                       child: Text("Add Subject"),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.all(5.0),
+            child: Card(
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              color: themeMode
+                  ? Theme.of(context).primaryColor
+                  : Color.fromARGB(255, 248, 240, 228),
+              child: Container(
+                padding: EdgeInsets.only(
+                  left: 8,
+                  right: 8,
+                  bottom: 8,
+                  top: 10,
+                ),
+                width: 200,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Users".toUpperCase(),
+                      style: Theme.of(context).textTheme.subtitle2,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            "${controller.counter['users']}",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 30,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: SvgPicture.asset(
+                            PROJECT,
+                            width: 70,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      child: Text("Add User"),
                     ),
                   ],
                 ),

@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/controller/settings/settings_controller.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
+import 'package:grad/app/ui/android/widgets/account/app_version.dart';
 
 class SettingsPage extends GetView<SettingsController> {
   @override
@@ -155,36 +156,21 @@ class SettingsPage extends GetView<SettingsController> {
               subtitle: Text(
                   "AppFlowy is an open-source alternative to Notion. You are in charge of your data and customizations. Built with Flutter and Rust."),
             ),
-            Divider(),
-            ListTile(
-              leading: SvgPicture.asset(
-                THEME,
-                width: 30,
-              ),
-              title: Text(
-                "Theme",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              subtitle: Text(
-                  "AppFlowy is an open-source alternative to Notion. You are in charge of your data and customizations. Built with Flutter and Rust."),
-            ),
-            Divider(),
-            ListTile(
-              leading: SvgPicture.asset(
-                PASSWORD,
-                width: 30,
-              ),
-              title: Text(
-                "Password",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              subtitle: Text(
-                  "AppFlowy is an open-source alternative to Notion. You are in charge of your data and customizations. Built with Flutter and Rust."),
-            ),
+            // Divider(),
+            // ListTile(
+            //   leading: SvgPicture.asset(
+            //     THEME,
+            //     width: 30,
+            //   ),
+            //   title: Text(
+            //     "Theme",
+            //     style: TextStyle(
+            //       fontWeight: FontWeight.bold,
+            //     ),
+            //   ),
+            //   subtitle: Text(
+            //       "AppFlowy is an open-source alternative to Notion. You are in charge of your data and customizations. Built with Flutter and Rust."),
+            // ),
             Divider(),
             ListTile(
               leading: SvgPicture.asset(
@@ -214,6 +200,11 @@ class SettingsPage extends GetView<SettingsController> {
               ),
               subtitle: Text(
                   "AppFlowy is an open-source alternative to Notion. You are in charge of your data and customizations. Built with Flutter and Rust."),
+            ),
+
+            Divider(),
+            Container(
+              child: AppAboutVersion(),
             ),
           ],
         ),

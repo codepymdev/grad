@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/state_manager.dart';
+import 'package:grad/app/controller/account/account_controller.dart';
 import 'package:timelines/timelines.dart';
 
 const kTileHeight = 50.0;
 
-class QuickRecentActivity extends StatelessWidget {
+class QuickRecentActivity extends GetView<AccountController> {
   const QuickRecentActivity({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final data = _TimelineStatus.values;
+    List<dynamic> activities = controller.activities;
     return Container(
       margin: EdgeInsets.only(
         left: 5,
@@ -61,41 +63,34 @@ class QuickRecentActivity extends StatelessWidget {
                   ),
                   padding: EdgeInsets.symmetric(vertical: 20.0),
                   builder: TimelineTileBuilder.connected(
-                    contentsBuilder: (_, __) => _EmptyContents(),
+                    contentsBuilder: (_, __) =>
+                        _EmptyContents(data: activities[__]),
                     connectorBuilder: (_, index, __) {
-                      if (index == 0) {
-                        return SolidLineConnector(color: Color(0xff6ad192));
-                      } else {
-                        return SolidLineConnector();
-                      }
+                      return SolidLineConnector(
+                          color: Color.fromARGB(255, 210, 230, 217));
                     },
                     indicatorBuilder: (_, index) {
-                      switch (data[index]) {
-                        case _TimelineStatus.done:
+                      switch (activities[index]['type']) {
+                        case "reset_password":
+                        case "change_password":
                           return DotIndicator(
-                            color: Color(0xff6ad192),
+                            color: Color.fromARGB(255, 106, 142, 209),
                             child: Icon(
-                              Icons.check,
+                              Icons.lock,
                               color: Colors.white,
                               size: 10.0,
                             ),
                           );
-                        case _TimelineStatus.sync:
+                        case "login":
                           return DotIndicator(
-                            color: Color(0xff193fcc),
+                            color: Color.fromARGB(255, 1, 4, 14),
                             child: Icon(
-                              Icons.sync,
+                              Icons.check_box,
                               size: 10.0,
-                              color: Colors.white,
+                              color: Colors.yellow,
                             ),
                           );
-                        case _TimelineStatus.inProgress:
-                          return OutlinedDotIndicator(
-                            color: Color(0xffa7842a),
-                            borderWidth: 2.0,
-                            backgroundColor: Color(0xffebcb62),
-                          );
-                        case _TimelineStatus.todo:
+
                         default:
                           return OutlinedDotIndicator(
                             color: Color(0xffbabdc0),
@@ -104,7 +99,7 @@ class QuickRecentActivity extends StatelessWidget {
                       }
                     },
                     itemExtentBuilder: (_, __) => kTileHeight,
-                    itemCount: 4,
+                    itemCount: activities.length,
                   ),
                 ),
               ),
@@ -117,6 +112,8 @@ class QuickRecentActivity extends StatelessWidget {
 }
 
 class _EmptyContents extends StatelessWidget {
+  final data;
+  _EmptyContents({required this.data});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -136,25 +133,14 @@ class _EmptyContents extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            "You created a new event",
+            "${data['title']}",
             style: TextStyle(
               fontWeight: FontWeight.bold,
             ),
           ),
-          Text("AppFlowy is an open-source "),
+          Text("${data['description']}"),
         ],
       ),
     );
   }
 }
-
-enum _TimelineStatus {
-  done,
-  sync,
-  inProgress,
-  todo,
-}
-
-// extension on _TimelineStatus {
-//   bool get isInProgress => this == _TimelineStatus.inProgress;
-// }

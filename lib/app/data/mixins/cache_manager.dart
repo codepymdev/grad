@@ -23,17 +23,34 @@ mixin CacheManager {
     return true;
   }
 
+  Future<bool> saveSchool(String? school) async {
+    final box = GetStorage();
+    await box.write(CacheManagerKey.SCHOOL.toString(), school);
+    return true;
+  }
+
   Map<String, dynamic>? getMe() {
     final box = GetStorage();
     return box.read(CacheManagerKey.ME.toString());
+  }
+
+  String? getSchool() {
+    final box = GetStorage();
+    return box.read(CacheManagerKey.SCHOOL.toString());
   }
 
   Future<void> removeMe() async {
     final box = GetStorage();
     await box.remove(CacheManagerKey.ME.toString());
   }
+
+  Future<void> removeSchool() async {
+    final box = GetStorage();
+    await box.remove(CacheManagerKey.SCHOOL.toString());
+  }
 }
 enum CacheManagerKey {
   TOKEN,
   ME,
+  SCHOOL,
 }

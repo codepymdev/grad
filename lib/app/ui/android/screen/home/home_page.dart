@@ -10,11 +10,13 @@ import 'package:grad/app/ui/android/widgets/calendar/calendar.dart';
 import 'package:grad/app/ui/android/widgets/home/announcement.dart';
 import 'package:grad/app/ui/android/widgets/home/event_list.dart';
 import 'package:grad/app/ui/android/widgets/home/flexible_space.dart';
+import 'package:grad/app/ui/android/widgets/home/non_teachers.dart';
 import 'package:grad/app/ui/android/widgets/home/parents.dart';
 import 'package:grad/app/ui/android/widgets/home/quicktasks.dart';
 import 'package:grad/app/ui/android/widgets/home/school.dart';
 import 'package:grad/app/ui/android/widgets/home/students.dart';
 import 'package:grad/app/ui/android/widgets/home/teachers.dart';
+import 'package:grad/app/ui/android/widgets/home/users.dart';
 
 class HomePage extends GetView<HomeController> {
   @override
@@ -51,7 +53,7 @@ class HomePage extends GetView<HomeController> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      "${currentDate()['day']}",
+                      "${currentDate()['time']},",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 15,
@@ -61,7 +63,7 @@ class HomePage extends GetView<HomeController> {
                       width: 3,
                     ),
                     Text(
-                      "${currentDate()['date']}, ${currentDate()['month']}",
+                      "${currentDate()['day']}",
                       style: TextStyle(
                         fontSize: 14,
                       ),
@@ -91,45 +93,67 @@ class HomePage extends GetView<HomeController> {
           ),
           SliverList(
             delegate: SliverChildListDelegate([
-              ///
-              /// Announcements
-              ///
-              Announcement(),
+              Obx(() {
+                if (controller.loading.value)
+                  return Container(
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                return Column(
+                  children: [
+                    ///
+                    /// Announcements
+                    ///
+                    Announcement(),
 
-              ///
-              /// School
-              ///
-              School(),
+                    ///
+                    /// School
+                    ///
+                    School(),
 
-              ///
-              /// calendar
-              ///
-              Calendar(),
+                    ///
+                    /// calendar
+                    ///
+                    Calendar(),
 
-              ///
-              /// Events
-              ///
-              EventList(),
+                    ///
+                    /// Events
+                    ///
+                    EventList(),
 
-              ///
-              ///
-              ///
-              QuickTasks(),
+                    ///
+                    ///
+                    ///
+                    QuickTasks(),
 
-              ///
-              /// Students
-              ///
-              Students(),
+                    ///
+                    /// Students
+                    ///
+                    Students(),
 
-              ///
-              /// Teacher
-              ///
-              Teachers(),
+                    ///
+                    /// Teacher
+                    ///
+                    Teachers(),
 
-              ///
-              /// Parent
-              ///
-              Parents(),
+                    ///
+                    /// Non teaching
+                    ///
+                    NonTeachers(),
+
+                    ///
+                    /// Parent
+                    ///
+                    Parents(),
+
+                    ///
+                    /// Users
+                    ///
+                    Users(),
+                  ],
+                );
+              })
             ]),
           ),
         ],

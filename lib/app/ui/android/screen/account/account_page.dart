@@ -21,25 +21,37 @@ class AccountPage extends GetView<AccountController> {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                ///
-                /// Account Header info
-                ///
-                AccountHeaderInfo(),
+                Obx(() {
+                  if (controller.loading.value) {
+                    return Container(
+                      child: Center(child: CircularProgressIndicator()),
+                    );
+                  } else {
+                    return Column(
+                      children: [
+                        ///
+                        /// Account Header info
+                        ///
+                        AccountHeaderInfo(),
 
-                ///
-                /// Recent Activity
-                ///
-                QuickRecentActivity(),
+                        ///
+                        /// Recent Activity
+                        ///
+                        QuickRecentActivity(),
 
-                ///
-                /// Account
-                ///
-                AccountSection(),
+                        ///
+                        /// Account
+                        ///
+                        AccountSection(),
 
-                ///
-                /// App About and version
-                ///
-                AppAboutVersion(),
+                        ///
+                        /// App About and version
+                        ///
+                        AppAboutVersion(),
+                      ],
+                    );
+                  }
+                }),
               ],
             ),
           ),

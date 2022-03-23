@@ -15,12 +15,14 @@ class AuthManagerController extends GetxController with CacheManager {
     isLogin.value = false;
     await removeToken();
     await removeMe();
+    await removeSchool();
   }
 
   void login(Map<String, dynamic>? data) async {
     isLogin.value = true;
     //Token is cached
     await saveToken(data!['email']);
+    await saveSchool(data['school']);
     await saveMe(data);
   }
 

@@ -4,14 +4,14 @@ import 'package:get/state_manager.dart';
 import 'package:grad/app/controller/home/home_controller.dart';
 import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
 
-class Parents extends GetView<HomeController> {
-  const Parents({
+class Users extends GetView<HomeController> {
+  const Users({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    List<dynamic> users = controller.parents;
+    List<dynamic> users = controller.users;
     if (users.isEmpty) return Container();
     return Container(
       margin: EdgeInsets.only(
@@ -37,7 +37,7 @@ class Parents extends GetView<HomeController> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Parents".toUpperCase(),
+                    "Users".toUpperCase(),
                     style: Theme.of(context).textTheme.subtitle2,
                   ),
                   Text(
