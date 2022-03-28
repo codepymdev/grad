@@ -4,7 +4,13 @@ import 'package:get/get.dart';
 import 'package:grad/app/controller/menu/attendance_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
 
-class ViewAttendance extends GetView<AttendanceController> {
+class ViewAttendance extends StatefulWidget {
+  @override
+  State<ViewAttendance> createState() => _ViewAttendanceState();
+}
+
+class _ViewAttendanceState extends State<ViewAttendance> {
+  AttendanceController attendanceController = Get.put(AttendanceController());
   @override
   Widget build(BuildContext context) {
     final param = Get.arguments;
@@ -15,13 +21,13 @@ class ViewAttendance extends GetView<AttendanceController> {
       ),
       body: Obx(
         () {
-          if (controller.loading.value)
+          if (attendanceController.loading.value)
             return Container(
               child: Center(
                 child: CircularProgressIndicator(),
               ),
             );
-          var attendance = controller.attendance;
+          var attendance = attendanceController.attendance;
 
           return Container(
             child: ListView.separated(
