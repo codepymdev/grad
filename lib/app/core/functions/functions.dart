@@ -1,6 +1,8 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:get/get.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
 import 'package:jiffy/jiffy.dart';
 
@@ -58,4 +60,42 @@ List<Tab> eventTabbar() {
       child: Text("Passed Events"),
     ),
   ];
+}
+
+AppBar customAppBar(name) {
+  return AppBar(
+    elevation: 0,
+    backgroundColor: Colors.transparent,
+    automaticallyImplyLeading: false,
+    title: Text(
+      "$name",
+      style: TextStyle(
+        color: Colors.black,
+      ),
+    ),
+    leading: IconButton(
+      icon: Icon(
+        FeatherIcons.cornerUpLeft,
+        color: Colors.black,
+      ),
+      onPressed: () => Get.back(),
+    ),
+  );
+}
+
+String getConfigValue(list, key) {
+  for (var item in list) {
+    if (item['name'] == key) return item['value'] ?? "";
+  }
+  return "";
+}
+
+List<String> yearList() {
+  List<String> year = [];
+  int latestYear = DateTime.now().year;
+  int earlistYear = 2010;
+  for (var i = earlistYear; i <= latestYear; i++) {
+    year.add("$i/${(i + 1)}");
+  }
+  return year;
 }

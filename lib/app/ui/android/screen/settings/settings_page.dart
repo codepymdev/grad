@@ -23,6 +23,7 @@ class SettingsPage extends GetView<SettingsController> {
           shrinkWrap: true,
           children: [
             ListTile(
+              onTap: () => Get.toNamed("/school-configuration"),
               leading: SvgPicture.asset(
                 SCHOOL_CONFIG,
                 width: 30,
@@ -34,10 +35,11 @@ class SettingsPage extends GetView<SettingsController> {
                 ),
               ),
               subtitle: Text(
-                  "AppFlowy is an open-source alternative to Notion. You are in charge of your data and customizations. Built with Flutter and Rust."),
+                  "Set the school name, school details, school moto, school email, school tel etc.."),
             ),
             Divider(),
             ListTile(
+              onTap: () => Get.toNamed("/session"),
               leading: SvgPicture.asset(
                 SESSION,
                 width: 30,
@@ -48,11 +50,12 @@ class SettingsPage extends GetView<SettingsController> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              subtitle: Text(
-                  "AppFlowy is an open-source alternative to Notion. You are in charge of your data and customizations. Built with Flutter and Rust."),
+              subtitle:
+                  Text("Session Configuration! Set the term and year session"),
             ),
             Divider(),
             ListTile(
+              onTap: () => Get.toNamed("/term"),
               leading: SvgPicture.asset(
                 TERM,
                 width: 30,
@@ -64,10 +67,11 @@ class SettingsPage extends GetView<SettingsController> {
                 ),
               ),
               subtitle: Text(
-                  "AppFlowy is an open-source alternative to Notion. You are in charge of your data and customizations. Built with Flutter and Rust."),
+                  "Term begins and end! Set end and begin date of the term."),
             ),
             Divider(),
             ListTile(
+              onTap: () => Get.toNamed("/stamp"),
               leading: SvgPicture.asset(
                 STAMP,
                 width: 30,
@@ -79,70 +83,11 @@ class SettingsPage extends GetView<SettingsController> {
                 ),
               ),
               subtitle: Text(
-                  "AppFlowy is an open-source alternative to Notion. You are in charge of your data and customizations. Built with Flutter and Rust."),
+                  "Authorized School Stamp! Update or upload the authorized school stamp"),
             ),
             Divider(),
             ListTile(
-              leading: SvgPicture.asset(
-                E_TEST,
-                width: 30,
-              ),
-              title: Text(
-                "E-test",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              subtitle: Text(
-                  "AppFlowy is an open-source alternative to Notion. You are in charge of your data and customizations. Built with Flutter and Rust."),
-            ),
-            Divider(),
-            ListTile(
-              leading: SvgPicture.asset(
-                CAMPUS,
-                width: 30,
-              ),
-              title: Text(
-                "Campus",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              subtitle: Text(
-                  "AppFlowy is an open-source alternative to Notion. You are in charge of your data and customizations. Built with Flutter and Rust."),
-            ),
-            Divider(),
-            ListTile(
-              leading: SvgPicture.asset(
-                SUBJECTS,
-                width: 30,
-              ),
-              title: Text(
-                "Subject",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              subtitle: Text(
-                  "AppFlowy is an open-source alternative to Notion. You are in charge of your data and customizations. Built with Flutter and Rust."),
-            ),
-            Divider(),
-            ListTile(
-              leading: SvgPicture.asset(
-                CLASSES,
-                width: 30,
-              ),
-              title: Text(
-                "Classes",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              subtitle: Text(
-                  "AppFlowy is an open-source alternative to Notion. You are in charge of your data and customizations. Built with Flutter and Rust."),
-            ),
-            Divider(),
-            ListTile(
+              onTap: () => Get.toNamed("/notification-settings"),
               leading: SvgPicture.asset(
                 BELL,
                 width: 30,
@@ -153,26 +98,12 @@ class SettingsPage extends GetView<SettingsController> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              subtitle: Text(
-                  "AppFlowy is an open-source alternative to Notion. You are in charge of your data and customizations. Built with Flutter and Rust."),
+              subtitle:
+                  Text("Notification! Control how you receive notifications"),
             ),
-            // Divider(),
-            // ListTile(
-            //   leading: SvgPicture.asset(
-            //     THEME,
-            //     width: 30,
-            //   ),
-            //   title: Text(
-            //     "Theme",
-            //     style: TextStyle(
-            //       fontWeight: FontWeight.bold,
-            //     ),
-            //   ),
-            //   subtitle: Text(
-            //       "AppFlowy is an open-source alternative to Notion. You are in charge of your data and customizations. Built with Flutter and Rust."),
-            // ),
             Divider(),
             ListTile(
+              onTap: () => Get.toNamed("/bugs"),
               leading: SvgPicture.asset(
                 BUG,
                 width: 30,
@@ -183,8 +114,7 @@ class SettingsPage extends GetView<SettingsController> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              subtitle: Text(
-                  "AppFlowy is an open-source alternative to Notion. You are in charge of your data and customizations. Built with Flutter and Rust."),
+              subtitle: Text("Discover bugs? report them to us"),
             ),
             Divider(),
             ListTile(
@@ -198,10 +128,8 @@ class SettingsPage extends GetView<SettingsController> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              subtitle: Text(
-                  "AppFlowy is an open-source alternative to Notion. You are in charge of your data and customizations. Built with Flutter and Rust."),
+              subtitle: Text("Share your review about our app"),
             ),
-
             Divider(),
             Container(
               child: AppAboutVersion(),

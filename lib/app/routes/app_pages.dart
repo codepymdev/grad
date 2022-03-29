@@ -13,6 +13,7 @@ import 'package:grad/app/bindings/chats/conversation_binding.dart';
 import 'package:grad/app/bindings/home/home_binding.dart';
 import 'package:grad/app/bindings/navigation/navigation_binding.dart';
 import 'package:grad/app/bindings/others/success-page-binding.dart';
+import 'package:grad/app/bindings/settings/settings_binding.dart';
 import 'package:grad/app/bindings/start/welcome_binding.dart';
 import 'package:grad/app/routes/app_routes.dart';
 import 'package:grad/app/ui/android/screen/account/change_password.dart';
@@ -24,8 +25,15 @@ import 'package:grad/app/ui/android/screen/auth/login.dart';
 import 'package:grad/app/ui/android/screen/auth/verify-account.dart';
 import 'package:grad/app/ui/android/screen/calendar/new_event.dart';
 import 'package:grad/app/ui/android/screen/onboard.dart';
+import 'package:grad/app/ui/android/screen/settings/bugs.dart';
+import 'package:grad/app/ui/android/screen/settings/school_configuration.dart';
+import 'package:grad/app/ui/android/screen/settings/session.dart';
+import 'package:grad/app/ui/android/screen/settings/stamp.dart';
+import 'package:grad/app/ui/android/screen/settings/term.dart';
 import 'package:grad/app/ui/android/screen/success-page.dart';
 import 'package:grad/app/ui/android/widgets/chat/conversation.dart';
+
+import '../ui/android/screen/settings/notification.dart';
 
 class AppPages {
   static final pages = [
@@ -89,6 +97,36 @@ class AppPages {
       name: Routes.SUCCESS_PAGE,
       page: () => SuccessPage(),
       binding: SuccessPageBinding(),
+    ),
+    GetPage(
+      name: Routes.SCHOOL_CONFIGURATION,
+      page: () => SchoolConfiguration(),
+      binding: SettingsBinding(),
+    ),
+    GetPage(
+      name: Routes.SESSION,
+      page: () => Session(),
+      binding: SettingsBinding(),
+    ),
+    GetPage(
+      name: Routes.TERM,
+      page: () => Term(),
+      binding: SettingsBinding(),
+    ),
+    GetPage(
+      name: Routes.STAMP,
+      page: () => Stamp(),
+      binding: SettingsBinding(),
+    ),
+    GetPage(
+      name: Routes.NOTIFICATIONS_SETTINGS,
+      page: () => Notification(),
+      binding: SettingsBinding(),
+    ),
+    GetPage(
+      name: Routes.BUGS,
+      page: () => Bugs(),
+      binding: SettingsBinding(),
     ),
   ];
 }

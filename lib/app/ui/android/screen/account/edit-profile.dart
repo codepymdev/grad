@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/controller/account/edit_profile_controller.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
+import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
 
 late TextEditingController firstNameController;
@@ -21,7 +21,7 @@ class EditProfle extends GetView<EditProfileController> {
     return GetBuilder<EditProfileController>(builder: (controller) {
       if (controller.loading) return Container();
       return Scaffold(
-        appBar: _appbar(),
+        appBar: customAppBar("Edit Profile"),
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.only(
@@ -116,27 +116,6 @@ class EditProfle extends GetView<EditProfileController> {
     });
   }
 
-  AppBar _appbar() {
-    return AppBar(
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-      automaticallyImplyLeading: false,
-      title: Text(
-        "Edit Profile",
-        style: TextStyle(
-          color: Colors.black,
-        ),
-      ),
-      leading: IconButton(
-        icon: Icon(
-          FeatherIcons.cornerUpLeft,
-          color: Colors.black,
-        ),
-        onPressed: () => Get.back(),
-      ),
-    );
-  }
-
   Widget _avatar() {
     return Container(
       margin: EdgeInsets.only(
@@ -148,24 +127,25 @@ class EditProfle extends GetView<EditProfileController> {
         child: Stack(
           children: [
             ClipOval(
-                child: controller.picked
-                    ? controller.imageFile == null
-                        ? CustomNetworkImage(
-                            url: "${controller.user['avatar']}",
-                            ht: 80,
-                            wd: 80,
-                          )
-                        : Image.file(
-                            controller.imageFile!,
-                            width: 80,
-                            height: 80,
-                            fit: BoxFit.cover,
-                          )
-                    : CustomNetworkImage(
-                        url: "${controller.user['avatar']}",
-                        ht: 80,
-                        wd: 80,
-                      )),
+              child: controller.picked
+                  ? controller.imageFile == null
+                      ? CustomNetworkImage(
+                          url: "${controller.user['avatar']}",
+                          ht: 80,
+                          wd: 80,
+                        )
+                      : Image.file(
+                          controller.imageFile!,
+                          width: 80,
+                          height: 80,
+                          fit: BoxFit.cover,
+                        )
+                  : CustomNetworkImage(
+                      url: "${controller.user['avatar']}",
+                      ht: 80,
+                      wd: 80,
+                    ),
+            ),
             Positioned(
               bottom: 5,
               right: 5,

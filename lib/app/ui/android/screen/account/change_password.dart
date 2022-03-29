@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/controller/account/change_password_controller.dart';
+import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/ui/android/widgets/auth/change_password/confirm_password.dart';
 import 'package:grad/app/ui/android/widgets/auth/change_password/password.dart';
 
@@ -14,7 +14,7 @@ class ChangePasswordAccount extends GetView<ChangePasswordAccountController> {
     passwordController = TextEditingController();
     confirmPasswordController = TextEditingController();
     return Scaffold(
-      appBar: _appbar(),
+      appBar: customAppBar("Change Password"),
       body: Obx(
         () => Container(
           margin: EdgeInsets.only(
@@ -146,26 +146,5 @@ class ChangePasswordAccount extends GetView<ChangePasswordAccountController> {
         "message": "Password changed successful"
       });
     });
-  }
-
-  AppBar _appbar() {
-    return AppBar(
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-      automaticallyImplyLeading: false,
-      title: Text(
-        "Change Password",
-        style: TextStyle(
-          color: Colors.black,
-        ),
-      ),
-      leading: IconButton(
-        icon: Icon(
-          FeatherIcons.cornerUpLeft,
-          color: Colors.black,
-        ),
-        onPressed: () => Get.back(),
-      ),
-    );
   }
 }

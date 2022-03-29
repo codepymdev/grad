@@ -48,9 +48,24 @@ mixin CacheManager {
     final box = GetStorage();
     await box.remove(CacheManagerKey.SCHOOL.toString());
   }
+
+  Future<dynamic> getNotificationSettings() async {
+    final box2 = GetStorage();
+    await box2.remove(CacheManagerKey.NOTIFICATION.toString());
+
+    final box = GetStorage();
+    return box.read(CacheManagerKey.NOTIFICATION.toString());
+  }
+
+  Future<bool> updateNotificationSettings(data) async {
+    final box = GetStorage();
+    await box.write(CacheManagerKey.NOTIFICATION.toString(), data);
+    return true;
+  }
 }
 enum CacheManagerKey {
   TOKEN,
   ME,
   SCHOOL,
+  NOTIFICATION,
 }
