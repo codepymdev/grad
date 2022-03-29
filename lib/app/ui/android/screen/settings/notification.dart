@@ -21,7 +21,6 @@ class Notification extends GetView<SettingsController> {
               return Center(
                 child: CircularProgressIndicator(),
               );
-            var settings = controller.app_notifications_settings;
             return ListView(
               shrinkWrap: true,
               children: [
@@ -35,7 +34,7 @@ class Notification extends GetView<SettingsController> {
                   ),
                   subtitle: Text("Turn off app notification"),
                   trailing: Switch(
-                    value: settings["app"],
+                    value: controller.app_notifications.value,
                     onChanged: (bool? newValue) =>
                         controller.updateNotification("app", newValue),
                   ),
@@ -51,7 +50,7 @@ class Notification extends GetView<SettingsController> {
                   ),
                   subtitle: Text("Turn off announcement"),
                   trailing: Switch(
-                    value: settings["announcement"],
+                    value: controller.announcement_notifications.value,
                     onChanged: (bool? newValue) =>
                         controller.updateNotification("announcement", newValue),
                   ),
@@ -67,7 +66,7 @@ class Notification extends GetView<SettingsController> {
                   ),
                   subtitle: Text("Turn off Email notification"),
                   trailing: Switch(
-                    value: settings["email"],
+                    value: controller.email_notifications.value,
                     onChanged: (bool? newValue) =>
                         controller.updateNotification("email", newValue),
                   ),
@@ -83,7 +82,7 @@ class Notification extends GetView<SettingsController> {
                   ),
                   subtitle: Text("Turn off SMS notification"),
                   trailing: Switch(
-                    value: settings["sms"],
+                    value: controller.sms_notifications.value,
                     onChanged: (bool? newValue) =>
                         controller.updateNotification("sms", newValue),
                   ),

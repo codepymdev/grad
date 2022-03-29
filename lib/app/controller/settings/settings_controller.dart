@@ -37,7 +37,10 @@ class SettingsController extends GetxController with CacheManager {
   File? uploadStamp = null;
   var uploadStampFile = "";
 
-  var app_notifications_settings = {}.obs;
+  var app_notifications = true.obs;
+  var announcement_notifications = true.obs;
+  var email_notifications = true.obs;
+  var sms_notifications = true.obs;
 
   @override
   void onInit() async {
@@ -70,21 +73,14 @@ class SettingsController extends GetxController with CacheManager {
     stamp.value = getConfigValue(configs, "school_signature");
 
     ///
-    /// init notification settings
-    ///
-    app_notifications_settings.value = {
-      "app": true,
-      "announcement": true,
-      "email": true,
-      "sms": true,
-    };
-
-    ///
     /// Notification settings
     ///
-    dynamic _notification_settings = await getNotificationSettings();
-    if (_notification_settings != null)
-      app_notifications_settings = _notification_settings;
+    Map<String, dynamic> _notification_settings =
+        await getNotificationSettings();
+    app_notifications.value = _notification_settings['app'];
+    announcement_notifications.value = _notification_settings['announcement'];
+    email_notifications.value = _notification_settings['email'];
+    sms_notifications.value = _notification_settings['sms'];
 
     loading.value = false;
     super.onInit();
@@ -233,8 +229,16 @@ class SettingsController extends GetxController with CacheManager {
   }
 
   void updateNotification(type, val) async {
-    app_notifications_settings[type] = val;
-    await updateNotificationSettings(app_notifications_settings);
+    if (type == "app") {
+      app_notifications.value = val;
+    } else if (type == "announcement") {
+      announcement_notifications.value = val;
+    } else if (type == "email") {
+      email_notifications.value = val;
+    } else if (type == "sms") {
+      sms_notifications.value = val;
+    }
+    await updateNotificationSettings(type, val);
   }
 
   Future<void> submitBugIssue({required data}) async {

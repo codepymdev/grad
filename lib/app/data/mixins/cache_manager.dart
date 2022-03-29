@@ -49,17 +49,34 @@ mixin CacheManager {
     await box.remove(CacheManagerKey.SCHOOL.toString());
   }
 
-  Future<dynamic> getNotificationSettings() async {
-    final box2 = GetStorage();
-    await box2.remove(CacheManagerKey.NOTIFICATION.toString());
-
+  Future<Map<String, dynamic>> getNotificationSettings() async {
     final box = GetStorage();
-    return box.read(CacheManagerKey.NOTIFICATION.toString());
+    bool app = box.read(CacheManagerKey.APP_NOTIFICATION.toString()) ?? true;
+    bool email =
+        box.read(CacheManagerKey.EMAIL_NOTIFICATION.toString()) ?? true;
+    bool sms = box.read(CacheManagerKey.SMS_NOTIFICATION.toString()) ?? true;
+    bool announcement =
+        box.read(CacheManagerKey.ANNOUNCEMENT.toString()) ?? true;
+
+    return {
+      "app": app,
+      "announcement": announcement,
+      "email": email,
+      "sms": sms,
+    };
   }
 
-  Future<bool> updateNotificationSettings(data) async {
+  Future<bool> updateNotificationSettings(type, val) async {
     final box = GetStorage();
-    await box.write(CacheManagerKey.NOTIFICATION.toString(), data);
+    if (type == "app") {
+      await box.write(CacheManagerKey.APP_NOTIFICATION.toString(), val);
+    } else if (type == "sms") {
+      await box.write(CacheManagerKey.SMS_NOTIFICATION.toString(), val);
+    } else if (type == "email") {
+      await box.write(CacheManagerKey.EMAIL_NOTIFICATION.toString(), val);
+    } else if (type == "announcement") {
+      await box.write(CacheManagerKey.ANNOUNCEMENT.toString(), val);
+    }
     return true;
   }
 }
@@ -67,5 +84,8 @@ enum CacheManagerKey {
   TOKEN,
   ME,
   SCHOOL,
-  NOTIFICATION,
+  APP_NOTIFICATION,
+  EMAIL_NOTIFICATION,
+  SMS_NOTIFICATION,
+  ANNOUNCEMENT,
 }
