@@ -4,7 +4,14 @@ import 'package:get/get.dart';
 import 'package:Grad/app/controller/others/success-page-controller.dart';
 import 'package:Grad/app/core/constants/asset_path.dart';
 
-class SuccessPage extends GetView<SuccessPageController> {
+class SuccessPage extends StatefulWidget {
+  @override
+  State<SuccessPage> createState() => _SuccessPageState();
+}
+
+class _SuccessPageState extends State<SuccessPage> {
+  SuccessPageController successPageController =
+      Get.put(SuccessPageController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +28,7 @@ class SuccessPage extends GetView<SuccessPageController> {
                 height: 20,
               ),
               Text(
-                "${controller.message}",
+                "${successPageController.message}",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,

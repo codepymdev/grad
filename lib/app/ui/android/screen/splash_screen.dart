@@ -1,3 +1,4 @@
+import 'package:Grad/app/ui/android/widgets/custom/iosLoader.dart';
 import 'package:flutter/material.dart';
 import 'package:Grad/app/ui/theme/android/app_theme.dart';
 
@@ -28,7 +29,7 @@ class SplashScreen extends StatelessWidget {
               height: 50,
             ),
             Container(
-              child: CircularProgressIndicator(),
+              child: IosLoader(),
             ),
           ],
         ),

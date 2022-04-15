@@ -5,7 +5,14 @@ import 'package:Grad/app/controller/auth/auth_manager_controller.dart';
 import 'package:Grad/app/ui/android/screen/navigation.dart';
 import 'package:Grad/app/ui/android/screen/start/welcome.dart';
 
-class OnBoard extends GetView<AuthManagerController> {
+class OnBoard extends StatefulWidget {
+  @override
+  State<OnBoard> createState() => _OnBoardState();
+}
+
+class _OnBoardState extends State<OnBoard> {
+  AuthManagerController authManagerController =
+      Get.put(AuthManagerController());
   @override
   Widget build(BuildContext context) {
     ///
@@ -13,14 +20,14 @@ class OnBoard extends GetView<AuthManagerController> {
     /// else welcome -- select school
     ///
     return Obx(() {
-      if (controller.loading.value) {
+      if (authManagerController.loading.value) {
         return Scaffold(
           body: Center(
             child: CircularProgressIndicator(),
           ),
         );
       }
-      return controller.isLogin.value ? Navigation() : Welcome();
+      return authManagerController.isLogin.value ? Navigation() : Welcome();
     });
   }
 }
