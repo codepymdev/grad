@@ -19,7 +19,7 @@ class QuickTasks extends GetView<HomeController> {
       themeMode = false;
     }
     return SizedBox(
-      height: 150,
+      height: 130,
       child: ListView(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
@@ -67,9 +67,6 @@ class QuickTasks extends GetView<HomeController> {
                           ),
                         ),
                       ],
-                    ),
-                    Container(
-                      child: Text("Add Students"),
                     ),
                   ],
                 ),
@@ -120,9 +117,6 @@ class QuickTasks extends GetView<HomeController> {
                         ),
                       ],
                     ),
-                    Container(
-                      child: Text("Add Teacher"),
-                    ),
                   ],
                 ),
               ),
@@ -171,9 +165,6 @@ class QuickTasks extends GetView<HomeController> {
                           ),
                         ),
                       ],
-                    ),
-                    Container(
-                      child: Text("Add Non teaching"),
                     ),
                   ],
                 ),
@@ -224,9 +215,6 @@ class QuickTasks extends GetView<HomeController> {
                         ),
                       ],
                     ),
-                    Container(
-                      child: Text("Add Parent"),
-                    ),
                   ],
                 ),
               ),
@@ -275,9 +263,6 @@ class QuickTasks extends GetView<HomeController> {
                           ),
                         ),
                       ],
-                    ),
-                    Container(
-                      child: Text("Add Class"),
                     ),
                   ],
                 ),
@@ -328,9 +313,6 @@ class QuickTasks extends GetView<HomeController> {
                         ),
                       ],
                     ),
-                    Container(
-                      child: Text("Add Subject"),
-                    ),
                   ],
                 ),
               ),
@@ -379,9 +361,6 @@ class QuickTasks extends GetView<HomeController> {
                           ),
                         ),
                       ],
-                    ),
-                    Container(
-                      child: Text("Add User"),
                     ),
                   ],
                 ),

@@ -1,88 +1,97 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:grad/app/controller/home/home_controller.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
 
-class Announcement extends StatelessWidget {
+class Announcement extends GetView<HomeController> {
   const Announcement({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(
-        left: 5,
-        right: 5,
-        top: 5,
-      ),
-      // decoration: BoxDecoration(
-      //   borderRadius: BorderRadius.circular(15),
-      //   border: Border.all(
-      //     color: Color.fromARGB(255, 219, 218, 218),
-      //     width: 0.5,
-      //   ),
-      // ),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5.0),
-        ),
-        elevation: 0,
-        child: Container(
-          padding: EdgeInsets.only(
-            left: 10,
-            right: 10,
-            top: 10,
-            bottom: 10,
+    return Obx(
+      () {
+        var data = controller.current_announcement;
+        if (data.isEmpty) return Container();
+
+        return Container(
+          margin: EdgeInsets.only(
+            left: 5,
+            right: 5,
+            top: 5,
           ),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+            elevation: 0,
+            child: Container(
+              padding: EdgeInsets.only(
+                left: 10,
+                right: 10,
+                top: 10,
+                bottom: 10,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SvgPicture.asset(
-                        ANNOUNCEMENT,
-                        width: 30,
+                      Row(
+                        children: [
+                          SvgPicture.asset(
+                            ANNOUNCEMENT,
+                            width: 30,
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            "${data['type']}",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          )
+                        ],
                       ),
-                      SizedBox(
-                        width: 8,
-                      ),
-                      Text(
-                        "Announcement",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
+                      GestureDetector(
+                        onTap: () => controller.hideSection("announcement"),
+                        child: Icon(
+                          controller.hide_announcement.value
+                              ? FeatherIcons.minimize2
+                              : FeatherIcons.maximize2,
                         ),
-                      )
+                      ),
                     ],
                   ),
-                  Icon(
-                    FeatherIcons.minimize2,
-                  ),
+                  Divider(),
+                  if (!controller.hide_announcement.value)
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Color(0xffF94892),
+                      ),
+                      child: Text(
+                        "${data['message']}",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                 ],
               ),
-              Divider(),
-              Container(
-                padding: EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Color(0xffF94892),
-                ),
-                child: Text(
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, labore quia! Impedit tempora, at facere rerum illum fugit! Quia consequatur accusantium quasi voluptas mollitia perspiciatis beatae voluptates esse distinctio. Quasi?",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

@@ -40,6 +40,9 @@ dependencies:
   get_storage: ^2.0.3
   php_serializer: ^1.1.0
   image_picker: ^0.8.4+11
+  onesignal_flutter: ^3.3.0
+  timeago: ^3.2.2
+  flutter_slidable: ^1.2.0
   flutter:
     sdk: flutter
 

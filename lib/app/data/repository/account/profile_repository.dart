@@ -91,7 +91,7 @@ class ProfileRepository {
       var respone = await client.get(url);
       if (respone.statusCode == 200) {
         final data = json.decode(respone.body);
-        return data['data']['data'];
+        return data['data'];
       } else {
         // If the server did not return a 200 OK response,
         // then throw an exception.

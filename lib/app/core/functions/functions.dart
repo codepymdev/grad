@@ -5,6 +5,8 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
 import 'package:jiffy/jiffy.dart';
+import 'package:timeago/timeago.dart' as timeago;
+import 'package:intl/intl.dart';
 
 double getCollapseOpacity(context) {
   final settings =
@@ -98,4 +100,68 @@ List<String> yearList() {
     year.add("$i/${(i + 1)}");
   }
   return year;
+}
+
+String diffDateHuman(x) {
+  final ago = DateTime.parse(x);
+  return timeago.format(ago, locale: 'en_short');
+}
+
+String eventDate(start, end) {
+  final dateformat = DateFormat.MMMd();
+
+  final datatimestart = DateTime.parse(start);
+  final datetimeend = DateTime.parse(end);
+  return dateformat.format(datatimestart) +
+      " - " +
+      dateformat.format(datetimeend);
+}
+
+Icon announcementIcons(type) {
+  if (type == "General Announcement") {
+    return Icon(
+      FeatherIcons.alertTriangle,
+      color: Colors.blue,
+    );
+  } else if (type == "Public Holiday") {
+    return Icon(
+      FeatherIcons.calendar,
+      color: Colors.purple,
+    );
+  } else if (type == "Mid term break") {
+    return Icon(
+      FeatherIcons.cloudRain,
+      color: Colors.orange,
+    );
+  } else if (type == "Examination") {
+    return Icon(
+      FeatherIcons.bookOpen,
+      color: Colors.green,
+    );
+  } else if (type == "School Fees") {
+    return Icon(
+      FeatherIcons.dollarSign,
+      color: Colors.red,
+    );
+  } else if (type == "PTA Meeting") {
+    return Icon(
+      FeatherIcons.users,
+      color: Colors.black,
+    );
+  } else if (type == "Others") {
+    return Icon(
+      FeatherIcons.info,
+      color: Colors.red,
+    );
+  } else if (type == "Result") {
+    return Icon(
+      FeatherIcons.shield,
+      color: Colors.yellow,
+    );
+  } else {
+    return Icon(
+      FeatherIcons.database,
+      color: Colors.purpleAccent,
+    );
+  }
 }

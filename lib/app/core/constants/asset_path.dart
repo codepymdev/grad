@@ -57,3 +57,7 @@ const PROJECT = "assets/images/icons/project.svg";
 const CAMERA = "assets/images/icons/camera.svg";
 
 const PADLOCK = "assets/images/icons/padlock.svg";
+
+const CREATE = "assets/images/icons/create.svg";
+const IDEA = "assets/images/icons/idea.svg";
+const CHECKLIST = "assets/images/icons/checklist.svg";

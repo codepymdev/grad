@@ -117,11 +117,18 @@ class SettingsController extends GetxController with CacheManager {
   Future<void> updateSession() async {
     clear();
     processing.value = true;
-
+    String term;
+    if (termValue.value == "First Term") {
+      term = "1";
+    } else if (termValue.value == "Second Term") {
+      term = "2";
+    } else {
+      term = "3";
+    }
     //add school to the map
     Map<String, dynamic> data = {
       "school": school.value,
-      "term": termValue.value,
+      "term": term,
       "year": yearValue.value,
     };
     Map<String, dynamic> response = await SettingsRepository.updateSession(
@@ -272,6 +279,7 @@ class SettingsController extends GetxController with CacheManager {
   }
 
   void updateTermDropDown(value) {
+    print(value);
     termValue.value = value;
   }
 

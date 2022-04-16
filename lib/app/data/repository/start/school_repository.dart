@@ -25,4 +25,22 @@ class SchoolRepository {
       return null;
     }
   }
+
+  static Future<Map<String, dynamic>> getSchoolData({required school}) async {
+    var url = Uri.parse("$GRAD$SCHOOLS/get/$school");
+
+    try {
+      var response = await client.get(url);
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        return data;
+      } else {
+        // If the server did not return a 200 OK response,
+        // then throw an exception.
+        throw Exception('Failed to load data');
+      }
+    } catch (_) {
+      throw Exception('Failed to load data');
+    }
+  }
 }

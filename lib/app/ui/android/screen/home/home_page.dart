@@ -8,7 +8,7 @@ import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/ui/android/screen/menu/overlay.dart';
 import 'package:grad/app/ui/android/widgets/calendar/calendar.dart';
 import 'package:grad/app/ui/android/widgets/home/announcement.dart';
-import 'package:grad/app/ui/android/widgets/home/event_list.dart';
+import 'package:grad/app/ui/android/widgets/home/upcoming_event_list.dart';
 import 'package:grad/app/ui/android/widgets/home/flexible_space.dart';
 import 'package:grad/app/ui/android/widgets/home/non_teachers.dart';
 import 'package:grad/app/ui/android/widgets/home/parents.dart';
@@ -120,7 +120,7 @@ class HomePage extends GetView<HomeController> {
                     ///
                     /// Events
                     ///
-                    EventList(),
+                    UpcomingEventList(),
 
                     ///
                     ///

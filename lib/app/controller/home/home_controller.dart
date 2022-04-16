@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:grad/app/data/mixins/cache_manager.dart';
 import 'package:grad/app/data/repository/home/home_page_repository.dart';
+import 'package:grad/app/data/repository/menu/announcement_repository.dart';
+import 'package:grad/app/data/repository/start/school_repository.dart';
 
 class HomeController extends GetxController with CacheManager {
   var user = {}.obs;
@@ -16,10 +18,21 @@ class HomeController extends GetxController with CacheManager {
 
   var loading = true.obs;
 
+  var school_data = {}.obs;
+
+  var hide_announcement = false.obs;
+
+  var hide_school = false.obs;
+
+  var current_announcement = {}.obs;
+
   @override
   void onInit() async {
     await getUserData();
     await getData();
+    await getCurrentAnnouncement();
+
+    loading.value = false;
     super.onInit();
   }
 
@@ -32,6 +45,13 @@ class HomeController extends GetxController with CacheManager {
     if (school != null) {
       _school.value = school;
     }
+    await getAllSchools();
+  }
+
+  Future<void> getAllSchools() async {
+    Map<String, dynamic> schools =
+        await SchoolRepository.getSchoolData(school: _school.value);
+    school_data.value = schools;
   }
 
   Future<void> getData() async {
@@ -77,7 +97,29 @@ class HomeController extends GetxController with CacheManager {
     parents.value = _parents;
 
     counter.value = _counter;
+  }
 
-    loading.value = false;
+  void hideSection(type) {
+    if (type == "announcement") {
+      if (hide_announcement.value) {
+        hide_announcement.value = false;
+      } else {
+        hide_announcement.value = true;
+      }
+    } else if (type == "school") {
+      if (hide_school.value) {
+        hide_school.value = false;
+      } else {
+        hide_school.value = true;
+      }
+    }
+  }
+
+  Future<void> getCurrentAnnouncement() async {
+    Map<String, dynamic> response =
+        await AnnouncementRepository.getCurrentAnnouncement(
+      school: _school.value,
+    );
+    current_announcement.value = response;
   }
 }

@@ -38,3 +38,9 @@ const CONFIG_TERM = "term";
 const CONFIG_STAMP = "stamp";
 
 const BUG_ISSUE = "bug";
+
+const EVENTS = "events";
+
+const UPLOAD_EVENT = "upload-event";
+
+const GET_EVENTS = "get";

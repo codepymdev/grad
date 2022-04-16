@@ -17,4 +17,25 @@ abstract class Routes {
   static const STAMP = "/stamp";
   static const NOTIFICATIONS_SETTINGS = "/notification-settings";
   static const BUGS = "/bugs";
+
+  //menu
+  static const ANNOUNCEMENTS = "/announcements";
+  static const ANNOUNCEMENT_ADD = "/announcement/add";
+  static const ANNOUNCEMENT_EDIT = "/announcement/edit";
+  static const CALENDAR = "/calendar";
+  static const EDIT_CALENDAR = "/calendar/edit";
+
+  static const USERS = "/users";
+
+  static const STUDENTS = "/students";
+
+  static const TEACHERS = "/teachers";
+
+  static const PARENTS = "/parents";
+
+  static const STAFFS = "/staffs";
+
+  static const CLASSES = "/classes";
+
+  static const SUBJECTS = "subjects";
 }

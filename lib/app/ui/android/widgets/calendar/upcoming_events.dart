@@ -1,63 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/ui/android/screen/calendar/new_event.dart';
+import 'package:grad/app/controller/calendar/calendar_controller.dart';
 import 'package:grad/app/ui/android/widgets/calendar/calendar.dart';
-import 'package:grad/app/ui/android/widgets/home/event_list.dart';
+import 'package:grad/app/ui/android/widgets/calendar/create_event.dart';
+import 'package:grad/app/ui/android/widgets/home/upcoming_event_list.dart';
 
-class UpcomingEvents extends StatelessWidget {
+class UpcomingEvents extends GetView<CalendarController> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        child: Column(
-          children: [
-            ///
-            /// Create Events
-            ///
-            Container(
-              margin: EdgeInsets.only(
-                left: 5,
-                right: 5,
+        child: Obx(() {
+          if (controller.loading.value)
+            return Container(
+              child: Center(
+                child: CircularProgressIndicator(),
               ),
-              child: Card(
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                color: Color.fromARGB(255, 230, 238, 243),
-                child: ElevatedButton(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        FeatherIcons.plus,
-                        size: 15,
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "Create New Event",
-                      ),
-                    ],
-                  ),
-                  onPressed: () => Get.to(NewEvent()),
-                ),
-              ),
-            ),
+            );
+          return Column(
+            children: [
+              ///
+              /// Create Events
+              ///
+              CreateNewEvent(),
 
-            ///
-            /// Calender
-            ///
-            Calendar(),
+              ///
+              /// Calender
+              ///
+              Calendar(),
 
-            ///
-            ///Event List
-            ///
-            EventList(),
-          ],
-        ),
+              ///
+              ///Event List
+              ///
+              UpcomingEventList(),
+            ],
+          );
+        }),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
 
 class MenuOverlay extends ModalRoute<void> {
@@ -68,94 +69,109 @@ class MenuOverlay extends ModalRoute<void> {
                 mainAxisSpacing: 5.0,
               ),
               children: [
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        CLASS,
-                        width: 60,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "Classes",
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () => Get.toNamed("/classes"),
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          CLASS,
+                          width: 60,
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          "Classes",
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        BOOKS,
-                        width: 60,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "Subjects",
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () => Get.toNamed("/subjects"),
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          BOOKS,
+                          width: 60,
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          "Subjects",
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        STUDENT,
-                        width: 60,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "Students",
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () => Get.toNamed("/students"),
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          STUDENT,
+                          width: 60,
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          "Students",
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        PARENT,
-                        width: 60,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "Parents",
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () => Get.toNamed("/parents"),
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          PARENT,
+                          width: 60,
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          "Parents",
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        TEACHER,
-                        width: 60,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "Staffs",
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () => Get.toNamed("/staffs"),
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          TEACHER,
+                          width: 60,
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          "Staffs",
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Container(
@@ -230,58 +246,67 @@ class MenuOverlay extends ModalRoute<void> {
                     ],
                   ),
                 ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        USERS,
-                        width: 60,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "Users",
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () => Get.toNamed("/users"),
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          USERS,
+                          width: 60,
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          "Users",
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        CALENDAR,
-                        width: 60,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "Calendar",
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () => Get.toNamed("/announcements"),
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          ANNOUNCEMENT,
+                          width: 60,
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          "Announcement",
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        ANNOUNCEMENT,
-                        width: 60,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "Announcement",
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () => Get.toNamed("/calendar"),
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          CALENDAR,
+                          width: 60,
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          "Calendar",
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

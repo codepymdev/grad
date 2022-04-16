@@ -12,7 +12,7 @@ class HomePageRepository {
     required per_page,
     required page,
   }) async {
-    var url = Uri.parse("$GRAD$PEOPLE/$school/$type/$per_page/$page");
+    var url = Uri.parse("$GRAD$PEOPLE/get/$school/$type/$per_page/$page");
     try {
       var response = await client.get(url);
       if (response.statusCode == 200) {
