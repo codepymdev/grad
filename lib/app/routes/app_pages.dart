@@ -13,6 +13,8 @@ import 'package:grad/app/bindings/calendar/new_event_binding.dart';
 import 'package:grad/app/bindings/chats/conversation_binding.dart';
 import 'package:grad/app/bindings/home/home_binding.dart';
 import 'package:grad/app/bindings/menu/announcement_binding.dart';
+import 'package:grad/app/bindings/menu/classes_binding.dart';
+import 'package:grad/app/bindings/menu/subjects_binding.dart';
 import 'package:grad/app/bindings/menu/users_binding.dart';
 import 'package:grad/app/bindings/navigation/navigation_binding.dart';
 import 'package:grad/app/bindings/others/success-page-binding.dart';
@@ -32,12 +34,31 @@ import 'package:grad/app/ui/android/screen/menu/announcement/Create-announcement
 import 'package:grad/app/ui/android/screen/menu/announcement/edit_announcement.dart';
 import 'package:grad/app/ui/android/screen/menu/calendar/calendar.dart';
 import 'package:grad/app/ui/android/screen/menu/calendar/edit_event.dart';
+import 'package:grad/app/ui/android/screen/menu/classes/add.dart';
 import 'package:grad/app/ui/android/screen/menu/classes/classes.dart';
+import 'package:grad/app/ui/android/screen/menu/classes/edit.dart';
+import 'package:grad/app/ui/android/screen/menu/classes/view.dart';
+import 'package:grad/app/ui/android/screen/menu/parents/add.dart';
+import 'package:grad/app/ui/android/screen/menu/parents/edit.dart';
 import 'package:grad/app/ui/android/screen/menu/parents/parents.dart';
+import 'package:grad/app/ui/android/screen/menu/parents/view.dart';
+import 'package:grad/app/ui/android/screen/menu/staffs/add.dart';
+import 'package:grad/app/ui/android/screen/menu/staffs/edit.dart';
 import 'package:grad/app/ui/android/screen/menu/staffs/staffs.dart';
+import 'package:grad/app/ui/android/screen/menu/staffs/view.dart';
+import 'package:grad/app/ui/android/screen/menu/students/add.dart';
+import 'package:grad/app/ui/android/screen/menu/students/class.dart';
+import 'package:grad/app/ui/android/screen/menu/students/edit.dart';
 import 'package:grad/app/ui/android/screen/menu/students/students.dart';
+import 'package:grad/app/ui/android/screen/menu/students/view.dart';
+import 'package:grad/app/ui/android/screen/menu/subjects/add.dart';
+import 'package:grad/app/ui/android/screen/menu/subjects/edit.dart';
 import 'package:grad/app/ui/android/screen/menu/subjects/subjects.dart';
+import 'package:grad/app/ui/android/screen/menu/subjects/view.dart';
+import 'package:grad/app/ui/android/screen/menu/users/add_users.dart';
+import 'package:grad/app/ui/android/screen/menu/users/edit_users.dart';
 import 'package:grad/app/ui/android/screen/menu/users/users.dart';
+import 'package:grad/app/ui/android/screen/menu/users/view_user.dart';
 import 'package:grad/app/ui/android/screen/onboard.dart';
 import 'package:grad/app/ui/android/screen/settings/bugs.dart';
 import 'package:grad/app/ui/android/screen/settings/school_configuration.dart';
@@ -176,10 +197,40 @@ class AppPages {
       binding: NewEventBinding(),
     ),
 
+    ///
+    /// admin or users
+    ///
     GetPage(
       name: Routes.USERS,
       page: () => Users(),
       binding: UsersBinding(),
+    ),
+
+    GetPage(
+      name: Routes.USERS_ADD,
+      page: () => AddUser(),
+      binding: UsersBinding(),
+    ),
+
+    GetPage(
+      name: Routes.USERS_EDIT,
+      page: () => EditUser(),
+      binding: UsersBinding(),
+    ),
+
+    GetPage(
+      name: Routes.USERS_VIEW,
+      page: () => ViewUser(),
+      binding: UsersBinding(),
+    ),
+
+    ///
+    /// students
+    ///
+    GetPage(
+      name: Routes.CLASS_STUDENT,
+      page: () => ClassStudents(),
+      binding: ClassesBinding(),
     ),
 
     GetPage(
@@ -189,11 +240,30 @@ class AppPages {
     ),
 
     GetPage(
+      name: Routes.STUDENT_EDIT,
+      page: () => EditStudent(),
+      binding: UsersBinding(),
+    ),
+    GetPage(
+      name: Routes.STUDENT_VIEW,
+      page: () => ViewStudent(),
+      binding: UsersBinding(),
+    ),
+    GetPage(
+      name: Routes.STUDENT_ADD,
+      page: () => AddStudent(),
+      binding: UsersBinding(),
+    ),
+
+    GetPage(
       name: Routes.TEACHERS,
       page: () => Teachers(),
       binding: UsersBinding(),
     ),
 
+    ///
+    /// parents
+    ///
     GetPage(
       name: Routes.PARENTS,
       page: () => Parents(),
@@ -201,21 +271,100 @@ class AppPages {
     ),
 
     GetPage(
+      name: Routes.PARENTS_ADD,
+      page: () => AddParent(),
+      binding: UsersBinding(),
+    ),
+
+    GetPage(
+      name: Routes.PARENTS_EDIT,
+      page: () => EditParent(),
+      binding: UsersBinding(),
+    ),
+
+    GetPage(
+      name: Routes.PARENTS_VIEW,
+      page: () => ViewParent(),
+      binding: UsersBinding(),
+    ),
+
+    ///
+    /// staffs
+    ///
+    GetPage(
       name: Routes.STAFFS,
       page: () => Staffs(),
       binding: UsersBinding(),
     ),
-
     GetPage(
-      name: Routes.CLASSES,
-      page: () => Classes(),
+      name: Routes.STAFFS_EDIT,
+      page: () => EditStaff(),
       binding: UsersBinding(),
     ),
 
     GetPage(
+      name: Routes.STAFFS_ADD,
+      page: () => AddStaff(),
+      binding: UsersBinding(),
+    ),
+    GetPage(
+      name: Routes.STAFFS_VIEW,
+      page: () => ViewStaff(),
+      binding: UsersBinding(),
+    ),
+
+    ///
+    ///  Classes
+    ///
+    GetPage(
+      name: Routes.CLASSES,
+      page: () => Classes(),
+      binding: ClassesBinding(),
+    ),
+
+    GetPage(
+      name: Routes.CLASSES_EDIT,
+      page: () => EditClass(),
+      binding: ClassesBinding(),
+    ),
+
+    GetPage(
+      name: Routes.CLASSES_ADD,
+      page: () => AddClass(),
+      binding: ClassesBinding(),
+    ),
+
+    GetPage(
+      name: Routes.CLASSES_VIEW,
+      page: () => ViewClass(),
+      binding: ClassesBinding(),
+    ),
+
+    ///
+    /// subjects
+    ///
+    GetPage(
       name: Routes.SUBJECTS,
       page: () => Subjects(),
-      binding: UsersBinding(),
+      binding: SubjectsBinding(),
+    ),
+
+    GetPage(
+      name: Routes.SUBJECTS_EDIT,
+      page: () => EditSubject(),
+      binding: SubjectsBinding(),
+    ),
+
+    GetPage(
+      name: Routes.SUBJECTS_ADD,
+      page: () => AddSubject(),
+      binding: SubjectsBinding(),
+    ),
+
+    GetPage(
+      name: Routes.SUBJECTS_VIEW,
+      page: () => ViewSubject(),
+      binding: SubjectsBinding(),
     ),
   ];
 }

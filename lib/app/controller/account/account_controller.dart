@@ -15,6 +15,12 @@ class AccountController extends GetxController with CacheManager {
   var userid = "".obs;
   var school = "".obs;
 
+  /// campus
+  var campus = "".obs;
+
+  /// user role
+  var r = "".obs;
+
   var loading = true.obs;
 
   var counter = {}.obs;
@@ -24,6 +30,8 @@ class AccountController extends GetxController with CacheManager {
     Map<String, dynamic>? data = await getMe();
     if (data != null) {
       userid.value = data['id'];
+      campus.value = data["campus"] == "" ? "0" : data["campus"];
+      r.value = data["type"];
     }
     String? _school = await getSchool();
     if (_school != null) {
@@ -32,6 +40,8 @@ class AccountController extends GetxController with CacheManager {
 
     Map<String, dynamic> _counter = await HomePageRepository.getCounter(
       school: school.value,
+      campus: campus.value,
+      r: r.value,
     );
 
     counter.value = _counter;

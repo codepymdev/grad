@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:grad/app/core/constants/api_constants.dart';
+import 'package:grad/app/data/model/campus_model.dart';
+import 'package:grad/app/data/model/role_model.dart';
 import 'package:http/http.dart' as http;
 
 class SettingsRepository {
@@ -65,6 +67,7 @@ class SettingsRepository {
         throw Exception('Failed to load data');
       }
     } catch (_) {
+      print(_.toString());
       throw Exception("Failed to load data");
     }
   }
@@ -194,7 +197,47 @@ class SettingsRepository {
         throw Exception('Failed to load data');
       }
     } catch (_) {
-      print(_.toString());
+      throw Exception("Failed to load data");
+    }
+  }
+
+  static Future<List<Campus>> getCampus({
+    required school,
+  }) async {
+    var url = Uri.parse("$GRAD$CONFIG_SETTINGS/campus/$school");
+    try {
+      var response = await client.get(url);
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body) as List;
+        return data.map((dynamic item) => Campus.fromJson(item)).toList();
+      } else {
+        // If the server did not return a 200 OK response,
+        // then throw an exception.
+        throw Exception('Failed to load data');
+      }
+    } catch (_) {
+      throw Exception("Failed to load data");
+    }
+  }
+
+  static Future<List<Role>> getRoles({
+    required school,
+    required type,
+  }) async {
+    var url = Uri.parse("$GRAD$CONFIG_SETTINGS/roles/$school/$type");
+    try {
+      var response = await client.get(url);
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body) as List;
+        return data.map((dynamic item) => Role.fromJson(item)).toList();
+      } else {
+        // If the server did not return a 200 OK response,
+        // then throw an exception.
+        throw Exception('Failed to load data');
+      }
+    } catch (_) {
       throw Exception("Failed to load data");
     }
   }

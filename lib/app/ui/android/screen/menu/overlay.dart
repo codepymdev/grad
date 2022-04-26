@@ -112,7 +112,7 @@ class MenuOverlay extends ModalRoute<void> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () => Get.toNamed("/students"),
+                  onTap: () => Get.toNamed("/class-students"),
                   child: Container(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -133,7 +133,12 @@ class MenuOverlay extends ModalRoute<void> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () => Get.toNamed("/parents"),
+                  onTap: () => Get.toNamed(
+                    "/parents",
+                    arguments: {
+                      "handler": "parents",
+                    },
+                  ),
                   child: Container(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -154,7 +159,12 @@ class MenuOverlay extends ModalRoute<void> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () => Get.toNamed("/staffs"),
+                  onTap: () => Get.toNamed(
+                    "/staffs",
+                    arguments: {
+                      "handler": "staffs",
+                    },
+                  ),
                   child: Container(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -174,24 +184,24 @@ class MenuOverlay extends ModalRoute<void> {
                     ),
                   ),
                 ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        QUIZ,
-                        width: 60,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "CBT",
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                    ],
-                  ),
-                ),
+                // Container(
+                //   child: Column(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: [
+                //       SvgPicture.asset(
+                //         QUIZ,
+                //         width: 60,
+                //       ),
+                //       SizedBox(
+                //         height: 8,
+                //       ),
+                //       Text(
+                //         "CBT",
+                //         style: Theme.of(context).textTheme.subtitle1,
+                //       ),
+                //     ],
+                //   ),
+                // ),
                 Container(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -228,26 +238,31 @@ class MenuOverlay extends ModalRoute<void> {
                     ],
                   ),
                 ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        REPORT,
-                        width: 60,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "Reports",
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                    ],
-                  ),
-                ),
+                // Container(
+                //   child: Column(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: [
+                //       SvgPicture.asset(
+                //         REPORT,
+                //         width: 60,
+                //       ),
+                //       SizedBox(
+                //         height: 8,
+                //       ),
+                //       Text(
+                //         "Reports",
+                //         style: Theme.of(context).textTheme.subtitle1,
+                //       ),
+                //     ],
+                //   ),
+                // ),
                 GestureDetector(
-                  onTap: () => Get.toNamed("/users"),
+                  onTap: () => Get.toNamed(
+                    "/users",
+                    arguments: {
+                      "handler": "users",
+                    },
+                  ),
                   child: Container(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,

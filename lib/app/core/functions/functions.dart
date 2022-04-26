@@ -64,6 +64,17 @@ List<Tab> eventTabbar() {
   ];
 }
 
+List<Tab> staffsTabbar() {
+  return [
+    Tab(
+      child: Text("Teachers"),
+    ),
+    Tab(
+      child: Text("Non teachers"),
+    ),
+  ];
+}
+
 AppBar customAppBar(name) {
   return AppBar(
     elevation: 0,
@@ -162,6 +173,59 @@ Icon announcementIcons(type) {
     return Icon(
       FeatherIcons.database,
       color: Colors.purpleAccent,
+    );
+  }
+}
+
+Icon userStatusIcon(String status) {
+  if (status == "1") {
+    return Icon(
+      FeatherIcons.xCircle,
+      color: Color.fromARGB(255, 54, 244, 174),
+    );
+  } else if (status == "2") {
+    return Icon(
+      FeatherIcons.checkCircle,
+      color: Colors.green,
+    );
+  } else if (status == "0") {
+    return Icon(
+      FeatherIcons.userX,
+      color: Colors.red,
+    );
+  } else {
+    return Icon(
+      FeatherIcons.xCircle,
+      color: Colors.red,
+    );
+  }
+}
+
+Icon classSection(String section) {
+  if (section == "nursery") {
+    return Icon(
+      FeatherIcons.gitPullRequest,
+      color: Color.fromARGB(255, 64, 129, 250),
+    );
+  } else if (section == "primary") {
+    return Icon(
+      FeatherIcons.gitBranch,
+      color: Colors.green,
+    );
+  } else if (section == "junior") {
+    return Icon(
+      FeatherIcons.gitMerge,
+      color: Color.fromARGB(255, 43, 42, 42),
+    );
+  } else if (section == 'senior') {
+    return Icon(
+      FeatherIcons.gift,
+      color: Color.fromARGB(255, 246, 200, 73),
+    );
+  } else {
+    return Icon(
+      FeatherIcons.xCircle,
+      color: Colors.red,
     );
   }
 }

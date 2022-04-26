@@ -8,8 +8,8 @@ class CustomNetworkImage extends StatelessWidget {
   final double? ht;
   CustomNetworkImage({
     required this.url,
-    required this.ht,
-    required this.wd,
+    this.ht = 50,
+    this.wd = 50,
   });
   @override
   Widget build(BuildContext context) {

@@ -15,6 +15,7 @@ class Students extends GetView<HomeController> {
     List<dynamic> users = controller.students;
 
     if (users.isEmpty) return Container();
+
     return Container(
       margin: EdgeInsets.only(
         left: 5,

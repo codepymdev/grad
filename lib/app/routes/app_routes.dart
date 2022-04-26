@@ -26,16 +26,35 @@ abstract class Routes {
   static const EDIT_CALENDAR = "/calendar/edit";
 
   static const USERS = "/users";
+  static const USERS_ADD = "/users/add";
+  static const USERS_EDIT = "/users/edit";
+  static const USERS_VIEW = "/users/view";
 
+  static const CLASS_STUDENT = "/class-students";
   static const STUDENTS = "/students";
+  static const STUDENT_EDIT = "/students/edit";
+  static const STUDENT_ADD = "/students/add";
+  static const STUDENT_VIEW = "/students/view";
 
   static const TEACHERS = "/teachers";
 
   static const PARENTS = "/parents";
+  static const PARENTS_EDIT = "/parents/edit";
+  static const PARENTS_ADD = "/parents/add";
+  static const PARENTS_VIEW = "/parents/view";
 
   static const STAFFS = "/staffs";
+  static const STAFFS_EDIT = "/staffs/edit";
+  static const STAFFS_ADD = "/staffs/add";
+  static const STAFFS_VIEW = "/staffs/view";
 
   static const CLASSES = "/classes";
+  static const CLASSES_ADD = "/classes/add";
+  static const CLASSES_EDIT = "/classes/edit";
+  static const CLASSES_VIEW = "/classes/view";
 
-  static const SUBJECTS = "subjects";
+  static const SUBJECTS = "/subjects";
+  static const SUBJECTS_ADD = "/subjects/add";
+  static const SUBJECTS_EDIT = "/subjects/edit";
+  static const SUBJECTS_VIEW = "/subjects/view";
 }
