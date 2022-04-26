@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class PaymentAmount extends StatelessWidget {
-  final c;
-  PaymentAmount({@required this.c});
+  TextEditingController c;
+  final bool edit;
+  final val;
+  PaymentAmount({
+    required this.c,
+    this.edit = false,
+    this.val = "",
+  });
   @override
   Widget build(BuildContext context) {
+    ///edit
+    if (edit)
+      c = TextEditingController(
+        text: val,
+      );
     return Container(
       margin: EdgeInsets.symmetric(
         vertical: 10,

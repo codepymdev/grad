@@ -31,6 +31,7 @@ class ClassSection extends StatelessWidget {
         ),
         DropdownButton<String>(
           isExpanded: true,
+          hint: Text("Class Section"),
           value: c.section.value,
           onChanged: (String? value) {
             if (value != null) {

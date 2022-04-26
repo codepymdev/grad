@@ -96,8 +96,8 @@ class TList extends GetView<UsersController> {
     Widget yesButton = TextButton(
       child: Text("Yes"),
       onPressed: () async {
-        await controller.deleteUser(id: id, type: "parent");
         Navigator.pop(context);
+        await controller.deleteUser(id: id, type: "parent");
       },
     );
     // set up the AlertDialog

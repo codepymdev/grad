@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:grad/app/core/constants/api_constants.dart';
 import 'package:grad/app/data/model/subject_categories.dart';
-import 'package:grad/app/ui/android/screen/menu/subjects/add.dart';
 import 'package:http/http.dart' as http;
 
 class SubjectRepository {
@@ -34,7 +33,7 @@ class SubjectRepository {
     required school,
     required id,
   }) async {
-    var url = Uri.parse("$GRAD/subjects/delete/$school/$id");
+    var url = Uri.parse("$GRAD" + "subjects/delete/$school/$id");
     try {
       var response = await client.delete(url);
       if (response.statusCode == 200) {

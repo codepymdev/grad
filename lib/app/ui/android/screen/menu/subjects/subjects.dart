@@ -129,8 +129,8 @@ class Subjects extends GetView<SubjectsController> {
     Widget yesButton = TextButton(
       child: Text("Yes"),
       onPressed: () async {
-        await controller.deleteSubject(id);
         Navigator.pop(context);
+        await controller.deleteSubject(id);
       },
     );
     // set up the AlertDialog

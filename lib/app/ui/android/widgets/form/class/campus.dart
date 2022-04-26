@@ -31,6 +31,7 @@ class Campus extends GetView<ClassesController> {
         ),
         DropdownButton<campusModel.Campus>(
           isExpanded: true,
+          hint: Text("Campus"),
           value: controller.campus_value.value,
           onChanged: (campusModel.Campus? value) {
             if (value != null) {

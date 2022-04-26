@@ -31,6 +31,7 @@ class SubjectName extends GetView<SubjectsController> {
         ),
         DropdownButton<SubjectCategoriesModel>(
           isExpanded: true,
+          hint: Text("Subject name"),
           value: controller.subjectCategory.value,
           onChanged: (SubjectCategoriesModel? value) {
             if (value != null) {

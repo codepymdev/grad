@@ -143,8 +143,8 @@ class Users extends GetView<UsersController> {
     Widget yesButton = TextButton(
       child: Text("Yes"),
       onPressed: () async {
-        await controller.deleteUser(id: id, type: "admin");
         Navigator.pop(context);
+        await controller.deleteUser(id: id, type: "admin");
       },
     );
     // set up the AlertDialog

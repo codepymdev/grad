@@ -135,8 +135,8 @@ class Classes extends GetView<ClassesController> {
     Widget yesButton = TextButton(
       child: Text("Yes"),
       onPressed: () async {
-        await controller.deleteClass(id);
         Navigator.pop(context);
+        await controller.deleteClass(id);
       },
     );
     // set up the AlertDialog

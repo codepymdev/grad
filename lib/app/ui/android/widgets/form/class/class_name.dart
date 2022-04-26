@@ -31,9 +31,12 @@ class ClassName extends GetView<ClassesController> {
         ),
         DropdownButton<ClassCategoriesModel>(
           isExpanded: true,
+          hint: Text("Class Name"),
           value: controller.classCategory.value,
           onChanged: (ClassCategoriesModel? value) {
             if (value != null) {
+              print(value.id);
+              print(value.name);
               controller.updateClassName(value);
             }
           },

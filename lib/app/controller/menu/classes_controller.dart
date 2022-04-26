@@ -148,7 +148,6 @@ class ClassesController extends GetxController with CacheManager {
       success.value = true;
       classId.value = response['id'];
     } else {
-      print(response['error']);
       if (response['validate']) {
         Map<String, dynamic> resp_mes = response['message'];
 

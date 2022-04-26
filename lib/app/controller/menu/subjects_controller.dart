@@ -82,8 +82,17 @@ class SubjectsController extends GetxController with CacheManager {
   }
 
   Future<void> createSubject(data) async {
+    clear();
+    processing.value = true;
+
+    if (subjectCategory.value == null) {
+      error.value = true;
+      error_msg.value = "Subject is required";
+      processing.value = false;
+      return;
+    }
     data['name'] =
-        subjectCategory.value != null ? subjectCategory.value!.id : "0";
+        subjectCategory.value != null ? subjectCategory.value!.name : "";
     data['school'] = school.value;
     Map<String, dynamic> response =
         await SubjectRepository.addSubject(data: data);
@@ -103,5 +112,13 @@ class SubjectsController extends GetxController with CacheManager {
     }
 
     processing.value = false;
+  }
+
+  void clear() {
+    error.value = false;
+    error_msg.value = "";
+
+    success.value = false;
+    success_msg.value = "";
   }
 }

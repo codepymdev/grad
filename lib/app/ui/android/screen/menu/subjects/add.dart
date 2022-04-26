@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:grad/app/controller/menu/subjects_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/ui/android/widgets/form/class/description.dart';
-import 'package:grad/app/ui/android/widgets/form/subject/class_name.dart';
+import 'package:grad/app/ui/android/widgets/form/subject/subject_name.dart';
 
 final TextEditingController descriptionController = TextEditingController();
 
@@ -81,6 +81,9 @@ class AddSubject extends GetView<SubjectsController> {
                           // Find the ScaffoldMessenger in the widget tree
                           // and use it to show a SnackBar.
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+                          descriptionController.text = "";
+                          controller.subjectCategory.value = null;
                         }
                       }
                     },

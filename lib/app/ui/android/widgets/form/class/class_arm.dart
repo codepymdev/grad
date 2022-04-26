@@ -31,6 +31,7 @@ class ClassArm extends StatelessWidget {
         ),
         DropdownButton<String>(
           isExpanded: true,
+          hint: Text("Class Arm"),
           value: c.arm.value,
           onChanged: (String? value) {
             if (value != null) {
