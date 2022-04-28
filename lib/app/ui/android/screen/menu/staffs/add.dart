@@ -160,6 +160,7 @@ class AddStaff extends GetView<UsersController> {
                             "address": addressController.text,
                             "city": cityController.text,
                             "country": countryController.text,
+                            "type": "staff",
                           });
 
                           if (controller.error.value) {

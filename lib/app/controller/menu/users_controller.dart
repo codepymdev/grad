@@ -139,14 +139,12 @@ class UsersController extends GetxController with CacheManager {
       return;
     }
 
-    if (data.containsKey("type")) {
-      if (data['type'] != "student") {
-        if (data['email'] == null || data['email'] == "") {
-          error.value = true;
-          error_msg.value = "Email is required";
-          processing.value = false;
-          return;
-        }
+    if (data['type'] != "student") {
+      if (data['email'] == null || data['email'] == "") {
+        error.value = true;
+        error_msg.value = "Email is required";
+        processing.value = false;
+        return;
       }
     }
 
@@ -164,18 +162,39 @@ class UsersController extends GetxController with CacheManager {
       return;
     }
 
-    if (role_value.value == null) {
-      error.value = true;
-      error_msg.value = "Role is  required";
-      processing.value = false;
-      return;
+    if (data['type'] != "student" ||
+        stafftype.value != "teaching" ||
+        stafftype.value != "parent") {
+      if (role_value.value == null) {
+        error.value = true;
+        error_msg.value = "Role is  required";
+        processing.value = false;
+        return;
+      }
     }
 
-    if (data['type'] != "student")
+    if (data['type'] != "student" ||
+        stafftype.value != "teaching" ||
+        stafftype.value != "parent")
       data['roleId'] = role_value.value != null ? role_value.value!.id : "0";
     data['campus'] = campus_value.value != null ? campus_value.value!.id : "0";
     data['gender'] = gender.value;
     data['school'] = school.value;
+
+    ///
+    /// if type is staff get the staff type
+    ///
+    if (data['type'] == "staff") {
+      if (stafftype.value == "Select staff type") {
+        error.value = true;
+        error_msg.value = "Please select the type of staff";
+        processing.value = false;
+        return;
+      } else {
+        data['type'] = stafftype.value;
+      }
+    }
+
     Map<String, dynamic> _data = await PeopleRepository.createUser(data);
     if (_data["status"]) {
       success_msg.value = _data['message'];
