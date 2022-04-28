@@ -5,7 +5,13 @@ import 'package:grad/app/controller/menu/attendance_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
 
-class StudentAttendance extends GetView<AttendanceController> {
+class StudentAttendance extends StatefulWidget {
+  @override
+  State<StudentAttendance> createState() => _StudentAttendanceState();
+}
+
+class _StudentAttendanceState extends State<StudentAttendance> {
+  AttendanceController attendanceController = Get.put(AttendanceController());
   @override
   Widget build(BuildContext context) {
     var param = Get.arguments;
@@ -14,10 +20,10 @@ class StudentAttendance extends GetView<AttendanceController> {
       body: GetX<AttendanceController>(
         init: AttendanceController(),
         initState: (_) async {
-          await controller.getAtt(date: param['date']);
+          await attendanceController.getAtt(date: param['date']);
         },
         builder: (_) {
-          if (controller.loading.value)
+          if (attendanceController.loading.value)
             return Center(
               child: CircularProgressIndicator(),
             );
