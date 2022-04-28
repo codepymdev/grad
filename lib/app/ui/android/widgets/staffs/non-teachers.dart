@@ -21,6 +21,7 @@ class NonTeachers extends GetView<UsersController> {
             for (var i = 0; i < data.length; i++)
               TList(
                 data: data[i],
+                type: "non-teacher",
               ),
           ],
         ),

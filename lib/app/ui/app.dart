@@ -4,7 +4,14 @@ import 'dart:io' show Platform;
 
 class App extends StatelessWidget {
   final themeValue;
-  App({required this.themeValue});
+  final channel;
+  final client;
+
+  App({
+    required this.themeValue,
+    required this.channel,
+    required this.client,
+  });
   @override
   Widget build(BuildContext context) {
     ///
@@ -14,11 +21,15 @@ class App extends StatelessWidget {
       /// return android app
       return AndroidApp(
         themeValue: themeValue,
+        channel: channel,
+        client: client,
       );
     } else {
       /// return ios app
       return AndroidApp(
         themeValue: themeValue,
+        channel: channel,
+        client: client,
       );
     }
   }

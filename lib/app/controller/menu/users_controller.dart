@@ -53,6 +53,7 @@ class UsersController extends GetxController with CacheManager {
 
   var classId = "".obs;
 
+  var display_role = true.obs;
   @override
   void onInit() async {
     Map<String, dynamic>? data = await getMe();
@@ -90,12 +91,11 @@ class UsersController extends GetxController with CacheManager {
   }
 
   void updateStaffTypeState(String t) {
-    if (t == "Teaching") {
-      stafftype.value = "teaching";
-    } else if (t == "Non-teaching") {
-      stafftype.value = "non-teaching";
+    stafftype.value = t;
+    if (stafftype.value == "Teaching") {
+      display_role.value = false;
     } else {
-      stafftype.value = t;
+      display_role.value = true;
     }
   }
 
@@ -123,8 +123,16 @@ class UsersController extends GetxController with CacheManager {
   ///
   /// create user
   Future<void> createUser(Map<String, dynamic> data) async {
+    clear();
     processing.value = true;
-
+    if (data['type'] != "student") {
+      if (data['email'] == null || data['email'] == "") {
+        error.value = true;
+        error_msg.value = "Email is required";
+        processing.value = false;
+        return;
+      }
+    }
     if (data['first_name'] == null || data['first_name'] == "") {
       error.value = true;
       error_msg.value = "First name is required";
@@ -137,15 +145,6 @@ class UsersController extends GetxController with CacheManager {
       error_msg.value = "Last name is required";
       processing.value = false;
       return;
-    }
-
-    if (data['type'] != "student") {
-      if (data['email'] == null || data['email'] == "") {
-        error.value = true;
-        error_msg.value = "Email is required";
-        processing.value = false;
-        return;
-      }
     }
 
     if (gender.value == "Select gender" || gender.value == "") {
@@ -162,9 +161,9 @@ class UsersController extends GetxController with CacheManager {
       return;
     }
 
-    if (data['type'] != "student" ||
-        stafftype.value != "teaching" ||
-        stafftype.value != "parent") {
+    if (data['type'] != "student" &&
+        stafftype.value != "Teaching" &&
+        data['type'] != "parent") {
       if (role_value.value == null) {
         error.value = true;
         error_msg.value = "Role is  required";
@@ -172,10 +171,17 @@ class UsersController extends GetxController with CacheManager {
         return;
       }
     }
-
-    if (data['type'] != "student" ||
-        stafftype.value != "teaching" ||
-        stafftype.value != "parent")
+    if (data['type'] == "student") {
+      if (data['classId'] == null || data['classId'] == "") {
+        error.value = true;
+        error_msg.value = "Oops, there was an error try again later";
+        processing.value = false;
+        return;
+      }
+    }
+    if (data['type'] != "student" &&
+        stafftype.value != "Teaching" &&
+        data['type'] != "parent")
       data['roleId'] = role_value.value != null ? role_value.value!.id : "0";
     data['campus'] = campus_value.value != null ? campus_value.value!.id : "0";
     data['gender'] = gender.value;
@@ -191,7 +197,8 @@ class UsersController extends GetxController with CacheManager {
         processing.value = false;
         return;
       } else {
-        data['type'] = stafftype.value;
+        data['type'] =
+            stafftype.value == "Teaching" ? "teaching" : "non-teaching";
       }
     }
 
@@ -284,5 +291,13 @@ class UsersController extends GetxController with CacheManager {
       }
       loading.value = false;
     }
+  }
+
+  void clear() {
+    error.value = false;
+    error_msg.value = "";
+
+    success.value = false;
+    success_msg.value = "";
   }
 }

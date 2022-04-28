@@ -23,7 +23,7 @@ class StaffType extends StatelessWidget {
           ),
           DropdownButton<String>(
             isExpanded: true,
-            value: c.gender.value,
+            value: c.stafftype.value,
             onChanged: (String? value) {
               if (value != null) {
                 c.updateStaffTypeState(value);

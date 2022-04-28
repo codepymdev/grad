@@ -72,299 +72,304 @@ import 'package:grad/app/ui/android/widgets/home/teachers.dart';
 import '../ui/android/screen/settings/notification.dart';
 
 class AppPages {
-  static final pages = [
-    GetPage(
-      name: Routes.INITIAL,
-      page: () => OnBoard(),
-      bindings: [
-        AuthManagerBinding(),
-        WelcomeBinding(),
-        NavigationBinding(),
-        HomeBinding(),
-        AccountBinding(),
-        CalendarBinding(),
-      ],
-    ),
-    GetPage(
-      name: Routes.CONVERSATION,
-      page: () => Conversation(),
-      binding: ConversationBinding(),
-    ),
-    GetPage(
-      name: Routes.NEW_EVENT,
-      page: () => NewEvent(),
-      binding: NewEventBinding(),
-    ),
-    GetPage(
-      name: Routes.LOGIN,
-      page: () => Login(),
-      binding: LoginBinding(),
-    ),
-    GetPage(
-      name: Routes.FORGOTTEN_PASSWORD,
-      page: () => ForgottenPassword(),
-      binding: ForgottenPasswordBinding(),
-    ),
-    GetPage(
-      name: Routes.CREATE_ACCOUNT,
-      page: () => CreateAccount(),
-      binding: CreateAccountBinding(),
-    ),
-    GetPage(
-      name: Routes.VERIFY_ACCOUNT,
-      page: () => VerifyAccount(),
-      binding: VerifyAccountBinding(),
-    ),
-    GetPage(
-      name: Routes.CHANGE_PASSWORD,
-      page: () => ChangePassword(),
-      binding: ChangePasswordBinding(),
-    ),
-    GetPage(
-      name: Routes.CHANGE_PASSWORD_ACCOUNT,
-      page: () => ChangePasswordAccount(),
-      binding: ChangePasswordAccountBinding(),
-    ),
-    GetPage(
-      name: Routes.EDIT_PROFILE,
-      page: () => EditProfle(),
-      binding: EditProfileBinding(),
-    ),
-    GetPage(
-      name: Routes.SUCCESS_PAGE,
-      page: () => SuccessPage(),
-      binding: SuccessPageBinding(),
-    ),
-    GetPage(
-      name: Routes.SCHOOL_CONFIGURATION,
-      page: () => SchoolConfiguration(),
-      binding: SettingsBinding(),
-    ),
-    GetPage(
-      name: Routes.SESSION,
-      page: () => Session(),
-      binding: SettingsBinding(),
-    ),
-    GetPage(
-      name: Routes.TERM,
-      page: () => Term(),
-      binding: SettingsBinding(),
-    ),
-    GetPage(
-      name: Routes.STAMP,
-      page: () => Stamp(),
-      binding: SettingsBinding(),
-    ),
-    GetPage(
-      name: Routes.NOTIFICATIONS_SETTINGS,
-      page: () => Notification(),
-      binding: SettingsBinding(),
-    ),
-    GetPage(
-      name: Routes.BUGS,
-      page: () => Bugs(),
-      binding: SettingsBinding(),
-    ),
+  static List<GetPage<dynamic>> pages(Map<String, dynamic> args) {
+    return [
+      GetPage(
+        name: Routes.INITIAL,
+        page: () => OnBoard(
+          channel: args['channel'],
+          client: args['client'],
+        ),
+        bindings: [
+          AuthManagerBinding(),
+          WelcomeBinding(),
+          NavigationBinding(),
+          HomeBinding(),
+          AccountBinding(),
+          CalendarBinding(),
+        ],
+      ),
+      GetPage(
+        name: Routes.CONVERSATION,
+        page: () => Conversation(),
+        binding: ConversationBinding(),
+      ),
+      GetPage(
+        name: Routes.NEW_EVENT,
+        page: () => NewEvent(),
+        binding: NewEventBinding(),
+      ),
+      GetPage(
+        name: Routes.LOGIN,
+        page: () => Login(),
+        binding: LoginBinding(),
+      ),
+      GetPage(
+        name: Routes.FORGOTTEN_PASSWORD,
+        page: () => ForgottenPassword(),
+        binding: ForgottenPasswordBinding(),
+      ),
+      GetPage(
+        name: Routes.CREATE_ACCOUNT,
+        page: () => CreateAccount(),
+        binding: CreateAccountBinding(),
+      ),
+      GetPage(
+        name: Routes.VERIFY_ACCOUNT,
+        page: () => VerifyAccount(),
+        binding: VerifyAccountBinding(),
+      ),
+      GetPage(
+        name: Routes.CHANGE_PASSWORD,
+        page: () => ChangePassword(),
+        binding: ChangePasswordBinding(),
+      ),
+      GetPage(
+        name: Routes.CHANGE_PASSWORD_ACCOUNT,
+        page: () => ChangePasswordAccount(),
+        binding: ChangePasswordAccountBinding(),
+      ),
+      GetPage(
+        name: Routes.EDIT_PROFILE,
+        page: () => EditProfle(),
+        binding: EditProfileBinding(),
+      ),
+      GetPage(
+        name: Routes.SUCCESS_PAGE,
+        page: () => SuccessPage(),
+        binding: SuccessPageBinding(),
+      ),
+      GetPage(
+        name: Routes.SCHOOL_CONFIGURATION,
+        page: () => SchoolConfiguration(),
+        binding: SettingsBinding(),
+      ),
+      GetPage(
+        name: Routes.SESSION,
+        page: () => Session(),
+        binding: SettingsBinding(),
+      ),
+      GetPage(
+        name: Routes.TERM,
+        page: () => Term(),
+        binding: SettingsBinding(),
+      ),
+      GetPage(
+        name: Routes.STAMP,
+        page: () => Stamp(),
+        binding: SettingsBinding(),
+      ),
+      GetPage(
+        name: Routes.NOTIFICATIONS_SETTINGS,
+        page: () => Notification(),
+        binding: SettingsBinding(),
+      ),
+      GetPage(
+        name: Routes.BUGS,
+        page: () => Bugs(),
+        binding: SettingsBinding(),
+      ),
 
-    //menu
-    GetPage(
-      name: Routes.ANNOUNCEMENTS,
-      page: () => Announcements(),
-      binding: AnnouncementBinding(),
-    ),
+      //menu
+      GetPage(
+        name: Routes.ANNOUNCEMENTS,
+        page: () => Announcements(),
+        binding: AnnouncementBinding(),
+      ),
 
-    GetPage(
-      name: Routes.ANNOUNCEMENT_ADD,
-      page: () => CreateAnnouncement(),
-      binding: AnnouncementBinding(),
-    ),
+      GetPage(
+        name: Routes.ANNOUNCEMENT_ADD,
+        page: () => CreateAnnouncement(),
+        binding: AnnouncementBinding(),
+      ),
 
-    GetPage(
-      name: Routes.ANNOUNCEMENT_EDIT,
-      page: () => EditAnnouncement(),
-      binding: AnnouncementBinding(),
-    ),
+      GetPage(
+        name: Routes.ANNOUNCEMENT_EDIT,
+        page: () => EditAnnouncement(),
+        binding: AnnouncementBinding(),
+      ),
 
-    GetPage(
-      name: Routes.CALENDAR,
-      page: () => Calendar(),
-      binding: CalendarBinding(),
-    ),
+      GetPage(
+        name: Routes.CALENDAR,
+        page: () => Calendar(),
+        binding: CalendarBinding(),
+      ),
 
-    GetPage(
-      name: Routes.EDIT_CALENDAR,
-      page: () => EditEvent(),
-      binding: NewEventBinding(),
-    ),
+      GetPage(
+        name: Routes.EDIT_CALENDAR,
+        page: () => EditEvent(),
+        binding: NewEventBinding(),
+      ),
 
-    ///
-    /// admin or users
-    ///
-    GetPage(
-      name: Routes.USERS,
-      page: () => Users(),
-      binding: UsersBinding(),
-    ),
+      ///
+      /// admin or users
+      ///
+      GetPage(
+        name: Routes.USERS,
+        page: () => Users(),
+        binding: UsersBinding(),
+      ),
 
-    GetPage(
-      name: Routes.USERS_ADD,
-      page: () => AddUser(),
-      binding: UsersBinding(),
-    ),
+      GetPage(
+        name: Routes.USERS_ADD,
+        page: () => AddUser(),
+        binding: UsersBinding(),
+      ),
 
-    GetPage(
-      name: Routes.USERS_EDIT,
-      page: () => EditUser(),
-      binding: UsersBinding(),
-    ),
+      GetPage(
+        name: Routes.USERS_EDIT,
+        page: () => EditUser(),
+        binding: UsersBinding(),
+      ),
 
-    GetPage(
-      name: Routes.USERS_VIEW,
-      page: () => ViewUser(),
-      binding: UsersBinding(),
-    ),
+      GetPage(
+        name: Routes.USERS_VIEW,
+        page: () => ViewUser(),
+        binding: UsersBinding(),
+      ),
 
-    ///
-    /// students
-    ///
-    GetPage(
-      name: Routes.CLASS_STUDENT,
-      page: () => ClassStudents(),
-      binding: ClassesBinding(),
-    ),
+      ///
+      /// students
+      ///
+      GetPage(
+        name: Routes.CLASS_STUDENT,
+        page: () => ClassStudents(),
+        binding: ClassesBinding(),
+      ),
 
-    GetPage(
-      name: Routes.STUDENTS,
-      page: () => Students(),
-      binding: UsersBinding(),
-    ),
+      GetPage(
+        name: Routes.STUDENTS,
+        page: () => Students(),
+        binding: UsersBinding(),
+      ),
 
-    GetPage(
-      name: Routes.STUDENT_EDIT,
-      page: () => EditStudent(),
-      binding: UsersBinding(),
-    ),
-    GetPage(
-      name: Routes.STUDENT_VIEW,
-      page: () => ViewStudent(),
-      binding: UsersBinding(),
-    ),
-    GetPage(
-      name: Routes.STUDENT_ADD,
-      page: () => AddStudent(),
-      binding: UsersBinding(),
-    ),
+      GetPage(
+        name: Routes.STUDENT_EDIT,
+        page: () => EditStudent(),
+        binding: UsersBinding(),
+      ),
+      GetPage(
+        name: Routes.STUDENT_VIEW,
+        page: () => ViewStudent(),
+        binding: UsersBinding(),
+      ),
+      GetPage(
+        name: Routes.STUDENT_ADD,
+        page: () => AddStudent(),
+        binding: UsersBinding(),
+      ),
 
-    GetPage(
-      name: Routes.TEACHERS,
-      page: () => Teachers(),
-      binding: UsersBinding(),
-    ),
+      GetPage(
+        name: Routes.TEACHERS,
+        page: () => Teachers(),
+        binding: UsersBinding(),
+      ),
 
-    ///
-    /// parents
-    ///
-    GetPage(
-      name: Routes.PARENTS,
-      page: () => Parents(),
-      binding: UsersBinding(),
-    ),
+      ///
+      /// parents
+      ///
+      GetPage(
+        name: Routes.PARENTS,
+        page: () => Parents(),
+        binding: UsersBinding(),
+      ),
 
-    GetPage(
-      name: Routes.PARENTS_ADD,
-      page: () => AddParent(),
-      binding: UsersBinding(),
-    ),
+      GetPage(
+        name: Routes.PARENTS_ADD,
+        page: () => AddParent(),
+        binding: UsersBinding(),
+      ),
 
-    GetPage(
-      name: Routes.PARENTS_EDIT,
-      page: () => EditParent(),
-      binding: UsersBinding(),
-    ),
+      GetPage(
+        name: Routes.PARENTS_EDIT,
+        page: () => EditParent(),
+        binding: UsersBinding(),
+      ),
 
-    GetPage(
-      name: Routes.PARENTS_VIEW,
-      page: () => ViewParent(),
-      binding: UsersBinding(),
-    ),
+      GetPage(
+        name: Routes.PARENTS_VIEW,
+        page: () => ViewParent(),
+        binding: UsersBinding(),
+      ),
 
-    ///
-    /// staffs
-    ///
-    GetPage(
-      name: Routes.STAFFS,
-      page: () => Staffs(),
-      binding: UsersBinding(),
-    ),
-    GetPage(
-      name: Routes.STAFFS_EDIT,
-      page: () => EditStaff(),
-      binding: UsersBinding(),
-    ),
+      ///
+      /// staffs
+      ///
+      GetPage(
+        name: Routes.STAFFS,
+        page: () => Staffs(),
+        binding: UsersBinding(),
+      ),
+      GetPage(
+        name: Routes.STAFFS_EDIT,
+        page: () => EditStaff(),
+        binding: UsersBinding(),
+      ),
 
-    GetPage(
-      name: Routes.STAFFS_ADD,
-      page: () => AddStaff(),
-      binding: UsersBinding(),
-    ),
-    GetPage(
-      name: Routes.STAFFS_VIEW,
-      page: () => ViewStaff(),
-      binding: UsersBinding(),
-    ),
+      GetPage(
+        name: Routes.STAFFS_ADD,
+        page: () => AddStaff(),
+        binding: UsersBinding(),
+      ),
+      GetPage(
+        name: Routes.STAFFS_VIEW,
+        page: () => ViewStaff(),
+        binding: UsersBinding(),
+      ),
 
-    ///
-    ///  Classes
-    ///
-    GetPage(
-      name: Routes.CLASSES,
-      page: () => Classes(),
-      binding: ClassesBinding(),
-    ),
+      ///
+      ///  Classes
+      ///
+      GetPage(
+        name: Routes.CLASSES,
+        page: () => Classes(),
+        binding: ClassesBinding(),
+      ),
 
-    GetPage(
-      name: Routes.CLASSES_EDIT,
-      page: () => EditClass(),
-      binding: ClassesBinding(),
-    ),
+      GetPage(
+        name: Routes.CLASSES_EDIT,
+        page: () => EditClass(),
+        binding: ClassesBinding(),
+      ),
 
-    GetPage(
-      name: Routes.CLASSES_ADD,
-      page: () => AddClass(),
-      binding: ClassesBinding(),
-    ),
+      GetPage(
+        name: Routes.CLASSES_ADD,
+        page: () => AddClass(),
+        binding: ClassesBinding(),
+      ),
 
-    GetPage(
-      name: Routes.CLASSES_VIEW,
-      page: () => ViewClass(),
-      binding: ClassesBinding(),
-    ),
+      GetPage(
+        name: Routes.CLASSES_VIEW,
+        page: () => ViewClass(),
+        binding: ClassesBinding(),
+      ),
 
-    ///
-    /// subjects
-    ///
-    GetPage(
-      name: Routes.SUBJECTS,
-      page: () => Subjects(),
-      binding: SubjectsBinding(),
-    ),
+      ///
+      /// subjects
+      ///
+      GetPage(
+        name: Routes.SUBJECTS,
+        page: () => Subjects(),
+        binding: SubjectsBinding(),
+      ),
 
-    GetPage(
-      name: Routes.SUBJECTS_EDIT,
-      page: () => EditSubject(),
-      binding: SubjectsBinding(),
-    ),
+      GetPage(
+        name: Routes.SUBJECTS_EDIT,
+        page: () => EditSubject(),
+        binding: SubjectsBinding(),
+      ),
 
-    GetPage(
-      name: Routes.SUBJECTS_ADD,
-      page: () => AddSubject(),
-      binding: SubjectsBinding(),
-    ),
+      GetPage(
+        name: Routes.SUBJECTS_ADD,
+        page: () => AddSubject(),
+        binding: SubjectsBinding(),
+      ),
 
-    GetPage(
-      name: Routes.SUBJECTS_VIEW,
-      page: () => ViewSubject(),
-      binding: SubjectsBinding(),
-    ),
-  ];
+      GetPage(
+        name: Routes.SUBJECTS_VIEW,
+        page: () => ViewSubject(),
+        binding: SubjectsBinding(),
+      ),
+    ];
+  }
 }

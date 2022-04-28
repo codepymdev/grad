@@ -31,6 +31,7 @@ class Role extends GetView<UsersController> {
         ),
         DropdownButton<roleModel.Role>(
           isExpanded: true,
+          hint: Text("Select Role"),
           value: controller.role_value.value,
           onChanged: (roleModel.Role? value) {
             if (value != null) {

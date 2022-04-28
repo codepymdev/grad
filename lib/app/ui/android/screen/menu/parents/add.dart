@@ -130,7 +130,7 @@ class AddParent extends GetView<UsersController> {
                               ),
                             )
                           : Text(
-                              "Add User",
+                              "Add Parent",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),

@@ -8,7 +8,11 @@ import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
 
 class TList extends GetView<UsersController> {
   final data;
-  TList({required this.data});
+  final type;
+  TList({
+    required this.data,
+    required this.type,
+  });
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,7 +29,11 @@ class TList extends GetView<UsersController> {
             children: [
               // A SlidableAction can have an icon and/or a label.
               SlidableAction(
-                onPressed: (_) async => showDeleteDialog(context, data['id']),
+                onPressed: (_) async => showDeleteDialog(
+                  context,
+                  data['id'],
+                  type,
+                ),
                 foregroundColor: Color.fromARGB(255, 120, 120, 120),
                 icon: FeatherIcons.trash,
                 label: 'Delete',
@@ -79,7 +87,11 @@ class TList extends GetView<UsersController> {
   /// Delete pop up
   ///
 
-  showDeleteDialog(BuildContext context, id) {
+  showDeleteDialog(
+    BuildContext context,
+    id,
+    type,
+  ) {
     ///
     ///No button
     ///
@@ -97,7 +109,10 @@ class TList extends GetView<UsersController> {
       child: Text("Yes"),
       onPressed: () async {
         Navigator.pop(context);
-        await controller.deleteUser(id: id, type: "parent");
+        await controller.deleteUser(
+          id: id,
+          type: type,
+        );
       },
     );
     // set up the AlertDialog

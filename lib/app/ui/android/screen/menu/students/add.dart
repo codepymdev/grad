@@ -23,6 +23,7 @@ final TextEditingController countryController = TextEditingController();
 class AddStudent extends GetView<UsersController> {
   @override
   Widget build(BuildContext context) {
+    final classId = Get.arguments;
     return Scaffold(
       appBar: customAppBar("Add Student"),
       body: SingleChildScrollView(
@@ -121,7 +122,7 @@ class AddStudent extends GetView<UsersController> {
                               ),
                             )
                           : Text(
-                              "Add User",
+                              "Add Staff",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
@@ -137,6 +138,7 @@ class AddStudent extends GetView<UsersController> {
                             "city": cityController.text,
                             "country": countryController.text,
                             "type": "student",
+                            "classId": classId,
                           });
 
                           if (controller.error.value) {

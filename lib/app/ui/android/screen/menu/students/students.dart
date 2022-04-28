@@ -6,12 +6,10 @@ import 'package:grad/app/controller/menu/users_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
 
-late var param;
-
 class Students extends GetView<UsersController> {
   @override
   Widget build(BuildContext context) {
-    param = Get.arguments;
+    final param = Get.arguments;
     return Scaffold(
       appBar: customAppBar("${param['name']} ${param['arm']}"),
       body: Obx(() {
@@ -40,7 +38,7 @@ class Students extends GetView<UsersController> {
           ),
         );
       }),
-      floatingActionButton: _buildFloatActionButton(),
+      floatingActionButton: _buildFloatActionButton(id: param['id']),
     );
   }
 
@@ -113,10 +111,13 @@ class Students extends GetView<UsersController> {
     );
   }
 
-  Widget _buildFloatActionButton() {
+  Widget _buildFloatActionButton({required id}) {
     return FloatingActionButton(
       backgroundColor: Colors.white,
-      onPressed: () => Get.toNamed("/students/add"),
+      onPressed: () => Get.toNamed(
+        "/students/add",
+        arguments: id,
+      ),
       child: Icon(
         FeatherIcons.plus,
         color: Color(0xFF21B7CA),

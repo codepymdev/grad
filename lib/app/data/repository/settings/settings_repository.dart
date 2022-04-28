@@ -67,7 +67,6 @@ class SettingsRepository {
         throw Exception('Failed to load data');
       }
     } catch (_) {
-      print(_.toString());
       throw Exception("Failed to load data");
     }
   }

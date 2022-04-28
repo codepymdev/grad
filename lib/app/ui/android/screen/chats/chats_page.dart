@@ -4,10 +4,29 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/controller/chat/chat_controller.dart';
 import 'package:grad/app/ui/android/widgets/chat/conversation.dart';
+import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 class ChatPage extends GetView<ChatController> {
+  /// Instance of [StreamChatClient] we created earlier. This contains information about
+  /// our application and connection state.
+  final StreamChatClient client;
+
+  /// The channel we'd like to observe and participate.
+  final Channel channel;
+
+  ChatPage({
+    required this.client,
+    required this.channel,
+  });
   @override
   Widget build(BuildContext context) {
+    return StreamChannel(
+      channel: channel,
+      child: const ChannelPage(),
+    );
+  }
+
+  Scaffold newMethod(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -55,6 +74,28 @@ class ChatPage extends GetView<ChatController> {
             return Conversation();
           },
         ),
+      ),
+    );
+  }
+}
+
+/// Displays the list of messages inside the channel
+class ChannelPage extends StatelessWidget {
+  const ChannelPage({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: StreamChannelHeader(),
+      body: Column(
+        children: const <Widget>[
+          Expanded(
+            child: StreamMessageListView(),
+          ),
+          StreamMessageInput(),
+        ],
       ),
     );
   }

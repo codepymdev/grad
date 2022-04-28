@@ -28,7 +28,7 @@ class AddStaff extends GetView<UsersController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Add User"),
+      appBar: customAppBar("Add Staff"),
       body: SingleChildScrollView(
         child: Obx(
           () {
@@ -106,7 +106,7 @@ class AddStaff extends GetView<UsersController> {
                   ///
                   /// role
                   ///
-                  Role(),
+                  controller.display_role.value ? Role() : Container(),
 
                   ///
                   /// Address

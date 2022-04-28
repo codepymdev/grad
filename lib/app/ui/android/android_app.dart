@@ -6,10 +6,17 @@ import 'package:grad/app/routes/app_routes.dart';
 import 'package:grad/app/translations/app_translations.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/ui/theme/android/app_theme.dart';
+import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 class AndroidApp extends StatelessWidget {
   final themeValue;
-  AndroidApp({@required this.themeValue});
+  final channel;
+  final client;
+  AndroidApp({
+    required this.themeValue,
+    required this.channel,
+    required this.client,
+  });
   @override
   Widget build(BuildContext context) {
     ThemeData? selectedTheme;
@@ -33,11 +40,20 @@ class AndroidApp extends StatelessWidget {
         statusBarBrightness: Brightness.dark,
       ),
       child: GetMaterialApp(
+        builder: ((context, widget) {
+          return StreamChat(
+            client: client,
+            child: widget,
+          );
+        }),
         theme: selectedTheme,
         // darkTheme: darkTheme,
         defaultTransition: Transition.fade,
         locale: Locale('pt', 'BR'),
-        getPages: AppPages.pages,
+        getPages: AppPages.pages({
+          "client": client,
+          "channel": channel,
+        }),
         initialRoute: Routes.INITIAL,
         initialBinding: AuthManagerBinding(),
         translationsKeys: AppTranslation.translations,
