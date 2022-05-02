@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
+import 'package:grad/app/data/services/GetService.dart';
+import 'package:grad/app/data/services/StreamService.dart';
 import 'package:jiffy/jiffy.dart';
+import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:intl/intl.dart';
 
@@ -228,4 +231,20 @@ Icon classSection(String section) {
       color: Colors.red,
     );
   }
+}
+
+Future<void> createChannel(BuildContext context, String memberId) async {
+  Channel channel = await getIt<StreamService>()
+      .createChannel([StreamChat.of(context).currentUser!.id, memberId]);
+
+  // Navigator.of(context).push(StreamChat.routeWithChannel(channel),);
+}
+
+String chatStreamId(firstname, id) {
+  String uid = firstname + "_" + id;
+  return removeAllWhitespace(uid);
+}
+
+String removeAllWhitespace(String str) {
+  return str.replaceAll(RegExp(r"\s+"), "");
 }

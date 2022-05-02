@@ -1,32 +1,25 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:get/get.dart';
-import 'package:grad/app/controller/chat/chat_controller.dart';
-import 'package:grad/app/ui/android/widgets/chat/conversation.dart';
+import 'package:grad/app/data/services/GetService.dart';
+import 'package:grad/app/data/services/StreamService.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
-class ChatPage extends GetView<ChatController> {
-  /// Instance of [StreamChatClient] we created earlier. This contains information about
-  /// our application and connection state.
-  final StreamChatClient client;
-
-  /// The channel we'd like to observe and participate.
-  final Channel channel;
-
-  ChatPage({
-    required this.client,
-    required this.channel,
-  });
+class ChatPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return StreamChannel(
-      channel: channel,
-      child: const ChannelPage(),
+    return Container(
+      child: StreamChat(
+        client: getIt<StreamService>().client,
+        child: ChannelListPage(),
+      ),
     );
   }
+}
 
-  Scaffold newMethod(BuildContext context) {
+class ChannelListPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -64,22 +57,21 @@ class ChatPage extends GetView<ChatController> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: ListView.separated(
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: 16,
-          shrinkWrap: true,
-          separatorBuilder: (BuildContext context, int index) => Container(),
-          itemBuilder: (BuildContext context, int index) {
-            return Conversation();
-          },
+      body: ChannelsBloc(
+        child: ChannelListView(
+          filter:
+              Filter.in_('members', [StreamChat.of(context).currentUser!.id]),
+          sort: [SortOption('last_message_at')],
+          pagination: PaginationParams(
+            limit: 20,
+          ),
+          channelWidget: ChannelPage(),
         ),
       ),
     );
   }
 }
 
-/// Displays the list of messages inside the channel
 class ChannelPage extends StatelessWidget {
   const ChannelPage({
     Key? key,
@@ -88,13 +80,47 @@ class ChannelPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: StreamChannelHeader(),
+      appBar: const ChannelHeader(),
       body: Column(
-        children: const <Widget>[
+        children: <Widget>[
           Expanded(
-            child: StreamMessageListView(),
+            child: MessageListView(
+              threadBuilder: (_, parentMessage) => ThreadPage(
+                parent: parentMessage,
+              ),
+            ),
           ),
-          StreamMessageInput(),
+          const MessageInput(),
+        ],
+      ),
+    );
+  }
+}
+
+class ThreadPage extends StatelessWidget {
+  const ThreadPage({
+    Key? key,
+    this.parent,
+  }) : super(key: key);
+
+  final Message? parent;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: ThreadHeader(
+        parent: parent!,
+      ),
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: MessageListView(
+              parentMessage: parent,
+            ),
+          ),
+          MessageInput(
+            parentMessage: parent,
+          ),
         ],
       ),
     );

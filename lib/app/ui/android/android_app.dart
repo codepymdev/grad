@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:grad/app/bindings/auth/auth_manager_binding.dart';
+import 'package:grad/app/data/services/GetService.dart';
+import 'package:grad/app/data/services/StreamService.dart';
 import 'package:grad/app/routes/app_pages.dart';
 import 'package:grad/app/routes/app_routes.dart';
 import 'package:grad/app/translations/app_translations.dart';
@@ -10,12 +12,8 @@ import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 class AndroidApp extends StatelessWidget {
   final themeValue;
-  final channel;
-  final client;
   AndroidApp({
     required this.themeValue,
-    required this.channel,
-    required this.client,
   });
   @override
   Widget build(BuildContext context) {
@@ -42,7 +40,7 @@ class AndroidApp extends StatelessWidget {
       child: GetMaterialApp(
         builder: ((context, widget) {
           return StreamChat(
-            client: client,
+            client: getIt<StreamService>().client,
             child: widget,
           );
         }),
@@ -50,10 +48,7 @@ class AndroidApp extends StatelessWidget {
         // darkTheme: darkTheme,
         defaultTransition: Transition.fade,
         locale: Locale('pt', 'BR'),
-        getPages: AppPages.pages({
-          "client": client,
-          "channel": channel,
-        }),
+        getPages: AppPages.pages,
         initialRoute: Routes.INITIAL,
         initialBinding: AuthManagerBinding(),
         translationsKeys: AppTranslation.translations,

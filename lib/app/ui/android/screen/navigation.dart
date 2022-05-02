@@ -10,12 +10,6 @@ import 'package:grad/app/ui/android/screen/home/home_page.dart';
 import 'package:grad/app/ui/android/screen/settings/settings_page.dart';
 
 class Navigation extends GetView<NavigationController> {
-  final client;
-  final channel;
-  Navigation({
-    required this.client,
-    required this.channel,
-  });
   @override
   Widget build(BuildContext context) {
     return GetBuilder<NavigationController>(
@@ -26,10 +20,7 @@ class Navigation extends GetView<NavigationController> {
               index: controller.tabIndex,
               children: [
                 HomePage(),
-                ChatPage(
-                  client: client,
-                  channel: channel,
-                ),
+                ChatPage(),
                 CalendarPage(),
                 SettingsPage(),
                 AccountPage(),
@@ -63,7 +54,7 @@ class Navigation extends GetView<NavigationController> {
         label: "",
         icon: Badge(
           badgeContent: Text(
-            "2",
+            "${controller.messagecount}",
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
