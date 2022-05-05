@@ -203,39 +203,45 @@ class MenuOverlay extends ModalRoute<void> {
                 //   ),
                 // ),
                 Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        TIMESHEETS,
-                        width: 60,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "Activities",
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                    ],
+                  child: GestureDetector(
+                    onTap: () => Get.toNamed("/attendance"),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          TIMESHEETS,
+                          width: 60,
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          "Attendance",
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        EXAM,
-                        width: 60,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "Results",
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                    ],
+                  child: GestureDetector(
+                    onTap: () => Get.toNamed("/results"),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          EXAM,
+                          width: 60,
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          "Results",
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 // Container(

@@ -1,14 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:grad/app/core/constants/app_constants.dart';
 import 'package:grad/app/core/utils/app_initializer.dart';
 import 'package:grad/app/data/services/GetService.dart';
-import 'package:grad/app/data/services/StreamService.dart';
 import 'package:grad/app/ui/app.dart';
 import 'package:grad/app/ui/app_connectivity_error.dart';
 import 'package:grad/app/ui/app_error.dart';
 import 'package:grad/app/ui/app_splash_screen.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
+late FirebaseMessaging messaging;
 Future<void> main() async {
   //set up get it
   await setupLocator();
@@ -19,6 +22,13 @@ Future<void> main() async {
   await GetStorage.init();
 
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp();
+
+  //Remove this method to stop OneSignal Debugging
+  OneSignal.shared.setLogLevel(OSLogLevel.verbose, OSLogLevel.none);
+
+  OneSignal.shared.setAppId(ONE_SIGNAL_APP_ID);
 
   runApp(
     FutureBuilder<Map<String, dynamic>>(

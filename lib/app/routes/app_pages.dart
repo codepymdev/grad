@@ -13,7 +13,9 @@ import 'package:grad/app/bindings/calendar/new_event_binding.dart';
 import 'package:grad/app/bindings/chats/conversation_binding.dart';
 import 'package:grad/app/bindings/home/home_binding.dart';
 import 'package:grad/app/bindings/menu/announcement_binding.dart';
+import 'package:grad/app/bindings/menu/attendance_binding.dart';
 import 'package:grad/app/bindings/menu/classes_binding.dart';
+import 'package:grad/app/bindings/menu/results_binding.dart';
 import 'package:grad/app/bindings/menu/subjects_binding.dart';
 import 'package:grad/app/bindings/menu/users_binding.dart';
 import 'package:grad/app/bindings/navigation/navigation_binding.dart';
@@ -32,6 +34,10 @@ import 'package:grad/app/ui/android/screen/calendar/new_event.dart';
 import 'package:grad/app/ui/android/screen/menu/announcement/Announcements.dart';
 import 'package:grad/app/ui/android/screen/menu/announcement/Create-announcement.dart';
 import 'package:grad/app/ui/android/screen/menu/announcement/edit_announcement.dart';
+import 'package:grad/app/ui/android/screen/menu/attendance/add.dart';
+import 'package:grad/app/ui/android/screen/menu/attendance/class.dart';
+import 'package:grad/app/ui/android/screen/menu/attendance/students.dart';
+import 'package:grad/app/ui/android/screen/menu/attendance/view.dart';
 import 'package:grad/app/ui/android/screen/menu/calendar/calendar.dart';
 import 'package:grad/app/ui/android/screen/menu/calendar/edit_event.dart';
 import 'package:grad/app/ui/android/screen/menu/classes/add.dart';
@@ -42,6 +48,9 @@ import 'package:grad/app/ui/android/screen/menu/parents/add.dart';
 import 'package:grad/app/ui/android/screen/menu/parents/edit.dart';
 import 'package:grad/app/ui/android/screen/menu/parents/parents.dart';
 import 'package:grad/app/ui/android/screen/menu/parents/view.dart';
+import 'package:grad/app/ui/android/screen/menu/results/class.dart';
+import 'package:grad/app/ui/android/screen/menu/results/students.dart';
+import 'package:grad/app/ui/android/screen/menu/results/view.dart';
 import 'package:grad/app/ui/android/screen/menu/staffs/add.dart';
 import 'package:grad/app/ui/android/screen/menu/staffs/edit.dart';
 import 'package:grad/app/ui/android/screen/menu/staffs/staffs.dart';
@@ -365,6 +374,49 @@ class AppPages {
       name: Routes.SUBJECTS_VIEW,
       page: () => ViewSubject(),
       binding: SubjectsBinding(),
+    ),
+
+    //results
+    GetPage(
+      name: Routes.CLASS_RESULTS,
+      page: () => ClassResult(),
+      binding: ClassesBinding(),
+    ),
+
+    GetPage(
+      name: Routes.STUDENTS_RESULTS,
+      page: () => StudentResults(),
+      binding: UsersBinding(),
+    ),
+
+    GetPage(
+      name: Routes.VIEW_RESULTS,
+      page: () => ViewResult(),
+      binding: ResultsBinding(),
+    ),
+
+    //attendance
+
+    GetPage(
+      name: Routes.CLASS_ATTENDANCE,
+      page: () => ClassAttendance(),
+      binding: ClassesBinding(),
+    ),
+
+    GetPage(
+      name: Routes.STUDENTS_ATTENDANCE,
+      page: () => StudentAttendance(),
+      binding: UsersBinding(),
+    ),
+    GetPage(
+      name: Routes.ATTENDANCE_VIEW,
+      page: () => ViewAttendance(),
+      binding: AttendanceBinding(),
+    ),
+    GetPage(
+      name: Routes.ATTENDANCE_ADD,
+      page: () => AddAttendance(),
+      binding: AttendanceBinding(),
     ),
   ];
 }

@@ -57,4 +57,13 @@ abstract class Routes {
   static const SUBJECTS_ADD = "/subjects/add";
   static const SUBJECTS_EDIT = "/subjects/edit";
   static const SUBJECTS_VIEW = "/subjects/view";
+
+  static const CLASS_RESULTS = "/results";
+  static const STUDENTS_RESULTS = "/results/students";
+  static const VIEW_RESULTS = "/results/view";
+
+  static const CLASS_ATTENDANCE = "/attendance";
+  static const STUDENTS_ATTENDANCE = "/attendance/students";
+  static const ATTENDANCE_ADD = "/attendance/add";
+  static const ATTENDANCE_VIEW = "/attendance/view";
 }
