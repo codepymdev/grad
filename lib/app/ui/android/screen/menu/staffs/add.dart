@@ -28,7 +28,7 @@ class AddStaff extends GetView<UsersController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Add Staff"),
+      appBar: customAppBar(name: "Add Staff"),
       body: SingleChildScrollView(
         child: Obx(
           () {

@@ -7,7 +7,7 @@ class EditStaff extends GetView<UsersController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Edit Staff"),
+      appBar: customAppBar(name: "Edit Staff"),
       body: Center(
         child: Text('Users'),
       ),

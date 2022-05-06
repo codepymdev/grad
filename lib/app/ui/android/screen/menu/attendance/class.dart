@@ -7,7 +7,7 @@ class ClassAttendance extends GetView<ClassesController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Select Class"),
+      appBar: customAppBar(name: "Select Class"),
       body: Obx(() {
         if (controller.loading.value)
           return Container(

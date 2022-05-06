@@ -10,7 +10,7 @@ class Parents extends GetView<UsersController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Parents"),
+      appBar: customAppBar(name: "Parents"),
       body: Obx(() {
         if (controller.loading.value)
           return Container(

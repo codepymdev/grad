@@ -78,7 +78,10 @@ List<Tab> staffsTabbar() {
   ];
 }
 
-AppBar customAppBar(name) {
+AppBar customAppBar({
+  required name,
+  type = null,
+}) {
   return AppBar(
     elevation: 0,
     backgroundColor: Colors.transparent,
@@ -96,6 +99,28 @@ AppBar customAppBar(name) {
       ),
       onPressed: () => Get.back(),
     ),
+    actionsIconTheme: IconThemeData(
+      color: Colors.black,
+    ),
+    actions: [
+      type == "attendance"
+          ? PopupMenuButton(
+              itemBuilder: (_) {
+                return [
+                  PopupMenuItem<int>(
+                    value: 0,
+                    child: Text("Add Attendance"),
+                  ),
+                ];
+              },
+              onSelected: (_) {
+                if (_ == 0) {
+                  Get.toNamed("/attendance/add");
+                }
+              },
+            )
+          : Container(),
+    ],
   );
 }
 

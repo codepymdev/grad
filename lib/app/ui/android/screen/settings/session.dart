@@ -7,7 +7,7 @@ class Session extends GetView<SettingsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Session"),
+      appBar: customAppBar(name: "Session"),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(

@@ -11,7 +11,7 @@ class Students extends GetView<UsersController> {
   Widget build(BuildContext context) {
     final param = Get.arguments;
     return Scaffold(
-      appBar: customAppBar("${param['name']} ${param['arm']}"),
+      appBar: customAppBar(name: "${param['name']} ${param['arm']}"),
       body: Obx(() {
         if (controller.loading.value)
           return Container(

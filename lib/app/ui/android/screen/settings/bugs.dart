@@ -10,7 +10,7 @@ class Bugs extends GetView<SettingsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Report Bugs"),
+      appBar: customAppBar(name: "Report Bugs"),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(

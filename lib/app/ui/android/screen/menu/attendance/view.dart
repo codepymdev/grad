@@ -9,7 +9,10 @@ class ViewAttendance extends GetView<AttendanceController> {
     final param = Get.arguments;
     return Scaffold(
       appBar: customAppBar(
-          "${param['studentName']} - ${param['classname']} ${param['classarm']}"),
+        name:
+            "${param['studentName']} - ${param['classname']} ${param['classarm']}",
+        type: "attendance",
+      ),
       body: Obx(
         () {
           if (controller.loading.value)

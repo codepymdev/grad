@@ -7,7 +7,7 @@ class ViewSubject extends GetView<SubjectsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Subject"),
+      appBar: customAppBar(name: "Subject"),
       body: Center(
         child: Text('Subject'),
       ),

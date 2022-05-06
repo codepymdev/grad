@@ -12,7 +12,7 @@ class NewEvent extends GetView<NewEventController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Create new event"),
+      appBar: customAppBar(name: "Create new event"),
       body: SingleChildScrollView(
         child: Obx(
           () => Container(

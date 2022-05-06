@@ -9,7 +9,7 @@ class Subjects extends GetView<SubjectsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Subjects"),
+      appBar: customAppBar(name: "Subjects"),
       body: Obx(() {
         if (controller.loading.value)
           return Container(

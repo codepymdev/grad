@@ -27,7 +27,7 @@ class AddUser extends GetView<UsersController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Add User"),
+      appBar: customAppBar(name: "Add User"),
       body: SingleChildScrollView(
         child: Obx(
           () {

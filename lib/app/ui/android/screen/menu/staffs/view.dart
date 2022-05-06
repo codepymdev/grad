@@ -7,7 +7,7 @@ class ViewStaff extends GetView<UsersController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Staff"),
+      appBar: customAppBar(name: "Staff"),
       body: Center(
         child: Text('Users'),
       ),

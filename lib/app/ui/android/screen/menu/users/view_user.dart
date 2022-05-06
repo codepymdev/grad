@@ -9,7 +9,7 @@ class ViewUser extends GetView<UsersController> {
     var userId = Get.arguments;
     print(userId);
     return Scaffold(
-      appBar: customAppBar("View User"),
+      appBar: customAppBar(name: "View User"),
       body: Text("add user"),
     );
   }

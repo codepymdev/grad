@@ -14,7 +14,7 @@ class ChangePasswordAccount extends GetView<ChangePasswordAccountController> {
     passwordController = TextEditingController();
     confirmPasswordController = TextEditingController();
     return Scaffold(
-      appBar: customAppBar("Change Password"),
+      appBar: customAppBar(name: "Change Password"),
       body: Obx(
         () => Container(
           margin: EdgeInsets.only(

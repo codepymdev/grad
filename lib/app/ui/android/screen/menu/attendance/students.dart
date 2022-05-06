@@ -9,7 +9,7 @@ class StudentAttendance extends GetView<UsersController> {
   Widget build(BuildContext context) {
     final param = Get.arguments;
     return Scaffold(
-      appBar: customAppBar("${param['classname']} ${param['classarm']}"),
+      appBar: customAppBar(name: "${param['classname']} ${param['classarm']}"),
       body: Obx(() {
         if (controller.loading.value)
           return Container(

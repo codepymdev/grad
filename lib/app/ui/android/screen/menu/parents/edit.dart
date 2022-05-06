@@ -7,7 +7,7 @@ class EditParent extends GetView<UsersController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Parents"),
+      appBar: customAppBar(name: "Parents"),
       body: Center(
         child: Text('Users'),
       ),

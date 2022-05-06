@@ -21,7 +21,7 @@ class EditClass extends GetView<ClassesController> {
   Widget build(BuildContext context) {
     dynamic data = Get.arguments;
     return Scaffold(
-      appBar: customAppBar("Edit Class"),
+      appBar: customAppBar(name: "Edit Class"),
       body: Obx(() {
         if (controller.loading.value)
           return Container(

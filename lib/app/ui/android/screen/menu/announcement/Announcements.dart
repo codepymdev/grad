@@ -13,7 +13,7 @@ class Announcements extends GetView<AnnouncementController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Announcements"),
+      appBar: customAppBar(name: "Announcements"),
       body: Obx(() {
         if (controller.loading.value)
           return Container(

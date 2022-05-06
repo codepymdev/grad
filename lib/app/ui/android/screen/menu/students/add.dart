@@ -25,7 +25,7 @@ class AddStudent extends GetView<UsersController> {
   Widget build(BuildContext context) {
     final classId = Get.arguments;
     return Scaffold(
-      appBar: customAppBar("Add Student"),
+      appBar: customAppBar(name: "Add Student"),
       body: SingleChildScrollView(
         child: Obx(
           () {

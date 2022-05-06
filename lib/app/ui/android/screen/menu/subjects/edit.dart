@@ -7,7 +7,7 @@ class EditSubject extends GetView<SubjectsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Edit Subject"),
+      appBar: customAppBar(name: "Edit Subject"),
       body: Center(
         child: Text('Edit Subject'),
       ),

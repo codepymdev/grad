@@ -9,7 +9,7 @@ class CreateAnnouncement extends GetView<AnnouncementController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Create New Announcement"),
+      appBar: customAppBar(name: "Create New Announcement"),
       body: Obx(() {
         if (controller.loading.value)
           return Container(

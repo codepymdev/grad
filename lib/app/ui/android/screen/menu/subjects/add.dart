@@ -11,7 +11,7 @@ class AddSubject extends GetView<SubjectsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Add Subject"),
+      appBar: customAppBar(name: "Add Subject"),
       body: Obx(() {
         if (controller.loading.value)
           return Container(

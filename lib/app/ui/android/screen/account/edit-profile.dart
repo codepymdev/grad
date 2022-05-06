@@ -21,7 +21,7 @@ class EditProfle extends GetView<EditProfileController> {
     return GetBuilder<EditProfileController>(builder: (controller) {
       if (controller.loading) return Container();
       return Scaffold(
-        appBar: customAppBar("Edit Profile"),
+        appBar: customAppBar(name: "Edit Profile"),
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.only(

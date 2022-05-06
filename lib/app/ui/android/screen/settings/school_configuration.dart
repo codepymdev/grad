@@ -19,7 +19,7 @@ class SchoolConfiguration extends GetView<SettingsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("School Configuration"),
+      appBar: customAppBar(name: "School Configuration"),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(

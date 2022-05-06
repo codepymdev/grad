@@ -10,7 +10,7 @@ class Users extends GetView<UsersController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Users"),
+      appBar: customAppBar(name: "Users"),
       body: Obx(
         () {
           if (controller.loading.value)

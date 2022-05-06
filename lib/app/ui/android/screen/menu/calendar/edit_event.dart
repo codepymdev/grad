@@ -14,7 +14,7 @@ class EditEvent extends GetView<NewEventController> {
   Widget build(BuildContext context) {
     data = Get.arguments;
     return Scaffold(
-      appBar: customAppBar("Edit Event"),
+      appBar: customAppBar(name: "Edit Event"),
       body: SingleChildScrollView(
         child: Obx(
           () => Container(

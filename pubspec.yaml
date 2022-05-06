@@ -55,6 +55,8 @@ dependencies:
   get_it: ^7.2.0
   firebase_core: ^1.15.0
   flutter_local_notifications: ^9.4.1
+
+  dropdown_button2: ^1.4.0
   
 dev_dependencies:
   flutter_test:

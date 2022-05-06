@@ -7,7 +7,7 @@ class Notification extends GetView<SettingsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Notification"),
+      appBar: customAppBar(name: "Notification"),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(

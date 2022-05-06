@@ -7,7 +7,7 @@ class ViewClass extends GetView<ClassesController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Class"),
+      appBar: customAppBar(name: "Class"),
       body: Obx(() {
         if (controller.loading.value)
           return Container(

@@ -8,7 +8,7 @@ class Term extends GetView<SettingsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Term"),
+      appBar: customAppBar(name: "Term"),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(

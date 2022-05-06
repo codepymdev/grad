@@ -20,7 +20,7 @@ class AddClass extends GetView<ClassesController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Add Class"),
+      appBar: customAppBar(name: "Add Class"),
       body: Obx(() {
         if (controller.loading.value)
           return Container(

@@ -9,7 +9,7 @@ class Calendar extends GetView<CalendarController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Calendar"),
+      appBar: customAppBar(name: "Calendar"),
       body: Obx(() {
         if (controller.loading.value)
           return Container(

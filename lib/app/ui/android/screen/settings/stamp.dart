@@ -8,7 +8,7 @@ class Stamp extends GetView<SettingsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar("Stamp"),
+      appBar: customAppBar(name: "Stamp"),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(

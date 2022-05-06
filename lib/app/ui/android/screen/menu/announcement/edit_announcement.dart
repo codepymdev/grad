@@ -11,7 +11,7 @@ class EditAnnouncement extends GetView<AnnouncementController> {
   Widget build(BuildContext context) {
     data = Get.arguments;
     return Scaffold(
-      appBar: customAppBar("Edit Announcement"),
+      appBar: customAppBar(name: "Edit Announcement"),
       body: Obx(() {
         if (controller.loading.value)
           return Container(
