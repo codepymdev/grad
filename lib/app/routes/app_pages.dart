@@ -36,7 +36,7 @@ import 'package:grad/app/ui/android/screen/menu/announcement/Create-announcement
 import 'package:grad/app/ui/android/screen/menu/announcement/edit_announcement.dart';
 import 'package:grad/app/ui/android/screen/menu/attendance/add.dart';
 import 'package:grad/app/ui/android/screen/menu/attendance/class.dart';
-import 'package:grad/app/ui/android/screen/menu/attendance/students.dart';
+import 'package:grad/app/ui/android/screen/menu/attendance/student.dart';
 import 'package:grad/app/ui/android/screen/menu/attendance/view.dart';
 import 'package:grad/app/ui/android/screen/menu/calendar/calendar.dart';
 import 'package:grad/app/ui/android/screen/menu/calendar/edit_event.dart';
@@ -75,7 +75,6 @@ import 'package:grad/app/ui/android/screen/settings/session.dart';
 import 'package:grad/app/ui/android/screen/settings/stamp.dart';
 import 'package:grad/app/ui/android/screen/settings/term.dart';
 import 'package:grad/app/ui/android/screen/success-page.dart';
-import 'package:grad/app/ui/android/widgets/chat/conversation.dart';
 import 'package:grad/app/ui/android/widgets/home/teachers.dart';
 
 import '../ui/android/screen/settings/notification.dart';
@@ -94,11 +93,7 @@ class AppPages {
         CalendarBinding(),
       ],
     ),
-    GetPage(
-      name: Routes.CONVERSATION,
-      page: () => Conversation(),
-      binding: ConversationBinding(),
-    ),
+
     GetPage(
       name: Routes.NEW_EVENT,
       page: () => NewEvent(),
@@ -404,11 +399,6 @@ class AppPages {
     ),
 
     GetPage(
-      name: Routes.STUDENTS_ATTENDANCE,
-      page: () => StudentAttendance(),
-      binding: UsersBinding(),
-    ),
-    GetPage(
       name: Routes.ATTENDANCE_VIEW,
       page: () => ViewAttendance(),
       binding: AttendanceBinding(),
@@ -416,6 +406,11 @@ class AppPages {
     GetPage(
       name: Routes.ATTENDANCE_ADD,
       page: () => AddAttendance(),
+      binding: AttendanceBinding(),
+    ),
+    GetPage(
+      name: Routes.ATTENDANCE_STUDENT,
+      page: () => StudentAttendance(),
       binding: AttendanceBinding(),
     ),
   ];

@@ -1,8 +1,11 @@
 import 'package:get/get.dart';
+import 'package:grad/app/core/constants/app_constants.dart';
 import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/data/mixins/cache_manager.dart';
 import 'package:grad/app/data/repository/menu/attendance_repository.dart';
+import 'package:grad/app/data/repository/menu/people_repository.dart';
 import 'package:grad/app/data/repository/settings/settings_repository.dart';
+import 'package:intl/intl.dart';
 
 class AttendanceController extends GetxController with CacheManager {
   var configs = [].obs;
@@ -22,6 +25,8 @@ class AttendanceController extends GetxController with CacheManager {
   var classId = "".obs;
 
   var attendance = [].obs;
+  var students = [].obs;
+  var student_attendance = [].obs;
 
   late String tval;
   late String yval;
@@ -30,6 +35,15 @@ class AttendanceController extends GetxController with CacheManager {
   var error_msg = "".obs;
   var success = false.obs;
   var success_msg = "".obs;
+  DateFormat dateFormat = DateFormat('yyyy-MM-dd');
+  Rxn<DateTime> initial_date = Rxn<DateTime>();
+
+  var date_ = "".obs;
+
+  var processing = false.obs;
+
+  //list of attendance
+  List<dynamic> attendance_list = [].obs;
 
   @override
   void onInit() async {
@@ -50,50 +64,44 @@ class AttendanceController extends GetxController with CacheManager {
     tval = getConfigValue(configs, "term");
     yval = getConfigValue(configs, "year");
     classId.value = params["classId"];
-    await getAttendance();
+    await get();
+    await getClassStudents();
+    initial_date.value = DateTime.now();
+
+    date_.value = dateFormat.format(DateTime.now());
     loading.value = false;
     super.onInit();
   }
 
-  Future<void> getAttendance() async {
-    loading.value = true;
+  Future<void> get() async {
     var data = await AttendanceRepository.attendance(
       classId: classId.value,
       school: school.value,
-      studentId: params["studentId"],
       year: yval,
-      team: tval,
+      term: tval,
     );
     attendance.value = data;
-    loading.value = false;
   }
 
-  Future<void> create({
-    required date,
-    required description,
-    required holiday,
-    required status,
-  }) async {
-    clear();
-    loading.value = true;
-    Map<String, dynamic> data = await AttendanceRepository.create(data: {
-      "classId": classId.value,
-      "studentId": params["studentId"],
-      "school": school.value,
-      "year": yval,
-      "team": tval,
-      "date": date,
-      "description": description,
-      "holiday": holiday,
-      "status": status
-    });
-    if (data['status'] == true) {
-      success.value = true;
-      success_msg.value = data['message'];
-    } else {
-      error.value = true;
-      error_msg.value = data['message'];
-    }
+  Future<void> getAtt({required date}) async {
+    var data = await AttendanceRepository.getAtt(
+      classId: classId.value,
+      school: school.value,
+      year: yval,
+      term: tval,
+      date: date,
+    );
+    student_attendance.value = data;
+  }
+
+  Future<void> getClassStudents() async {
+    List<dynamic> _data = await PeopleRepository.getClassStudents(
+      school: school.value,
+      classId: classId.value,
+      per_page: PER_PAGE,
+      page: PAGE,
+    );
+    students.value = _data;
   }
 
   Future<void> delete({required id}) async {
@@ -102,7 +110,6 @@ class AttendanceController extends GetxController with CacheManager {
       school: school.value,
       id: id,
     );
-    getAttendance();
     loading.value = false;
   }
 
@@ -111,5 +118,39 @@ class AttendanceController extends GetxController with CacheManager {
     error_msg.value = "";
     success.value = false;
     success_msg.value = "";
+  }
+
+  void addAttendance(id) {
+    attendance_list.add(id);
+  }
+
+  void removeAttendance(id) {
+    attendance_list.remove(id);
+  }
+
+  void selectDate(picked) {
+    date_.value = dateFormat.format(picked);
+  }
+
+  Future<void> addStudentAttendance() async {
+    clear();
+    loading.value = true;
+
+    var data = await AttendanceRepository.create(data: {
+      "school": school.value,
+      "classId": classId.value,
+      "year": yval,
+      "term": tval,
+      "date": date_.value,
+      "attendance": attendance_list.toList(),
+    });
+    if (data['status'] == true) {
+      success.value = true;
+      success_msg.value = data['message'];
+    } else {
+      error.value = true;
+      error_msg.value = data['message'];
+    }
+    loading.value = false;
   }
 }

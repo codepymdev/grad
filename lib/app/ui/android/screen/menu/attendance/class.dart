@@ -41,7 +41,7 @@ class ClassAttendance extends GetView<ClassesController> {
       children: [
         ListTile(
           onTap: () => Get.toNamed(
-            "/attendance/students",
+            "/attendance/view",
             arguments: {
               "handler": "students",
               "classname": data['name'],

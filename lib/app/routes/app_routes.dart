@@ -1,7 +1,6 @@
 abstract class Routes {
   static const INITIAL = '/';
   static const HOME = '/home';
-  static const CONVERSATION = '/conversation';
   static const NEW_EVENT = '/new-event';
   static const LOGIN = '/login';
   static const FORGOTTEN_PASSWORD = '/forgotten-password';
@@ -63,7 +62,7 @@ abstract class Routes {
   static const VIEW_RESULTS = "/results/view";
 
   static const CLASS_ATTENDANCE = "/attendance";
-  static const STUDENTS_ATTENDANCE = "/attendance/students";
   static const ATTENDANCE_ADD = "/attendance/add";
   static const ATTENDANCE_VIEW = "/attendance/view";
+  static const ATTENDANCE_STUDENT = "/student/attendance";
 }

@@ -42,6 +42,7 @@ class AndroidApp extends StatelessWidget {
           return StreamChat(
             client: getIt<StreamService>().client,
             child: widget,
+            streamChatThemeData: StreamChatThemeData.fromTheme(selectedTheme!),
           );
         }),
         theme: selectedTheme,

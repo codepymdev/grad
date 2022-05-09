@@ -3,10 +3,12 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
+import 'package:grad/app/controller/menu/attendance_controller.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
 import 'package:grad/app/data/services/GetService.dart';
 import 'package:grad/app/data/services/StreamService.dart';
-import 'package:jiffy/jiffy.dart';
+import 'package:grad/app/ui/android/screen/chats/channelpage.dart';
+import 'package:grad/app/ui/android/screen/chats/chatsPage.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:intl/intl.dart';
@@ -54,6 +56,14 @@ Map<String, dynamic> currentDate() {
     "day": day,
     "time": time,
   };
+}
+
+String convertToDate(String date) {
+  List<String> list = date.split("-");
+  int year = int.parse(list[0]);
+  int month = int.parse(list[1]);
+  int day = int.parse(list[2]);
+  return Jiffy([year, month, day]).yMMMMd;
 }
 
 List<Tab> eventTabbar() {
@@ -113,9 +123,16 @@ AppBar customAppBar({
                   ),
                 ];
               },
-              onSelected: (_) {
+              onSelected: (_) async {
+                var param = Get.arguments;
+                var attendanceController = Get.put(AttendanceController());
+
                 if (_ == 0) {
-                  Get.toNamed("/attendance/add");
+                  await Get.toNamed(
+                    "/attendance/add",
+                    arguments: param,
+                  );
+                  attendanceController.get();
                 }
               },
             )
@@ -262,7 +279,16 @@ Future<void> createChannel(BuildContext context, String memberId) async {
   Channel channel = await getIt<StreamService>()
       .createChannel([StreamChat.of(context).currentUser!.id, memberId]);
 
-  // Navigator.of(context).push(StreamChat.routeWithChannel(channel),);
+  Navigator.of(context).push(
+    MaterialPageRoute(
+      builder: (context) {
+        return StreamChannel(
+          child: ChannelPage(),
+          channel: channel,
+        );
+      },
+    ),
+  );
 }
 
 String chatStreamId(firstname, id) {

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:grad/app/controller/navigation/navigation_controller.dart';
 import 'package:grad/app/ui/android/screen/account/account_page.dart';
 import 'package:grad/app/ui/android/screen/calendar/calendar_page.dart';
-import 'package:grad/app/ui/android/screen/chats/chats_page.dart';
+import 'package:grad/app/ui/android/screen/chats/chatsPage.dart';
 import 'package:grad/app/ui/android/screen/home/home_page.dart';
 import 'package:grad/app/ui/android/screen/settings/settings_page.dart';
 
