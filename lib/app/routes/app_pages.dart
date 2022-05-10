@@ -10,7 +10,6 @@ import 'package:grad/app/bindings/auth/login_binding.dart';
 import 'package:grad/app/bindings/auth/verify_account_binding.dart';
 import 'package:grad/app/bindings/calendar/calendar_binding.dart';
 import 'package:grad/app/bindings/calendar/new_event_binding.dart';
-import 'package:grad/app/bindings/chats/conversation_binding.dart';
 import 'package:grad/app/bindings/home/home_binding.dart';
 import 'package:grad/app/bindings/menu/announcement_binding.dart';
 import 'package:grad/app/bindings/menu/attendance_binding.dart';

@@ -8,7 +8,6 @@ import 'package:grad/app/core/constants/asset_path.dart';
 import 'package:grad/app/data/services/GetService.dart';
 import 'package:grad/app/data/services/StreamService.dart';
 import 'package:grad/app/ui/android/screen/chats/channelpage.dart';
-import 'package:grad/app/ui/android/screen/chats/chatsPage.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:intl/intl.dart';

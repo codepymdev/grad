@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grad/app/ui/android/screen/chats/threadPage.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 class ChannelPage extends StatelessWidget {
@@ -13,7 +14,11 @@ class ChannelPage extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Expanded(
-            child: StreamMessageListView(),
+            child: StreamMessageListView(
+              threadBuilder: (_, parentMessage) => ThreadPage(
+                parent: parentMessage,
+              ),
+            ),
           ),
           const StreamMessageInput(),
         ],

@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:grad/app/data/mixins/cache_manager.dart';
-import 'package:grad/app/data/repository/menu/result_repository.dart';
 
 class ResultsController extends GetxController with CacheManager {
   dynamic params = Get.arguments;
@@ -34,17 +33,13 @@ class ResultsController extends GetxController with CacheManager {
 
     if (params['handler'] == "student") {
       classId.value = params['classId'];
-      await getClassSubjects();
+
+      await getResult();
     }
-    ;
 
     loading.value = false;
     super.onInit();
   }
 
-  Future<void> getClassSubjects() async {
-    List<dynamic> response = await ResultRepository.classSubjects(
-        classId: classId.value, school: school.value);
-    classsubjects.value = response;
-  }
+  Future<void> getResult() async {}
 }
