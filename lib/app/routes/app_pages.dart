@@ -48,8 +48,8 @@ import 'package:grad/app/ui/android/screen/menu/parents/edit.dart';
 import 'package:grad/app/ui/android/screen/menu/parents/parents.dart';
 import 'package:grad/app/ui/android/screen/menu/parents/view.dart';
 import 'package:grad/app/ui/android/screen/menu/results/class.dart';
+import 'package:grad/app/ui/android/screen/menu/results/past.dart';
 import 'package:grad/app/ui/android/screen/menu/results/students.dart';
-import 'package:grad/app/ui/android/screen/menu/results/view.dart';
 import 'package:grad/app/ui/android/screen/menu/staffs/add.dart';
 import 'package:grad/app/ui/android/screen/menu/staffs/edit.dart';
 import 'package:grad/app/ui/android/screen/menu/staffs/staffs.dart';
@@ -380,12 +380,12 @@ class AppPages {
     GetPage(
       name: Routes.STUDENTS_RESULTS,
       page: () => StudentResults(),
-      binding: UsersBinding(),
+      binding: ResultsBinding(),
     ),
 
     GetPage(
-      name: Routes.VIEW_RESULTS,
-      page: () => ViewResult(),
+      name: Routes.PAST_RESULTS,
+      page: () => PastResult(),
       binding: ResultsBinding(),
     ),
 

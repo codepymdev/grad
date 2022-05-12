@@ -279,7 +279,6 @@ class SettingsController extends GetxController with CacheManager {
   }
 
   void updateTermDropDown(value) {
-    print(value);
     termValue.value = value;
   }
 

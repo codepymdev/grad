@@ -11,6 +11,8 @@ import 'package:grad/app/ui/android/screen/chats/channelpage.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:intl/intl.dart';
+import 'dart:io' show Platform;
+import 'package:path_provider/path_provider.dart';
 
 double getCollapseOpacity(context) {
   final settings =
@@ -297,4 +299,12 @@ String chatStreamId(firstname, id) {
 
 String removeAllWhitespace(String str) {
   return str.replaceAll(RegExp(r"\s+"), "");
+}
+
+Future<String?> findLocalPath() async {
+  final directory = Platform.isAndroid
+      ? await getExternalStorageDirectory()
+      : await getApplicationDocumentsDirectory();
+  if (directory != null) return directory.path;
+  return null;
 }

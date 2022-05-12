@@ -3,6 +3,8 @@
 ///
 const GRAD = 'https://grad.fkkas.com/api/';
 
+const GRAD_URL = "https://grad.fkkas.com/";
+
 const SCHOOLS = "schools";
 
 const ACTIVE_SCHOOLS = "schools/active";

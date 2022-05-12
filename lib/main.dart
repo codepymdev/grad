@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:grad/app/core/constants/app_constants.dart';
 import 'package:grad/app/core/utils/app_initializer.dart';
@@ -22,6 +23,9 @@ Future<void> main() async {
   await GetStorage.init();
 
   WidgetsFlutterBinding.ensureInitialized();
+  await FlutterDownloader.initialize(
+      debug: true // optional: set false to disable printing logs to console
+      );
 
   await Firebase.initializeApp();
 
