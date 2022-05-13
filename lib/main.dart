@@ -23,9 +23,7 @@ Future<void> main() async {
   await GetStorage.init();
 
   WidgetsFlutterBinding.ensureInitialized();
-  await FlutterDownloader.initialize(
-      debug: true // optional: set false to disable printing logs to console
-      );
+  await FlutterDownloader.initialize(debug: ISDEBUGMODE);
 
   await Firebase.initializeApp();
 

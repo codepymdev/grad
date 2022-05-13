@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
    <application
         android:label="grad"
         android:icon="@mipmap/ic_launcher">
@@ -44,6 +45,10 @@
             android:name="flutterEmbedding"
             android:value="2" />
 
+        <meta-data android:name="com.onesignal.suppressLaunchURLs" android:value="true"/>
+        <meta-data
+            android:name="com.onesignal.messaging.default_notification_icon"
+            android:resource="@drawable/ic_stat_onesignal_default" />
         <provider
             android:name="vn.hunghd.flutterdownloader.DownloadedFileProvider"
             android:authorities="${applicationId}.flutter_downloader.provider"

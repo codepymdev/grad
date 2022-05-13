@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 import 'package:grad/app/controller/calendar/calendar_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/ui/android/widgets/calendar/passed_events.dart';
@@ -49,6 +49,10 @@ class CalendarPage extends GetView<CalendarController> {
             ///
             PassedEvents(),
           ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => Get.toNamed("new-event"),
+          child: Icon(FeatherIcons.plus),
         ),
       ),
     );

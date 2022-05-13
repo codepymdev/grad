@@ -17,4 +17,6 @@
     <style name="NormalTheme" parent="@android:style/Theme.Black.NoTitleBar">
         <item name="android:windowBackground">?android:colorBackground</item>
     </style>
+
+    <string name="onesignal_notification_accent_color">FF764AF1</string>
 </resources>

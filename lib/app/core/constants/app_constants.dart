@@ -7,6 +7,6 @@ const PAGE = 1;
 
 const STREAM_API_KEY = "26weyexcgwar";
 
-const ISDEBUGMODE = false;
+const ISDEBUGMODE = true;
 
 const ONE_SIGNAL_APP_ID = "7f2acc1b-8d50-4b29-935b-5ed8102349cb";

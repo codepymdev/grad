@@ -73,7 +73,7 @@ class HomePage extends GetView<HomeController> {
                     ),
                     Badge(
                       badgeContent: Text(
-                        "2",
+                        "0",
                         style: TextStyle(
                           color: Colors.white,
                         ),

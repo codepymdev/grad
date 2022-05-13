@@ -3,6 +3,7 @@ import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/data/mixins/cache_manager.dart';
 import 'package:grad/app/data/services/GetService.dart';
 import 'package:grad/app/data/services/StreamService.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 class AuthManagerController extends GetxController with CacheManager {
@@ -25,7 +26,8 @@ class AuthManagerController extends GetxController with CacheManager {
     //remove client from stream chat
     final client = getIt<StreamService>().client;
     await client.disconnectUser();
-
+    //remove external user id
+    await OneSignal.shared.removeExternalUserId();
     await removeToken();
     await removeMe();
     await removeSchool();
