@@ -3,17 +3,22 @@ import 'package:get/get.dart';
 import 'package:Grad/app/controller/menu/announcement_controller.dart';
 import 'package:Grad/app/core/functions/functions.dart';
 
-late TextEditingController messagecontroller;
-late var data;
+class EditAnnouncement extends StatefulWidget {
+  @override
+  State<EditAnnouncement> createState() => _EditAnnouncementState();
+}
 
-class EditAnnouncement extends GetView<AnnouncementController> {
+class _EditAnnouncementState extends State<EditAnnouncement> {
+  AnnouncementController announcementController =
+      Get.put(AnnouncementController());
+  late TextEditingController messagecontroller;
+  var data = Get.arguments;
   @override
   Widget build(BuildContext context) {
-    data = Get.arguments;
     return Scaffold(
       appBar: customAppBar(name: "Edit Announcement"),
       body: Obx(() {
-        if (controller.loading.value)
+        if (announcementController.loading.value)
           return Container(
             child: Center(
               child: CircularProgressIndicator(),
@@ -67,7 +72,7 @@ class EditAnnouncement extends GetView<AnnouncementController> {
                 height: 50,
                 child: ElevatedButton(
                   style: ButtonStyle(),
-                  child: controller.processing.value
+                  child: announcementController.processing.value
                       ? Center(
                           child: CircularProgressIndicator(
                             color: Colors.white,
@@ -80,24 +85,26 @@ class EditAnnouncement extends GetView<AnnouncementController> {
                           ),
                         ),
                   onPressed: () async {
-                    if (!controller.processing.value) {
-                      await controller.edit(
+                    if (!announcementController.processing.value) {
+                      await announcementController.edit(
                         id: data['id'],
                         message: messagecontroller.text,
                       );
 
-                      if (controller.error.value) {
+                      if (announcementController.error.value) {
                         final snackBar = SnackBar(
-                          content: Text('${controller.error_msg.value}'),
+                          content:
+                              Text('${announcementController.error_msg.value}'),
                           backgroundColor: Colors.red,
                         );
                         // Find the ScaffoldMessenger in the widget tree
                         // and use it to show a SnackBar.
                         ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       }
-                      if (controller.success.value) {
+                      if (announcementController.success.value) {
                         final snackBar = SnackBar(
-                          content: Text('${controller.success_msg.value}'),
+                          content: Text(
+                              '${announcementController.success_msg.value}'),
                           backgroundColor: Colors.green,
                         );
                         // Find the ScaffoldMessenger in the widget tree
@@ -122,9 +129,9 @@ class EditAnnouncement extends GetView<AnnouncementController> {
       margin: EdgeInsets.all(5),
       child: DropdownButton<String>(
         isExpanded: true,
-        value: controller.type.value,
+        value: announcementController.type.value,
         onChanged: (String? value) {
-          if (value != null) controller.updateType(value);
+          if (value != null) announcementController.updateType(value);
         },
         items: <String>[
           'General Announcement',

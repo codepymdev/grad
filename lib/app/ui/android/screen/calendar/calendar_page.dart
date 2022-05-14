@@ -7,7 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 
-class CalendarPage extends GetView<CalendarController> {
+class CalendarPage extends StatefulWidget {
+  @override
+  State<CalendarPage> createState() => _CalendarPageState();
+}
+
+class _CalendarPageState extends State<CalendarPage> {
+  CalendarController calendarController = Get.put(CalendarController());
   @override
   Widget build(BuildContext context) {
     List<Tab> _tab = eventTabbar();
@@ -37,7 +43,7 @@ class CalendarPage extends GetView<CalendarController> {
             PassedEvents(),
           ],
         ),
-        floatingActionButton: controller.user_group.value == "admin"
+        floatingActionButton: calendarController.user_group.value == "admin"
             ? FloatingActionButton(
                 onPressed: () async {
                   UpdateController updateController =

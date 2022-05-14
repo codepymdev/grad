@@ -6,16 +6,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-late TextEditingController firstNameController;
-late TextEditingController lastNameController;
-late TextEditingController middleNameController;
-late TextEditingController phoneNumberController;
-late TextEditingController addressController;
-late TextEditingController cityController;
-late TextEditingController countryController;
-late String genderValue;
+class EditProfle extends StatefulWidget {
+  @override
+  State<EditProfle> createState() => _EditProfleState();
+}
 
-class EditProfle extends GetView<EditProfileController> {
+class _EditProfleState extends State<EditProfle> {
+  late TextEditingController firstNameController;
+  late TextEditingController lastNameController;
+  late TextEditingController middleNameController;
+  late TextEditingController phoneNumberController;
+  late TextEditingController addressController;
+  late TextEditingController cityController;
+  late TextEditingController countryController;
+  late String genderValue;
+
+  EditProfileController editProfileController =
+      Get.put(EditProfileController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +30,7 @@ class EditProfle extends GetView<EditProfileController> {
       body: SingleChildScrollView(
         child: Container(
           child: Obx(() {
-            if (controller.loading.value) return Container();
+            if (editProfileController.loading.value) return Container();
             return Container(
               padding: EdgeInsets.only(
                 top: 20,
@@ -60,7 +67,7 @@ class EditProfle extends GetView<EditProfileController> {
                     height: 50,
                     child: ElevatedButton(
                       style: ButtonStyle(),
-                      child: controller.processing.value
+                      child: editProfileController.processing.value
                           ? Center(
                               child: CircularProgressIndicator(
                                 color: Colors.white,
@@ -73,7 +80,7 @@ class EditProfle extends GetView<EditProfileController> {
                               ),
                             ),
                       onPressed: () async {
-                        if (!controller.processing.value) {
+                        if (!editProfileController.processing.value) {
                           Map<String, dynamic> _data = {
                             "first_name": firstNameController.text,
                             "last_name": lastNameController.text,
@@ -84,11 +91,13 @@ class EditProfle extends GetView<EditProfileController> {
                             "city": cityController.text,
                             "country": countryController.text,
                           };
-                          await controller.updateProfile(data: _data);
+                          await editProfileController.updateProfile(
+                              data: _data);
 
-                          if (controller.error.value) {
+                          if (editProfileController.error.value) {
                             final snackBar = SnackBar(
-                              content: Text('${controller.error_msg.value}'),
+                              content: Text(
+                                  '${editProfileController.error_msg.value}'),
                               backgroundColor: Colors.red,
                             );
                             // Find the ScaffoldMessenger in the widget tree
@@ -96,9 +105,10 @@ class EditProfle extends GetView<EditProfileController> {
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(snackBar);
                           }
-                          if (controller.success.value) {
+                          if (editProfileController.success.value) {
                             final snackBar = SnackBar(
-                              content: Text('${controller.success_msg.value}'),
+                              content: Text(
+                                  '${editProfileController.success_msg.value}'),
                               backgroundColor: Colors.green,
                             );
                             // Find the ScaffoldMessenger in the widget tree
@@ -130,21 +140,21 @@ class EditProfle extends GetView<EditProfileController> {
         child: Stack(
           children: [
             ClipOval(
-              child: controller.picked.value
-                  ? controller.imageFile == null
+              child: editProfileController.picked.value
+                  ? editProfileController.imageFile == null
                       ? CustomNetworkImage(
-                          url: "${controller.user['avatar']}",
+                          url: "${editProfileController.user['avatar']}",
                           ht: 80,
                           wd: 80,
                         )
                       : Image.file(
-                          controller.imageFile!,
+                          editProfileController.imageFile!,
                           width: 80,
                           height: 80,
                           fit: BoxFit.cover,
                         )
                   : CustomNetworkImage(
-                      url: "${controller.user['avatar']}",
+                      url: "${editProfileController.user['avatar']}",
                       ht: 80,
                       wd: 80,
                     ),
@@ -154,7 +164,7 @@ class EditProfle extends GetView<EditProfileController> {
               right: 5,
               child: GestureDetector(
                 onTap: () async {
-                  await controller.fetchImageFile();
+                  await editProfileController.fetchImageFile();
                 },
                 child: SvgPicture.asset(
                   CAMERA,
@@ -170,7 +180,7 @@ class EditProfle extends GetView<EditProfileController> {
 
   Widget _country() {
     countryController =
-        TextEditingController(text: "${controller.user['country']}");
+        TextEditingController(text: "${editProfileController.user['country']}");
     return Container(
       margin: EdgeInsets.all(5),
       child: TextField(
@@ -202,7 +212,8 @@ class EditProfle extends GetView<EditProfileController> {
   }
 
   Widget _city() {
-    cityController = TextEditingController(text: "${controller.user['city']}");
+    cityController =
+        TextEditingController(text: "${editProfileController.user['city']}");
     return Container(
       margin: EdgeInsets.all(5),
       child: TextField(
@@ -235,7 +246,7 @@ class EditProfle extends GetView<EditProfileController> {
 
   Widget _address() {
     addressController =
-        TextEditingController(text: "${controller.user['address']}");
+        TextEditingController(text: "${editProfileController.user['address']}");
     return Container(
       margin: EdgeInsets.all(5),
       child: TextField(
@@ -267,7 +278,7 @@ class EditProfle extends GetView<EditProfileController> {
   }
 
   Widget _gender() {
-    genderValue = controller.gender;
+    genderValue = editProfileController.gender;
     return Container(
       margin: EdgeInsets.all(5),
       child: DropdownButton<String>(
@@ -275,7 +286,7 @@ class EditProfle extends GetView<EditProfileController> {
         value: genderValue,
         onChanged: (String? value) {
           if (value != null) {
-            controller.updateGenderState(value);
+            editProfileController.updateGenderState(value);
             genderValue = value;
           } else {
             genderValue = "";
@@ -294,7 +305,7 @@ class EditProfle extends GetView<EditProfileController> {
 
   Widget _phone() {
     phoneNumberController =
-        TextEditingController(text: "${controller.user['tel']}");
+        TextEditingController(text: "${editProfileController.user['tel']}");
     return Container(
       margin: EdgeInsets.all(5),
       child: TextField(
@@ -326,8 +337,8 @@ class EditProfle extends GetView<EditProfileController> {
   }
 
   Widget _middleName() {
-    middleNameController =
-        TextEditingController(text: "${controller.user['middle_name']}");
+    middleNameController = TextEditingController(
+        text: "${editProfileController.user['middle_name']}");
     return Container(
       margin: EdgeInsets.all(5),
       child: TextField(
@@ -359,8 +370,8 @@ class EditProfle extends GetView<EditProfileController> {
   }
 
   Widget _lastName() {
-    lastNameController =
-        TextEditingController(text: "${controller.user['last_name']}");
+    lastNameController = TextEditingController(
+        text: "${editProfileController.user['last_name']}");
     return Container(
       margin: EdgeInsets.all(5),
       child: TextField(
@@ -392,8 +403,8 @@ class EditProfle extends GetView<EditProfileController> {
   }
 
   Widget _firstName() {
-    firstNameController =
-        TextEditingController(text: "${controller.user['first_name']}");
+    firstNameController = TextEditingController(
+        text: "${editProfileController.user['first_name']}");
     return Container(
       margin: EdgeInsets.all(5),
       child: TextField(

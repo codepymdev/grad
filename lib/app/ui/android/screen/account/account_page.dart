@@ -3,11 +3,18 @@ import 'package:Grad/app/ui/android/widgets/account/account_section.dart';
 import 'package:Grad/app/ui/android/widgets/account/account_sliver_appbar.dart';
 import 'package:Grad/app/ui/android/widgets/account/app_version.dart';
 import 'package:Grad/app/ui/android/widgets/account/quick_recent_activity.dart';
+import 'package:Grad/app/ui/android/widgets/custom/iosLoader.dart';
 import 'package:Grad/app/ui/android/widgets/home/quicktasks.dart';
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 
-class AccountPage extends GetView<AccountController> {
+class AccountPage extends StatefulWidget {
+  @override
+  State<AccountPage> createState() => _AccountPageState();
+}
+
+class _AccountPageState extends State<AccountPage> {
+  AccountController accountController = Get.put(AccountController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,9 +29,11 @@ class AccountPage extends GetView<AccountController> {
             delegate: SliverChildListDelegate(
               [
                 Obx(() {
-                  if (controller.loading.value) {
+                  if (accountController.loading.value) {
                     return Container(
-                      child: Center(child: CircularProgressIndicator()),
+                      child: Center(
+                        child: IosLoader(),
+                      ),
                     );
                   } else {
                     return Column(
