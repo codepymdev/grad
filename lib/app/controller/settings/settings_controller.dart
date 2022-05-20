@@ -8,6 +8,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 
 class SettingsController extends GetxController with CacheManager {
+  //user type
+  var user_group = "".obs;
+
   var configs = [].obs;
   var school = "".obs;
 
@@ -51,6 +54,10 @@ class SettingsController extends GetxController with CacheManager {
     configs.value = await SettingsRepository.getConfigSettings(
       school: school.value,
     );
+    Map<String, dynamic>? me = await getMe();
+    if (me != null) {
+      user_group.value = me['type'];
+    }
 
     String tval = getConfigValue(configs, "term");
     if (tval == "1") {

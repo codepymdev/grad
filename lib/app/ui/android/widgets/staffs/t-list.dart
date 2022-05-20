@@ -29,20 +29,20 @@ class TList extends GetView<UsersController> {
             children: [
               // A SlidableAction can have an icon and/or a label.
               SlidableAction(
-                onPressed: (_) async => showDeleteDialog(
-                  context,
-                  data['id'],
-                  type,
-                ),
+                onPressed: (_) async => null, //showDeleteDialog(
+                // context,
+                // data['id'],
+                // type,
+                // ),
                 foregroundColor: Color.fromARGB(255, 120, 120, 120),
                 icon: FeatherIcons.trash,
                 label: 'Delete',
               ),
               SlidableAction(
-                onPressed: (_) => Get.toNamed(
-                  "/parents/edit",
-                  arguments: data,
-                ),
+                onPressed: (_) => null, //Get.toNamed(
+                // "/parents/edit",
+                // arguments: data,
+                // ),
                 foregroundColor: Color.fromARGB(255, 125, 124, 124),
                 icon: FeatherIcons.edit,
                 label: 'Edit',
@@ -53,10 +53,10 @@ class TList extends GetView<UsersController> {
           // The child of the Slidable is what the user sees when the
           // component is not dragged.
           child: ListTile(
-            onTap: () => Get.toNamed(
-              "/staffs/view",
-              arguments: data,
-            ),
+            onTap: () => null, //Get.toNamed(
+            // "/staffs/view",
+            // arguments: data,
+            // ),
             leading: ClipOval(
               child: CustomNetworkImage(
                 url: "${data['avatar']}",
@@ -75,7 +75,19 @@ class TList extends GetView<UsersController> {
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
             ),
-            trailing: userStatusIcon("${data['status']}"),
+            // trailing: userStatusIcon("${data['status']}"),
+            trailing: GestureDetector(
+              onTap: () async {
+                await createChannel(context,
+                    "${chatStreamId(controller.school.value, data['id'])}");
+              },
+              child: Container(
+                child: Icon(
+                  FeatherIcons.messageCircle,
+                  color: Theme.of(context).iconTheme.color,
+                ),
+              ),
+            ),
           ),
         ),
         Divider(),

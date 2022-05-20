@@ -39,7 +39,7 @@ class Users extends GetView<UsersController> {
           );
         },
       ),
-      floatingActionButton: _buildFloatActionButton(),
+      // floatingActionButton: _buildFloatActionButton(),
     );
   }
 
@@ -61,16 +61,17 @@ class Users extends GetView<UsersController> {
             children: [
               // A SlidableAction can have an icon and/or a label.
               SlidableAction(
-                onPressed: (_) async => showDeleteDialog(context, data['id']),
+                onPressed: (_) async =>
+                    null, // showDeleteDialog(context, data['id']),
                 foregroundColor: Color.fromARGB(255, 120, 120, 120),
                 icon: FeatherIcons.trash,
                 label: 'Delete',
               ),
               SlidableAction(
-                onPressed: (_) => Get.toNamed(
-                  "/users/edit",
-                  arguments: data,
-                ),
+                onPressed: (_) => null, //Get.toNamed(
+                // "/users/edit",
+                // arguments: data,
+                // ),
                 foregroundColor: Color.fromARGB(255, 125, 124, 124),
                 icon: FeatherIcons.edit,
                 label: 'Edit',
@@ -103,7 +104,19 @@ class Users extends GetView<UsersController> {
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
             ),
-            trailing: userStatusIcon("${data['status']}"),
+            // trailing: userStatusIcon("${data['status']}"),
+            trailing: GestureDetector(
+              onTap: () async {
+                await createChannel(context,
+                    "${chatStreamId(controller.school.value, data['id'])}");
+              },
+              child: Container(
+                child: Icon(
+                  FeatherIcons.messageCircle,
+                  color: Theme.of(context).iconTheme.color,
+                ),
+              ),
+            ),
           ),
         ),
         Divider(),

@@ -8,6 +8,7 @@ import 'package:grad/app/ui/android/widgets/account/app_version.dart';
 class SettingsPage extends GetView<SettingsController> {
   @override
   Widget build(BuildContext context) {
+    SettingsController settingsController = Get.put(SettingsController());
     return Scaffold(
       appBar: AppBar(
         title: Text("Settings"),
@@ -22,70 +23,88 @@ class SettingsPage extends GetView<SettingsController> {
         child: ListView(
           shrinkWrap: true,
           children: [
-            ListTile(
-              onTap: () => Get.toNamed("/school-configuration"),
-              leading: SvgPicture.asset(
-                SCHOOL_CONFIG,
-                width: 30,
-              ),
-              title: Text(
-                "School Configuration",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              subtitle: Text(
-                  "Set the school name, school details, school moto, school email, school tel etc.."),
-            ),
-            Divider(),
-            ListTile(
-              onTap: () => Get.toNamed("/session"),
-              leading: SvgPicture.asset(
-                SESSION,
-                width: 30,
-              ),
-              title: Text(
-                "Session",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              subtitle:
-                  Text("Session Configuration! Set the term and year session"),
-            ),
-            Divider(),
-            ListTile(
-              onTap: () => Get.toNamed("/term"),
-              leading: SvgPicture.asset(
-                TERM,
-                width: 30,
-              ),
-              title: Text(
-                "Term",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              subtitle: Text(
-                  "Term begins and end! Set end and begin date of the term."),
-            ),
-            Divider(),
-            ListTile(
-              onTap: () => Get.toNamed("/stamp"),
-              leading: SvgPicture.asset(
-                STAMP,
-                width: 30,
-              ),
-              title: Text(
-                "Stamp",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              subtitle: Text(
-                  "Authorized School Stamp! Update or upload the authorized school stamp"),
-            ),
-            Divider(),
+            settingsController.user_group.value == "admin"
+                ? Column(
+                    children: [
+                      ListTile(
+                        onTap: () => Get.toNamed("/school-configuration"),
+                        leading: SvgPicture.asset(
+                          SCHOOL_CONFIG,
+                          width: 30,
+                        ),
+                        title: Text(
+                          "School Configuration",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        subtitle: Text(
+                            "Set the school name, school details, school moto, school email, school tel etc.."),
+                      ),
+                      Divider(),
+                    ],
+                  )
+                : Container(),
+
+            settingsController.user_group.value == "admin"
+                ? Column(
+                    children: [
+                      ListTile(
+                        onTap: () => Get.toNamed("/session"),
+                        leading: SvgPicture.asset(
+                          SESSION,
+                          width: 30,
+                        ),
+                        title: Text(
+                          "Session",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        subtitle: Text(
+                            "Session Configuration! Set the term and year session"),
+                      ),
+                      Divider(),
+                    ],
+                  )
+                : Container(),
+            settingsController.user_group.value == "admin"
+                ? Column(
+                    children: [
+                      ListTile(
+                        onTap: () => Get.toNamed("/term"),
+                        leading: SvgPicture.asset(
+                          TERM,
+                          width: 30,
+                        ),
+                        title: Text(
+                          "Term",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        subtitle: Text(
+                            "Term begins and end! Set end and begin date of the term."),
+                      ),
+                    ],
+                  )
+                : Container(),
+            // ListTile(
+            //   onTap: () => Get.toNamed("/stamp"),
+            //   leading: SvgPicture.asset(
+            //     STAMP,
+            //     width: 30,
+            //   ),
+            //   title: Text(
+            //     "Stamp",
+            //     style: TextStyle(
+            //       fontWeight: FontWeight.bold,
+            //     ),
+            //   ),
+            //   subtitle: Text(
+            //       "Authorized School Stamp! Update or upload the authorized school stamp"),
+            // ),
+            // Divider(),
             ListTile(
               onTap: () => Get.toNamed("/notification-settings"),
               leading: SvgPicture.asset(

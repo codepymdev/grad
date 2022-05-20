@@ -11,13 +11,10 @@ class EditProfileController extends GetxController with CacheManager {
   var school = "";
   var userid = "";
 
-  var loading = true;
-  var processing = false;
-
-  var picked = false;
+  var loading = true.obs;
+  var processing = false.obs;
 
   File? imageFile = null;
-
   var uploadImage = "";
 
   var gender = "Select gender";
@@ -29,14 +26,15 @@ class EditProfileController extends GetxController with CacheManager {
   var success = false.obs;
   var success_msg = "".obs;
 
+  var picked = false.obs;
   @override
   void onInit() async {
     await getUserData();
-    loading = false;
+    loading.value = false;
     gender = user["gender"] == "" ? "Select gender" : user['gender'];
     school = user['school'];
     userid = user['id'];
-    update();
+
     super.onInit();
   }
 
@@ -57,7 +55,7 @@ class EditProfileController extends GetxController with CacheManager {
   }
 
   Future<void> fetchImageFile() async {
-    picked = true;
+    clear();
     ImagePicker picker = ImagePicker();
     XFile? image = await picker.pickImage(
       source: ImageSource.gallery,
@@ -69,11 +67,13 @@ class EditProfileController extends GetxController with CacheManager {
       imageFile = File(image.path);
       uploadImage = image.path;
     }
-    update();
+
+    picked.value = true;
   }
 
   Future<void> updateProfile({required data}) async {
     clear();
+    processing.value = true;
     Map<String, dynamic> _data = {
       "image": uploadImage,
       "school": school,
@@ -99,13 +99,7 @@ class EditProfileController extends GetxController with CacheManager {
         error.value = true;
       }
     }
-    processing = false;
-    update();
-  }
-
-  void setLoader() {
-    processing = true;
-    update();
+    processing.value = false;
   }
 
   void clear() {

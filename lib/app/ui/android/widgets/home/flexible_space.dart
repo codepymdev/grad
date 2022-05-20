@@ -22,6 +22,7 @@ class HomeFlexibleSpace extends GetView<HomeController> {
           ///
           var user = controller.user;
           if (user.isEmpty) return Container();
+
           return Stack(
             children: [
               Opacity(
@@ -82,7 +83,9 @@ class HomeFlexibleSpace extends GetView<HomeController> {
                             ),
                             Flexible(
                               child: Text(
-                                "${user['email']}",
+                                user['type'] == 'student'
+                                    ? "${user['reg_no']}"
+                                    : "${user['email']}",
                                 style: TextStyle(
                                   color: Colors.white,
                                 ),

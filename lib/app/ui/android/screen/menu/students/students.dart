@@ -38,7 +38,7 @@ class Students extends GetView<UsersController> {
           ),
         );
       }),
-      floatingActionButton: _buildFloatActionButton(id: param['id']),
+      // floatingActionButton: _buildFloatActionButton(id: param['id']),
     );
   }
 
@@ -61,16 +61,16 @@ class Students extends GetView<UsersController> {
               // A SlidableAction can have an icon and/or a label.
               SlidableAction(
                 onPressed: (_) async =>
-                    showDeleteDialog(context, data['student']['id']),
+                    null, //showDeleteDialog(context, data['student']['id']),
                 foregroundColor: Color.fromARGB(255, 120, 120, 120),
                 icon: FeatherIcons.trash,
                 label: 'Delete',
               ),
               SlidableAction(
-                onPressed: (_) => Get.toNamed(
-                  "/students/edit",
-                  arguments: data,
-                ),
+                onPressed: (_) => null, //Get.toNamed(
+                // "/students/edit",
+                // arguments: data,
+                // ),
                 foregroundColor: Color.fromARGB(255, 125, 124, 124),
                 icon: FeatherIcons.edit,
                 label: 'Edit',
@@ -81,10 +81,10 @@ class Students extends GetView<UsersController> {
           // The child of the Slidable is what the user sees when the
           // component is not dragged.
           child: ListTile(
-            onTap: () => Get.toNamed(
-              "/students/view",
-              arguments: data,
-            ),
+            onTap: () => null, //Get.toNamed(
+            // "/students/view",
+            // arguments: data,
+            // ),
             leading: ClipOval(
               child: CustomNetworkImage(
                 url: "${data['student']['avatar']}",
@@ -103,7 +103,19 @@ class Students extends GetView<UsersController> {
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
             ),
-            trailing: userStatusIcon("${data['student']['status']}"),
+            // trailing: userStatusIcon("${data['student']['status']}"),
+            trailing: GestureDetector(
+              onTap: () async {
+                await createChannel(context,
+                    "${chatStreamId(controller.school.value, data['student']['id'])}");
+              },
+              child: Container(
+                child: Icon(
+                  FeatherIcons.messageCircle,
+                  color: Theme.of(context).iconTheme.color,
+                ),
+              ),
+            ),
           ),
         ),
         Divider(),

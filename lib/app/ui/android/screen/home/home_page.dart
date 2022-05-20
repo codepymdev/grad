@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/controller/home/home_controller.dart';
+import 'package:grad/app/controller/others/update-controller.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
 import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/ui/android/screen/menu/overlay.dart';
@@ -21,8 +22,10 @@ import 'package:grad/app/ui/android/widgets/home/users.dart';
 class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
-    void _showOverlay(BuildContext context) {
-      Navigator.of(context).push(MenuOverlay());
+    void _showOverlay(BuildContext context) async {
+      UpdateController updateController = Get.put(UpdateController());
+      await Navigator.of(context).push(MenuOverlay());
+      updateController.updateSession();
     }
 
     return Scaffold(

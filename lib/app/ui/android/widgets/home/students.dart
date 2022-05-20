@@ -118,7 +118,7 @@ class Students extends GetView<HomeController> {
                               child: GestureDetector(
                                 onTap: () async {
                                   await createChannel(context,
-                                      "${chatStreamId(users[index]['first_name'], users[index]['id'])}");
+                                      "${chatStreamId(controller.school.value, users[index]['id'])}");
                                 },
                                 child: Container(
                                   child: Icon(

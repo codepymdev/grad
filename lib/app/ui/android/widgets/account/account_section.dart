@@ -3,6 +3,7 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/controller/account/account_controller.dart';
+import 'package:grad/app/controller/others/update-controller.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
 
 class AccountSection extends GetView<AccountController> {
@@ -47,7 +48,13 @@ class AccountSection extends GetView<AccountController> {
                 physics: NeverScrollableScrollPhysics(),
                 children: [
                   ListTile(
-                    onTap: () => Get.toNamed("/edit-profile"),
+                    onTap: () async {
+                      UpdateController updateController =
+                          Get.put(UpdateController());
+
+                      await Get.toNamed("/edit-profile");
+                      updateController.updateSession();
+                    },
                     contentPadding: EdgeInsets.zero,
                     leading: Icon(
                       FeatherIcons.user,

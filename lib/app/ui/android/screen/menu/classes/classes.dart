@@ -36,7 +36,7 @@ class Classes extends GetView<ClassesController> {
           ),
         );
       }),
-      floatingActionButton: _buildFloatActionButton(),
+      // floatingActionButton: _buildFloatActionButton(),
     );
   }
 

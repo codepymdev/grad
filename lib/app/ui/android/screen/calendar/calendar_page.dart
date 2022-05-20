@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/controller/calendar/calendar_controller.dart';
+import 'package:grad/app/controller/others/update-controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/ui/android/widgets/calendar/passed_events.dart';
 import 'package:grad/app/ui/android/widgets/calendar/upcoming_events.dart';
@@ -18,20 +19,6 @@ class CalendarPage extends GetView<CalendarController> {
           title: Text("Events"),
           elevation: 0,
           backgroundColor: Theme.of(context).primaryColorDark,
-          actions: [
-            Container(
-              margin: EdgeInsets.all(10),
-              child: Icon(
-                FeatherIcons.search,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.all(10),
-              child: Icon(
-                FeatherIcons.moreVertical,
-              ),
-            ),
-          ],
           bottom: TabBar(
             isScrollable: false,
             tabs: _tab,
@@ -50,10 +37,18 @@ class CalendarPage extends GetView<CalendarController> {
             PassedEvents(),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => Get.toNamed("new-event"),
-          child: Icon(FeatherIcons.plus),
-        ),
+        floatingActionButton: controller.user_group.value == "admin"
+            ? FloatingActionButton(
+                onPressed: () async {
+                  UpdateController updateController =
+                      Get.put(UpdateController());
+
+                  await Get.toNamed("new-event");
+                  updateController.updateSession();
+                },
+                child: Icon(FeatherIcons.plus),
+              )
+            : Container(),
       ),
     );
   }

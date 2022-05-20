@@ -18,102 +18,105 @@ late String genderValue;
 class EditProfle extends GetView<EditProfileController> {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<EditProfileController>(builder: (controller) {
-      if (controller.loading) return Container();
-      return Scaffold(
-        appBar: customAppBar(name: "Edit Profile"),
-        body: SingleChildScrollView(
-          child: Container(
-            padding: EdgeInsets.only(
-              top: 20,
-              left: 10,
-              right: 10,
-              bottom: 40,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _avatar(),
-                Text(
-                  "User Information".toUpperCase(),
-                ),
-                Divider(),
-                _firstName(),
-                _lastName(),
-                _middleName(),
-                _phone(),
-                _gender(),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  "Contact Information".toUpperCase(),
-                ),
-                Divider(),
-                _address(),
-                _city(),
-                _country(),
-                Divider(),
-                Container(
-                  width: double.infinity,
-                  height: 50,
-                  child: ElevatedButton(
-                    style: ButtonStyle(),
-                    child: controller.processing
-                        ? Center(
-                            child: CircularProgressIndicator(
-                              color: Colors.white,
-                            ),
-                          )
-                        : Text(
-                            "Save",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                    onPressed: () async {
-                      if (!controller.processing) {
-                        Map<String, dynamic> _data = {
-                          "first_name": firstNameController.text,
-                          "last_name": lastNameController.text,
-                          "middle_name": middleNameController.text,
-                          "tel": phoneNumberController.text,
-                          "gender": genderValue,
-                          "address": addressController.text,
-                          "city": cityController.text,
-                          "country": countryController.text,
-                        };
-                        controller.setLoader();
-                        await controller.updateProfile(data: _data);
-
-                        if (controller.error.value) {
-                          final snackBar = SnackBar(
-                            content: Text('${controller.error_msg.value}'),
-                            backgroundColor: Colors.red,
-                          );
-                          // Find the ScaffoldMessenger in the widget tree
-                          // and use it to show a SnackBar.
-                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        }
-                        if (controller.success.value) {
-                          final snackBar = SnackBar(
-                            content: Text('${controller.success_msg.value}'),
-                            backgroundColor: Colors.green,
-                          );
-                          // Find the ScaffoldMessenger in the widget tree
-                          // and use it to show a SnackBar.
-                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        }
-                      }
-                    },
+    return Scaffold(
+      appBar: customAppBar(name: "Edit Profile"),
+      body: SingleChildScrollView(
+        child: Container(
+          child: Obx(() {
+            if (controller.loading.value) return Container();
+            return Container(
+              padding: EdgeInsets.only(
+                top: 20,
+                left: 10,
+                right: 10,
+                bottom: 40,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _avatar(),
+                  Text(
+                    "User Information".toUpperCase(),
                   ),
-                ),
-              ],
-            ),
-          ),
+                  Divider(),
+                  _firstName(),
+                  _lastName(),
+                  _middleName(),
+                  _phone(),
+                  _gender(),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "Contact Information".toUpperCase(),
+                  ),
+                  Divider(),
+                  _address(),
+                  _city(),
+                  _country(),
+                  Divider(),
+                  Container(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton(
+                      style: ButtonStyle(),
+                      child: controller.processing.value
+                          ? Center(
+                              child: CircularProgressIndicator(
+                                color: Colors.white,
+                              ),
+                            )
+                          : Text(
+                              "Save",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                      onPressed: () async {
+                        if (!controller.processing.value) {
+                          Map<String, dynamic> _data = {
+                            "first_name": firstNameController.text,
+                            "last_name": lastNameController.text,
+                            "middle_name": middleNameController.text,
+                            "tel": phoneNumberController.text,
+                            "gender": genderValue,
+                            "address": addressController.text,
+                            "city": cityController.text,
+                            "country": countryController.text,
+                          };
+                          await controller.updateProfile(data: _data);
+
+                          if (controller.error.value) {
+                            final snackBar = SnackBar(
+                              content: Text('${controller.error_msg.value}'),
+                              backgroundColor: Colors.red,
+                            );
+                            // Find the ScaffoldMessenger in the widget tree
+                            // and use it to show a SnackBar.
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
+                          }
+                          if (controller.success.value) {
+                            final snackBar = SnackBar(
+                              content: Text('${controller.success_msg.value}'),
+                              backgroundColor: Colors.green,
+                            );
+                            // Find the ScaffoldMessenger in the widget tree
+                            // and use it to show a SnackBar.
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
+                          }
+                        }
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }),
         ),
-      );
-    });
+      ),
+    );
   }
 
   Widget _avatar() {
@@ -127,7 +130,7 @@ class EditProfle extends GetView<EditProfileController> {
         child: Stack(
           children: [
             ClipOval(
-              child: controller.picked
+              child: controller.picked.value
                   ? controller.imageFile == null
                       ? CustomNetworkImage(
                           url: "${controller.user['avatar']}",

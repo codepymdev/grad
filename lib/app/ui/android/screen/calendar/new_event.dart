@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 import 'package:grad/app/controller/calendar/new_event_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
 
-late TextEditingController titleController;
-late TextEditingController descriptioncontroller;
-late TextEditingController urlcontroller;
+final TextEditingController titleController = TextEditingController();
+final TextEditingController descriptioncontroller = TextEditingController();
+final TextEditingController urlcontroller = TextEditingController();
 
 class NewEvent extends GetView<NewEventController> {
   @override
@@ -88,7 +88,6 @@ class NewEvent extends GetView<NewEventController> {
   }
 
   Widget _title() {
-    titleController = TextEditingController();
     return Container(
       margin: EdgeInsets.all(5),
       child: TextField(
@@ -120,7 +119,6 @@ class NewEvent extends GetView<NewEventController> {
   }
 
   Widget _description() {
-    descriptioncontroller = TextEditingController();
     return Container(
       margin: EdgeInsets.all(5),
       child: TextField(
@@ -152,7 +150,6 @@ class NewEvent extends GetView<NewEventController> {
   }
 
   Widget _url() {
-    urlcontroller = TextEditingController();
     return Container(
       margin: EdgeInsets.all(5),
       child: TextField(

@@ -5,6 +5,9 @@ import 'package:grad/app/data/repository/menu/announcement_repository.dart';
 import 'package:grad/app/data/repository/start/school_repository.dart';
 
 class HomeController extends GetxController with CacheManager {
+  //user type
+  var user_group = "".obs;
+
   ///user data
   var user = {}.obs;
 
@@ -15,7 +18,7 @@ class HomeController extends GetxController with CacheManager {
   var r = "".obs;
 
   /// school
-  var _school = "".obs;
+  var school = "".obs;
 
   ///students list
   var students = [].obs;
@@ -53,6 +56,11 @@ class HomeController extends GetxController with CacheManager {
     await getData();
     await getCurrentAnnouncement();
     await getAllSchools();
+
+    Map<String, dynamic>? me = await getMe();
+    if (me != null) {
+      user_group.value = me['type'];
+    }
     loading.value = false;
     super.onInit();
   }
@@ -64,26 +72,26 @@ class HomeController extends GetxController with CacheManager {
       campus.value = data["campus"] == "" ? "0" : data["campus"];
       r.value = data["type"];
     }
-    String? school = await getSchool();
-    if (school != null) {
-      _school.value = school;
+    String? _school = await getSchool();
+    if (_school != null) {
+      school.value = _school;
     }
   }
 
   Future<void> getAllSchools() async {
     Map<String, dynamic> schools =
-        await SchoolRepository.getSchoolData(school: _school.value);
+        await SchoolRepository.getSchoolData(school: school.value);
     school_data.value = schools;
   }
 
   Future<void> getData() async {
     Map<String, dynamic> _counter = await HomePageRepository.getCounter(
-      school: _school.value,
+      school: school.value,
       campus: campus.value,
       r: r.value,
     );
     List<dynamic> _students = await HomePageRepository.getPeople(
-      school: _school.value,
+      school: school.value,
       campus: campus.value,
       r: r.value,
       type: "students",
@@ -91,7 +99,7 @@ class HomeController extends GetxController with CacheManager {
       page: "1",
     );
     List<dynamic> _teaching = await HomePageRepository.getPeople(
-      school: _school.value,
+      school: school.value,
       campus: campus.value,
       r: r.value,
       type: "teaching",
@@ -99,7 +107,7 @@ class HomeController extends GetxController with CacheManager {
       page: "1",
     );
     List<dynamic> _non_teaching = await HomePageRepository.getPeople(
-      school: _school.value,
+      school: school.value,
       campus: campus.value,
       r: r.value,
       type: "non-teaching",
@@ -108,7 +116,7 @@ class HomeController extends GetxController with CacheManager {
     );
 
     List<dynamic> _users = await HomePageRepository.getPeople(
-      school: _school.value,
+      school: school.value,
       campus: campus.value,
       r: r.value,
       type: "users",
@@ -117,7 +125,7 @@ class HomeController extends GetxController with CacheManager {
     );
 
     List<dynamic> _parents = await HomePageRepository.getPeople(
-      school: _school.value,
+      school: school.value,
       campus: campus.value,
       r: r.value,
       type: "parents",
@@ -153,7 +161,7 @@ class HomeController extends GetxController with CacheManager {
   Future<void> getCurrentAnnouncement() async {
     Map<String, dynamic> response =
         await AnnouncementRepository.getCurrentAnnouncement(
-      school: _school.value,
+      school: school.value,
     );
     current_announcement.value = response;
   }

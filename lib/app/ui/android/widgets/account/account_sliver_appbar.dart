@@ -2,6 +2,7 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
+import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/ui/android/widgets/home/flexible_space.dart';
 
 class AccountSliverAppBar extends StatelessWidget {
@@ -26,7 +27,7 @@ class AccountSliverAppBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                "Wed",
+                "${currentDate()['time']},",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
@@ -36,7 +37,7 @@ class AccountSliverAppBar extends StatelessWidget {
                 width: 3,
               ),
               Text(
-                "10 Oct",
+                "${currentDate()['day']}",
                 style: TextStyle(
                   fontSize: 14,
                 ),
@@ -46,7 +47,7 @@ class AccountSliverAppBar extends StatelessWidget {
               ),
               Badge(
                 badgeContent: Text(
-                  "2",
+                  "0",
                   style: TextStyle(
                     color: Colors.white,
                   ),

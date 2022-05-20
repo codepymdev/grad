@@ -3,7 +3,6 @@ import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/data/mixins/cache_manager.dart';
 import 'package:grad/app/data/services/GetService.dart';
 import 'package:grad/app/data/services/StreamService.dart';
-import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 class AuthManagerController extends GetxController with CacheManager {
@@ -22,15 +21,13 @@ class AuthManagerController extends GetxController with CacheManager {
   }
 
   Future<void> logOut() async {
-    isLogin.value = false;
-    //remove client from stream chat
-    final client = getIt<StreamService>().client;
-    await client.disconnectUser();
-    //remove external user id
-    await OneSignal.shared.removeExternalUserId();
+    //remove stream user
+    await discountStream();
+    // await OneSignal.shared.removeExternalUserId();
     await removeToken();
     await removeMe();
     await removeSchool();
+    isLogin.value = false;
   }
 
   void login(Map<String, dynamic>? data) async {
@@ -43,26 +40,33 @@ class AuthManagerController extends GetxController with CacheManager {
 
   Future<void> checkLoginStatus() async {
     final token = getToken();
-    final me = getMe();
-
     if (token != null) {
-      final client = getIt<StreamService>().client;
-      //stream
-      if (me != null) {
-        final response = await client.connectUser(
-          User(
-            id: chatStreamId(me['first_name'], me['id']),
-            extraData: {
-              'image': me['avatar'],
-              'name': me['first_name'] + " " + me['last_name'],
-            },
-          ),
-          me['token'],
-        );
-        //update unread count
-        unreadCount.value = response.totalUnreadCount;
-      }
       isLogin.value = true;
+      final me = getMe();
+      await connectStreamUser(me);
     }
+  }
+
+  Future<void> connectStreamUser(data) async {
+    final client = getIt<StreamService>().client;
+
+    final response = await client.connectUser(
+      User(
+        id: chatStreamId(data['school'], data['id']),
+        extraData: {
+          'image': data['avatar'],
+          'name': data['first_name'] + " " + data['last_name'],
+        },
+      ),
+      data['token'],
+    );
+
+    //update unread count
+    unreadCount.value = response.totalUnreadCount;
+  }
+
+  Future<void> discountStream() async {
+    final client = getIt<StreamService>().client;
+    await client.disconnectUser();
   }
 }

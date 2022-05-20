@@ -1,7 +1,10 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:get/get.dart';
+import 'package:grad/app/controller/home/home_controller.dart';
 import 'package:grad/app/ui/android/screen/chats/channelPage.dart';
+import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 class ChannelListPage extends StatefulWidget {
@@ -10,15 +13,21 @@ class ChannelListPage extends StatefulWidget {
 }
 
 class _ChannelListPageState extends State<ChannelListPage> {
-  late final _listController = StreamChannelListController(
-    client: StreamChat.of(context).client,
-    filter: Filter.in_(
-      'members',
-      [StreamChat.of(context).currentUser!.id],
-    ),
-    sort: const [SortOption('last_message_at')],
-    limit: 20,
-  );
+  late final StreamChannelListController _listController;
+
+  @override
+  void initState() {
+    _listController = StreamChannelListController(
+      client: StreamChat.of(context).client,
+      filter: Filter.in_(
+        'members',
+        [StreamChat.of(context).currentUser!.id],
+      ),
+      sort: const [SortOption('last_message_at')],
+      limit: 20,
+    );
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -28,6 +37,7 @@ class _ChannelListPageState extends State<ChannelListPage> {
 
   @override
   Widget build(BuildContext context) {
+    var homeController = Get.find<HomeController>();
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -42,28 +52,16 @@ class _ChannelListPageState extends State<ChannelListPage> {
               start: 5,
             ),
             child: ClipOval(
-              child: Image.asset(
-                "assets/images/sample/teacher.jpg",
-                width: 30,
-                height: 30,
+              child: Obx(
+                () => CustomNetworkImage(
+                  url: "${homeController.user['avatar']}",
+                  wd: 80,
+                  ht: 80,
+                ),
               ),
             ),
           ),
         ),
-        actions: [
-          Container(
-            margin: EdgeInsets.all(10),
-            child: Icon(
-              FeatherIcons.search,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.all(10),
-            child: Icon(
-              FeatherIcons.moreVertical,
-            ),
-          ),
-        ],
       ),
       body: StreamChannelListView(
         controller: _listController,

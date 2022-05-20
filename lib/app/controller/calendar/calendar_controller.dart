@@ -6,6 +6,9 @@ import 'package:grad/app/data/repository/settings/settings_repository.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class CalendarController extends GetxController with CacheManager {
+  //user type
+  var user_group = "".obs;
+
   var configs = [].obs;
   var school = "".obs;
   var loading = true.obs;
@@ -34,6 +37,11 @@ class CalendarController extends GetxController with CacheManager {
     configs.value = await SettingsRepository.getConfigSettings(
       school: school.value,
     );
+
+    Map<String, dynamic>? me = await getMe();
+    if (me != null) {
+      user_group.value = me['type'];
+    }
     tval = getConfigValue(configs, "term");
     yval = getConfigValue(configs, "year");
 
