@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/data/mixins/cache_manager.dart';
+import 'package:grad/app/data/repository/auth/login_repository.dart';
 import 'package:grad/app/data/services/GetService.dart';
 import 'package:grad/app/data/services/StreamService.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
@@ -16,6 +17,7 @@ class AuthManagerController extends GetxController with CacheManager {
   @override
   Future<void> onInit() async {
     await checkLoginStatus();
+    await updateAuthUser();
     loading.value = false;
     super.onInit();
   }
@@ -43,7 +45,19 @@ class AuthManagerController extends GetxController with CacheManager {
     if (token != null) {
       isLogin.value = true;
       final me = getMe();
+
       await connectStreamUser(me);
+    }
+  }
+
+  Future<void> updateAuthUser() async {
+    final me = getMe();
+    if (me != null) {
+      Map<String, dynamic>? data = await LoginRepository.updateAuthUser(
+          id: me['id'], school: me['school']);
+      if (data != null) {
+        await saveMe(data);
+      }
     }
   }
 

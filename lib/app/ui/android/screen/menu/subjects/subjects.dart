@@ -36,7 +36,7 @@ class Subjects extends GetView<SubjectsController> {
           ),
         );
       }),
-      floatingActionButton: _buildFloatActionButton(),
+      // floatingActionButton: _buildFloatActionButton(),
     );
   }
 

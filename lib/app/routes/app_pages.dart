@@ -42,10 +42,14 @@ import 'package:grad/app/ui/android/screen/menu/calendar/edit_event.dart';
 import 'package:grad/app/ui/android/screen/menu/classes/add.dart';
 import 'package:grad/app/ui/android/screen/menu/classes/classes.dart';
 import 'package:grad/app/ui/android/screen/menu/classes/edit.dart';
+import 'package:grad/app/ui/android/screen/menu/classes/parent/class.dart';
+import 'package:grad/app/ui/android/screen/menu/classes/student/class.dart';
+import 'package:grad/app/ui/android/screen/menu/classes/teacher/class.dart';
 import 'package:grad/app/ui/android/screen/menu/classes/view.dart';
 import 'package:grad/app/ui/android/screen/menu/parents/add.dart';
 import 'package:grad/app/ui/android/screen/menu/parents/edit.dart';
 import 'package:grad/app/ui/android/screen/menu/parents/parents.dart';
+import 'package:grad/app/ui/android/screen/menu/parents/student/myparent.dart';
 import 'package:grad/app/ui/android/screen/menu/parents/view.dart';
 import 'package:grad/app/ui/android/screen/menu/results/class.dart';
 import 'package:grad/app/ui/android/screen/menu/results/past.dart';
@@ -53,14 +57,17 @@ import 'package:grad/app/ui/android/screen/menu/results/students.dart';
 import 'package:grad/app/ui/android/screen/menu/staffs/add.dart';
 import 'package:grad/app/ui/android/screen/menu/staffs/edit.dart';
 import 'package:grad/app/ui/android/screen/menu/staffs/staffs.dart';
+import 'package:grad/app/ui/android/screen/menu/staffs/student/myteacher.dart';
 import 'package:grad/app/ui/android/screen/menu/staffs/view.dart';
 import 'package:grad/app/ui/android/screen/menu/students/add.dart';
 import 'package:grad/app/ui/android/screen/menu/students/class.dart';
 import 'package:grad/app/ui/android/screen/menu/students/edit.dart';
+import 'package:grad/app/ui/android/screen/menu/students/student/classmate.dart';
 import 'package:grad/app/ui/android/screen/menu/students/students.dart';
 import 'package:grad/app/ui/android/screen/menu/students/view.dart';
 import 'package:grad/app/ui/android/screen/menu/subjects/add.dart';
 import 'package:grad/app/ui/android/screen/menu/subjects/edit.dart';
+import 'package:grad/app/ui/android/screen/menu/subjects/student/subject.dart';
 import 'package:grad/app/ui/android/screen/menu/subjects/subjects.dart';
 import 'package:grad/app/ui/android/screen/menu/subjects/view.dart';
 import 'package:grad/app/ui/android/screen/menu/users/add_users.dart';
@@ -264,6 +271,12 @@ class AppPages {
       binding: UsersBinding(),
     ),
 
+    GetPage(
+      name: Routes.CLASSMATES,
+      page: () => ClassMates(),
+      binding: UsersBinding(),
+    ),
+
     ///
     /// parents
     ///
@@ -291,6 +304,12 @@ class AppPages {
       binding: UsersBinding(),
     ),
 
+    GetPage(
+      name: Routes.MYPARENT,
+      page: () => MyParents(),
+      binding: UsersBinding(),
+    ),
+
     ///
     /// staffs
     ///
@@ -313,6 +332,12 @@ class AppPages {
     GetPage(
       name: Routes.STAFFS_VIEW,
       page: () => ViewStaff(),
+      binding: UsersBinding(),
+    ),
+
+    GetPage(
+      name: Routes.MYTEACHER,
+      page: () => MyTeacher(),
       binding: UsersBinding(),
     ),
 
@@ -343,6 +368,27 @@ class AppPages {
       binding: ClassesBinding(),
     ),
 
+    // student class
+    GetPage(
+      name: Routes.STUDENT_CLASS,
+      page: () => StudentClass(),
+      binding: ClassesBinding(),
+    ),
+
+    // teacher class
+    GetPage(
+      name: Routes.TEACHER_CLASS,
+      page: () => TeacherClass(),
+      binding: ClassesBinding(),
+    ),
+
+    // teacher class
+    GetPage(
+      name: Routes.PARENT_CLASS,
+      page: () => ParentClass(),
+      binding: ClassesBinding(),
+    ),
+
     ///
     /// subjects
     ///
@@ -367,6 +413,13 @@ class AppPages {
     GetPage(
       name: Routes.SUBJECTS_VIEW,
       page: () => ViewSubject(),
+      binding: SubjectsBinding(),
+    ),
+
+    // student subject
+    GetPage(
+      name: Routes.STUDENT_SUBJECT,
+      page: () => StudentSubject(),
       binding: SubjectsBinding(),
     ),
 

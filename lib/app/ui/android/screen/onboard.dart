@@ -14,8 +14,10 @@ class OnBoard extends GetView<AuthManagerController> {
     ///
     return Obx(() {
       if (controller.loading.value) {
-        return Center(
-          child: CircularProgressIndicator(),
+        return Scaffold(
+          body: Center(
+            child: CircularProgressIndicator(),
+          ),
         );
       }
       return controller.isLogin.value ? Navigation() : Welcome();

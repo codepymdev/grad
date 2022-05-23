@@ -27,21 +27,35 @@ class SubjectsController extends GetxController with CacheManager {
 
   var success = false.obs;
   var success_msg = "".obs;
-
+  var me = {}.obs;
   @override
   void onInit() async {
     Map<String, dynamic>? data = await getMe();
     if (data != null) {
       campus.value = data["campus"] == "" ? "0" : data["campus"];
       r.value = data["type"];
+      me.value = data;
     }
 
     String? _school = await getSchool();
     if (_school != null) {
       school.value = _school;
     }
-    await getSubjects();
-
+    if (r.value == "admin") {
+      await getSubjects();
+    }
+    if (r.value == "teaching") {
+      await getSubjects();
+    }
+    if (r.value == "non-teaching") {
+      await getSubjects();
+    }
+    if (r.value == "teaching") {
+      await getSubjects();
+    }
+    if (r.value == "parent") {
+      await getSubjects();
+    }
     //get subject categories
     List<SubjectCategoriesModel> _data =
         await SubjectRepository.subjectCategories(

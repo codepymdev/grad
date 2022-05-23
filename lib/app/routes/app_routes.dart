@@ -35,6 +35,8 @@ abstract class Routes {
   static const STUDENT_ADD = "/students/add";
   static const STUDENT_VIEW = "/students/view";
 
+  static const CLASSMATES = "/students/classmates";
+
   static const TEACHERS = "/teachers";
 
   static const PARENTS = "/parents";
@@ -42,20 +44,30 @@ abstract class Routes {
   static const PARENTS_ADD = "/parents/add";
   static const PARENTS_VIEW = "/parents/view";
 
+  static const MYPARENT = "/parents/myparent";
+
   static const STAFFS = "/staffs";
   static const STAFFS_EDIT = "/staffs/edit";
   static const STAFFS_ADD = "/staffs/add";
   static const STAFFS_VIEW = "/staffs/view";
+
+  static const MYTEACHER = "/staffs/myteacher";
 
   static const CLASSES = "/classes";
   static const CLASSES_ADD = "/classes/add";
   static const CLASSES_EDIT = "/classes/edit";
   static const CLASSES_VIEW = "/classes/view";
 
+  static const STUDENT_CLASS = "/student-class";
+  static const TEACHER_CLASS = "/teacher-class";
+  static const PARENT_CLASS = "/parent-class";
+
   static const SUBJECTS = "/subjects";
   static const SUBJECTS_ADD = "/subjects/add";
   static const SUBJECTS_EDIT = "/subjects/edit";
   static const SUBJECTS_VIEW = "/subjects/view";
+
+  static const STUDENT_SUBJECT = "/student-subject";
 
   static const CLASS_RESULTS = "/results";
   static const STUDENTS_RESULTS = "/results/students";

@@ -33,13 +33,14 @@ class TeacherMenu extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  "My Class",
+                  "Classes",
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
           ),
         ),
+
         GestureDetector(
           onTap: () => Get.toNamed("/subjects"),
           child: Container(
@@ -54,7 +55,7 @@ class TeacherMenu extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  "My Subjects",
+                  "Subjects",
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
@@ -75,7 +76,7 @@ class TeacherMenu extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  "Class Mates",
+                  "Students",
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
@@ -101,7 +102,7 @@ class TeacherMenu extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  "My Parents",
+                  "Parents",
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
@@ -127,13 +128,31 @@ class TeacherMenu extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  "My Teachers",
+                  "Staffs",
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
           ),
         ),
+        // Container(
+        //   child: Column(
+        //     mainAxisAlignment: MainAxisAlignment.center,
+        //     children: [
+        //       SvgPicture.asset(
+        //         QUIZ,
+        //         width: 60,
+        //       ),
+        //       SizedBox(
+        //         height: 8,
+        //       ),
+        //       Text(
+        //         "CBT",
+        //         style: Theme.of(context).textTheme.subtitle1,
+        //       ),
+        //     ],
+        //   ),
+        // ),
         Container(
           child: GestureDetector(
             onTap: () => Get.toNamed("/attendance"),
@@ -176,6 +195,24 @@ class TeacherMenu extends StatelessWidget {
             ),
           ),
         ),
+        // Container(
+        //   child: Column(
+        //     mainAxisAlignment: MainAxisAlignment.center,
+        //     children: [
+        //       SvgPicture.asset(
+        //         REPORT,
+        //         width: 60,
+        //       ),
+        //       SizedBox(
+        //         height: 8,
+        //       ),
+        //       Text(
+        //         "Reports",
+        //         style: Theme.of(context).textTheme.subtitle1,
+        //       ),
+        //     ],
+        //   ),
+        // ),
         GestureDetector(
           onTap: () => Get.toNamed(
             "/users",
@@ -195,7 +232,50 @@ class TeacherMenu extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  "Admins",
+                  "Users",
+                  style: Theme.of(context).textTheme.subtitle1,
+                ),
+              ],
+            ),
+          ),
+        ),
+        GestureDetector(
+          onTap: () => Get.toNamed("/announcements"),
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                  ANNOUNCEMENT,
+                  width: 60,
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  "Announcement",
+                  style: Theme.of(context).textTheme.subtitle1,
+                ),
+              ],
+            ),
+          ),
+        ),
+
+        GestureDetector(
+          onTap: () => Get.toNamed("/calendar"),
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                  CALENDAR,
+                  width: 60,
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  "Calendar",
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],

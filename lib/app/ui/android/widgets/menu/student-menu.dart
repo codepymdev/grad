@@ -20,7 +20,7 @@ class StudentMenu extends StatelessWidget {
       ),
       children: [
         GestureDetector(
-          onTap: () => Get.toNamed("/classes"),
+          onTap: () => Get.toNamed("/student-class"),
           child: Container(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -41,7 +41,7 @@ class StudentMenu extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap: () => Get.toNamed("/subjects"),
+          onTap: () => Get.toNamed("/student-subject"),
           child: Container(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -62,7 +62,7 @@ class StudentMenu extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap: () => Get.toNamed("/class-students"),
+          onTap: () => Get.toNamed("/students/classmates"),
           child: Container(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -84,10 +84,7 @@ class StudentMenu extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () => Get.toNamed(
-            "/parents",
-            arguments: {
-              "handler": "parents",
-            },
+            "/parents/myparent",
           ),
           child: Container(
             child: Column(
@@ -110,10 +107,7 @@ class StudentMenu extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () => Get.toNamed(
-            "/staffs",
-            arguments: {
-              "handler": "staffs",
-            },
+            "/staffs/myteacher",
           ),
           child: Container(
             child: Column(
@@ -170,32 +164,6 @@ class StudentMenu extends StatelessWidget {
                 ),
                 Text(
                   "Results",
-                  style: Theme.of(context).textTheme.subtitle1,
-                ),
-              ],
-            ),
-          ),
-        ),
-        GestureDetector(
-          onTap: () => Get.toNamed(
-            "/users",
-            arguments: {
-              "handler": "users",
-            },
-          ),
-          child: Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset(
-                  USERS,
-                  width: 60,
-                ),
-                SizedBox(
-                  height: 8,
-                ),
-                Text(
-                  "Admins",
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],

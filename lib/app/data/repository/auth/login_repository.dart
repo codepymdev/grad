@@ -97,4 +97,25 @@ class LoginRepository {
       return {"status": false, "message": "Oops, there was an error"};
     }
   }
+
+  static Future<Map<String, dynamic>?> updateAuthUser({
+    required id,
+    required school,
+  }) async {
+    var url = Uri.parse("$GRAD" + "auth/data/" + id + "/" + school);
+    try {
+      var response = await client.get(url);
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        if (data['status']) {
+          return data['data'];
+        }
+        return null;
+      } else {
+        return null;
+      }
+    } catch (_) {
+      return null;
+    }
+  }
 }

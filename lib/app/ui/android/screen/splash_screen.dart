@@ -13,12 +13,24 @@ class SplashScreen extends StatelessWidget {
       // darkTheme: darkTheme,
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: SafeArea(
-          top: true,
-          bottom: true,
-          child: Container(
-            child: Text("splash screen"),
-          ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              alignment: Alignment.center,
+              child: Image.asset(
+                "assets/images/logo/logo.png",
+                width: 200,
+              ),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Container(
+              child: CircularProgressIndicator(),
+            ),
+          ],
         ),
       ),
     );

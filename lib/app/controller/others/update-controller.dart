@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:grad/app/controller/account/account_controller.dart';
+import 'package:grad/app/controller/auth/auth_manager_controller.dart';
 import 'package:grad/app/controller/calendar/calendar_controller.dart';
 import 'package:grad/app/controller/home/home_controller.dart';
 
@@ -10,6 +11,7 @@ class UpdateController extends GetxController {
     await Get.find<HomeController>().getData();
     await Get.find<HomeController>().getCurrentAnnouncement();
     await Get.find<HomeController>().getCurrentAnnouncement();
+    await Get.find<AuthManagerController>().updateAuthUser();
 
     await Get.find<CalendarController>().get_upcoming_events();
     await Get.find<CalendarController>().get_other_events();

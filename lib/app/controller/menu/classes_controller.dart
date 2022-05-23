@@ -38,19 +38,35 @@ class ClassesController extends GetxController with CacheManager {
   var success = false.obs;
   var success_msg = "".obs;
 
+  var me = {}.obs;
   @override
   void onInit() async {
     Map<String, dynamic>? data = await getMe();
     if (data != null) {
       campus_.value = data["campus"] == "" ? "0" : data["campus"];
       r.value = data["type"];
+      me.value = data;
     }
 
     String? _school = await getSchool();
     if (_school != null) {
       school.value = _school;
     }
-    await getClasses();
+    if (r.value == "admin") {
+      await getClasses();
+    }
+
+    if (r.value == "teaching") {
+      await getClasses();
+    }
+
+    if (r.value == "parent") {
+      await getClasses();
+    }
+
+    if (r.value == "non-teaching") {
+      await getClasses();
+    }
 
     //get campus
     List<Campus> _campus =

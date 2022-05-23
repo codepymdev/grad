@@ -54,12 +54,16 @@ class UsersController extends GetxController with CacheManager {
   var classId = "".obs;
 
   var display_role = true.obs;
+
+  var me = {}.obs;
   @override
   void onInit() async {
     Map<String, dynamic>? data = await getMe();
     if (data != null) {
       campus_.value = data["campus"] == "" ? "0" : data["campus"];
       r.value = data["type"];
+
+      me.value = data;
     }
 
     String? _school = await getSchool();
@@ -77,10 +81,12 @@ class UsersController extends GetxController with CacheManager {
         await SettingsRepository.getCampus(school: school.value);
     campus.value = _campus;
 
-    if (params['handler'] == "users") await getUsers();
-    if (params['handler'] == "parents") await getParents();
-    if (params['handler'] == "staffs") await getStaffs();
-    if (params['handler'] == "students") await getClassStudents(params['id']);
+    if (r.value == "admin") {
+      if (params['handler'] == "users") await getUsers();
+      if (params['handler'] == "parents") await getParents();
+      if (params['handler'] == "staffs") await getStaffs();
+      if (params['handler'] == "students") await getClassStudents(params['id']);
+    }
 
     loading.value = false;
     super.onInit();
