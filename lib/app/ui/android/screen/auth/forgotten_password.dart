@@ -1,9 +1,17 @@
 import 'package:Grad/app/controller/auth/forgotten_password_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
-class ForgottenPassword extends GetView<ForgottenPassowrdController> {
+class ForgottenPassword extends StatefulWidget {
+  @override
+  State<ForgottenPassword> createState() => _ForgottenPasswordState();
+}
+
+class _ForgottenPasswordState extends State<ForgottenPassword> {
+  ForgottenPassowrdController forgottenPassowrdController =
+      Get.put(ForgottenPassowrdController());
   @override
   Widget build(BuildContext context) {
     TextEditingController c = TextEditingController();
@@ -111,30 +119,27 @@ class ForgottenPassword extends GetView<ForgottenPassowrdController> {
                           padding: const EdgeInsets.all(4.0),
                           child: TextButton(
                             onPressed: () async {
-                              if (!controller.searching.value) {
-                                await controller.search(
+                              if (!forgottenPassowrdController
+                                  .searching.value) {
+                                await forgottenPassowrdController.search(
                                   email: c.text,
-                                  school: controller.school["slug"],
+                                  school: forgottenPassowrdController
+                                      .school["slug"],
                                 );
-                                if (controller.error.value) {
-                                  final snackBar = SnackBar(
-                                    content:
-                                        Text('${controller.error_msg.value}'),
-                                    backgroundColor: Colors.red,
+                                if (forgottenPassowrdController.error.value) {
+                                  Fluttertoast.showToast(
+                                    msg: forgottenPassowrdController
+                                        .error_msg.value,
                                   );
-                                  // Find the ScaffoldMessenger in the widget tree
-                                  // and use it to show a SnackBar.
-                                  ScaffoldMessenger.of(context)
-                                      .showSnackBar(snackBar);
                                 }
 
                                 ///
                                 /// redirect to verifyCode
                                 ///
-                                if (controller.redirect.value)
+                                if (forgottenPassowrdController.redirect.value)
                                   await _sentSuccess(
                                     c.text,
-                                    controller.school['slug'],
+                                    forgottenPassowrdController.school['slug'],
                                   );
                               }
                             },
@@ -143,7 +148,7 @@ class ForgottenPassword extends GetView<ForgottenPassowrdController> {
                                 Colors.blue[400],
                               ),
                             ),
-                            child: !controller.searching.value
+                            child: !forgottenPassowrdController.searching.value
                                 ? Text(
                                     "Search",
                                     style: TextStyle(

@@ -7,12 +7,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 
-class Login extends GetView<LoginController> {
+class Login extends StatefulWidget {
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  LoginController loginController = Get.put(LoginController());
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    TextEditingController emailcontroller = TextEditingController();
-    TextEditingController passwordcontroller = TextEditingController();
-
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -28,9 +33,9 @@ class Login extends GetView<LoginController> {
       ),
       body: SingleChildScrollView(
         child: Obx(() {
-          String logo = controller.school['logo'];
-          String name = controller.school['name'];
-          String slug = controller.school['slug'];
+          String logo = loginController.school['logo'];
+          String name = loginController.school['name'];
+          String slug = loginController.school['slug'];
           return Container(
             margin: EdgeInsets.only(
               top: 30,
@@ -82,7 +87,7 @@ class Login extends GetView<LoginController> {
                 ///
                 GestureDetector(
                   onTap: () => Get.toNamed("/forgotten-password", arguments: {
-                    "school": controller.school,
+                    "school": loginController.school,
                   }),
                   child: Container(
                     margin: EdgeInsets.only(
@@ -115,7 +120,7 @@ class Login extends GetView<LoginController> {
                 ///
                 GestureDetector(
                   onTap: () => Get.toNamed("/create-account", arguments: {
-                    "school": controller.school,
+                    "school": loginController.school,
                   }),
                   child: Container(
                     margin: EdgeInsets.only(

@@ -31,6 +31,7 @@ dependencies:
   onesignal_flutter: ^3.3.0
   timeago: ^3.2.2
   flutter_slidable: ^1.2.0
+  fluttertoast: ^8.2.1
   flutter:
     sdk: flutter
 

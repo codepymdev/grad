@@ -1,13 +1,19 @@
 import 'package:Grad/app/controller/auth/verify_account_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
-late TextEditingController c;
+class VerifyAccount extends StatefulWidget {
+  @override
+  State<VerifyAccount> createState() => _VerifyAccountState();
+}
 
-class VerifyAccount extends GetView<VerifyAccountController> {
+class _VerifyAccountState extends State<VerifyAccount> {
+  late TextEditingController c = TextEditingController();
+  VerifyAccountController verifyAccountController =
+      Get.put(VerifyAccountController());
   @override
   Widget build(BuildContext context) {
-    c = TextEditingController();
     return Scaffold(
       appBar: _appBar(),
       body: Obx(
@@ -34,7 +40,7 @@ class VerifyAccount extends GetView<VerifyAccountController> {
               ),
               Container(
                 child: Text(
-                  "${controller.email}",
+                  "${verifyAccountController.email}",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.normal,
@@ -111,15 +117,15 @@ class VerifyAccount extends GetView<VerifyAccountController> {
       width: double.infinity,
       child: TextButton(
         onPressed: () async {
-          if (!controller.loading.value) {
-            await controller.verify(
-              email: controller.email,
-              school: controller.school,
+          if (!verifyAccountController.loading.value) {
+            await verifyAccountController.verify(
+              email: verifyAccountController.email,
+              school: verifyAccountController.school,
               code: c.text,
             );
-            if (controller.error.value) {
+            if (verifyAccountController.error.value) {
               final snackBar = SnackBar(
-                content: Text('${controller.error_msg.value}'),
+                content: Text('${verifyAccountController.error_msg.value}'),
                 backgroundColor: Colors.red,
               );
               // Find the ScaffoldMessenger in the widget tree
@@ -130,10 +136,10 @@ class VerifyAccount extends GetView<VerifyAccountController> {
             ///
             /// redirect to verifyCode
             ///
-            if (controller.redirect.value)
+            if (verifyAccountController.redirect.value)
               await _Success(
-                controller.email,
-                controller.school,
+                verifyAccountController.email,
+                verifyAccountController.school,
               );
           }
         },
@@ -142,7 +148,7 @@ class VerifyAccount extends GetView<VerifyAccountController> {
             Colors.blue[400],
           ),
         ),
-        child: !controller.loading.value
+        child: !verifyAccountController.loading.value
             ? Text(
                 "Continue",
                 style: TextStyle(
@@ -180,32 +186,24 @@ class VerifyAccount extends GetView<VerifyAccountController> {
       width: double.infinity,
       child: TextButton(
         onPressed: () async {
-          if (!controller.searching.value) {
-            await controller.retry(
-              email: controller.email,
-              school: controller.school,
+          if (!verifyAccountController.searching.value) {
+            await verifyAccountController.retry(
+              email: verifyAccountController.email,
+              school: verifyAccountController.school,
             );
-            if (controller.error.value) {
-              final snackBar = SnackBar(
-                content: Text('${controller.error_msg.value}'),
-                backgroundColor: Colors.red,
+            if (verifyAccountController.error.value) {
+              Fluttertoast.showToast(
+                msg: '${verifyAccountController.error_msg.value}',
               );
-              // Find the ScaffoldMessenger in the widget tree
-              // and use it to show a SnackBar.
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
             }
 
             ///
             /// redirect to verifyCode
             ///
-            if (controller.sent.value) {
-              final snackBar = SnackBar(
-                content: Text('Recovery code sent to ${controller.email}'),
-                backgroundColor: Colors.green,
+            if (verifyAccountController.sent.value) {
+              Fluttertoast.showToast(
+                msg: 'Recovery code sent to ${verifyAccountController.email}',
               );
-              // Find the ScaffoldMessenger in the widget tree
-              // and use it to show a SnackBar.
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
             }
           }
         },
@@ -214,7 +212,7 @@ class VerifyAccount extends GetView<VerifyAccountController> {
             Colors.grey[300],
           ),
         ),
-        child: !controller.searching.value
+        child: !verifyAccountController.searching.value
             ? Text(
                 "Didn't get a code?",
                 style: TextStyle(

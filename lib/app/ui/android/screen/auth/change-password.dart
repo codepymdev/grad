@@ -2,16 +2,21 @@ import 'package:Grad/app/controller/auth/change_password_controller.dart';
 import 'package:Grad/app/ui/android/widgets/auth/change_password/confirm_password.dart';
 import 'package:Grad/app/ui/android/widgets/auth/change_password/password.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
-late TextEditingController passwordController;
-late TextEditingController confirmPasswordController;
+class ChangePassword extends StatefulWidget {
+  @override
+  State<ChangePassword> createState() => _ChangePasswordState();
+}
 
-class ChangePassword extends GetView<ChangePasswordController> {
+class _ChangePasswordState extends State<ChangePassword> {
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+  ChangePasswordController changePasswordController =
+      Get.put(ChangePasswordController());
   @override
   Widget build(BuildContext context) {
-    passwordController = TextEditingController();
-    confirmPasswordController = TextEditingController();
     return Scaffold(
       appBar: _appBar(),
       body: Obx(
@@ -56,7 +61,7 @@ class ChangePassword extends GetView<ChangePasswordController> {
           height: 15,
         ),
         Password(
-          c: controller,
+          c: changePasswordController,
           c2: passwordController,
         ),
         SizedBox(
@@ -75,7 +80,7 @@ class ChangePassword extends GetView<ChangePasswordController> {
           height: 15,
         ),
         ConfirmPassword(
-          c: controller,
+          c: changePasswordController,
           c2: confirmPasswordController,
         ),
         SizedBox(
@@ -92,25 +97,21 @@ class ChangePassword extends GetView<ChangePasswordController> {
       height: 50,
       child: TextButton(
         onPressed: () async {
-          if (!controller.loading.value) {
-            await controller.change(
+          if (!changePasswordController.loading.value) {
+            await changePasswordController.change(
               confirm_password: confirmPasswordController.text,
               password: passwordController.text,
             );
-            if (controller.error.value) {
-              final snackBar = SnackBar(
-                content: Text('${controller.error_msg.value}'),
-                backgroundColor: Colors.red,
+            if (changePasswordController.error.value) {
+              Fluttertoast.showToast(
+                msg: changePasswordController.error_msg.value,
               );
-              // Find the ScaffoldMessenger in the widget tree
-              // and use it to show a SnackBar.
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
             }
 
             ///
             /// redirect to dashbaord
             ///
-            if (controller.redirect.value) await _loginSuccess();
+            if (changePasswordController.redirect.value) await _loginSuccess();
           }
         },
         style: ButtonStyle(
@@ -118,7 +119,7 @@ class ChangePassword extends GetView<ChangePasswordController> {
             Colors.blue[400],
           ),
         ),
-        child: !controller.loading.value
+        child: !changePasswordController.loading.value
             ? Text(
                 "Chanage Password",
                 style: TextStyle(
