@@ -19,7 +19,6 @@ class AppAboutVersion extends StatelessWidget {
         children: [
           Text(
             "Grad",
-            style: Theme.of(context).textTheme.caption,
           ),
           SizedBox(
             height: 5,
@@ -29,7 +28,6 @@ class AppAboutVersion extends StatelessWidget {
             children: [
               Text(
                 "Powered by ",
-                style: Theme.of(context).textTheme.caption,
               ),
               SizedBox(
                 width: 2,
@@ -43,7 +41,6 @@ class AppAboutVersion extends StatelessWidget {
               ),
               Text(
                 "Codepym",
-                style: Theme.of(context).textTheme.caption,
               ),
             ],
           ),
@@ -52,7 +49,6 @@ class AppAboutVersion extends StatelessWidget {
           ),
           Text(
             ".v 1.0.0",
-            style: Theme.of(context).textTheme.caption,
           ),
         ],
       ),
