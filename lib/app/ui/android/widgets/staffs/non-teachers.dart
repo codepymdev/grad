@@ -1,19 +1,24 @@
 import 'package:Grad/app/controller/menu/users_controller.dart';
+import 'package:Grad/app/ui/android/widgets/custom/iosLoader.dart';
 import 'package:Grad/app/ui/android/widgets/staffs/t-list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class NonTeachers extends GetView<UsersController> {
+class NonTeachers extends StatefulWidget {
+  @override
+  State<NonTeachers> createState() => _NonTeachersState();
+}
+
+class _NonTeachersState extends State<NonTeachers> {
+  UsersController usersController = Get.put(UsersController());
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      if (controller.loading.value)
+      if (usersController.loading.value)
         return Container(
-          child: Center(
-            child: CircularProgressIndicator(),
-          ),
+          child: IosLoader(),
         );
-      var data = controller.staffs;
+      var data = usersController.staffs;
       return Container(
         child: ListView(
           shrinkWrap: true,

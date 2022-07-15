@@ -34,7 +34,6 @@ class AdminMenu extends StatelessWidget {
                 ),
                 Text(
                   "Classes",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -56,7 +55,6 @@ class AdminMenu extends StatelessWidget {
                 ),
                 Text(
                   "Subjects",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -77,7 +75,6 @@ class AdminMenu extends StatelessWidget {
                 ),
                 Text(
                   "Students",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -103,7 +100,6 @@ class AdminMenu extends StatelessWidget {
                 ),
                 Text(
                   "Parents",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -129,7 +125,6 @@ class AdminMenu extends StatelessWidget {
                 ),
                 Text(
                   "Staffs",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -168,7 +163,6 @@ class AdminMenu extends StatelessWidget {
                 ),
                 Text(
                   "Attendance",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -189,7 +183,6 @@ class AdminMenu extends StatelessWidget {
                 ),
                 Text(
                   "Results",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -233,7 +226,6 @@ class AdminMenu extends StatelessWidget {
                 ),
                 Text(
                   "Users",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -254,7 +246,6 @@ class AdminMenu extends StatelessWidget {
                 ),
                 Text(
                   "Announcement",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -276,7 +267,6 @@ class AdminMenu extends StatelessWidget {
                 ),
                 Text(
                   "Calendar",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),

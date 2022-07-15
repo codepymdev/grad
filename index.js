@@ -3,5 +3,5 @@ const moment = require('moment');
 const simpleGit = require('simple-git');
 
 
-const DATE = moment().subtract(11, 'months').format();
-simpleGit().add("./*").commit("fix: update route injections", {'--date': DATE}).push();
+const DATE = moment().subtract(9, 'months').format();
+simpleGit().add("./*").commit("fac: Non-teaching and teaching progress", {'--date': DATE}).push();
