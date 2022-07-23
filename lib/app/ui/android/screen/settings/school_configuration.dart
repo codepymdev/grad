@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:Grad/app/controller/settings/settings_controller.dart';
 import 'package:Grad/app/core/functions/functions.dart';
 
-late TextEditingController schoolName;
-late TextEditingController schoolMoto;
-late TextEditingController schoolDetails;
-late TextEditingController schoolAddress;
-late TextEditingController schoolEmail1;
-late TextEditingController schoolEmail2;
-late TextEditingController schoolEmail3;
-late TextEditingController schoolTel1;
-late TextEditingController schoolTel2;
-late TextEditingController schoolTel3;
-late TextEditingController regNoPrefix;
+class SchoolConfiguration extends StatefulWidget {
+  @override
+  State<SchoolConfiguration> createState() => _SchoolConfigurationState();
+}
 
-class SchoolConfiguration extends GetView<SettingsController> {
+class _SchoolConfigurationState extends State<SchoolConfiguration> {
+  late TextEditingController schoolName;
+  late TextEditingController schoolMoto;
+  late TextEditingController schoolDetails;
+  late TextEditingController schoolAddress;
+  late TextEditingController schoolEmail1;
+  late TextEditingController schoolEmail2;
+  late TextEditingController schoolEmail3;
+  late TextEditingController schoolTel1;
+  late TextEditingController schoolTel2;
+  late TextEditingController schoolTel3;
+  late TextEditingController regNoPrefix;
+  SettingsController settingsController = Get.put(SettingsController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,11 +36,11 @@ class SchoolConfiguration extends GetView<SettingsController> {
           ),
           child: Obx(
             () {
-              if (controller.loading.value)
+              if (settingsController.loading.value)
                 return Center(
                   child: CircularProgressIndicator(),
                 );
-              List<dynamic> configs = controller.configs;
+              List<dynamic> configs = settingsController.configs;
 
               return Column(children: [
                 //school name
@@ -91,7 +97,7 @@ class SchoolConfiguration extends GetView<SettingsController> {
                   height: 50,
                   child: ElevatedButton(
                     style: ButtonStyle(),
-                    child: controller.processing.value
+                    child: settingsController.processing.value
                         ? Center(
                             child: CircularProgressIndicator(
                               color: Colors.white,
@@ -104,8 +110,8 @@ class SchoolConfiguration extends GetView<SettingsController> {
                             ),
                           ),
                     onPressed: () async {
-                      if (!controller.processing.value) {
-                        await controller.updateSchoolConfig(data: {
+                      if (!settingsController.processing.value) {
+                        await settingsController.updateSchoolConfig(data: {
                           "school_name": schoolName.text,
                           "school_moto": schoolMoto.text,
                           "school_details": schoolDetails.text,
@@ -119,18 +125,20 @@ class SchoolConfiguration extends GetView<SettingsController> {
                           "reg_no_prefix": regNoPrefix.text,
                         });
 
-                        if (controller.error.value) {
+                        if (settingsController.error.value) {
                           final snackBar = SnackBar(
-                            content: Text('${controller.error_msg.value}'),
+                            content:
+                                Text('${settingsController.error_msg.value}'),
                             backgroundColor: Colors.red,
                           );
                           // Find the ScaffoldMessenger in the widget tree
                           // and use it to show a SnackBar.
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         }
-                        if (controller.success.value) {
+                        if (settingsController.success.value) {
                           final snackBar = SnackBar(
-                            content: Text('${controller.success_msg.value}'),
+                            content:
+                                Text('${settingsController.success_msg.value}'),
                             backgroundColor: Colors.green,
                           );
                           // Find the ScaffoldMessenger in the widget tree

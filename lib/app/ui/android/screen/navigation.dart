@@ -9,7 +9,13 @@ import 'package:Grad/app/ui/android/screen/chats/chatsPage.dart';
 import 'package:Grad/app/ui/android/screen/home/home_page.dart';
 import 'package:Grad/app/ui/android/screen/settings/settings_page.dart';
 
-class Navigation extends GetView<NavigationController> {
+class Navigation extends StatefulWidget {
+  @override
+  State<Navigation> createState() => _NavigationState();
+}
+
+class _NavigationState extends State<Navigation> {
+  NavigationController navigationController = Get.put(NavigationController());
   @override
   Widget build(BuildContext context) {
     return GetBuilder<NavigationController>(
@@ -54,7 +60,7 @@ class Navigation extends GetView<NavigationController> {
         label: "",
         icon: badge.Badge(
           badgeContent: Text(
-            "${controller.messagecount}",
+            "${navigationController.messagecount}",
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,

@@ -3,7 +3,13 @@ import 'package:get/get.dart';
 import 'package:Grad/app/controller/settings/settings_controller.dart';
 import 'package:Grad/app/core/functions/functions.dart';
 
-class Notification extends GetView<SettingsController> {
+class Notification extends StatefulWidget {
+  @override
+  State<Notification> createState() => _NotificationState();
+}
+
+class _NotificationState extends State<Notification> {
+  SettingsController settingsController = Get.put(SettingsController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +23,7 @@ class Notification extends GetView<SettingsController> {
             bottom: 15,
           ),
           child: Obx(() {
-            if (controller.loading.value)
+            if (settingsController.loading.value)
               return Center(
                 child: CircularProgressIndicator(),
               );
@@ -34,9 +40,9 @@ class Notification extends GetView<SettingsController> {
                   ),
                   subtitle: Text("Turn off app notification"),
                   trailing: Switch(
-                    value: controller.app_notifications.value,
+                    value: settingsController.app_notifications.value,
                     onChanged: (bool? newValue) =>
-                        controller.updateNotification("app", newValue),
+                        settingsController.updateNotification("app", newValue),
                   ),
                 ),
                 Divider(),
@@ -50,9 +56,9 @@ class Notification extends GetView<SettingsController> {
                   ),
                   subtitle: Text("Turn off announcement"),
                   trailing: Switch(
-                    value: controller.announcement_notifications.value,
-                    onChanged: (bool? newValue) =>
-                        controller.updateNotification("announcement", newValue),
+                    value: settingsController.announcement_notifications.value,
+                    onChanged: (bool? newValue) => settingsController
+                        .updateNotification("announcement", newValue),
                   ),
                 ),
                 Divider(),
@@ -66,9 +72,9 @@ class Notification extends GetView<SettingsController> {
                   ),
                   subtitle: Text("Turn off Email notification"),
                   trailing: Switch(
-                    value: controller.email_notifications.value,
-                    onChanged: (bool? newValue) =>
-                        controller.updateNotification("email", newValue),
+                    value: settingsController.email_notifications.value,
+                    onChanged: (bool? newValue) => settingsController
+                        .updateNotification("email", newValue),
                   ),
                 ),
                 Divider(),
@@ -82,9 +88,9 @@ class Notification extends GetView<SettingsController> {
                   ),
                   subtitle: Text("Turn off SMS notification"),
                   trailing: Switch(
-                    value: controller.sms_notifications.value,
+                    value: settingsController.sms_notifications.value,
                     onChanged: (bool? newValue) =>
-                        controller.updateNotification("sms", newValue),
+                        settingsController.updateNotification("sms", newValue),
                   ),
                 ),
               ],
