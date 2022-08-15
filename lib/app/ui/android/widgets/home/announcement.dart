@@ -5,16 +5,22 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-class Announcement extends GetView<HomeController> {
+class Announcement extends StatefulWidget {
   const Announcement({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<Announcement> createState() => _AnnouncementState();
+}
+
+class _AnnouncementState extends State<Announcement> {
+  HomeController homeController = Get.put(HomeController());
+  @override
   Widget build(BuildContext context) {
     return Obx(
       () {
-        var data = controller.current_announcement;
+        var data = homeController.current_announcement;
         if (data.isEmpty) return Container();
 
         return Container(
@@ -60,9 +66,9 @@ class Announcement extends GetView<HomeController> {
                         ],
                       ),
                       GestureDetector(
-                        onTap: () => controller.hideSection("announcement"),
+                        onTap: () => homeController.hideSection("announcement"),
                         child: Icon(
-                          controller.hide_announcement.value
+                          homeController.hide_announcement.value
                               ? FeatherIcons.minimize2
                               : FeatherIcons.maximize2,
                         ),
@@ -70,7 +76,7 @@ class Announcement extends GetView<HomeController> {
                     ],
                   ),
                   Divider(),
-                  if (!controller.hide_announcement.value)
+                  if (!homeController.hide_announcement.value)
                     Container(
                       padding: EdgeInsets.all(5),
                       decoration: BoxDecoration(

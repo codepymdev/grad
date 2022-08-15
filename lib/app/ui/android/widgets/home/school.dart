@@ -4,11 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 
-class School extends GetView<HomeController> {
+class School extends StatefulWidget {
   const School({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<School> createState() => _SchoolState();
+}
+
+class _SchoolState extends State<School> {
+  HomeController homeController = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
     return Obx(
@@ -38,7 +44,7 @@ class School extends GetView<HomeController> {
                       Align(
                         alignment: Alignment.center,
                         child: Text(
-                          "${controller.school_data['name']}",
+                          "${homeController.school_data['name']}",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
@@ -46,9 +52,9 @@ class School extends GetView<HomeController> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () => controller.hideSection("school"),
+                        onTap: () => homeController.hideSection("school"),
                         child: Icon(
-                          controller.hide_school.value
+                          homeController.hide_school.value
                               ? FeatherIcons.minimize2
                               : FeatherIcons.maximize2,
                         ),
@@ -56,7 +62,7 @@ class School extends GetView<HomeController> {
                     ],
                   ),
                   Divider(),
-                  if (!controller.hide_school.value)
+                  if (!homeController.hide_school.value)
                     Container(
                       child: Row(
                         children: [
@@ -64,12 +70,12 @@ class School extends GetView<HomeController> {
                             child: Column(
                               children: [
                                 CustomNetworkImage(
-                                  url: "${controller.school_data['logo']}",
+                                  url: "${homeController.school_data['logo']}",
                                   ht: 70,
                                   wd: 70,
                                 ),
                                 Text(
-                                  "${controller.school_data["address"]}",
+                                  "${homeController.school_data["address"]}",
                                   style: TextStyle(
                                     fontSize: 12,
                                   ),
@@ -87,7 +93,7 @@ class School extends GetView<HomeController> {
                                       ClipOval(
                                         child: CustomNetworkImage(
                                           url:
-                                              "${controller.school_data['proprietor_avatar']}",
+                                              "${homeController.school_data['proprietor_avatar']}",
                                           ht: 50,
                                           wd: 50,
                                         ),
@@ -101,7 +107,7 @@ class School extends GetView<HomeController> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              "${controller.school_data['proprietor_name']}",
+                                              "${homeController.school_data['proprietor_name']}",
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 15,
@@ -125,7 +131,7 @@ class School extends GetView<HomeController> {
                                       ClipOval(
                                         child: CustomNetworkImage(
                                           url:
-                                              "${controller.school_data['principal_avatar']}",
+                                              "${homeController.school_data['principal_avatar']}",
                                           ht: 50,
                                           wd: 50,
                                         ),
@@ -139,7 +145,7 @@ class School extends GetView<HomeController> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              "${controller.school_data['principal_name']}",
+                                              "${homeController.school_data['principal_name']}",
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 15,

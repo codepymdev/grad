@@ -3,16 +3,22 @@ import 'package:Grad/app/core/functions/functions.dart';
 import 'package:Grad/app/ui/android/widgets/custom/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 
-class Parents extends GetView<HomeController> {
+class Parents extends StatefulWidget {
   const Parents({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<Parents> createState() => _ParentsState();
+}
+
+class _ParentsState extends State<Parents> {
+  HomeController homeController = Get.put(HomeController());
+  @override
   Widget build(BuildContext context) {
-    List<dynamic> users = controller.parents;
+    List<dynamic> users = homeController.parents;
     if (users.isEmpty) return Container();
     return Container(
       margin: EdgeInsets.only(
@@ -39,11 +45,9 @@ class Parents extends GetView<HomeController> {
                 children: [
                   Text(
                     "Parents".toUpperCase(),
-                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                   Text(
                     "See All".toUpperCase(),
-                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                 ],
               ),
@@ -115,7 +119,7 @@ class Parents extends GetView<HomeController> {
                               child: GestureDetector(
                                 onTap: () async {
                                   await createChannel(context,
-                                      "${chatStreamId(controller.school.value, users[index]['id'])}");
+                                      "${chatStreamId(homeController.school.value, users[index]['id'])}");
                                 },
                                 child: Container(
                                   child: Icon(
