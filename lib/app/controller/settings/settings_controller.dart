@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:Grad/app/core/functions/functions.dart';
-import 'package:Grad/app/data/mixins/cache_manager.dart';
-import 'package:Grad/app/data/repository/settings/settings_repository.dart';
+import 'package:grad/app/core/functions/functions.dart';
+import 'package:grad/app/data/mixins/cache_manager.dart';
+import 'package:grad/app/data/repository/settings/settings_repository.dart';
 import 'package:get/get.dart';
 
 import 'package:image_picker/image_picker.dart';

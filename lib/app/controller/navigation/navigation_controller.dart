@@ -1,4 +1,4 @@
-import 'package:Grad/app/controller/auth/auth_manager_controller.dart';
+import 'package:grad/app/controller/auth/auth_manager_controller.dart';
 import 'package:get/get.dart';
 
 class NavigationController extends GetxController {

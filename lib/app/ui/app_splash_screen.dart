@@ -1,4 +1,4 @@
-import 'package:Grad/app/ui/android/screen/splash_screen.dart';
+import 'package:grad/app/ui/android/screen/splash_screen.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:io' show Platform;
 

@@ -1,5 +1,5 @@
-import 'package:Grad/app/data/mixins/cache_manager.dart';
-import 'package:Grad/app/data/repository/menu/announcement_repository.dart';
+import 'package:grad/app/data/mixins/cache_manager.dart';
+import 'package:grad/app/data/repository/menu/announcement_repository.dart';
 import 'package:get/get.dart';
 
 class AnnouncementController extends GetxController with CacheManager {

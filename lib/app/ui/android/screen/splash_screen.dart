@@ -1,6 +1,6 @@
-import 'package:Grad/app/ui/android/widgets/custom/iosLoader.dart';
+import 'package:grad/app/ui/android/widgets/custom/iosLoader.dart';
 import 'package:flutter/material.dart';
-import 'package:Grad/app/ui/theme/android/app_theme.dart';
+import 'package:grad/app/ui/theme/android/app_theme.dart';
 
 class SplashScreen extends StatelessWidget {
   @override

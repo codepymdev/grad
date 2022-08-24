@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:Grad/app/core/functions/functions.dart';
-import 'package:Grad/app/ui/android/widgets/staffs/non-teachers.dart';
-import 'package:Grad/app/ui/android/widgets/staffs/teachers.dart';
+import 'package:grad/app/core/functions/functions.dart';
+import 'package:grad/app/ui/android/widgets/staffs/non-teachers.dart';
+import 'package:grad/app/ui/android/widgets/staffs/teachers.dart';
 
 class Staffs extends StatelessWidget {
   @override

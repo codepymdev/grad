@@ -1,4 +1,4 @@
-import 'package:Grad/app/controller/chat/conversation_controller.dart';
+import 'package:grad/app/controller/chat/conversation_controller.dart';
 import 'package:get/get.dart';
 
 class ConversationBinding implements Bindings {

@@ -1,4 +1,4 @@
-import 'package:Grad/app/ui/android/android_app.dart';
+import 'package:grad/app/ui/android/android_app.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:io' show Platform;
 

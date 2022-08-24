@@ -1,7 +1,7 @@
-import 'package:Grad/app/controller/account/edit_profile_controller.dart';
-import 'package:Grad/app/core/constants/asset_path.dart';
-import 'package:Grad/app/core/functions/functions.dart';
-import 'package:Grad/app/ui/android/widgets/custom/cached_network_image.dart';
+import 'package:grad/app/controller/account/edit_profile_controller.dart';
+import 'package:grad/app/core/constants/asset_path.dart';
+import 'package:grad/app/core/functions/functions.dart';
+import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';

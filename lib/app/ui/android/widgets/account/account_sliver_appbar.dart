@@ -1,9 +1,9 @@
 import 'package:badges/badges.dart' as badge;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:Grad/app/core/constants/asset_path.dart';
-import 'package:Grad/app/core/functions/functions.dart';
-import 'package:Grad/app/ui/android/widgets/home/flexible_space.dart';
+import 'package:grad/app/core/constants/asset_path.dart';
+import 'package:grad/app/core/functions/functions.dart';
+import 'package:grad/app/ui/android/widgets/home/flexible_space.dart';
 
 class AccountSliverAppBar extends StatelessWidget {
   const AccountSliverAppBar({

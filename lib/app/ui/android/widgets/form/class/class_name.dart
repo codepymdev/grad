@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:Grad/app/controller/menu/classes_controller.dart';
-import 'package:Grad/app/data/model/class_categories_model.dart';
+import 'package:grad/app/controller/menu/classes_controller.dart';
+import 'package:grad/app/data/model/class_categories_model.dart';
 
 class ClassName extends GetView<ClassesController> {
   @override

@@ -1,4 +1,4 @@
-import 'package:Grad/app/controller/navigation/navigation_controller.dart';
+import 'package:grad/app/controller/navigation/navigation_controller.dart';
 import 'package:get/get.dart';
 
 class NavigationBinding implements Bindings {

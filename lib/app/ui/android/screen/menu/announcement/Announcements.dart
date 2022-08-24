@@ -3,9 +3,9 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:Grad/app/controller/menu/announcement_controller.dart';
-import 'package:Grad/app/core/constants/asset_path.dart';
-import 'package:Grad/app/core/functions/functions.dart';
+import 'package:grad/app/controller/menu/announcement_controller.dart';
+import 'package:grad/app/core/constants/asset_path.dart';
+import 'package:grad/app/core/functions/functions.dart';
 
 class Announcements extends StatefulWidget {
   const Announcements({Key? key}) : super(key: key);

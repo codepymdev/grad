@@ -1,8 +1,8 @@
-import 'package:Grad/app/controller/calendar/calendar_controller.dart';
-import 'package:Grad/app/controller/others/update-controller.dart';
-import 'package:Grad/app/core/functions/functions.dart';
-import 'package:Grad/app/ui/android/widgets/calendar/passed_events.dart';
-import 'package:Grad/app/ui/android/widgets/calendar/upcoming_events.dart';
+import 'package:grad/app/controller/calendar/calendar_controller.dart';
+import 'package:grad/app/controller/others/update-controller.dart';
+import 'package:grad/app/core/functions/functions.dart';
+import 'package:grad/app/ui/android/widgets/calendar/passed_events.dart';
+import 'package:grad/app/ui/android/widgets/calendar/upcoming_events.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';

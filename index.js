@@ -4,4 +4,4 @@ const simpleGit = require('simple-git');
 
 
 const DATE = moment().subtract(8, 'months').format();
-simpleGit().add("./*").commit("fix: Update the settings page", {'--date': DATE}).push();
+simpleGit().add("./*").commit("fix: Update package url", {'--date': DATE}).push();

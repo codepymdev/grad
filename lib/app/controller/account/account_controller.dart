@@ -1,7 +1,7 @@
-import 'package:Grad/app/controller/auth/auth_manager_controller.dart';
-import 'package:Grad/app/data/mixins/cache_manager.dart';
-import 'package:Grad/app/data/repository/account/profile_repository.dart';
-import 'package:Grad/app/data/repository/home/home_page_repository.dart';
+import 'package:grad/app/controller/auth/auth_manager_controller.dart';
+import 'package:grad/app/data/mixins/cache_manager.dart';
+import 'package:grad/app/data/repository/account/profile_repository.dart';
+import 'package:grad/app/data/repository/home/home_page_repository.dart';
 import 'package:get/state_manager.dart';
 
 class AccountController extends GetxController with CacheManager {

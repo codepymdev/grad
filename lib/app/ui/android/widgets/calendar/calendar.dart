@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:Grad/app/controller/calendar/calendar_controller.dart';
-import 'package:Grad/app/core/constants/app_constants.dart';
+import 'package:grad/app/controller/calendar/calendar_controller.dart';
+import 'package:grad/app/core/constants/app_constants.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 late var events;

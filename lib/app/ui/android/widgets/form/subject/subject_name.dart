@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:Grad/app/controller/menu/subjects_controller.dart';
-import 'package:Grad/app/data/model/subject_categories.dart';
+import 'package:grad/app/controller/menu/subjects_controller.dart';
+import 'package:grad/app/data/model/subject_categories.dart';
 
 class SubjectName extends GetView<SubjectsController> {
   @override

@@ -1,9 +1,9 @@
-import 'package:Grad/app/bindings/auth/auth_manager_binding.dart';
-import 'package:Grad/app/data/services/GetService.dart';
-import 'package:Grad/app/data/services/StreamService.dart';
-import 'package:Grad/app/routes/app_pages.dart';
-import 'package:Grad/app/routes/app_routes.dart';
-import 'package:Grad/app/ui/theme/android/app_theme.dart';
+import 'package:grad/app/bindings/auth/auth_manager_binding.dart';
+import 'package:grad/app/data/services/GetService.dart';
+import 'package:grad/app/data/services/StreamService.dart';
+import 'package:grad/app/routes/app_pages.dart';
+import 'package:grad/app/routes/app_routes.dart';
+import 'package:grad/app/ui/theme/android/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';

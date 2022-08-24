@@ -1,6 +1,6 @@
-import 'package:Grad/app/controller/auth/auth_manager_controller.dart';
-import 'package:Grad/app/data/mixins/cache_manager.dart';
-import 'package:Grad/app/data/repository/auth/login_repository.dart';
+import 'package:grad/app/controller/auth/auth_manager_controller.dart';
+import 'package:grad/app/data/mixins/cache_manager.dart';
+import 'package:grad/app/data/repository/auth/login_repository.dart';
 import 'package:get/get.dart';
 
 class ChangePasswordController extends GetxController with CacheManager {

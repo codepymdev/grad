@@ -1,7 +1,7 @@
-import 'package:Grad/app/core/constants/app_constants.dart';
-import 'package:Grad/app/data/mixins/cache_manager.dart';
-import 'package:Grad/app/data/model/subject_categories.dart';
-import 'package:Grad/app/data/repository/menu/subject_repository.dart';
+import 'package:grad/app/core/constants/app_constants.dart';
+import 'package:grad/app/data/mixins/cache_manager.dart';
+import 'package:grad/app/data/model/subject_categories.dart';
+import 'package:grad/app/data/repository/menu/subject_repository.dart';
 import 'package:get/get.dart';
 
 class SubjectsController extends GetxController with CacheManager {

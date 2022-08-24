@@ -1,4 +1,4 @@
-import 'package:Grad/app/ui/android/screen/errors/error.dart';
+import 'package:grad/app/ui/android/screen/errors/error.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:io' show Platform;
 

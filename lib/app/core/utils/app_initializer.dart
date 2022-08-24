@@ -1,5 +1,5 @@
-import 'package:Grad/app/core/utils/app_connectivity.dart';
-import 'package:Grad/app/core/utils/theme_preferebce.dart';
+import 'package:grad/app/core/utils/app_connectivity.dart';
+import 'package:grad/app/core/utils/theme_preferebce.dart';
 
 ///
 /// Appp initalizer

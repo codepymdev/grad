@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:Grad/app/controller/account/account_controller.dart';
-import 'package:Grad/app/controller/others/update-controller.dart';
-import 'package:Grad/app/core/constants/asset_path.dart';
+import 'package:grad/app/controller/account/account_controller.dart';
+import 'package:grad/app/controller/others/update-controller.dart';
+import 'package:grad/app/core/constants/asset_path.dart';
 
 class AccountSection extends GetView<AccountController> {
   const AccountSection({

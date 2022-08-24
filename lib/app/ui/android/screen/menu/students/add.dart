@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:Grad/app/controller/menu/users_controller.dart';
-import 'package:Grad/app/core/functions/functions.dart';
-import 'package:Grad/app/ui/android/widgets/form/user/address.dart';
-import 'package:Grad/app/ui/android/widgets/form/user/campus.dart';
-import 'package:Grad/app/ui/android/widgets/form/user/city.dart';
-import 'package:Grad/app/ui/android/widgets/form/user/country.dart';
-import 'package:Grad/app/ui/android/widgets/form/user/firstname.dart';
-import 'package:Grad/app/ui/android/widgets/form/user/gender.dart';
-import 'package:Grad/app/ui/android/widgets/form/user/lastname.dart';
-import 'package:Grad/app/ui/android/widgets/form/user/middlename.dart';
-import 'package:Grad/app/ui/android/widgets/form/user/phone.dart';
+import 'package:grad/app/controller/menu/users_controller.dart';
+import 'package:grad/app/core/functions/functions.dart';
+import 'package:grad/app/ui/android/widgets/form/user/address.dart';
+import 'package:grad/app/ui/android/widgets/form/user/campus.dart';
+import 'package:grad/app/ui/android/widgets/form/user/city.dart';
+import 'package:grad/app/ui/android/widgets/form/user/country.dart';
+import 'package:grad/app/ui/android/widgets/form/user/firstname.dart';
+import 'package:grad/app/ui/android/widgets/form/user/gender.dart';
+import 'package:grad/app/ui/android/widgets/form/user/lastname.dart';
+import 'package:grad/app/ui/android/widgets/form/user/middlename.dart';
+import 'package:grad/app/ui/android/widgets/form/user/phone.dart';
 
 final TextEditingController firstNameController = TextEditingController();
 final TextEditingController lastNameController = TextEditingController();

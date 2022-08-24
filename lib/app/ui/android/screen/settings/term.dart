@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
-import 'package:Grad/app/controller/settings/settings_controller.dart';
-import 'package:Grad/app/core/functions/functions.dart';
+import 'package:grad/app/controller/settings/settings_controller.dart';
+import 'package:grad/app/core/functions/functions.dart';
 
 class Term extends GetView<SettingsController> {
   @override

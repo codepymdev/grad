@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:Grad/app/ui/android/widgets/custom/default_avatar.dart';
+import 'package:grad/app/ui/android/widgets/custom/default_avatar.dart';
 
 class CustomNetworkImage extends StatelessWidget {
   final String? url;

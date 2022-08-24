@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:Grad/app/controller/calendar/calendar_controller.dart';
-import 'package:Grad/app/ui/android/widgets/calendar/calendar.dart';
+import 'package:grad/app/controller/calendar/calendar_controller.dart';
+import 'package:grad/app/ui/android/widgets/calendar/calendar.dart';
 
-import 'package:Grad/app/ui/android/widgets/home/upcoming_event_list.dart';
+import 'package:grad/app/ui/android/widgets/home/upcoming_event_list.dart';
 
 class UpcomingEvents extends StatefulWidget {
   @override

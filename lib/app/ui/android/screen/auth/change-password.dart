@@ -1,6 +1,6 @@
-import 'package:Grad/app/controller/auth/change_password_controller.dart';
-import 'package:Grad/app/ui/android/widgets/auth/change_password/confirm_password.dart';
-import 'package:Grad/app/ui/android/widgets/auth/change_password/password.dart';
+import 'package:grad/app/controller/auth/change_password_controller.dart';
+import 'package:grad/app/ui/android/widgets/auth/change_password/confirm_password.dart';
+import 'package:grad/app/ui/android/widgets/auth/change_password/password.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';

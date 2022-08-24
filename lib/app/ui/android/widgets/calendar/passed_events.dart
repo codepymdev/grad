@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Grad/app/ui/android/widgets/calendar/passed_event_list.dart';
+import 'package:grad/app/ui/android/widgets/calendar/passed_event_list.dart';
 
 class PassedEvents extends StatefulWidget {
   @override

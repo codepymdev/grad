@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
-import 'package:Grad/app/controller/settings/settings_controller.dart';
-import 'package:Grad/app/core/functions/functions.dart';
+import 'package:grad/app/controller/settings/settings_controller.dart';
+import 'package:grad/app/core/functions/functions.dart';
 
 class SchoolConfiguration extends StatefulWidget {
   @override

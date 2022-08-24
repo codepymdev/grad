@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:Grad/app/controller/auth/auth_manager_controller.dart';
+import 'package:grad/app/controller/auth/auth_manager_controller.dart';
 
-import 'package:Grad/app/ui/android/screen/navigation.dart';
-import 'package:Grad/app/ui/android/screen/start/welcome.dart';
+import 'package:grad/app/ui/android/screen/navigation.dart';
+import 'package:grad/app/ui/android/screen/start/welcome.dart';
 
 class OnBoard extends StatefulWidget {
   @override

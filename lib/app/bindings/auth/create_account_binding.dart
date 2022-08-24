@@ -1,4 +1,4 @@
-import 'package:Grad/app/controller/auth/create_account_controller.dart';
+import 'package:grad/app/controller/auth/create_account_controller.dart';
 import 'package:get/get.dart';
 
 class CreateAccountBinding implements Bindings {
