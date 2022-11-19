@@ -7,21 +7,28 @@ import 'package:Grad/app/controller/menu/announcement_controller.dart';
 import 'package:Grad/app/core/constants/asset_path.dart';
 import 'package:Grad/app/core/functions/functions.dart';
 
-class Announcements extends GetView<AnnouncementController> {
+class Announcements extends StatefulWidget {
   const Announcements({Key? key}) : super(key: key);
 
+  @override
+  State<Announcements> createState() => _AnnouncementsState();
+}
+
+class _AnnouncementsState extends State<Announcements> {
+  AnnouncementController announcementController =
+      Get.put(AnnouncementController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(name: "Announcements"),
       body: Obx(() {
-        if (controller.loading.value)
+        if (announcementController.loading.value)
           return Container(
             child: Center(
               child: CircularProgressIndicator(),
             ),
           );
-        var data = controller.announcements;
+        var data = announcementController.announcements;
 
         if (data.length == 0)
           return Center(
@@ -55,7 +62,8 @@ class Announcements extends GetView<AnnouncementController> {
             children: [
               // A SlidableAction can have an icon and/or a label.
               SlidableAction(
-                onPressed: (_) async => await controller.delete(data['id']),
+                onPressed: (_) async =>
+                    await announcementController.delete(data['id']),
                 backgroundColor: Color.fromARGB(255, 195, 39, 39),
                 foregroundColor: Colors.white,
                 icon: FeatherIcons.trash,
@@ -80,7 +88,8 @@ class Announcements extends GetView<AnnouncementController> {
             children: [
               data['pinned'] == "0"
                   ? SlidableAction(
-                      onPressed: (_) async => await controller.pin(data['id']),
+                      onPressed: (_) async =>
+                          await announcementController.pin(data['id']),
                       backgroundColor: Color(0xFF7BC043),
                       foregroundColor: Colors.white,
                       icon: FeatherIcons.alertOctagon,
@@ -88,7 +97,7 @@ class Announcements extends GetView<AnnouncementController> {
                     )
                   : SlidableAction(
                       onPressed: (_) async =>
-                          await controller.unpin(data['id']),
+                          await announcementController.unpin(data['id']),
                       backgroundColor: Color.fromARGB(255, 150, 5, 29),
                       foregroundColor: Colors.white,
                       icon: FeatherIcons.alertOctagon,

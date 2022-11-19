@@ -19,7 +19,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-class HomePage extends GetView<HomeController> {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  HomeController homeController = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
     void _showOverlay(BuildContext context) async {
@@ -97,7 +103,7 @@ class HomePage extends GetView<HomeController> {
           SliverList(
             delegate: SliverChildListDelegate([
               Obx(() {
-                if (controller.loading.value)
+                if (homeController.loading.value)
                   return Container(
                     child: Center(
                       child: CircularProgressIndicator(),

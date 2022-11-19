@@ -5,13 +5,20 @@ import 'package:Grad/app/core/functions/functions.dart';
 
 late TextEditingController messagecontroller;
 
-class CreateAnnouncement extends GetView<AnnouncementController> {
+class CreateAnnouncement extends StatefulWidget {
+  @override
+  State<CreateAnnouncement> createState() => _CreateAnnouncementState();
+}
+
+class _CreateAnnouncementState extends State<CreateAnnouncement> {
+  AnnouncementController announcementController =
+      Get.put(AnnouncementController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(name: "Create New Announcement"),
       body: Obx(() {
-        if (controller.loading.value)
+        if (announcementController.loading.value)
           return Container(
             child: Center(
               child: CircularProgressIndicator(),
@@ -65,7 +72,7 @@ class CreateAnnouncement extends GetView<AnnouncementController> {
                 height: 50,
                 child: ElevatedButton(
                   style: ButtonStyle(),
-                  child: controller.processing.value
+                  child: announcementController.processing.value
                       ? Center(
                           child: CircularProgressIndicator(
                             color: Colors.white,
@@ -78,23 +85,25 @@ class CreateAnnouncement extends GetView<AnnouncementController> {
                           ),
                         ),
                   onPressed: () async {
-                    if (!controller.processing.value) {
-                      await controller.createAnnouncement(
+                    if (!announcementController.processing.value) {
+                      await announcementController.createAnnouncement(
                         message: messagecontroller.text,
                       );
 
-                      if (controller.error.value) {
+                      if (announcementController.error.value) {
                         final snackBar = SnackBar(
-                          content: Text('${controller.error_msg.value}'),
+                          content:
+                              Text('${announcementController.error_msg.value}'),
                           backgroundColor: Colors.red,
                         );
                         // Find the ScaffoldMessenger in the widget tree
                         // and use it to show a SnackBar.
                         ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       }
-                      if (controller.success.value) {
+                      if (announcementController.success.value) {
                         final snackBar = SnackBar(
-                          content: Text('${controller.success_msg.value}'),
+                          content: Text(
+                              '${announcementController.success_msg.value}'),
                           backgroundColor: Colors.green,
                         );
                         // Find the ScaffoldMessenger in the widget tree
@@ -119,9 +128,9 @@ class CreateAnnouncement extends GetView<AnnouncementController> {
       margin: EdgeInsets.all(5),
       child: DropdownButton<String>(
         isExpanded: true,
-        value: controller.type.value,
+        value: announcementController.type.value,
         onChanged: (String? value) {
-          if (value != null) controller.updateType(value);
+          if (value != null) announcementController.updateType(value);
         },
         items: <String>[
           'General Announcement',
