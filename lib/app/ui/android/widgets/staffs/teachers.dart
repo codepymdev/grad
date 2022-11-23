@@ -3,7 +3,6 @@ import 'package:Grad/app/ui/android/widgets/custom/iosLoader.dart';
 import 'package:Grad/app/ui/android/widgets/staffs/t-list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 
 class Teachers extends StatefulWidget {
   @override
