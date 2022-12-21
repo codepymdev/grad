@@ -4,4 +4,4 @@ const simpleGit = require('simple-git');
 
 
 const DATE = moment().subtract(4, 'months').format();
-simpleGit().add("./*").commit("fix: Calender page", {'--date': DATE}).push();
+simpleGit().add("./*").commit("fac: Theme of Context", {'--date': DATE}).push();

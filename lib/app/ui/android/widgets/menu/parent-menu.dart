@@ -34,13 +34,11 @@ class ParentMenu extends StatelessWidget {
                 ),
                 Text(
                   "Classes",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
           ),
         ),
-
         GestureDetector(
           onTap: () => Get.toNamed("/subjects"),
           child: Container(
@@ -56,7 +54,6 @@ class ParentMenu extends StatelessWidget {
                 ),
                 Text(
                   "Subjects",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -77,7 +74,6 @@ class ParentMenu extends StatelessWidget {
                 ),
                 Text(
                   "Students",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -103,7 +99,6 @@ class ParentMenu extends StatelessWidget {
                 ),
                 Text(
                   "Parents",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -129,30 +124,11 @@ class ParentMenu extends StatelessWidget {
                 ),
                 Text(
                   "Staffs",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
           ),
         ),
-        // Container(
-        //   child: Column(
-        //     mainAxisAlignment: MainAxisAlignment.center,
-        //     children: [
-        //       SvgPicture.asset(
-        //         QUIZ,
-        //         width: 60,
-        //       ),
-        //       SizedBox(
-        //         height: 8,
-        //       ),
-        //       Text(
-        //         "CBT",
-        //         style: Theme.of(context).textTheme.subtitle1,
-        //       ),
-        //     ],
-        //   ),
-        // ),
         Container(
           child: GestureDetector(
             onTap: () => Get.toNamed("/attendance"),
@@ -168,7 +144,6 @@ class ParentMenu extends StatelessWidget {
                 ),
                 Text(
                   "Attendance",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -189,30 +164,11 @@ class ParentMenu extends StatelessWidget {
                 ),
                 Text(
                   "Results",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
           ),
         ),
-        // Container(
-        //   child: Column(
-        //     mainAxisAlignment: MainAxisAlignment.center,
-        //     children: [
-        //       SvgPicture.asset(
-        //         REPORT,
-        //         width: 60,
-        //       ),
-        //       SizedBox(
-        //         height: 8,
-        //       ),
-        //       Text(
-        //         "Reports",
-        //         style: Theme.of(context).textTheme.subtitle1,
-        //       ),
-        //     ],
-        //   ),
-        // ),
         GestureDetector(
           onTap: () => Get.toNamed(
             "/users",
@@ -233,7 +189,6 @@ class ParentMenu extends StatelessWidget {
                 ),
                 Text(
                   "Users",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -254,13 +209,11 @@ class ParentMenu extends StatelessWidget {
                 ),
                 Text(
                   "Announcement",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
           ),
         ),
-
         GestureDetector(
           onTap: () => Get.toNamed("/calendar"),
           child: Container(
@@ -276,7 +229,6 @@ class ParentMenu extends StatelessWidget {
                 ),
                 Text(
                   "Calendar",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
