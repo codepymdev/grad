@@ -39,11 +39,9 @@ class Teachers extends GetView<HomeController> {
                 children: [
                   Text(
                     "Teachers".toUpperCase(),
-                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                   Text(
                     "See All".toUpperCase(),
-                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                 ],
               ),

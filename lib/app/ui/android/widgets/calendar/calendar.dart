@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 import 'package:Grad/app/controller/calendar/calendar_controller.dart';
 import 'package:Grad/app/core/constants/app_constants.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 late var events;
 
-class Calendar extends GetView<CalendarController> {
+class Calendar extends StatefulWidget {
   const Calendar({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<Calendar> createState() => _CalendarState();
+}
+
+class _CalendarState extends State<Calendar> {
+  CalendarController calendarController = Get.put(CalendarController());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,8 +25,8 @@ class Calendar extends GetView<CalendarController> {
         right: 5,
       ),
       child: Obx(() {
-        if (controller.loading.value) return Container();
-        events = controller.upcoming_events;
+        if (calendarController.loading.value) return Container();
+        events = calendarController.upcoming_events;
         return Card(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5.0),
@@ -37,9 +43,9 @@ class Calendar extends GetView<CalendarController> {
               // Use `CalendarStyle` to customize the UI
               outsideDaysVisible: false,
             ),
-            calendarFormat: controller.calendarformat.value!,
+            calendarFormat: calendarController.calendarformat.value!,
             onFormatChanged: (format) async {
-              await controller.changeCalenderFormat(format);
+              await calendarController.changeCalenderFormat(format);
             },
           ),
         );

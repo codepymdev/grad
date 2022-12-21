@@ -45,7 +45,6 @@ class MenuOverlay extends ModalRoute<void> {
   Widget _buildOverlayContent(BuildContext context) {
     HomeController homeController = Get.put(HomeController());
     return Container(
-      color: Theme.of(context).backgroundColor,
       child: Column(
         children: [
           GestureDetector(

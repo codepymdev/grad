@@ -1,7 +1,3 @@
-import 'dart:developer';
-
-import 'package:onesignal_flutter/onesignal_flutter.dart';
-
 class OneSignalService {
   // Future<void> initExternalUser({
   //   required externalUserId,

@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 import 'package:Grad/app/controller/calendar/calendar_controller.dart';
 import 'package:Grad/app/core/constants/asset_path.dart';
 import 'package:Grad/app/core/functions/functions.dart';
 import 'package:Grad/app/ui/android/widgets/custom/cached_network_image.dart';
 
-class PassedEventList extends GetView<CalendarController> {
+class PassedEventList extends StatefulWidget {
   const PassedEventList({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<PassedEventList> createState() => _PassedEventListState();
+}
+
+class _PassedEventListState extends State<PassedEventList> {
+  CalendarController calendarController = Get.put(CalendarController());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,8 +26,8 @@ class PassedEventList extends GetView<CalendarController> {
       ),
       child: Obx(
         () {
-          if (controller.loading.value) return Container();
-          var events = controller.other_events;
+          if (calendarController.loading.value) return Container();
+          var events = calendarController.other_events;
           return Column(
             children: [
               for (var i = 0; i < events.length; i++)

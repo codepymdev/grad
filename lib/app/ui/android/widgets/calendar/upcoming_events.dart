@@ -5,13 +5,19 @@ import 'package:Grad/app/ui/android/widgets/calendar/calendar.dart';
 
 import 'package:Grad/app/ui/android/widgets/home/upcoming_event_list.dart';
 
-class UpcomingEvents extends GetView<CalendarController> {
+class UpcomingEvents extends StatefulWidget {
+  @override
+  State<UpcomingEvents> createState() => _UpcomingEventsState();
+}
+
+class _UpcomingEventsState extends State<UpcomingEvents> {
+  CalendarController calendarController = Get.put(CalendarController());
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
         child: Obx(() {
-          if (controller.loading.value)
+          if (calendarController.loading.value)
             return Container(
               child: Center(
                 child: CircularProgressIndicator(),
