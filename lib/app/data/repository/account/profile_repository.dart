@@ -8,7 +8,7 @@ class ProfileRepository {
 
   static Future<Map<String, dynamic>> updateProfile(
       Map<String, dynamic> data) async {
-    var url = Uri.parse("$GRAD$UPDATE_PROFILE");
+    var url = Uri.parse("$apiendpoint$UPDATE_PROFILE");
     try {
       var request = await http.MultipartRequest(
         "POST",
@@ -57,7 +57,7 @@ class ProfileRepository {
     required userid,
     required school,
   }) async {
-    var url = Uri.parse("$GRAD$CHANGE_PASSWORD_ACCOUNT");
+    var url = Uri.parse("$apiendpoint$CHANGE_PASSWORD_ACCOUNT");
     try {
       var response = await client.post(url, body: {
         "userid": userid,
@@ -84,8 +84,8 @@ class ProfileRepository {
     required per_page,
     required page,
   }) async {
-    var url =
-        Uri.parse("$GRAD$RECENT_ACTIVITIES/$school/$userid/$per_page/$page");
+    var url = Uri.parse(
+        "$apiendpoint$RECENT_ACTIVITIES/$school/$userid/$per_page/$page");
 
     try {
       var respone = await client.get(url);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grad/app/ui/android/widgets/custom/ios_loader.dart';
 import 'package:grad/app/ui/theme/android/app_theme.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -28,7 +29,7 @@ class SplashScreen extends StatelessWidget {
               height: 50,
             ),
             Container(
-              child: CircularProgressIndicator(),
+              child: IosLoader(),
             ),
           ],
         ),

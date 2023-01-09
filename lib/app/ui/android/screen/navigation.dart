@@ -14,28 +14,26 @@ class Navigation extends GetView<NavigationController> {
   Widget build(BuildContext context) {
     return GetBuilder<NavigationController>(
       builder: (controller) {
-        return SafeArea(
-          child: Scaffold(
-            body: IndexedStack(
-              index: controller.tabIndex,
-              children: [
-                HomePage(),
-                ChatPage(),
-                CalendarPage(),
-                SettingsPage(),
-                AccountPage(),
-              ],
-            ),
-            bottomNavigationBar: BottomNavigationBar(
-              elevation: 2.0,
-              selectedItemColor: Theme.of(context).iconTheme.color,
-              type: BottomNavigationBarType.fixed,
-              currentIndex: controller.tabIndex,
-              showSelectedLabels: false,
-              showUnselectedLabels: false,
-              onTap: controller.changeTabIndex,
-              items: BottomNavList,
-            ),
+        return Scaffold(
+          body: IndexedStack(
+            index: controller.tabIndex,
+            children: [
+              HomePage(),
+              ChatPage(),
+              CalendarPage(),
+              SettingsPage(),
+              AccountPage(),
+            ],
+          ),
+          bottomNavigationBar: BottomNavigationBar(
+            elevation: 2.0,
+            selectedItemColor: Theme.of(context).iconTheme.color,
+            type: BottomNavigationBarType.fixed,
+            currentIndex: controller.tabIndex,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            onTap: controller.changeTabIndex,
+            items: BottomNavList,
           ),
         );
       },
@@ -49,10 +47,15 @@ class Navigation extends GetView<NavigationController> {
         icon: Icon(
           FeatherIcons.home,
         ),
+        activeIcon: Icon(
+          FeatherIcons.home,
+          color: Colors.green,
+        ),
       ),
       BottomNavigationBarItem(
         label: "",
         icon: Badge(
+          badgeColor: Colors.green,
           badgeContent: Text(
             "${controller.messagecount}",
             style: TextStyle(
@@ -64,11 +67,19 @@ class Navigation extends GetView<NavigationController> {
             FeatherIcons.messageCircle,
           ),
         ),
+        activeIcon: Icon(
+          FeatherIcons.messageCircle,
+          color: Colors.green,
+        ),
       ),
       BottomNavigationBarItem(
         label: "",
         icon: Icon(
           FeatherIcons.calendar,
+        ),
+        activeIcon: Icon(
+          FeatherIcons.calendar,
+          color: Colors.green,
         ),
       ),
       BottomNavigationBarItem(
@@ -76,11 +87,19 @@ class Navigation extends GetView<NavigationController> {
         icon: Icon(
           FeatherIcons.settings,
         ),
+        activeIcon: Icon(
+          FeatherIcons.settings,
+          color: Colors.green,
+        ),
       ),
       BottomNavigationBarItem(
         label: "",
         icon: Icon(
           FeatherIcons.user,
+        ),
+        activeIcon: Icon(
+          FeatherIcons.user,
+          color: Colors.green,
         ),
       ),
     ];

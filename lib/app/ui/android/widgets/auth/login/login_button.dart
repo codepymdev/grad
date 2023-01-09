@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/controller/auth/login_controller.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:grad/app/ui/android/widgets/custom/ios_loader.dart';
 
 class LoginButton extends GetView<LoginController> {
   const LoginButton({
@@ -19,24 +21,25 @@ class LoginButton extends GetView<LoginController> {
     return Obx(
       () => Container(
         margin: EdgeInsets.only(
-          left: 10,
-          right: 10,
+          left: 10.w,
+          right: 10.w,
         ),
         width: double.infinity,
-        height: 50.0,
+        height: 50.0.h,
         child: ElevatedButton(
-          style: ButtonStyle(),
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.green),
+          ),
           child: !controller.loginLoader.value
               ? Text(
                   "Login",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                  ),
-                )
-              : Center(
-                  child: CircularProgressIndicator(
                     color: Colors.white,
                   ),
+                )
+              : IosLoader(
+                  color: Colors.white,
                 ),
           onPressed: () async {
             if (!controller.loginLoader.value) {

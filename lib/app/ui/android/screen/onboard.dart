@@ -4,6 +4,7 @@ import 'package:grad/app/controller/auth/auth_manager_controller.dart';
 
 import 'package:grad/app/ui/android/screen/navigation.dart';
 import 'package:grad/app/ui/android/screen/start/welcome.dart';
+import 'package:grad/app/ui/android/widgets/custom/ios_loader.dart';
 
 class OnBoard extends GetView<AuthManagerController> {
   @override
@@ -15,9 +16,7 @@ class OnBoard extends GetView<AuthManagerController> {
     return Obx(() {
       if (controller.loading.value) {
         return Scaffold(
-          body: Center(
-            child: CircularProgressIndicator(),
-          ),
+          body: IosLoader(),
         );
       }
       return controller.isLogin.value ? Navigation() : Welcome();

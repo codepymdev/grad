@@ -6,6 +6,7 @@ import 'package:grad/app/ui/android/widgets/auth/login/email.dart';
 import 'package:grad/app/ui/android/widgets/auth/login/login_button.dart';
 import 'package:grad/app/ui/android/widgets/auth/login/password.dart';
 import 'package:grad/app/ui/android/widgets/auth/login/top_content.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Login extends GetView<LoginController> {
   @override
@@ -28,14 +29,14 @@ class Login extends GetView<LoginController> {
       ),
       body: SingleChildScrollView(
         child: Obx(() {
-          String logo = controller.school['logo'];
+          String? logo = controller.school['logo'];
           String name = controller.school['name'];
-          String slug = controller.school['slug'];
+          String slug = controller.school['database_name'];
           return Container(
             margin: EdgeInsets.only(
-              top: 30,
-              left: 10,
-              right: 10,
+              top: 30.h,
+              left: 10.w,
+              right: 10.w,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -44,9 +45,9 @@ class Login extends GetView<LoginController> {
                 TopContent(logo: logo, name: name),
                 Container(
                   margin: EdgeInsets.only(
-                    left: 5,
-                    right: 5,
-                    top: 50,
+                    left: 5.w,
+                    right: 5.w,
+                    top: 50.h,
                   ),
                   child: Column(
                     children: [
@@ -61,7 +62,7 @@ class Login extends GetView<LoginController> {
                       ///
                       ///
                       SizedBox(
-                        height: 10,
+                        height: 10.h,
                       ),
 
                       ///
@@ -74,7 +75,7 @@ class Login extends GetView<LoginController> {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 10.h,
                 ),
 
                 ///
@@ -86,9 +87,9 @@ class Login extends GetView<LoginController> {
                   }),
                   child: Container(
                     margin: EdgeInsets.only(
-                      bottom: 10,
-                      top: 10,
-                      right: 10,
+                      bottom: 10.h,
+                      top: 10.w,
+                      right: 10.w,
                     ),
                     alignment: Alignment.topRight,
                     child: Text(
@@ -119,8 +120,8 @@ class Login extends GetView<LoginController> {
                   }),
                   child: Container(
                     margin: EdgeInsets.only(
-                      top: 20,
-                      bottom: 10,
+                      top: 20.h,
+                      bottom: 10.h,
                     ),
                     child: Text(
                       "Don't have an account yet?",

@@ -180,7 +180,7 @@ class ResultsController extends GetxController with CacheManager {
     if (!hasExisted) {
       savedDir.create();
     }
-    String _url = GRAD_URL + resultFile;
+    String _url = "" + resultFile;
     await FlutterDownloader.enqueue(
       url: _url,
       savedDir: _localPath!,

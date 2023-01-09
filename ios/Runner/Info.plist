@@ -49,5 +49,7 @@
 		<string>We need access to your camera</string>
 		<key>NSMicrophoneUsageDescription</key>
 		<string>We need access to your microphone</string>
-	</dict>
+		<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+</dict>
 </plist>

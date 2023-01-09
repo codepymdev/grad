@@ -103,16 +103,16 @@ class Classes extends GetView<ClassesController> {
     );
   }
 
-  Widget _buildFloatActionButton() {
-    return FloatingActionButton(
-      backgroundColor: Colors.white,
-      onPressed: () => Get.toNamed("/classes/add"),
-      child: Icon(
-        FeatherIcons.plus,
-        color: Color(0xFF21B7CA),
-      ),
-    );
-  }
+  // Widget _buildFloatActionButton() {
+  //   return FloatingActionButton(
+  //     backgroundColor: Colors.white,
+  //     onPressed: () => Get.toNamed("/classes/add"),
+  //     child: Icon(
+  //       FeatherIcons.plus,
+  //       color: Color(0xFF21B7CA),
+  //     ),
+  //   );
+  // }
 
   ///
   /// Delete pop up

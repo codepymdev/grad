@@ -293,7 +293,7 @@ Future<void> createChannel(BuildContext context, String memberId) async {
 }
 
 String chatStreamId(school, id) {
-  String uid = school + "_" + id;
+  String uid = school + "_" + id.toString();
   return removeAllWhitespace(uid);
 }
 

@@ -122,16 +122,16 @@ class Parents extends GetView<UsersController> {
     );
   }
 
-  Widget _buildFloatActionButton() {
-    return FloatingActionButton(
-      backgroundColor: Colors.white,
-      onPressed: () => Get.toNamed("/parents/add"),
-      child: Icon(
-        FeatherIcons.plus,
-        color: Color(0xFF21B7CA),
-      ),
-    );
-  }
+  // Widget _buildFloatActionButton() {
+  //   return FloatingActionButton(
+  //     backgroundColor: Colors.white,
+  //     onPressed: () => Get.toNamed("/parents/add"),
+  //     child: Icon(
+  //       FeatherIcons.plus,
+  //       color: Color(0xFF21B7CA),
+  //     ),
+  //   );
+  // }
 
   ///
   /// Delete pop up

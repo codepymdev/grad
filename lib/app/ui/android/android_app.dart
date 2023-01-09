@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:grad/app/bindings/auth/auth_manager_binding.dart';
 import 'package:grad/app/data/services/GetService.dart';
 import 'package:grad/app/data/services/StreamService.dart';
@@ -37,23 +38,30 @@ class AndroidApp extends StatelessWidget {
         // Use [dark] for white status bar and [light] for black status bar.
         statusBarBrightness: Brightness.dark,
       ),
-      child: GetMaterialApp(
-        builder: ((context, widget) {
-          return StreamChat(
-            client: getIt<StreamService>().client,
-            child: widget,
-            streamChatThemeData: StreamChatThemeData.fromTheme(selectedTheme!),
-          );
-        }),
-        theme: selectedTheme,
-        // darkTheme: darkTheme,
-        defaultTransition: Transition.fade,
-        locale: Locale('pt', 'BR'),
-        getPages: AppPages.pages,
-        initialRoute: Routes.INITIAL,
-        initialBinding: AuthManagerBinding(),
-        translationsKeys: AppTranslation.translations,
-      ),
+      child: ScreenUtilInit(
+          minTextAdapt: true,
+          splitScreenMode: true,
+          designSize: const Size(393, 852),
+          builder: (context, child) {
+            return GetMaterialApp(
+              builder: ((context, widget) {
+                return StreamChat(
+                  client: getIt<StreamService>().client,
+                  child: widget,
+                  streamChatThemeData:
+                      StreamChatThemeData.fromTheme(selectedTheme!),
+                );
+              }),
+              theme: selectedTheme,
+              // darkTheme: darkTheme,
+              defaultTransition: Transition.fade,
+              locale: Locale('pt', 'BR'),
+              getPages: AppPages.pages,
+              initialRoute: Routes.INITIAL,
+              initialBinding: AuthManagerBinding(),
+              translationsKeys: AppTranslation.translations,
+            );
+          }),
     );
   }
 }

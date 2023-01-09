@@ -97,16 +97,16 @@ class Subjects extends GetView<SubjectsController> {
     );
   }
 
-  Widget _buildFloatActionButton() {
-    return FloatingActionButton(
-      backgroundColor: Colors.white,
-      onPressed: () => Get.toNamed("/subjects/add"),
-      child: Icon(
-        FeatherIcons.plus,
-        color: Color(0xFF21B7CA),
-      ),
-    );
-  }
+  // Widget _buildFloatActionButton() {
+  //   return FloatingActionButton(
+  //     backgroundColor: Colors.white,
+  //     onPressed: () => Get.toNamed("/subjects/add"),
+  //     child: Icon(
+  //       FeatherIcons.plus,
+  //       color: Color(0xFF21B7CA),
+  //     ),
+  //   );
+  // }
 
   ///
   /// Delete pop up

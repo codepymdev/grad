@@ -7,11 +7,22 @@ import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 class ChatPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: StreamChat(
-        client: getIt<StreamService>().client,
-        child: ChannelListPage(),
+    return Scaffold(
+      body: Container(
+        child: Text("Chat"),
       ),
     );
   }
 }
+
+// class ChatPage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       child: StreamChat(
+//         client: getIt<StreamService>().client,
+//         child: ChannelListPage(),
+//       ),
+//     );
+//   }
+// }

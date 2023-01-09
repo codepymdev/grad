@@ -42,7 +42,7 @@ class AppAboutVersion extends StatelessWidget {
                 width: 4,
               ),
               Text(
-                "Codepym",
+                "Blueportal",
                 style: Theme.of(context).textTheme.caption,
               ),
             ],

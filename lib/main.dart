@@ -69,50 +69,50 @@ Future<void> main() async {
   ///
   await GetStorage.init();
 
-  await FlutterDownloader.initialize(debug: ISDEBUGMODE);
+  // await FlutterDownloader.initialize(debug: ISDEBUGMODE);
 
-  await Firebase.initializeApp();
+  // await Firebase.initializeApp();
 
   //Remove this method to stop OneSignal Debugging
   // OneSignal.shared.setLogLevel(OSLogLevel.verbose, OSLogLevel.none);
 
-  OneSignal.shared.setAppId(ONE_SIGNAL_APP_ID);
+  // OneSignal.shared.setAppId(ONE_SIGNAL_APP_ID);
 
-  final fcmToken = await FirebaseMessaging.instance.getToken();
+  // final fcmToken = await FirebaseMessaging.instance.getToken();
 
-  print("Token -> $fcmToken Here");
+  // print("Token -> $fcmToken Here");
 
-  void setupNotifications() async {
-    FirebaseMessaging messaging = FirebaseMessaging.instance;
+  // void setupNotifications() async {
+  //   FirebaseMessaging messaging = FirebaseMessaging.instance;
 
-    await messaging.requestPermission(
-      alert: true,
-      announcement: false,
-      badge: true,
-      carPlay: false,
-      criticalAlert: false,
-      provisional: false,
-      sound: true,
-    );
+  //   await messaging.requestPermission(
+  //     alert: true,
+  //     announcement: false,
+  //     badge: true,
+  //     carPlay: false,
+  //     criticalAlert: false,
+  //     provisional: false,
+  //     sound: true,
+  //   );
 
-    void updateToken(String token) {
-      getIt<StreamService>().client.addDevice(token, PushProvider.firebase);
-    }
+  //   void updateToken(String token) {
+  //     getIt<StreamService>().client.addDevice(token, PushProvider.firebase);
+  //   }
 
-    // messaging.getToken().then(updateToken);
-    messaging.onTokenRefresh.listen(updateToken);
+  //   // messaging.getToken().then(updateToken);
+  //   messaging.onTokenRefresh.listen(updateToken);
 
-    FirebaseMessaging.onMessage.listen((message) async {
-      print('message.data: ${message.data}');
-      handleNotification(message);
-    });
+  //   FirebaseMessaging.onMessage.listen((message) async {
+  //     print('message.data: ${message.data}');
+  //     handleNotification(message);
+  //   });
 
-    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  }
+  //   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  // }
 
-  setupNotifications();
-  await Firebase.initializeApp();
-  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  // setupNotifications();
+  // await Firebase.initializeApp();
+  // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(
     FutureBuilder<Map<String, dynamic>>(
       future: AppInitializer().appInitializer(),

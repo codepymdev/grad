@@ -17,7 +17,7 @@ class AuthManagerController extends GetxController with CacheManager {
   @override
   Future<void> onInit() async {
     await checkLoginStatus();
-    await updateAuthUser();
+    // await updateAuthUser();
     loading.value = false;
     super.onInit();
   }

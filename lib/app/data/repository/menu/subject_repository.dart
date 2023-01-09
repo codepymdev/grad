@@ -14,8 +14,8 @@ class SubjectRepository {
     required per_page,
     required page,
   }) async {
-    var url =
-        Uri.parse("$GRAD" + "subjects/get/$school/$campus/$r/$per_page/$page");
+    var url = Uri.parse(
+        "$apiendpoint" + "subjects/get/$school/$campus/$r/$per_page/$page");
     try {
       var response = await client.get(url);
       if (response.statusCode == 200) {
@@ -33,7 +33,7 @@ class SubjectRepository {
     required school,
     required id,
   }) async {
-    var url = Uri.parse("$GRAD" + "subjects/delete/$school/$id");
+    var url = Uri.parse("$apiendpoint" + "subjects/delete/$school/$id");
     try {
       var response = await client.delete(url);
       if (response.statusCode == 200) {
@@ -54,7 +54,7 @@ class SubjectRepository {
   static Future<List<SubjectCategoriesModel>> subjectCategories({
     required school,
   }) async {
-    var url = Uri.parse("$GRAD" + "subjects/subject-categories/$school");
+    var url = Uri.parse("$apiendpoint" + "subjects/subject-categories/$school");
     try {
       var response = await client.get(url);
       if (response.statusCode == 200) {
@@ -75,7 +75,7 @@ class SubjectRepository {
   }
 
   static Future<Map<String, dynamic>> addSubject({required data}) async {
-    var url = Uri.parse("$GRAD" + "subjects/create");
+    var url = Uri.parse("$apiendpoint" + "subjects/create");
     try {
       var response = await client.post(
         url,

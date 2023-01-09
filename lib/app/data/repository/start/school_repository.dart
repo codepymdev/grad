@@ -6,11 +6,12 @@ import 'package:http/http.dart' as http;
 class SchoolRepository {
   static var client = http.Client();
 
-  static Future<List<dynamic>?> getSchools() async {
-    var url = Uri.parse("$GRAD$SCHOOLS");
+  static Future<List<dynamic>> getSchools() async {
+    var url = Uri.parse("${apiendpoint}schools/active");
 
     try {
       var response = await client.get(url);
+
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         List<dynamic> schools = data;
@@ -21,13 +22,12 @@ class SchoolRepository {
         throw Exception('Failed to load data');
       }
     } catch (_) {
-      print(_);
-      return null;
+      return [];
     }
   }
 
   static Future<Map<String, dynamic>> getSchoolData({required school}) async {
-    var url = Uri.parse("$GRAD$SCHOOLS/get/$school");
+    var url = Uri.parse("$apiendpoint$SCHOOLS/get/$school");
 
     try {
       var response = await client.get(url);

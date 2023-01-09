@@ -1,17 +1,13 @@
 ///
 /// API CONSTANTS
 ///
-const GRAD = 'https://grad.fkkas.com/api/';
-
-const GRAD_URL = "https://grad.fkkas.com/";
+const apiendpoint = 'http://127.0.0.1:8000/api/';
 
 const SCHOOLS = "schools";
 
 const ACTIVE_SCHOOLS = "schools/active";
 
 const INACTIVE_SCHOOLS = "schools/inactive";
-
-const LOGIN = "auth/login";
 
 const RECOVERY_CODE = "auth/forgot-password";
 

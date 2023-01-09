@@ -15,10 +15,8 @@ class WelcomeController extends GetxController {
 
   void getAllSchools() async {
     isLoading(true);
-    List<dynamic>? schools = await SchoolRepository.getSchools();
-    if (schools != null) {
-      schoolList.value = schools;
-    }
+    List<dynamic> schools = await SchoolRepository.getSchools();
+    schoolList.value = schools;
     isLoading(false);
   }
 
