@@ -115,48 +115,6 @@ class UpcomingEventList extends GetView<CalendarController> {
                     ],
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.only(
-                    top: 16,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          ClipOval(
-                            child: CustomNetworkImage(
-                              url: "${event["user"]['avatar']}",
-                              ht: 30,
-                              wd: 30,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "${event['user']['first_name']} ${event['user']['last_name']}",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w900,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 35,
-                        ),
-                        child: Text(
-                          "${event['user']['email']}",
-                          style: TextStyle(
-                            fontSize: 14,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
               ],
             ),
           ),

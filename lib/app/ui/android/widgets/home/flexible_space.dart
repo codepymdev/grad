@@ -4,6 +4,7 @@ import 'package:get/state_manager.dart';
 import 'package:grad/app/controller/home/home_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeFlexibleSpace extends GetView<HomeController> {
   const HomeFlexibleSpace({
@@ -29,22 +30,22 @@ class HomeFlexibleSpace extends GetView<HomeController> {
                 opacity: opacity,
                 child: Container(
                   alignment: Alignment.bottomCenter,
-                  padding: const EdgeInsets.only(
-                    left: 20,
-                    top: 25,
+                  padding: EdgeInsets.only(
+                    left: 20.w,
+                    top: 50.h,
                   ),
                   child: Row(
                     children: [
                       ClipOval(
                         child: CustomNetworkImage(
-                          url: "${user['avatar']}",
-                          wd: 80,
-                          ht: 80,
+                          url: user['avatar'],
+                          wd: 80.w,
+                          ht: 80.h,
                         ),
                       ),
                       Container(
                         padding: EdgeInsets.only(
-                          left: 10,
+                          left: 10.w,
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -57,7 +58,7 @@ class HomeFlexibleSpace extends GetView<HomeController> {
                                     "${greetings()['greeting']}",
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 18,
+                                      fontSize: 18.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -66,7 +67,8 @@ class HomeFlexibleSpace extends GetView<HomeController> {
                                   ),
                                   SvgPicture.asset(
                                     "${greetings()['icon']}",
-                                    width: 30,
+                                    width: 30.w,
+                                    color: Colors.white,
                                   ),
                                 ],
                               ),
@@ -77,7 +79,7 @@ class HomeFlexibleSpace extends GetView<HomeController> {
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 20,
+                                  fontSize: 20.sp,
                                 ),
                               ),
                             ),
@@ -102,29 +104,30 @@ class HomeFlexibleSpace extends GetView<HomeController> {
                 opacity: 1 - opacity,
                 child: Container(
                   margin: EdgeInsets.only(
-                    left: 50,
-                    top: 10,
+                    left: 50.w,
+                    top: 50.h,
                   ),
                   child: Row(
                     children: [
                       ClipOval(
                         child: CustomNetworkImage(
                           url: "${user['avatar']}",
-                          wd: 40,
-                          ht: 40,
+                          wd: 40.w,
+                          ht: 40.h,
                         ),
                       ),
                       SizedBox(
-                        width: 10,
+                        width: 10.w,
                       ),
                       Container(
                         alignment: Alignment.center,
                         child: Text(
                           "${user['first_name']} ${user['last_name']}",
+                          maxLines: 1,
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: 17,
+                            fontSize: 17.sp,
                           ),
                         ),
                       )

@@ -3,12 +3,13 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/controller/calendar/new_event_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
-
-final TextEditingController titleController = TextEditingController();
-final TextEditingController descriptioncontroller = TextEditingController();
-final TextEditingController urlcontroller = TextEditingController();
+import 'package:grad/app/ui/android/widgets/custom/ios_loader.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NewEvent extends GetView<NewEventController> {
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController descriptioncontroller = TextEditingController();
+  final TextEditingController urlcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,10 +18,10 @@ class NewEvent extends GetView<NewEventController> {
         child: Obx(
           () => Container(
             margin: EdgeInsets.only(
-              left: 10,
-              right: 10,
-              top: 5,
-              bottom: 15,
+              left: 10.w,
+              right: 10.w,
+              top: 5.h,
+              bottom: 15.h,
             ),
             child: Column(
               children: [
@@ -31,22 +32,25 @@ class NewEvent extends GetView<NewEventController> {
                 _url(),
                 Container(
                   margin: EdgeInsets.only(
-                    top: 20,
+                    top: 20.h,
                   ),
                   width: double.infinity,
-                  height: 50,
-                  child: ElevatedButton(
-                    style: ButtonStyle(),
+                  height: 50.h,
+                  child: TextButton(
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4.r),
+                      )),
+                      backgroundColor: MaterialStateProperty.all(Colors.green),
+                    ),
                     child: controller.processing.value
-                        ? Center(
-                            child: CircularProgressIndicator(
-                              color: Colors.white,
-                            ),
-                          )
+                        ? IosLoader(color: Colors.white)
                         : Text(
                             "Create Event",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
+                              color: Colors.white,
                             ),
                           ),
                     onPressed: () async {
@@ -74,6 +78,7 @@ class NewEvent extends GetView<NewEventController> {
                           // Find the ScaffoldMessenger in the widget tree
                           // and use it to show a SnackBar.
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                          Get.back();
                         }
                       }
                     },
@@ -89,7 +94,7 @@ class NewEvent extends GetView<NewEventController> {
 
   Widget _title() {
     return Container(
-      margin: EdgeInsets.all(5),
+      margin: EdgeInsets.all(5.w),
       child: TextField(
         controller: titleController,
         keyboardType: TextInputType.name,
@@ -110,7 +115,7 @@ class NewEvent extends GetView<NewEventController> {
             borderSide: BorderSide(
               color: Colors.blue[200]!,
             ),
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(5.0.w),
           ),
           labelText: 'Title',
         ),
@@ -151,7 +156,7 @@ class NewEvent extends GetView<NewEventController> {
 
   Widget _url() {
     return Container(
-      margin: EdgeInsets.all(5),
+      margin: EdgeInsets.all(5.w),
       child: TextField(
         controller: urlcontroller,
         keyboardType: TextInputType.url,
@@ -160,19 +165,19 @@ class NewEvent extends GetView<NewEventController> {
             borderSide: BorderSide(
               color: Colors.grey[350]!,
             ),
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(5.0.w),
           ),
           border: UnderlineInputBorder(
             borderSide: BorderSide(
               color: Colors.grey[350]!,
             ),
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(5.0.w),
           ),
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(
               color: Colors.blue[200]!,
             ),
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(5.0.w),
           ),
           labelText: 'URL',
         ),
@@ -185,15 +190,15 @@ class NewEvent extends GetView<NewEventController> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(
-            left: 5,
-            top: 10,
-            bottom: 5,
+          padding: EdgeInsets.only(
+            left: 5.w,
+            top: 10.w,
+            bottom: 5.w,
           ),
           child: Text(
             "Start Date",
             style: TextStyle(
-              fontSize: 15,
+              fontSize: 15.sp,
             ),
           ),
         ),
@@ -201,10 +206,10 @@ class NewEvent extends GetView<NewEventController> {
           onTap: () => _selectDate(context, "start_date"),
           child: Container(
             padding: EdgeInsets.only(
-              top: 10,
-              bottom: 10,
-              left: 6,
-              right: 6,
+              top: 10.w,
+              bottom: 10.w,
+              left: 6.w,
+              right: 6.w,
             ),
             decoration: BoxDecoration(
                 border: Border.all(
@@ -217,7 +222,7 @@ class NewEvent extends GetView<NewEventController> {
                   " ${controller.start_date.value}",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    fontSize: 16.sp,
                   ),
                 ),
                 Icon(
@@ -236,15 +241,15 @@ class NewEvent extends GetView<NewEventController> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(
-            left: 5,
-            top: 10,
-            bottom: 5,
+          padding: EdgeInsets.only(
+            left: 5.w,
+            top: 10.w,
+            bottom: 5.w,
           ),
           child: Text(
             "End Date",
             style: TextStyle(
-              fontSize: 15,
+              fontSize: 15.sp,
             ),
           ),
         ),
@@ -252,10 +257,10 @@ class NewEvent extends GetView<NewEventController> {
           onTap: () => _selectDate(context, "end_date"),
           child: Container(
             padding: EdgeInsets.only(
-              top: 10,
-              bottom: 10,
-              left: 6,
-              right: 6,
+              top: 10.w,
+              bottom: 10.w,
+              left: 6.w,
+              right: 6.w,
             ),
             decoration: BoxDecoration(
                 border: Border.all(
@@ -268,7 +273,7 @@ class NewEvent extends GetView<NewEventController> {
                   " ${controller.end_date.value}",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    fontSize: 16.sp,
                   ),
                 ),
                 Icon(

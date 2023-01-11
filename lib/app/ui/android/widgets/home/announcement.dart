@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/controller/home/home_controller.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Announcement extends GetView<HomeController> {
   const Announcement({
@@ -19,9 +20,9 @@ class Announcement extends GetView<HomeController> {
 
         return Container(
           margin: EdgeInsets.only(
-            left: 5,
-            right: 5,
-            top: 5,
+            left: 5.w,
+            right: 5.w,
+            top: 5.h,
           ),
           child: Card(
             shape: RoundedRectangleBorder(
@@ -30,10 +31,10 @@ class Announcement extends GetView<HomeController> {
             elevation: 0,
             child: Container(
               padding: EdgeInsets.only(
-                left: 10,
-                right: 10,
-                top: 10,
-                bottom: 10,
+                left: 10.w,
+                right: 10.w,
+                top: 10.h,
+                bottom: 10.h,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -45,16 +46,16 @@ class Announcement extends GetView<HomeController> {
                         children: [
                           SvgPicture.asset(
                             ANNOUNCEMENT,
-                            width: 30,
+                            width: 30.w,
                           ),
                           SizedBox(
-                            width: 8,
+                            width: 8.w,
                           ),
                           Text(
                             "${data['type']}",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 16,
+                              fontSize: 16.sp,
                             ),
                           )
                         ],
@@ -72,16 +73,16 @@ class Announcement extends GetView<HomeController> {
                   Divider(),
                   if (!controller.hide_announcement.value)
                     Container(
-                      padding: EdgeInsets.all(5),
+                      padding: EdgeInsets.all(5.w),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(5.r),
                         color: Color(0xffF94892),
                       ),
                       child: Text(
                         "${data['message']}",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

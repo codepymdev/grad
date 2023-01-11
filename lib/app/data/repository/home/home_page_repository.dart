@@ -15,21 +15,20 @@ class HomePageRepository {
     required page,
   }) async {
     var url = Uri.parse(
-        "$apiendpoint$PEOPLE/get/$school/$campus/$r/$type/$per_page/$page");
+        "${apiendpoint}people/get/$school/$campus/$r/$type/$per_page/$page");
     try {
       var response = await client.get(url);
+
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         return data['data'];
       } else {
         // If the server did not return a 200 OK response,
         // then throw an exception.
-        throw Exception('Failed to load data');
+        return [];
       }
     } catch (_) {
-      return [
-        {"status": false, "message": "Oops, there was an error"}
-      ];
+      return [];
     }
   }
 
@@ -38,7 +37,7 @@ class HomePageRepository {
     required campus,
     required r,
   }) async {
-    var url = Uri.parse("$apiendpoint$COUNTER/$school/$campus/$r");
+    var url = Uri.parse("${apiendpoint}counter/$school/$campus/$r");
     try {
       var response = await client.get(url);
       if (response.statusCode == 200) {
@@ -47,7 +46,7 @@ class HomePageRepository {
       } else {
         // If the server did not return a 200 OK response,
         // then throw an exception.
-        throw Exception('Failed to load data');
+        return {};
       }
     } catch (_) {
       return {"status": false, "message": "Oops, there was an error"};

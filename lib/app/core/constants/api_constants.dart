@@ -17,8 +17,6 @@ const CHANGE_PASSWORD = "auth/change-password";
 
 const PEOPLE = "people";
 
-const COUNTER = "counter";
-
 const UPDATE_PROFILE = "account/update-profile";
 
 const CHANGE_PASSWORD_ACCOUNT = "account/change-password-account";
@@ -36,9 +34,3 @@ const CONFIG_TERM = "term";
 const CONFIG_STAMP = "stamp";
 
 const BUG_ISSUE = "bug";
-
-const EVENTS = "events";
-
-const UPLOAD_EVENT = "upload-event";
-
-const GET_EVENTS = "get";

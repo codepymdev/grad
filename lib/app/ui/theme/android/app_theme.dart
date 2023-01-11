@@ -12,7 +12,7 @@ final appThemeData = {
     brightness: Brightness.light,
     primaryColor: Color(0xff3a7eef),
     primaryColorLight: Color(0xffCBDCF8),
-    primaryColorDark: Color.fromARGB(255, 11, 7, 46),
+    primaryColorDark: Colors.green,
     backgroundColor: Color(0xffCBDCF8),
     indicatorColor: Color(0xffCBDCF8),
     hintColor: Color(0xffEECED3),
@@ -24,7 +24,7 @@ final appThemeData = {
     canvasColor: Colors.grey[50],
     // fontFamily: 'Dongle',
     iconTheme: IconThemeData(
-      color: Colors.black,
+      color: Colors.green,
     ),
     // textTheme: TextTheme(
     //   bodyLarge: TextStyle(

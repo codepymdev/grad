@@ -55,19 +55,17 @@ class SettingsRepository {
   static Future<List<dynamic>> getConfigSettings({
     required school,
   }) async {
-    var url = Uri.parse("$apiendpoint$CONFIG_SETTINGS/$school");
+    var url = Uri.parse("${apiendpoint}settings/$school");
     try {
       var response = await client.get(url);
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         return data;
       } else {
-        // If the server did not return a 200 OK response,
-        // then throw an exception.
-        throw Exception('Failed to load data');
+        return [];
       }
     } catch (_) {
-      throw Exception("Failed to load data");
+      return [];
     }
   }
 

@@ -11,8 +11,11 @@ class School extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => Container(
+    return Obx(() {
+      if (controller.school_data.isEmpty) {
+        return Container();
+      }
+      return Container(
           margin: EdgeInsets.only(
             left: 5,
             right: 5,
@@ -77,93 +80,13 @@ class School extends GetView<HomeController> {
                               ],
                             ),
                           ),
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Container(
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      ClipOval(
-                                        child: CustomNetworkImage(
-                                          url:
-                                              "${controller.school_data['proprietor_avatar']}",
-                                          ht: 50,
-                                          wd: 50,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 5,
-                                      ),
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              "${controller.school_data['proprietor_name']}",
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                              ),
-                                            ),
-                                            Text(
-                                              "Proprietress",
-                                              style: TextStyle(),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Divider(),
-                                Container(
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      ClipOval(
-                                        child: CustomNetworkImage(
-                                          url:
-                                              "${controller.school_data['principal_avatar']}",
-                                          ht: 50,
-                                          wd: 50,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 5,
-                                      ),
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              "${controller.school_data['principal_name']}",
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                              ),
-                                            ),
-                                            Text(
-                                              "Principal",
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
                         ],
                       ),
                     ),
                 ],
               ),
             ),
-          )),
-    );
+          ));
+    });
   }
 }

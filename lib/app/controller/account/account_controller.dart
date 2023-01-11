@@ -29,7 +29,7 @@ class AccountController extends GetxController with CacheManager {
   void onInit() async {
     Map<String, dynamic>? data = await getMe();
     if (data != null) {
-      userid.value = data['id'];
+      userid.value = data['id'].toString();
       campus.value = data["campus"] == "" ? "0" : data["campus"];
       r.value = data["type"];
     }

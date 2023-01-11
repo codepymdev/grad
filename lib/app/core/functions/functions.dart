@@ -95,18 +95,18 @@ AppBar customAppBar({
 }) {
   return AppBar(
     elevation: 0,
-    backgroundColor: Colors.transparent,
+    backgroundColor: Colors.green,
     automaticallyImplyLeading: false,
     title: Text(
       "$name",
       style: TextStyle(
-        color: Colors.black,
+        color: Colors.white,
       ),
     ),
     leading: IconButton(
       icon: Icon(
         FeatherIcons.cornerUpLeft,
-        color: Colors.black,
+        color: Colors.white,
       ),
       onPressed: () => Get.back(),
     ),

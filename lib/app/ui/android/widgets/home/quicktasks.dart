@@ -4,8 +4,6 @@ import 'package:get/get.dart';
 import 'package:grad/app/controller/home/home_controller.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
 
-late bool themeMode;
-
 class QuickTasks extends GetView<HomeController> {
   const QuickTasks({
     Key? key,
@@ -13,11 +11,6 @@ class QuickTasks extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    if (Theme.of(context).brightness == Brightness.dark) {
-      themeMode = true;
-    } else {
-      themeMode = false;
-    }
     return SizedBox(
       height: 130,
       child: ListView(
@@ -31,9 +24,7 @@ class QuickTasks extends GetView<HomeController> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              color: themeMode
-                  ? Theme.of(context).primaryColor
-                  : Color.fromRGBO(250, 228, 252, 1),
+              color: Color.fromRGBO(250, 228, 252, 1),
               child: Container(
                 padding: EdgeInsets.only(
                   left: 8,
@@ -80,9 +71,7 @@ class QuickTasks extends GetView<HomeController> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              color: themeMode
-                  ? Theme.of(context).primaryColor
-                  : Color.fromARGB(255, 202, 238, 197),
+              color: Color.fromARGB(255, 202, 238, 197),
               child: Container(
                 padding: EdgeInsets.only(
                   left: 8,
@@ -129,9 +118,7 @@ class QuickTasks extends GetView<HomeController> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              color: themeMode
-                  ? Theme.of(context).primaryColor
-                  : Color.fromARGB(255, 175, 140, 173),
+              color: Color.fromARGB(255, 175, 140, 173),
               child: Container(
                 padding: EdgeInsets.only(
                   left: 8,
@@ -178,9 +165,7 @@ class QuickTasks extends GetView<HomeController> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              color: themeMode
-                  ? Theme.of(context).primaryColor
-                  : Color(0xffE7FBBE),
+              color: Color(0xffE7FBBE),
               child: Container(
                 padding: EdgeInsets.only(
                   left: 8,
@@ -227,9 +212,7 @@ class QuickTasks extends GetView<HomeController> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              color: themeMode
-                  ? Theme.of(context).primaryColor
-                  : Color.fromARGB(255, 223, 244, 248),
+              color: Color.fromARGB(255, 223, 244, 248),
               child: Container(
                 padding: EdgeInsets.only(
                   left: 8,
@@ -276,9 +259,7 @@ class QuickTasks extends GetView<HomeController> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              color: themeMode
-                  ? Theme.of(context).primaryColor
-                  : Color.fromARGB(255, 236, 248, 209),
+              color: Color.fromARGB(255, 236, 248, 209),
               child: Container(
                 padding: EdgeInsets.only(
                   left: 8,
@@ -325,9 +306,7 @@ class QuickTasks extends GetView<HomeController> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              color: themeMode
-                  ? Theme.of(context).primaryColor
-                  : Color.fromARGB(255, 248, 240, 228),
+              color: Color.fromARGB(255, 248, 240, 228),
               child: Container(
                 padding: EdgeInsets.only(
                   left: 8,

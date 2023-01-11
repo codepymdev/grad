@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 class NewEventController extends GetxController with CacheManager {
   var processing = false.obs;
   var school = "".obs;
-  var userid = "".obs;
+  var userid = 0.obs;
 
   var configs = [].obs;
 
@@ -57,7 +57,7 @@ class NewEventController extends GetxController with CacheManager {
 
     data['start_date'] = start_date.value;
     data['end_date'] = end_date.value;
-    data['userId'] = userid.value;
+    data['userId'] = userid.value.toString();
     data['school'] = school.value;
     data['term'] = tval;
     data['year'] = yval;
@@ -66,19 +66,24 @@ class NewEventController extends GetxController with CacheManager {
       data: data,
     );
 
-    if (response['status']) {
-      success.value = true;
-      success_msg.value = "Event Created successful";
-    } else {
-      if (response['validate']) {
-        Map<String, dynamic> resp_mes = response['message'];
-
-        error_msg.value = resp_mes.values.first[0];
-        error.value = true;
+    if (!response.isEmpty) {
+      if (response['status']) {
+        success.value = true;
+        success_msg.value = "Event Created successful";
       } else {
-        error_msg.value = response['message'];
-        error.value = true;
+        if (response['validate']) {
+          Map<String, dynamic> resp_mes = response['message'];
+
+          error_msg.value = resp_mes.values.first[0];
+          error.value = true;
+        } else {
+          error_msg.value = response['message'];
+          error.value = true;
+        }
       }
+    } else {
+      error_msg.value = "Oops, there was an error try it again!";
+      error.value = true;
     }
 
     processing.value = false;

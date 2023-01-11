@@ -104,7 +104,7 @@ class LoginRepository {
     required id,
     required school,
   }) async {
-    var url = Uri.parse("$apiendpoint" + "auth/data/" + id + "/" + school);
+    var url = Uri.parse("${apiendpoint}auth/data/$id/$school");
     try {
       var response = await client.get(url);
       if (response.statusCode == 200) {
@@ -112,12 +112,12 @@ class LoginRepository {
         if (data['status']) {
           return data['data'];
         }
-        return null;
+        return {};
       } else {
-        return null;
+        return {};
       }
     } catch (_) {
-      return null;
+      return {};
     }
   }
 }

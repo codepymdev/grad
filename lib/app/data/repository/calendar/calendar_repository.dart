@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 class CalendarRepository {
   static var client = http.Client();
   static Future<Map<String, dynamic>> uploadEvent({required data}) async {
-    var url = Uri.parse("$apiendpoint$EVENTS/$UPLOAD_EVENT");
+    var url = Uri.parse("${apiendpoint}events/upload-event");
     try {
       var response = await client.post(
         url,
@@ -19,10 +19,10 @@ class CalendarRepository {
       } else {
         // If the server did not return a 200 OK response,
         // then throw an exception.
-        throw Exception('Failed to load data');
+        return {};
       }
     } catch (_) {
-      throw Exception("Failed to load data");
+      return {};
     }
   }
 
@@ -34,7 +34,7 @@ class CalendarRepository {
     required per_page,
     required page,
   }) async {
-    var url = Uri.parse("$apiendpoint$EVENTS/$GET_EVENTS/$per_page/$page");
+    var url = Uri.parse("${apiendpoint}events/get/$per_page/$page");
     try {
       var response = await client.post(url, body: {
         "school": school,
@@ -42,17 +42,16 @@ class CalendarRepository {
         "term": term,
         "year": year,
       });
-
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         return data['data'];
       } else {
         // If the server did not return a 200 OK response,
         // then throw an exception.
-        throw Exception('Failed to load data');
+        return [];
       }
     } catch (_) {
-      throw Exception("Failed to load data");
+      return [];
     }
   }
 
@@ -60,7 +59,7 @@ class CalendarRepository {
   /// update event
   ///
   static Future<Map<String, dynamic>> updateEvent({required data}) async {
-    var url = Uri.parse("$apiendpoint$EVENTS/update");
+    var url = Uri.parse("${apiendpoint}events/update");
     try {
       var response = await client.post(
         url,
@@ -73,10 +72,10 @@ class CalendarRepository {
       } else {
         // If the server did not return a 200 OK response,
         // then throw an exception.
-        throw Exception('Failed to load data');
+        return {};
       }
     } catch (_) {
-      throw Exception("Failed to load data");
+      return {};
     }
   }
 
@@ -85,7 +84,7 @@ class CalendarRepository {
   ///
   static Future<Map<String, dynamic>> deleteEvent(
       {required school, required id}) async {
-    var url = Uri.parse("$apiendpoint$EVENTS/delete/$id/$school");
+    var url = Uri.parse("${apiendpoint}events/delete/$id/$school");
     try {
       var response = await client.delete(url);
 
@@ -95,10 +94,10 @@ class CalendarRepository {
       } else {
         // If the server did not return a 200 OK response,
         // then throw an exception.
-        throw Exception('Failed to load data');
+        return {};
       }
     } catch (_) {
-      throw Exception("Failed to load data");
+      return {};
     }
   }
 }

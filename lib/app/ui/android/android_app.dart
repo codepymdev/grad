@@ -33,7 +33,7 @@ class AndroidApp extends StatelessWidget {
         // For Android.
         // Use [light] for white status bar and [dark] for black status bar.
         statusBarIconBrightness: Brightness.light,
-        statusBarColor: Color.fromARGB(255, 11, 7, 46),
+        statusBarColor: Colors.green,
         // For iOS.
         // Use [dark] for white status bar and [light] for black status bar.
         statusBarBrightness: Brightness.dark,

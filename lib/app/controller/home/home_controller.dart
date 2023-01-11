@@ -90,6 +90,7 @@ class HomeController extends GetxController with CacheManager {
       campus: campus.value,
       r: r.value,
     );
+
     List<dynamic> _students = await HomePageRepository.getPeople(
       school: school.value,
       campus: campus.value,
