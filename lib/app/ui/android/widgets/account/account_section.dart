@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:grad/app/controller/account/account_controller.dart';
 import 'package:grad/app/controller/others/update-controller.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AccountSection extends GetView<AccountController> {
   const AccountSection({
@@ -15,9 +16,9 @@ class AccountSection extends GetView<AccountController> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-        left: 5,
-        right: 5,
-        top: 10,
+        left: 5.w,
+        right: 5.w,
+        top: 10.h,
       ),
       child: Card(
         shape: RoundedRectangleBorder(
@@ -26,10 +27,10 @@ class AccountSection extends GetView<AccountController> {
         elevation: 0,
         child: Container(
           padding: EdgeInsets.only(
-            left: 10,
-            right: 10,
-            top: 10,
-            bottom: 10,
+            left: 10.w,
+            right: 10.w,
+            top: 10.h,
+            bottom: 10.h,
           ),
           child: Column(
             children: [
@@ -44,6 +45,7 @@ class AccountSection extends GetView<AccountController> {
               ),
               Divider(),
               ListView(
+                padding: EdgeInsets.zero,
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 children: [
@@ -58,7 +60,7 @@ class AccountSection extends GetView<AccountController> {
                     contentPadding: EdgeInsets.zero,
                     leading: Icon(
                       FeatherIcons.user,
-                      size: 25,
+                      size: 25.r,
                       color: Colors.black,
                     ),
                     title: Text(

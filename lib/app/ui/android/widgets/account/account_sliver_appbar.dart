@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
 import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/ui/android/widgets/home/flexible_space.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AccountSliverAppBar extends StatelessWidget {
   const AccountSliverAppBar({
@@ -13,15 +14,15 @@ class AccountSliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: Theme.of(context).primaryColorDark,
+      backgroundColor: Colors.green,
       pinned: true,
-      expandedHeight: 180,
+      expandedHeight: 180.h,
       floating: true,
       actions: [
         Padding(
-          padding: const EdgeInsets.only(
-            right: 20,
-            top: 10,
+          padding: EdgeInsets.only(
+            right: 20.w,
+            top: 10.h,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -30,20 +31,22 @@ class AccountSliverAppBar extends StatelessWidget {
                 "${currentDate()['time']},",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 15,
+                  fontSize: 15.sp,
+                  color: Colors.white,
                 ),
               ),
               SizedBox(
-                width: 3,
+                width: 3.w,
               ),
               Text(
                 "${currentDate()['day']}",
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 14.sp,
+                  color: Colors.white,
                 ),
               ),
               SizedBox(
-                width: 8,
+                width: 8.w,
               ),
               Badge(
                 badgeContent: Text(
@@ -55,7 +58,7 @@ class AccountSliverAppBar extends StatelessWidget {
                 child: SvgPicture.asset(
                   BELL,
                   color: Colors.white,
-                  width: 25,
+                  width: 25.w,
                 ),
               ),
             ],

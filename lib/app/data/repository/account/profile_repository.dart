@@ -8,7 +8,7 @@ class ProfileRepository {
 
   static Future<Map<String, dynamic>> updateProfile(
       Map<String, dynamic> data) async {
-    var url = Uri.parse("$apiendpoint$UPDATE_PROFILE");
+    var url = Uri.parse("${apiendpoint}account/update-profile");
     try {
       var request = await http.MultipartRequest(
         "POST",
@@ -57,7 +57,7 @@ class ProfileRepository {
     required userid,
     required school,
   }) async {
-    var url = Uri.parse("$apiendpoint$CHANGE_PASSWORD_ACCOUNT");
+    var url = Uri.parse("${apiendpoint}account/change-password-account");
     try {
       var response = await client.post(url, body: {
         "userid": userid,
@@ -71,7 +71,7 @@ class ProfileRepository {
       } else {
         // If the server did not return a 200 OK response,
         // then throw an exception.
-        throw Exception('Failed to load data');
+        return {"status": false, "message": "Oops, there was an error"};
       }
     } catch (_) {
       return {"status": false, "message": "Oops, there was an error"};
@@ -85,22 +85,23 @@ class ProfileRepository {
     required page,
   }) async {
     var url = Uri.parse(
-        "$apiendpoint$RECENT_ACTIVITIES/$school/$userid/$per_page/$page");
+        "${apiendpoint}account/recent-activities/$school/$userid/$per_page/$page");
 
     try {
       var respone = await client.get(url);
+
       if (respone.statusCode == 200) {
         final data = json.decode(respone.body);
         return data['data'];
       } else {
         // If the server did not return a 200 OK response,
         // then throw an exception.
-        throw Exception('Failed to load data');
+        return [];
       }
     } catch (_) {
       // If the server did not return a 200 OK response,
       // then throw an exception.
-      throw Exception('Failed to load data');
+      return [];
     }
   }
 }

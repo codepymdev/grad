@@ -107,12 +107,17 @@ class SettingsController extends GetxController with CacheManager {
       data: data,
     );
 
-    if (response['status']) {
-      success.value = true;
-      success_msg.value = "Updated";
+    if (response.isNotEmpty) {
+      if (response['status']) {
+        success.value = true;
+        success_msg.value = "Updated";
+      } else {
+        error.value = true;
+        error_msg.value = response['message'];
+      }
     } else {
       error.value = true;
-      error_msg.value = response['message'];
+      error_msg.value = "Oops, there was an error try again later";
     }
 
     processing.value = false;
@@ -142,12 +147,17 @@ class SettingsController extends GetxController with CacheManager {
       data: data,
     );
 
-    if (response['status']) {
-      success.value = true;
-      success_msg.value = "Updated";
+    if (response.isNotEmpty) {
+      if (response['status']) {
+        success.value = true;
+        success_msg.value = "Updated";
+      } else {
+        error.value = true;
+        error_msg.value = response['message'];
+      }
     } else {
       error.value = true;
-      error_msg.value = response['message'];
+      error_msg.value = "Oops, there was an error try again later";
     }
 
     processing.value = false;
@@ -172,12 +182,17 @@ class SettingsController extends GetxController with CacheManager {
       data: data,
     );
 
-    if (response['status']) {
-      success.value = true;
-      success_msg.value = "Updated";
+    if (response.isNotEmpty) {
+      if (response['status']) {
+        success.value = true;
+        success_msg.value = "Updated";
+      } else {
+        error.value = true;
+        error_msg.value = response['message'];
+      }
     } else {
       error.value = true;
-      error_msg.value = response['message'];
+      error_msg.value = "Oops, there was an error try again later";
     }
 
     processing.value = false;
@@ -272,13 +287,18 @@ class SettingsController extends GetxController with CacheManager {
         data: data,
       );
 
-      if (response['status']) {
-        success.value = true;
-        success_msg.value =
-            "Thank you for the reporting the issue to us! It will be fixed as soon as possible";
+      if (response.isNotEmpty) {
+        if (response['status']) {
+          success.value = true;
+          success_msg.value =
+              "Thank you for the reporting the issue to us! It will be fixed as soon as possible";
+        } else {
+          error.value = true;
+          error_msg.value = response['message'];
+        }
       } else {
         error.value = true;
-        error_msg.value = response['message'];
+        error_msg.value = "Oops, there was an error try again later";
       }
     }
 

@@ -7,7 +7,6 @@ class LoginRepository {
   static var client = http.Client();
 
   static Future<Map<String, dynamic>> login(Map<String, dynamic> data) async {
-    print(data);
     var url = Uri.parse("${apiendpoint}auth/login");
     try {
       var response = await client.post(url, body: {
@@ -25,13 +24,14 @@ class LoginRepository {
         throw Exception('Failed to load data');
       }
     } catch (_) {
+      print(_);
       return {"status": false, "message": "Oops, there was an error"};
     }
   }
 
   static Future<Map<String, dynamic>> recoveryCode(
       String email, String school) async {
-    var url = Uri.parse("$apiendpoint$RECOVERY_CODE");
+    var url = Uri.parse("${apiendpoint}auth/forgot-password");
     try {
       var response =
           await client.post(url, body: {"email": email, "school": school});
@@ -39,9 +39,7 @@ class LoginRepository {
         final data = json.decode(response.body);
         return data;
       } else {
-        // If the server did not return a 200 OK response,
-        // then throw an exception.
-        throw Exception('Failed to load data');
+        return {};
       }
     } catch (_) {
       return {"status": false, "message": "Oops, there was an error"};
@@ -53,7 +51,7 @@ class LoginRepository {
     String school,
     String code,
   ) async {
-    var url = Uri.parse("$apiendpoint$VERIFY_ACCOUNT");
+    var url = Uri.parse("${apiendpoint}auth/verify-account");
     try {
       var response = await client.post(url, body: {
         "email": email,
@@ -64,9 +62,7 @@ class LoginRepository {
         final data = json.decode(response.body);
         return data;
       } else {
-        // If the server did not return a 200 OK response,
-        // then throw an exception.
-        throw Exception('Failed to load data');
+        return {};
       }
     } catch (_) {
       return {"status": false, "message": "Oops, there was an error"};
@@ -79,7 +75,7 @@ class LoginRepository {
     required email,
     required school,
   }) async {
-    var url = Uri.parse("$apiendpoint$CHANGE_PASSWORD");
+    var url = Uri.parse("${apiendpoint}auth/change-password");
     try {
       var response = await client.post(url, body: {
         "email": email,
@@ -91,9 +87,7 @@ class LoginRepository {
         final data = json.decode(response.body);
         return data;
       } else {
-        // If the server did not return a 200 OK response,
-        // then throw an exception.
-        throw Exception('Failed to load data');
+        return {};
       }
     } catch (_) {
       return {"status": false, "message": "Oops, there was an error"};

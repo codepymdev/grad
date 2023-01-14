@@ -27,7 +27,7 @@ class SchoolRepository {
   }
 
   static Future<Map<String, dynamic>> getSchoolData({required school}) async {
-    var url = Uri.parse("$apiendpoint$SCHOOLS/get/$school");
+    var url = Uri.parse("${apiendpoint}schools/get/$school");
 
     try {
       var response = await client.get(url);

@@ -4,7 +4,6 @@ import 'package:get/state_manager.dart';
 import 'package:grad/app/controller/calendar/calendar_controller.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
 import 'package:grad/app/core/functions/functions.dart';
-import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
 
 class UpcomingEventList extends GetView<CalendarController> {
   const UpcomingEventList({
@@ -101,7 +100,7 @@ class UpcomingEventList extends GetView<CalendarController> {
                       Text(
                         "${event['title']}",
                         style: TextStyle(
-                          fontWeight: FontWeight.w900,
+                          fontWeight: FontWeight.w500,
                           fontSize: 18,
                         ),
                       ),

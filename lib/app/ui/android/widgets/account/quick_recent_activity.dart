@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 import 'package:grad/app/controller/account/account_controller.dart';
 import 'package:timelines/timelines.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 const kTileHeight = 50.0;
 
@@ -15,21 +16,21 @@ class QuickRecentActivity extends GetView<AccountController> {
     List<dynamic> activities = controller.activities;
     return Container(
       margin: EdgeInsets.only(
-        left: 5,
-        right: 5,
-        top: 10,
+        left: 5.w,
+        right: 5.w,
+        top: 10.h,
       ),
       child: Card(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5.0),
+          borderRadius: BorderRadius.circular(5.0.r),
         ),
         elevation: 0,
         child: Container(
           padding: EdgeInsets.only(
-            left: 10,
-            right: 10,
-            top: 10,
-            bottom: 10,
+            left: 10.w,
+            right: 10.w,
+            top: 10.h,
+            bottom: 10.h,
           ),
           child: Column(
             children: [
@@ -54,14 +55,14 @@ class QuickRecentActivity extends GetView<AccountController> {
                   theme: TimelineThemeData(
                     nodePosition: 0,
                     connectorTheme: ConnectorThemeData(
-                      thickness: 3.0,
+                      thickness: 3.0.r,
                       color: Color(0xffd3d3d3),
                     ),
                     indicatorTheme: IndicatorThemeData(
-                      size: 15.0,
+                      size: 15.0.r,
                     ),
                   ),
-                  padding: EdgeInsets.symmetric(vertical: 20.0),
+                  padding: EdgeInsets.symmetric(vertical: 20.0.h),
                   builder: TimelineTileBuilder.connected(
                     contentsBuilder: (_, __) =>
                         _EmptyContents(data: activities[__]),
@@ -86,7 +87,7 @@ class QuickRecentActivity extends GetView<AccountController> {
                             color: Color.fromARGB(255, 1, 4, 14),
                             child: Icon(
                               Icons.check_box,
-                              size: 10.0,
+                              size: 10.0.r,
                               color: Colors.yellow,
                             ),
                           );
@@ -118,14 +119,14 @@ class _EmptyContents extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-        left: 10.0,
-        bottom: 5,
+        left: 10.0.w,
+        bottom: 5.h,
       ),
       padding: EdgeInsets.all(
-        5,
+        0.w,
       ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(6.0),
+        borderRadius: BorderRadius.circular(6.0.r),
         color: Color.fromARGB(255, 247, 248, 252),
       ),
       child: Column(

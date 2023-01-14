@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/controller/settings/settings_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
+import 'package:grad/app/ui/android/widgets/custom/ios_loader.dart';
 
 class Session extends GetView<SettingsController> {
   @override
@@ -32,18 +33,17 @@ class Session extends GetView<SettingsController> {
                   ),
                   width: double.infinity,
                   height: 50,
-                  child: ElevatedButton(
-                    style: ButtonStyle(),
+                  child: TextButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.green),
+                    ),
                     child: controller.processing.value
-                        ? Center(
-                            child: CircularProgressIndicator(
-                              color: Colors.white,
-                            ),
-                          )
+                        ? IosLoader()
                         : Text(
                             "Save",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
+                              color: Colors.white,
                             ),
                           ),
                     onPressed: () async {

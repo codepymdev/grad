@@ -10,7 +10,7 @@ class SettingsRepository {
 
   static Future<Map<String, dynamic>> recoveryCode(
       String email, String school) async {
-    var url = Uri.parse("$apiendpoint$RECOVERY_CODE");
+    var url = Uri.parse("${apiendpoint}auth/forgot-password");
     try {
       var response =
           await client.post(url, body: {"email": email, "school": school});
@@ -20,7 +20,7 @@ class SettingsRepository {
       } else {
         // If the server did not return a 200 OK response,
         // then throw an exception.
-        throw Exception('Failed to load data');
+        return {};
       }
     } catch (_) {
       return {"status": false, "message": "Oops, there was an error"};
@@ -32,7 +32,7 @@ class SettingsRepository {
     String school,
     String code,
   ) async {
-    var url = Uri.parse("$apiendpoint$VERIFY_ACCOUNT");
+    var url = Uri.parse("${apiendpoint}auth/verify-account");
     try {
       var response = await client.post(url, body: {
         "email": email,
@@ -45,7 +45,7 @@ class SettingsRepository {
       } else {
         // If the server did not return a 200 OK response,
         // then throw an exception.
-        throw Exception('Failed to load data');
+        return {};
       }
     } catch (_) {
       return {"status": false, "message": "Oops, there was an error"};
@@ -72,12 +72,13 @@ class SettingsRepository {
   static Future<Map<String, dynamic>> updateSchoolConfig({
     required data,
   }) async {
-    var url = Uri.parse("$apiendpoint$CONFIG_SETTINGS/$SCHOOL_CONFIG");
+    var url = Uri.parse("${apiendpoint}settings/school-configuration");
     try {
       var response = await client.post(
         url,
         body: data,
       );
+      print(response.statusCode);
 
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
@@ -85,17 +86,18 @@ class SettingsRepository {
       } else {
         // If the server did not return a 200 OK response,
         // then throw an exception.
-        throw Exception('Failed to load data');
+        return {};
       }
     } catch (_) {
-      throw Exception("Failed to load data");
+      print(_.toString());
+      return {};
     }
   }
 
   static Future<Map<String, dynamic>> updateSession({
     required data,
   }) async {
-    var url = Uri.parse("$apiendpoint$CONFIG_SETTINGS/$CONFIG_SESSION");
+    var url = Uri.parse("${apiendpoint}settings/session");
     try {
       var response = await client.post(
         url,
@@ -106,19 +108,17 @@ class SettingsRepository {
         final data = json.decode(response.body);
         return data;
       } else {
-        // If the server did not return a 200 OK response,
-        // then throw an exception.
-        throw Exception('Failed to load data');
+        return {};
       }
     } catch (_) {
-      throw Exception("Failed to load data");
+      return {};
     }
   }
 
   static Future<Map<String, dynamic>> updateTerm({
     required data,
   }) async {
-    var url = Uri.parse("$apiendpoint$CONFIG_SETTINGS/$CONFIG_TERM");
+    var url = Uri.parse("${apiendpoint}settings/term");
     try {
       var response = await client.post(
         url,
@@ -131,17 +131,16 @@ class SettingsRepository {
       } else {
         // If the server did not return a 200 OK response,
         // then throw an exception.
-        throw Exception('Failed to load data');
+        return {};
       }
     } catch (_) {
-      print(_.toString());
-      throw Exception("Failed to load data");
+      return {};
     }
   }
 
   static Future<Map<String, dynamic>> updateStamp(
       Map<String, dynamic> data) async {
-    var url = Uri.parse("$apiendpoint$CONFIG_SETTINGS/$CONFIG_STAMP");
+    var url = Uri.parse("${apiendpoint}settings/stamp");
     try {
       var request = await http.MultipartRequest(
         "POST",
@@ -178,7 +177,7 @@ class SettingsRepository {
   static Future<Map<String, dynamic>> submitBugIssue({
     required data,
   }) async {
-    var url = Uri.parse("$apiendpoint$CONFIG_SETTINGS/$BUG_ISSUE");
+    var url = Uri.parse("${apiendpoint}settings/bug");
     try {
       var response = await client.post(
         url,
@@ -189,19 +188,17 @@ class SettingsRepository {
         final data = json.decode(response.body);
         return data;
       } else {
-        // If the server did not return a 200 OK response,
-        // then throw an exception.
-        throw Exception('Failed to load data');
+        return {};
       }
     } catch (_) {
-      throw Exception("Failed to load data");
+      return {};
     }
   }
 
   static Future<List<Campus>> getCampus({
     required school,
   }) async {
-    var url = Uri.parse("$apiendpoint$CONFIG_SETTINGS/campus/$school");
+    var url = Uri.parse("${apiendpoint}settings/campus/$school");
     try {
       var response = await client.get(url);
 
@@ -209,12 +206,10 @@ class SettingsRepository {
         final data = json.decode(response.body) as List;
         return data.map((dynamic item) => Campus.fromJson(item)).toList();
       } else {
-        // If the server did not return a 200 OK response,
-        // then throw an exception.
-        throw Exception('Failed to load data');
+        return [];
       }
     } catch (_) {
-      throw Exception("Failed to load data");
+      return [];
     }
   }
 
@@ -222,7 +217,7 @@ class SettingsRepository {
     required school,
     required type,
   }) async {
-    var url = Uri.parse("$apiendpoint$CONFIG_SETTINGS/roles/$school/$type");
+    var url = Uri.parse("${apiendpoint}settings/roles/$school/$type");
     try {
       var response = await client.get(url);
 
@@ -230,12 +225,10 @@ class SettingsRepository {
         final data = json.decode(response.body) as List;
         return data.map((dynamic item) => Role.fromJson(item)).toList();
       } else {
-        // If the server did not return a 200 OK response,
-        // then throw an exception.
-        throw Exception('Failed to load data');
+        return [];
       }
     } catch (_) {
-      throw Exception("Failed to load data");
+      return [];
     }
   }
 }

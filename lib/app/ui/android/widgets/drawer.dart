@@ -148,6 +148,240 @@ class _AppDrawerState extends State<AppDrawer> {
                 title: Text("Manage Subjects"),
               ),
               Divider(),
+
+              //students
+              Container(
+                padding: EdgeInsets.only(
+                  left: 5,
+                ),
+                child: Text(
+                  "Students",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Add Student"),
+              ),
+              ListTile(
+                leading: Icon(FeatherIcons.activity),
+                title: Text("Manage Students"),
+              ),
+              ListTile(
+                leading: Icon(FeatherIcons.activity),
+                title: Text("Class Students"),
+              ),
+              ListTile(
+                leading: Icon(FeatherIcons.activity),
+                title: Text("Graduant"),
+              ),
+              ListTile(
+                leading: Icon(FeatherIcons.activity),
+                title: Text("Student ID Card"),
+              ),
+              Divider(),
+
+              //parents
+              Container(
+                padding: EdgeInsets.only(
+                  left: 5,
+                ),
+                child: Text(
+                  "Parents",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Add Parent"),
+              ),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Manage Parents"),
+              ),
+
+              Divider(),
+
+              //staffs
+              Container(
+                padding: EdgeInsets.only(
+                  left: 5,
+                ),
+                child: Text(
+                  "Staffs",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+
+              Divider(),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Teaching Staffs"),
+              ),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Non teaching Staffs"),
+              ),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Staff ID Card"),
+              ),
+
+              Divider(),
+
+              //documents
+              Container(
+                padding: EdgeInsets.only(
+                  left: 5,
+                ),
+                child: Text(
+                  "Documents",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Add Document"),
+              ),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Manage Documentst"),
+              ),
+
+              Divider(),
+
+              //documents
+              Container(
+                padding: EdgeInsets.only(
+                  left: 5,
+                ),
+                child: Text(
+                  "Activities",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Ratings"),
+              ),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Attendance"),
+              ),
+
+              Divider(),
+
+              //documents
+              Container(
+                padding: EdgeInsets.only(
+                  left: 5,
+                ),
+                child: Text(
+                  "Results",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Add Results"),
+              ),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Manage Results"),
+              ),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Grade Results"),
+              ),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("View Results"),
+              ),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Late Results"),
+              ),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Past Results"),
+              ),
+              Divider(),
+
+              //users
+              Container(
+                padding: EdgeInsets.only(
+                  left: 5,
+                ),
+                child: Text(
+                  "Users",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Users"),
+              ),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Profile"),
+              ),
+
+              Divider(),
+
+              //users
+              Container(
+                padding: EdgeInsets.only(
+                  left: 5,
+                ),
+                child: Text(
+                  "Bulk Messaging",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Email"),
+              ),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("SMS"),
+              ),
+              ListTile(
+                leading: Icon(FeatherIcons.airplay),
+                title: Text("Announcement"),
+              ),
+              Divider(),
             ],
           );
         }),

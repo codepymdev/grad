@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:grad/app/controller/settings/settings_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
+import 'package:grad/app/ui/android/widgets/custom/ios_loader.dart';
 
 class Stamp extends GetView<SettingsController> {
   @override
@@ -66,18 +67,17 @@ class Stamp extends GetView<SettingsController> {
                   ),
                   width: double.infinity,
                   height: 50,
-                  child: ElevatedButton(
-                    style: ButtonStyle(),
+                  child: TextButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.green),
+                    ),
                     child: controller.processing.value
-                        ? Center(
-                            child: CircularProgressIndicator(
-                              color: Colors.white,
-                            ),
-                          )
+                        ? IosLoader()
                         : Text(
                             "Update Stamp/Signature",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
+                              color: Colors.white,
                             ),
                           ),
                     onPressed: () async {
