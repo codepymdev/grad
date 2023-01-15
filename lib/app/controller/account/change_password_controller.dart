@@ -28,7 +28,7 @@ class ChangePasswordAccountController extends GetxController with CacheManager {
   void onInit() async {
     Map<String, dynamic>? data = await getMe();
     if (data != null) {
-      userid.value = data['id'];
+      userid.value = data['id'].toString();
     }
     String? _school = await getSchool();
     if (_school != null) {

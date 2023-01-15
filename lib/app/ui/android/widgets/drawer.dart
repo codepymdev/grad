@@ -118,10 +118,12 @@ class _AppDrawerState extends State<AppDrawer> {
               ),
               Divider(),
               ListTile(
+                onTap: () => Get.toNamed("/classes/add"),
                 leading: Icon(FeatherIcons.airplay),
                 title: Text("Add Class"),
               ),
               ListTile(
+                onTap: () => Get.toNamed("/classes"),
                 leading: Icon(FeatherIcons.activity),
                 title: Text("Manage Class"),
               ),

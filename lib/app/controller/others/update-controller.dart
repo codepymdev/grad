@@ -10,7 +10,6 @@ class UpdateController extends GetxController {
     await Get.find<HomeController>().getUserData();
     await Get.find<HomeController>().getData();
     await Get.find<HomeController>().getCurrentAnnouncement();
-    await Get.find<HomeController>().getCurrentAnnouncement();
     await Get.find<AuthManagerController>().updateAuthUser();
 
     await Get.find<CalendarController>().get_upcoming_events();

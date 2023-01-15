@@ -73,6 +73,8 @@ class ClassesController extends GetxController with CacheManager {
         await SettingsRepository.getCampus(school: school.value);
     campus.value = _campus;
 
+    print("Campus $_campus");
+
     //get class categories
     List<ClassCategoriesModel> _data = await ClassRepository.classCategories(
       school: school.value,

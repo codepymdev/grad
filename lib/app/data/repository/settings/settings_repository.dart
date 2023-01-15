@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:grad/app/core/constants/api_constants.dart';
+import 'package:grad/app/data/model/arm_model.dart';
 import 'package:grad/app/data/model/campus_model.dart';
 import 'package:grad/app/data/model/role_model.dart';
 import 'package:http/http.dart' as http;
@@ -199,12 +200,37 @@ class SettingsRepository {
     required school,
   }) async {
     var url = Uri.parse("${apiendpoint}settings/campus/$school");
+
     try {
       var response = await client.get(url);
 
       if (response.statusCode == 200) {
         final data = json.decode(response.body) as List;
-        return data.map((dynamic item) => Campus.fromJson(item)).toList();
+        var campuses =
+            data.map((dynamic item) => Campus.fromJson(item)).toList();
+        print(campuses);
+        return campuses;
+      } else {
+        return [];
+      }
+    } catch (_) {
+      return [];
+    }
+  }
+
+  static Future<List<Arm>> getArms({
+    required school,
+  }) async {
+    var url = Uri.parse("${apiendpoint}settings/arms/$school");
+
+    try {
+      var response = await client.get(url);
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body) as List;
+        var arms = data.map((dynamic item) => Arm.fromJson(item)).toList();
+        print(arms);
+        return arms;
       } else {
         return [];
       }

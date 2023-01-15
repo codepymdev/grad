@@ -33,7 +33,7 @@ class EditProfileController extends GetxController with CacheManager {
     loading.value = false;
     gender = user["gender"] == "" ? "Select gender" : user['gender'];
     school = user['school'];
-    userid = user['id'];
+    userid = user['id'].toString();
 
     super.onInit();
   }

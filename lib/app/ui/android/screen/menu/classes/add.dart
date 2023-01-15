@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/controller/menu/classes_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
+import 'package:grad/app/ui/android/widgets/custom/ios_loader.dart';
 import 'package:grad/app/ui/android/widgets/form/class/campus.dart';
 import 'package:grad/app/ui/android/widgets/form/class/class_arm.dart';
 import 'package:grad/app/ui/android/widgets/form/class/class_name.dart';
@@ -11,23 +12,18 @@ import 'package:grad/app/ui/android/widgets/form/class/payment_amount.dart';
 import 'package:grad/app/ui/android/widgets/form/class/payment_title.dart';
 import 'package:grad/app/ui/android/widgets/form/class/section.dart';
 
-final TextEditingController descriptionController = TextEditingController();
-final TextEditingController feeController = TextEditingController();
-final TextEditingController paymentTitleController = TextEditingController();
-final TextEditingController paymentAmountController = TextEditingController();
-
 class AddClass extends GetView<ClassesController> {
+  final TextEditingController descriptionController = TextEditingController();
+  final TextEditingController feeController = TextEditingController();
+  final TextEditingController paymentTitleController = TextEditingController();
+  final TextEditingController paymentAmountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(name: "Add Class"),
       body: Obx(() {
-        if (controller.loading.value)
-          return Container(
-            child: Center(
-              child: CircularProgressIndicator(),
-            ),
-          );
+        if (controller.loading.value) return IosLoader();
 
         return SingleChildScrollView(
           child: Container(
@@ -75,18 +71,20 @@ class AddClass extends GetView<ClassesController> {
                   ),
                   width: double.infinity,
                   height: 50,
-                  child: ElevatedButton(
-                    style: ButtonStyle(),
+                  child: TextButton(
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4),
+                      )),
+                      backgroundColor: MaterialStateProperty.all(Colors.green),
+                    ),
                     child: controller.processing.value
-                        ? Center(
-                            child: CircularProgressIndicator(
-                              color: Colors.white,
-                            ),
-                          )
+                        ? IosLoader()
                         : Text(
                             "Add Class",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
+                              color: Colors.white,
                             ),
                           ),
                     onPressed: () async {

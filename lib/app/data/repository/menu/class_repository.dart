@@ -22,10 +22,10 @@ class ClassRepository {
         var jsonResponse = json.decode(response.body);
         return jsonResponse["data"]['data'];
       } else {
-        throw Exception('Failed to load data');
+        return [];
       }
     } catch (e) {
-      throw Exception('Failed to load data');
+      return [];
     }
   }
 
@@ -40,14 +40,10 @@ class ClassRepository {
         final data = json.decode(response.body);
         return data;
       } else {
-        // If the server did not return a 200 OK response,
-        // then throw an exception.
-        throw Exception('Failed to load data');
+        return {};
       }
     } catch (_) {
-      // If the server did not return a 200 OK response,
-      // then throw an exception.
-      throw Exception('Failed to load data');
+      return {};
     }
   }
 
@@ -62,14 +58,10 @@ class ClassRepository {
             .map((dynamic item) => ClassCategoriesModel.fromJson(item))
             .toList();
       } else {
-        // If the server did not return a 200 OK response,
-        // then throw an exception.
-        throw Exception('Failed to load data');
+        return [];
       }
     } catch (_) {
-      // If the server did not return a 200 OK response,
-      // then throw an exception.
-      throw Exception('Failed to load data');
+      return [];
     }
   }
 
@@ -84,14 +76,10 @@ class ClassRepository {
         final data = json.decode(response.body);
         return data;
       } else {
-        // If the server did not return a 200 OK response,
-        // then throw an exception.
-        throw Exception('Failed to load data');
+        return {};
       }
     } catch (_) {
-      // If the server did not return a 200 OK response,
-      // then throw an exception.
-      throw Exception('Failed to load data');
+      return {};
     }
   }
 }

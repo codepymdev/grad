@@ -5,17 +5,25 @@ import 'package:grad/app/controller/account/edit_profile_controller.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
 import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
+import 'package:grad/app/ui/android/widgets/custom/ios_loader.dart';
 
-late TextEditingController firstNameController;
-late TextEditingController lastNameController;
-late TextEditingController middleNameController;
-late TextEditingController phoneNumberController;
-late TextEditingController addressController;
-late TextEditingController cityController;
-late TextEditingController countryController;
-late String genderValue;
+class EditProfle extends StatefulWidget {
+  @override
+  State<EditProfle> createState() => _EditProfleState();
+}
 
-class EditProfle extends GetView<EditProfileController> {
+class _EditProfleState extends State<EditProfle> {
+  late TextEditingController firstNameController;
+  late TextEditingController lastNameController;
+  late TextEditingController middleNameController;
+  late TextEditingController phoneNumberController;
+  late TextEditingController addressController;
+  late TextEditingController cityController;
+  late TextEditingController countryController;
+  late String genderValue;
+
+  EditProfileController editprofilecontroller =
+      Get.put(EditProfileController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +31,7 @@ class EditProfle extends GetView<EditProfileController> {
       body: SingleChildScrollView(
         child: Container(
           child: Obx(() {
-            if (controller.loading.value) return Container();
+            if (editprofilecontroller.loading.value) return Container();
             return Container(
               padding: EdgeInsets.only(
                 top: 20,
@@ -58,22 +66,27 @@ class EditProfle extends GetView<EditProfileController> {
                   Container(
                     width: double.infinity,
                     height: 50,
-                    child: ElevatedButton(
-                      style: ButtonStyle(),
-                      child: controller.processing.value
-                          ? Center(
-                              child: CircularProgressIndicator(
-                                color: Colors.white,
-                              ),
-                            )
+                    child: TextButton(
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                        ),
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.green),
+                      ),
+                      child: editprofilecontroller.processing.value
+                          ? IosLoader()
                           : Text(
                               "Save",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
+                                color: Colors.white,
                               ),
                             ),
                       onPressed: () async {
-                        if (!controller.processing.value) {
+                        if (!editprofilecontroller.processing.value) {
                           Map<String, dynamic> _data = {
                             "first_name": firstNameController.text,
                             "last_name": lastNameController.text,
@@ -84,11 +97,13 @@ class EditProfle extends GetView<EditProfileController> {
                             "city": cityController.text,
                             "country": countryController.text,
                           };
-                          await controller.updateProfile(data: _data);
+                          await editprofilecontroller.updateProfile(
+                              data: _data);
 
-                          if (controller.error.value) {
+                          if (editprofilecontroller.error.value) {
                             final snackBar = SnackBar(
-                              content: Text('${controller.error_msg.value}'),
+                              content: Text(
+                                  '${editprofilecontroller.error_msg.value}'),
                               backgroundColor: Colors.red,
                             );
                             // Find the ScaffoldMessenger in the widget tree
@@ -96,9 +111,10 @@ class EditProfle extends GetView<EditProfileController> {
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(snackBar);
                           }
-                          if (controller.success.value) {
+                          if (editprofilecontroller.success.value) {
                             final snackBar = SnackBar(
-                              content: Text('${controller.success_msg.value}'),
+                              content: Text(
+                                  '${editprofilecontroller.success_msg.value}'),
                               backgroundColor: Colors.green,
                             );
                             // Find the ScaffoldMessenger in the widget tree
@@ -130,21 +146,21 @@ class EditProfle extends GetView<EditProfileController> {
         child: Stack(
           children: [
             ClipOval(
-              child: controller.picked.value
-                  ? controller.imageFile == null
+              child: editprofilecontroller.picked.value
+                  ? editprofilecontroller.imageFile == null
                       ? CustomNetworkImage(
-                          url: "${controller.user['avatar']}",
+                          url: "${editprofilecontroller.user['avatar']}",
                           ht: 80,
                           wd: 80,
                         )
                       : Image.file(
-                          controller.imageFile!,
+                          editprofilecontroller.imageFile!,
                           width: 80,
                           height: 80,
                           fit: BoxFit.cover,
                         )
                   : CustomNetworkImage(
-                      url: "${controller.user['avatar']}",
+                      url: "${editprofilecontroller.user['avatar']}",
                       ht: 80,
                       wd: 80,
                     ),
@@ -154,7 +170,7 @@ class EditProfle extends GetView<EditProfileController> {
               right: 5,
               child: GestureDetector(
                 onTap: () async {
-                  await controller.fetchImageFile();
+                  await editprofilecontroller.fetchImageFile();
                 },
                 child: SvgPicture.asset(
                   CAMERA,
@@ -170,7 +186,7 @@ class EditProfle extends GetView<EditProfileController> {
 
   Widget _country() {
     countryController =
-        TextEditingController(text: "${controller.user['country']}");
+        TextEditingController(text: "${editprofilecontroller.user['country']}");
     return Container(
       margin: EdgeInsets.all(5),
       child: TextField(
@@ -202,7 +218,8 @@ class EditProfle extends GetView<EditProfileController> {
   }
 
   Widget _city() {
-    cityController = TextEditingController(text: "${controller.user['city']}");
+    cityController =
+        TextEditingController(text: "${editprofilecontroller.user['city']}");
     return Container(
       margin: EdgeInsets.all(5),
       child: TextField(
@@ -235,7 +252,7 @@ class EditProfle extends GetView<EditProfileController> {
 
   Widget _address() {
     addressController =
-        TextEditingController(text: "${controller.user['address']}");
+        TextEditingController(text: "${editprofilecontroller.user['address']}");
     return Container(
       margin: EdgeInsets.all(5),
       child: TextField(
@@ -267,7 +284,7 @@ class EditProfle extends GetView<EditProfileController> {
   }
 
   Widget _gender() {
-    genderValue = controller.gender;
+    genderValue = editprofilecontroller.gender;
     return Container(
       margin: EdgeInsets.all(5),
       child: DropdownButton<String>(
@@ -275,7 +292,7 @@ class EditProfle extends GetView<EditProfileController> {
         value: genderValue,
         onChanged: (String? value) {
           if (value != null) {
-            controller.updateGenderState(value);
+            editprofilecontroller.updateGenderState(value);
             genderValue = value;
           } else {
             genderValue = "";
@@ -294,7 +311,7 @@ class EditProfle extends GetView<EditProfileController> {
 
   Widget _phone() {
     phoneNumberController =
-        TextEditingController(text: "${controller.user['tel']}");
+        TextEditingController(text: "${editprofilecontroller.user['tel']}");
     return Container(
       margin: EdgeInsets.all(5),
       child: TextField(
@@ -326,8 +343,8 @@ class EditProfle extends GetView<EditProfileController> {
   }
 
   Widget _middleName() {
-    middleNameController =
-        TextEditingController(text: "${controller.user['middle_name']}");
+    middleNameController = TextEditingController(
+        text: "${editprofilecontroller.user['middle_name']}");
     return Container(
       margin: EdgeInsets.all(5),
       child: TextField(
@@ -359,8 +376,8 @@ class EditProfle extends GetView<EditProfileController> {
   }
 
   Widget _lastName() {
-    lastNameController =
-        TextEditingController(text: "${controller.user['last_name']}");
+    lastNameController = TextEditingController(
+        text: "${editprofilecontroller.user['last_name']}");
     return Container(
       margin: EdgeInsets.all(5),
       child: TextField(
@@ -392,8 +409,8 @@ class EditProfle extends GetView<EditProfileController> {
   }
 
   Widget _firstName() {
-    firstNameController =
-        TextEditingController(text: "${controller.user['first_name']}");
+    firstNameController = TextEditingController(
+        text: "${editprofilecontroller.user['first_name']}");
     return Container(
       margin: EdgeInsets.all(5),
       child: TextField(

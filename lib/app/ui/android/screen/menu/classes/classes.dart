@@ -4,6 +4,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/controller/menu/classes_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
+import 'package:grad/app/ui/android/widgets/custom/ios_loader.dart';
 
 class Classes extends GetView<ClassesController> {
   @override
@@ -11,12 +12,7 @@ class Classes extends GetView<ClassesController> {
     return Scaffold(
       appBar: customAppBar(name: "Classes"),
       body: Obx(() {
-        if (controller.loading.value)
-          return Container(
-            child: Center(
-              child: CircularProgressIndicator(),
-            ),
-          );
+        if (controller.loading.value) return IosLoader();
         var data = controller.classes;
 
         if (data.length == 0)
