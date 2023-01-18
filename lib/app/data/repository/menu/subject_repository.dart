@@ -63,14 +63,27 @@ class SubjectRepository {
             .map((dynamic item) => SubjectCategoriesModel.fromJson(item))
             .toList();
       } else {
-        // If the server did not return a 200 OK response,
-        // then throw an exception.
-        throw Exception('Failed to load data');
+        return [];
       }
     } catch (_) {
-      // If the server did not return a 200 OK response,
-      // then throw an exception.
-      throw Exception('Failed to load data');
+      return [];
+    }
+  }
+
+  static Future<List<dynamic>> getSubjectCategory({
+    required school,
+  }) async {
+    var url = Uri.parse("${apiendpoint}subjects/subject-categories/$school");
+    try {
+      var response = await client.get(url);
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        return data;
+      } else {
+        return [];
+      }
+    } catch (_) {
+      return [];
     }
   }
 

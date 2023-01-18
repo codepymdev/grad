@@ -22,13 +22,6 @@ class ClassSection extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Class Section",
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
         DropdownButton<String>(
           isExpanded: true,
           hint: Text("Class Section"),

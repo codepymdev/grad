@@ -1,6 +1,6 @@
 class Arm {
-  final String id;
-  final String name;
+  int id;
+  String name;
 
   Arm({
     required this.id,
@@ -11,9 +11,4 @@ class Arm {
         id: json["id"],
         name: json["name"],
       );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-      };
 }

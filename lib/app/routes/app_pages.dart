@@ -21,6 +21,7 @@ import 'package:grad/app/bindings/navigation/navigation_binding.dart';
 import 'package:grad/app/bindings/others/success-page-binding.dart';
 import 'package:grad/app/bindings/settings/settings_binding.dart';
 import 'package:grad/app/bindings/start/welcome_binding.dart';
+import 'package:grad/app/bindings/menu/classtimetable_binding.dart';
 import 'package:grad/app/routes/app_routes.dart';
 import 'package:grad/app/ui/android/screen/account/change_password.dart';
 import 'package:grad/app/ui/android/screen/account/edit-profile.dart';
@@ -41,6 +42,7 @@ import 'package:grad/app/ui/android/screen/menu/calendar/calendar.dart';
 import 'package:grad/app/ui/android/screen/menu/calendar/edit_event.dart';
 import 'package:grad/app/ui/android/screen/menu/classes/add.dart';
 import 'package:grad/app/ui/android/screen/menu/classes/classes.dart';
+import 'package:grad/app/ui/android/screen/menu/classes/classtimetable.dart';
 import 'package:grad/app/ui/android/screen/menu/classes/edit.dart';
 import 'package:grad/app/ui/android/screen/menu/classes/parent/class.dart';
 import 'package:grad/app/ui/android/screen/menu/classes/student/class.dart';
@@ -464,6 +466,13 @@ class AppPages {
       name: Routes.ATTENDANCE_STUDENT,
       page: () => StudentAttendance(),
       binding: AttendanceBinding(),
+    ),
+
+    //timetable
+    GetPage(
+      name: Routes.classTimetable,
+      page: () => ClassTimeTable(),
+      binding: ClassTimetableBinding(),
     ),
   ];
 }

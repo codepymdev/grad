@@ -8,23 +8,19 @@ import 'package:grad/app/ui/android/widgets/form/class/class_arm.dart';
 import 'package:grad/app/ui/android/widgets/form/class/class_name.dart';
 import 'package:grad/app/ui/android/widgets/form/class/description.dart';
 import 'package:grad/app/ui/android/widgets/form/class/fee.dart';
-import 'package:grad/app/ui/android/widgets/form/class/payment_amount.dart';
-import 'package:grad/app/ui/android/widgets/form/class/payment_title.dart';
 import 'package:grad/app/ui/android/widgets/form/class/section.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AddClass extends GetView<ClassesController> {
   final TextEditingController descriptionController = TextEditingController();
   final TextEditingController feeController = TextEditingController();
-  final TextEditingController paymentTitleController = TextEditingController();
-  final TextEditingController paymentAmountController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(name: "Add Class"),
       body: Obx(() {
         if (controller.loading.value) return IosLoader();
-
+        var subjects = controller.subjects;
         return SingleChildScrollView(
           child: Container(
             margin: EdgeInsets.only(
@@ -56,15 +52,113 @@ class AddClass extends GetView<ClassesController> {
                 ),
                 //campus
                 Campus(),
-                //other payment
-                PaymentTitle(
-                  c: paymentTitleController,
-                ),
-                //payment amount
-                PaymentAmount(
-                  c: paymentAmountController,
-                ),
 
+                GestureDetector(
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return Column(
+                          children: [
+                            Row(
+                              children: [
+                                Expanded(
+                                  flex: 1,
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 10.w,
+                                    ),
+                                    child: TextButton(
+                                      style: ButtonStyle(
+                                        shape: MaterialStateProperty.all(
+                                          RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.r),
+                                          ),
+                                        ),
+                                        backgroundColor:
+                                            MaterialStateProperty.all(
+                                          Colors.red,
+                                        ),
+                                      ),
+                                      onPressed: () => Navigator.pop(context),
+                                      child: Text(
+                                        "Close",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 10.w,
+                                    ),
+                                    child: TextButton(
+                                      style: ButtonStyle(
+                                        shape: MaterialStateProperty.all(
+                                          RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.r),
+                                          ),
+                                        ),
+                                        backgroundColor:
+                                            MaterialStateProperty.all(
+                                          Colors.green,
+                                        ),
+                                      ),
+                                      onPressed: () => Navigator.pop(context),
+                                      child: Text(
+                                        "Submit",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Divider(),
+                            ListView.separated(
+                              shrinkWrap: true,
+                              padding: EdgeInsets.zero,
+                              itemBuilder: (context, index) {
+                                return ListTile(
+                                  title: Text("${subjects[index]['name']}"),
+                                  trailing: Checkbox(
+                                    value: subjects[index]['checked'],
+                                    onChanged: (bool? value) {
+                                      controller.updateSubjectCheckedList(
+                                        value,
+                                        subjects[index]['id'],
+                                      );
+                                    },
+                                  ), //Checkbox,
+                                );
+                              },
+                              separatorBuilder: (context, index) =>
+                                  const Divider(),
+                              itemCount: subjects.length,
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  child: Container(
+                    child: Text(
+                      "Update Subjects",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ),
                 Container(
                   margin: EdgeInsets.only(
                     top: 20,
@@ -92,8 +186,6 @@ class AddClass extends GetView<ClassesController> {
                         await controller.createClass({
                           "description": descriptionController.text,
                           "fee": feeController.text,
-                          "other_payment_title": paymentTitleController.text,
-                          "amount": paymentAmountController.text,
                         });
 
                         if (controller.error.value) {
@@ -117,9 +209,8 @@ class AddClass extends GetView<ClassesController> {
                           ///
                           /// navigate to the users screen
                           ///
-                          Get.offNamed(
-                            "/classes/view",
-                            arguments: controller.classId.value,
+                          Get.toNamed(
+                            "/classes",
                           );
                         }
                       }

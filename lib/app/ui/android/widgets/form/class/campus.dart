@@ -22,13 +22,6 @@ class Campus extends GetView<ClassesController> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Campus",
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
         DropdownButton<campusModel.Campus>(
           isExpanded: true,
           hint: Text("Campus"),

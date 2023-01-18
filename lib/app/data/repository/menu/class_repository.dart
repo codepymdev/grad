@@ -20,7 +20,7 @@ class ClassRepository {
       var response = await client.get(url);
       if (response.statusCode == 200) {
         var jsonResponse = json.decode(response.body);
-        return jsonResponse["data"]['data'];
+        return jsonResponse["data"];
       } else {
         return [];
       }
@@ -72,8 +72,10 @@ class ClassRepository {
         url,
         body: data,
       );
+
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
+
         return data;
       } else {
         return {};

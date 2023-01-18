@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:grad/app/controller/menu/classes_controller.dart';
+import 'package:grad/app/data/model/arm_model.dart' as armModel;
 
-class ClassArm extends StatelessWidget {
+class ClassArm extends GetView<ClassesController> {
   final c;
   ClassArm({required this.c});
   @override
@@ -22,29 +24,23 @@ class ClassArm extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Class Arm",
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        DropdownButton<String>(
+        DropdownButton<armModel.Arm>(
           isExpanded: true,
-          hint: Text("Class Arm"),
-          value: c.arm.value,
-          onChanged: (String? value) {
+          hint: Text("Arms"),
+          value: controller.arm_value.value,
+          onChanged: (armModel.Arm? value) {
             if (value != null) {
-              c.updateClassArm(value);
+              controller.updateClassArm(value);
             }
           },
-          items: <String>['Select arm', 'GOLD', 'DIAMOND']
-              .map<DropdownMenuItem<String>>((String value) {
-            return DropdownMenuItem<String>(
-              child: Text(value),
-              value: value,
-            );
-          }).toList(),
+          items: controller.arm
+              .map(
+                (e) => DropdownMenuItem<armModel.Arm>(
+                  child: Text("${e.name}"),
+                  value: e,
+                ),
+              )
+              .toList(),
         ),
       ],
     );

@@ -58,6 +58,9 @@ abstract class Routes {
   static const CLASSES_EDIT = "/classes/edit";
   static const CLASSES_VIEW = "/classes/view";
 
+  static const classTimetable = "/classes/timetable";
+  static const classTimetableAdd = "/classes/timetable/add";
+
   static const STUDENT_CLASS = "/student-class";
   static const TEACHER_CLASS = "/teacher-class";
   static const PARENT_CLASS = "/parent-class";

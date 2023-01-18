@@ -70,6 +70,17 @@ class Classes extends GetView<ClassesController> {
               ),
             ],
           ),
+          endActionPane: ActionPane(
+              // A motion is a widget used to control how the pane animates.
+              motion: const ScrollMotion(),
+              children: [
+                SlidableAction(
+                  onPressed: (_) => Get.toNamed("/classes/timetable/add"),
+                  foregroundColor: Color.fromARGB(255, 120, 120, 120),
+                  icon: FeatherIcons.calendar,
+                  label: 'Timetable',
+                ),
+              ]),
 
           // The child of the Slidable is what the user sees when the
           // component is not dragged.
@@ -80,7 +91,7 @@ class Classes extends GetView<ClassesController> {
             ),
             leading: classSection("${data['section']}"),
             title: Text(
-              "${data['name']} ${data['arm']}",
+              "${data['name']} ${data['arm']['name']}",
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 18,

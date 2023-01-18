@@ -22,13 +22,6 @@ class ClassName extends GetView<ClassesController> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Class Name",
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
         DropdownButton<ClassCategoriesModel>(
           isExpanded: true,
           hint: Text("Class Name"),

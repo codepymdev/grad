@@ -205,10 +205,11 @@ class SettingsRepository {
       var response = await client.get(url);
 
       if (response.statusCode == 200) {
-        final data = json.decode(response.body) as List;
-        var campuses =
+        List data = json.decode(response.body) as List;
+
+        List<Campus> campuses =
             data.map((dynamic item) => Campus.fromJson(item)).toList();
-        print(campuses);
+
         return campuses;
       } else {
         return [];
@@ -229,7 +230,6 @@ class SettingsRepository {
       if (response.statusCode == 200) {
         final data = json.decode(response.body) as List;
         var arms = data.map((dynamic item) => Arm.fromJson(item)).toList();
-        print(arms);
         return arms;
       } else {
         return [];
