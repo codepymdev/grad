@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
+import 'package:grad/app/controller/menu/classtimetable_controller.dart';
 
-class ClassTimeTable extends StatelessWidget {
+class ClassTimeTable extends StatefulWidget {
+  @override
+  State<ClassTimeTable> createState() => _ClassTimeTableState();
+}
+
+class _ClassTimeTableState extends State<ClassTimeTable> {
+  ClassTimetableController c = Get.put(ClassTimetableController());
   @override
   Widget build(BuildContext context) {
     const List<Tab> tabs = [
@@ -46,7 +53,9 @@ class ClassTimeTable extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.green,
-          onPressed: () {},
+          onPressed: () {
+            Get.toNamed("/classes/timetable/add");
+          },
           child: Icon(
             FeatherIcons.plus,
           ),

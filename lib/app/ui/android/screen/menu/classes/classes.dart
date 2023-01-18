@@ -75,7 +75,10 @@ class Classes extends GetView<ClassesController> {
               motion: const ScrollMotion(),
               children: [
                 SlidableAction(
-                  onPressed: (_) => Get.toNamed("/classes/timetable/add"),
+                  onPressed: (_) => Get.toNamed(
+                    "/classes/timetable",
+                    arguments: {'classid': data['id']},
+                  ),
                   foregroundColor: Color.fromARGB(255, 120, 120, 120),
                   icon: FeatherIcons.calendar,
                   label: 'Timetable',
@@ -85,10 +88,6 @@ class Classes extends GetView<ClassesController> {
           // The child of the Slidable is what the user sees when the
           // component is not dragged.
           child: ListTile(
-            onTap: () => Get.toNamed(
-              "/classes/view",
-              arguments: data,
-            ),
             leading: classSection("${data['section']}"),
             title: Text(
               "${data['name']} ${data['arm']['name']}",

@@ -41,6 +41,7 @@ import 'package:grad/app/ui/android/screen/menu/attendance/view.dart';
 import 'package:grad/app/ui/android/screen/menu/calendar/calendar.dart';
 import 'package:grad/app/ui/android/screen/menu/calendar/edit_event.dart';
 import 'package:grad/app/ui/android/screen/menu/classes/add.dart';
+import 'package:grad/app/ui/android/screen/menu/classes/add_classtimetable.dart';
 import 'package:grad/app/ui/android/screen/menu/classes/classes.dart';
 import 'package:grad/app/ui/android/screen/menu/classes/classtimetable.dart';
 import 'package:grad/app/ui/android/screen/menu/classes/edit.dart';
@@ -472,6 +473,11 @@ class AppPages {
     GetPage(
       name: Routes.classTimetable,
       page: () => ClassTimeTable(),
+      binding: ClassTimetableBinding(),
+    ),
+    GetPage(
+      name: Routes.classTimetableAdd,
+      page: () => AddClassTimetable(),
       binding: ClassTimetableBinding(),
     ),
   ];
