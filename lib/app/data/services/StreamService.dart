@@ -1,4 +1,4 @@
-import 'package:grad/app/core/constants/app_constants.dart';
+import 'package:Grad/app/core/constants/app_constants.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 class StreamService {

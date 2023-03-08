@@ -1,10 +1,10 @@
+import 'package:Grad/app/core/constants/app_constants.dart';
+import 'package:Grad/app/data/mixins/cache_manager.dart';
+import 'package:Grad/app/data/model/campus_model.dart';
+import 'package:Grad/app/data/model/class_categories_model.dart';
+import 'package:Grad/app/data/repository/menu/class_repository.dart';
+import 'package:Grad/app/data/repository/settings/settings_repository.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/core/constants/app_constants.dart';
-import 'package:grad/app/data/mixins/cache_manager.dart';
-import 'package:grad/app/data/model/campus_model.dart';
-import 'package:grad/app/data/model/class_categories_model.dart';
-import 'package:grad/app/data/repository/menu/class_repository.dart';
-import 'package:grad/app/data/repository/settings/settings_repository.dart';
 
 class ClassesController extends GetxController with CacheManager {
   var loading = true.obs;

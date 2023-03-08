@@ -1,10 +1,10 @@
+import 'package:Grad/app/core/constants/app_constants.dart';
+import 'package:Grad/app/data/mixins/cache_manager.dart';
+import 'package:Grad/app/data/model/campus_model.dart';
+import 'package:Grad/app/data/model/role_model.dart';
+import 'package:Grad/app/data/repository/menu/people_repository.dart';
+import 'package:Grad/app/data/repository/settings/settings_repository.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/core/constants/app_constants.dart';
-import 'package:grad/app/data/mixins/cache_manager.dart';
-import 'package:grad/app/data/model/campus_model.dart';
-import 'package:grad/app/data/model/role_model.dart';
-import 'package:grad/app/data/repository/menu/people_repository.dart';
-import 'package:grad/app/data/repository/settings/settings_repository.dart';
 
 class UsersController extends GetxController with CacheManager {
   dynamic params = Get.arguments;

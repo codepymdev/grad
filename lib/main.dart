@@ -1,17 +1,18 @@
+import 'package:Grad/app/core/constants/app_constants.dart';
+import 'package:Grad/app/core/utils/app_initializer.dart';
+import 'package:Grad/app/data/services/GetService.dart';
+import 'package:Grad/app/data/services/StreamService.dart';
+import 'package:Grad/app/ui/app.dart';
+import 'package:Grad/app/ui/app_connectivity_error.dart';
+import 'package:Grad/app/ui/app_error.dart';
+import 'package:Grad/app/ui/app_splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:grad/app/core/constants/app_constants.dart';
-import 'package:grad/app/core/utils/app_initializer.dart';
-import 'package:grad/app/data/services/GetService.dart';
-import 'package:grad/app/data/services/StreamService.dart';
-import 'package:grad/app/ui/app.dart';
-import 'package:grad/app/ui/app_connectivity_error.dart';
-import 'package:grad/app/ui/app_error.dart';
-import 'package:grad/app/ui/app_splash_screen.dart';
+
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 

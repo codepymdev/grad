@@ -1,5 +1,5 @@
+import 'package:Grad/app/controller/menu/results_controller.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/menu/results_controller.dart';
 
 class ResultsBinding implements Bindings {
   @override

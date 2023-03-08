@@ -1,5 +1,5 @@
+import 'package:Grad/app/controller/menu/classes_controller.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/menu/classes_controller.dart';
 
 class ClassesBinding implements Bindings {
   @override

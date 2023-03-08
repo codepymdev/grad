@@ -1,9 +1,9 @@
+import 'package:Grad/app/controller/account/account_controller.dart';
+import 'package:Grad/app/controller/auth/auth_manager_controller.dart';
+import 'package:Grad/app/controller/home/home_controller.dart';
+import 'package:Grad/app/controller/navigation/navigation_controller.dart';
+import 'package:Grad/app/controller/start/welcome_controller.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/account/account_controller.dart';
-import 'package:grad/app/controller/auth/auth_manager_controller.dart';
-import 'package:grad/app/controller/home/home_controller.dart';
-import 'package:grad/app/controller/navigation/navigation_controller.dart';
-import 'package:grad/app/controller/start/welcome_controller.dart';
 
 class AuthManagerBinding implements Bindings {
   @override

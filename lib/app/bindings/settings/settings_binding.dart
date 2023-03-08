@@ -1,5 +1,5 @@
+import 'package:Grad/app/controller/settings/settings_controller.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/settings/settings_controller.dart';
 
 class SettingsBinding implements Bindings {
   @override

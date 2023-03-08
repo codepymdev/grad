@@ -1,9 +1,10 @@
 import 'dart:io';
 
+import 'package:Grad/app/controller/auth/auth_manager_controller.dart';
+import 'package:Grad/app/data/mixins/cache_manager.dart';
+import 'package:Grad/app/data/repository/account/profile_repository.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/auth/auth_manager_controller.dart';
-import 'package:grad/app/data/mixins/cache_manager.dart';
-import 'package:grad/app/data/repository/account/profile_repository.dart';
+
 import 'package:image_picker/image_picker.dart';
 
 class EditProfileController extends GetxController with CacheManager {

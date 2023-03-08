@@ -1,5 +1,5 @@
+import 'package:Grad/app/data/repository/start/school_repository.dart';
 import 'package:get/state_manager.dart';
-import 'package:grad/app/data/repository/start/school_repository.dart';
 
 class WelcomeController extends GetxController {
   var isLoading = true.obs;

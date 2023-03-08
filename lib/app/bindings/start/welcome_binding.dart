@@ -1,5 +1,5 @@
+import 'package:Grad/app/controller/start/welcome_controller.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/start/welcome_controller.dart';
 
 class WelcomeBinding implements Bindings {
   @override

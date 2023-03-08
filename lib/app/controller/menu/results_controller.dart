@@ -1,16 +1,17 @@
 import 'dart:isolate';
 import 'dart:ui';
 
+import 'package:Grad/app/core/constants/api_constants.dart';
+import 'package:Grad/app/core/constants/app_constants.dart';
+import 'package:Grad/app/core/functions/functions.dart';
+import 'package:Grad/app/data/mixins/cache_manager.dart';
+import 'package:Grad/app/data/model/class_model.dart';
+import 'package:Grad/app/data/repository/menu/people_repository.dart';
+import 'package:Grad/app/data/repository/menu/result_repository.dart';
+import 'package:Grad/app/data/repository/settings/settings_repository.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/core/constants/api_constants.dart';
-import 'package:grad/app/core/constants/app_constants.dart';
-import 'package:grad/app/core/functions/functions.dart';
-import 'package:grad/app/data/mixins/cache_manager.dart';
-import 'package:grad/app/data/model/class_model.dart';
-import 'package:grad/app/data/repository/menu/people_repository.dart';
-import 'package:grad/app/data/repository/menu/result_repository.dart';
-import 'package:grad/app/data/repository/settings/settings_repository.dart';
+
 import 'dart:io' show Directory, Platform;
 
 class ResultsController extends GetxController with CacheManager {

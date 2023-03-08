@@ -1,13 +1,14 @@
 import 'dart:math' as math;
 
+import 'package:Grad/app/controller/menu/attendance_controller.dart';
+import 'package:Grad/app/core/constants/asset_path.dart';
+import 'package:Grad/app/data/services/GetService.dart';
+import 'package:Grad/app/data/services/StreamService.dart';
+import 'package:Grad/app/ui/android/screen/chats/channelPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/menu/attendance_controller.dart';
-import 'package:grad/app/core/constants/asset_path.dart';
-import 'package:grad/app/data/services/GetService.dart';
-import 'package:grad/app/data/services/StreamService.dart';
-import 'package:grad/app/ui/android/screen/chats/channelpage.dart';
+
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:intl/intl.dart';

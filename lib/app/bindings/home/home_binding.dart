@@ -1,5 +1,5 @@
+import 'package:Grad/app/controller/home/home_controller.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/home/home_controller.dart';
 
 class HomeBinding implements Bindings {
   @override

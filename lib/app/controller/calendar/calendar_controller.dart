@@ -1,8 +1,9 @@
+import 'package:Grad/app/core/functions/functions.dart';
+import 'package:Grad/app/data/mixins/cache_manager.dart';
+import 'package:Grad/app/data/repository/calendar/calendar_repository.dart';
+import 'package:Grad/app/data/repository/settings/settings_repository.dart';
 import 'package:get/state_manager.dart';
-import 'package:grad/app/core/functions/functions.dart';
-import 'package:grad/app/data/mixins/cache_manager.dart';
-import 'package:grad/app/data/repository/calendar/calendar_repository.dart';
-import 'package:grad/app/data/repository/settings/settings_repository.dart';
+
 import 'package:table_calendar/table_calendar.dart';
 
 class CalendarController extends GetxController with CacheManager {

@@ -1,5 +1,5 @@
+import 'package:Grad/app/data/repository/auth/login_repository.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/data/repository/auth/login_repository.dart';
 
 class VerifyAccountController extends GetxController {
   ///

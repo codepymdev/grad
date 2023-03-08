@@ -1,5 +1,5 @@
+import 'package:Grad/app/controller/others/success-page-controller.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/others/success-page-controller.dart';
 
 class SuccessPageBinding implements Bindings {
   @override

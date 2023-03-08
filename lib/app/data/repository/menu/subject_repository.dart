@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:grad/app/core/constants/api_constants.dart';
-import 'package:grad/app/data/model/subject_categories.dart';
+import 'package:Grad/app/core/constants/api_constants.dart';
+import 'package:Grad/app/data/model/subject_categories.dart';
 import 'package:http/http.dart' as http;
 
 class SubjectRepository {

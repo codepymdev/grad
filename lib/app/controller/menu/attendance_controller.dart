@@ -1,10 +1,11 @@
+import 'package:Grad/app/core/constants/app_constants.dart';
+import 'package:Grad/app/core/functions/functions.dart';
+import 'package:Grad/app/data/mixins/cache_manager.dart';
+import 'package:Grad/app/data/repository/menu/attendance_repository.dart';
+import 'package:Grad/app/data/repository/menu/people_repository.dart';
+import 'package:Grad/app/data/repository/settings/settings_repository.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/core/constants/app_constants.dart';
-import 'package:grad/app/core/functions/functions.dart';
-import 'package:grad/app/data/mixins/cache_manager.dart';
-import 'package:grad/app/data/repository/menu/attendance_repository.dart';
-import 'package:grad/app/data/repository/menu/people_repository.dart';
-import 'package:grad/app/data/repository/settings/settings_repository.dart';
+
 import 'package:intl/intl.dart';
 
 class AttendanceController extends GetxController with CacheManager {
