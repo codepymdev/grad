@@ -1,4 +1,4 @@
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badge;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -74,7 +74,7 @@ class HomePage extends GetView<HomeController> {
                     SizedBox(
                       width: 8,
                     ),
-                    Badge(
+                    badge.Badge(
                       badgeContent: Text(
                         "0",
                         style: TextStyle(

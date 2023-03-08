@@ -1,9 +1,9 @@
 ///
 /// API CONSTANTS
 ///
-const GRAD = 'https://grad.fkkas.com/api/';
+const GRAD = 'https://grad.codepym.com/api/';
 
-const GRAD_URL = "https://grad.fkkas.com/";
+const GRAD_URL = "https://grad.codepym.com/";
 
 const SCHOOLS = "schools";
 

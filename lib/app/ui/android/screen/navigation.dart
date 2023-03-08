@@ -1,4 +1,4 @@
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badge;
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
@@ -52,7 +52,7 @@ class Navigation extends GetView<NavigationController> {
       ),
       BottomNavigationBarItem(
         label: "",
-        icon: Badge(
+        icon: badge.Badge(
           badgeContent: Text(
             "${controller.messagecount}",
             style: TextStyle(

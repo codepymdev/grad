@@ -1,6 +1,5 @@
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badge;
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/controller/home/home_controller.dart';
 import 'package:grad/app/ui/android/screen/chats/channelPage.dart';
@@ -44,10 +43,10 @@ class _ChannelListPageState extends State<ChannelListPage> {
         backgroundColor: Theme.of(context).primaryColorDark,
         leading: Container(
           padding: EdgeInsets.all(10),
-          child: Badge(
+          child: badge.Badge(
             badgeColor: Colors.green,
             toAnimate: false,
-            position: BadgePosition(
+            position: badge.BadgePosition(
               bottom: 0,
               start: 5,
             ),

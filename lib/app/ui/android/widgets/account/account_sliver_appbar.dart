@@ -1,4 +1,4 @@
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badge;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
@@ -45,7 +45,7 @@ class AccountSliverAppBar extends StatelessWidget {
               SizedBox(
                 width: 8,
               ),
-              Badge(
+              badge.Badge(
                 badgeContent: Text(
                   "0",
                   style: TextStyle(
