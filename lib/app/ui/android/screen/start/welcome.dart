@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/start/welcome_controller.dart';
-import 'package:grad/app/ui/android/widgets/account/app_version.dart';
-import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
+import 'package:Grad/app/controller/start/welcome_controller.dart';
+import 'package:Grad/app/ui/android/widgets/account/app_version.dart';
+import 'package:Grad/app/ui/android/widgets/custom/cached_network_image.dart';
 
 class Welcome extends GetView<WelcomeController> {
   @override

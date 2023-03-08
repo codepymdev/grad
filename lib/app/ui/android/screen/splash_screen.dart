@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grad/app/ui/theme/android/app_theme.dart';
+import 'package:Grad/app/ui/theme/android/app_theme.dart';
 
 class SplashScreen extends StatelessWidget {
   @override

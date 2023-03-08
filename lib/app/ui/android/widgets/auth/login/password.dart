@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/auth/login_controller.dart';
+import 'package:Grad/app/controller/auth/login_controller.dart';
 
 class PasswordField extends GetView<LoginController> {
   const PasswordField({

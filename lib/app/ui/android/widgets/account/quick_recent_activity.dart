@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
-import 'package:grad/app/controller/account/account_controller.dart';
+import 'package:Grad/app/controller/account/account_controller.dart';
 import 'package:timelines/timelines.dart';
 
 const kTileHeight = 50.0;

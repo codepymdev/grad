@@ -1,5 +1,5 @@
+import 'package:Grad/app/ui/android/android_app.dart';
 import 'package:flutter/widgets.dart';
-import 'package:grad/app/ui/android/android_app.dart';
 import 'dart:io' show Platform;
 
 class App extends StatelessWidget {

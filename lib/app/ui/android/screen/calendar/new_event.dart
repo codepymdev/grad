@@ -1,8 +1,8 @@
+import 'package:Grad/app/controller/calendar/new_event_controller.dart';
+import 'package:Grad/app/core/functions/functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/calendar/new_event_controller.dart';
-import 'package:grad/app/core/functions/functions.dart';
 
 final TextEditingController titleController = TextEditingController();
 final TextEditingController descriptioncontroller = TextEditingController();

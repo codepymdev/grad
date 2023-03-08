@@ -1,11 +1,11 @@
+import 'package:Grad/app/controller/auth/login_controller.dart';
+import 'package:Grad/app/ui/android/widgets/auth/login/email.dart';
+import 'package:Grad/app/ui/android/widgets/auth/login/login_button.dart';
+import 'package:Grad/app/ui/android/widgets/auth/login/password.dart';
+import 'package:Grad/app/ui/android/widgets/auth/login/top_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/auth/login_controller.dart';
-import 'package:grad/app/ui/android/widgets/auth/login/email.dart';
-import 'package:grad/app/ui/android/widgets/auth/login/login_button.dart';
-import 'package:grad/app/ui/android/widgets/auth/login/password.dart';
-import 'package:grad/app/ui/android/widgets/auth/login/top_content.dart';
 
 class Login extends GetView<LoginController> {
   @override

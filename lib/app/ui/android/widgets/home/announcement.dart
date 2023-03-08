@@ -1,9 +1,9 @@
+import 'package:Grad/app/controller/home/home_controller.dart';
+import 'package:Grad/app/core/constants/asset_path.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/home/home_controller.dart';
-import 'package:grad/app/core/constants/asset_path.dart';
 
 class Announcement extends GetView<HomeController> {
   const Announcement({

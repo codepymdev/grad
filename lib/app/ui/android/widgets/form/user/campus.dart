@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/menu/users_controller.dart';
-import 'package:grad/app/data/model/campus_model.dart' as campusModel;
+import 'package:Grad/app/controller/menu/users_controller.dart';
+import 'package:Grad/app/data/model/campus_model.dart' as campusModel;
 
 class Campus extends GetView<UsersController> {
   @override

@@ -1,23 +1,23 @@
+import 'package:Grad/app/controller/home/home_controller.dart';
+import 'package:Grad/app/controller/others/update-controller.dart';
+import 'package:Grad/app/core/constants/asset_path.dart';
+import 'package:Grad/app/core/functions/functions.dart';
+import 'package:Grad/app/ui/android/screen/menu/calendar/calendar.dart';
+import 'package:Grad/app/ui/android/screen/menu/overlay.dart';
+import 'package:Grad/app/ui/android/screen/menu/parents/parents.dart';
+import 'package:Grad/app/ui/android/screen/menu/users/users.dart';
+import 'package:Grad/app/ui/android/widgets/home/announcement.dart';
+import 'package:Grad/app/ui/android/widgets/home/flexible_space.dart';
+import 'package:Grad/app/ui/android/widgets/home/non_teachers.dart';
+import 'package:Grad/app/ui/android/widgets/home/quicktasks.dart';
+import 'package:Grad/app/ui/android/widgets/home/school.dart';
+import 'package:Grad/app/ui/android/widgets/home/students.dart';
+import 'package:Grad/app/ui/android/widgets/home/teachers.dart';
+import 'package:Grad/app/ui/android/widgets/home/upcoming_event_list.dart';
 import 'package:badges/badges.dart' as badge;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/home/home_controller.dart';
-import 'package:grad/app/controller/others/update-controller.dart';
-import 'package:grad/app/core/constants/asset_path.dart';
-import 'package:grad/app/core/functions/functions.dart';
-import 'package:grad/app/ui/android/screen/menu/overlay.dart';
-import 'package:grad/app/ui/android/widgets/calendar/calendar.dart';
-import 'package:grad/app/ui/android/widgets/home/announcement.dart';
-import 'package:grad/app/ui/android/widgets/home/upcoming_event_list.dart';
-import 'package:grad/app/ui/android/widgets/home/flexible_space.dart';
-import 'package:grad/app/ui/android/widgets/home/non_teachers.dart';
-import 'package:grad/app/ui/android/widgets/home/parents.dart';
-import 'package:grad/app/ui/android/widgets/home/quicktasks.dart';
-import 'package:grad/app/ui/android/widgets/home/school.dart';
-import 'package:grad/app/ui/android/widgets/home/students.dart';
-import 'package:grad/app/ui/android/widgets/home/teachers.dart';
-import 'package:grad/app/ui/android/widgets/home/users.dart';
 
 class HomePage extends GetView<HomeController> {
   @override

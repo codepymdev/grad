@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/menu/classes_controller.dart';
-import 'package:grad/app/core/functions/functions.dart';
-import 'package:grad/app/ui/android/widgets/form/class/campus.dart';
-import 'package:grad/app/ui/android/widgets/form/class/class_arm.dart';
-import 'package:grad/app/ui/android/widgets/form/class/class_name.dart';
-import 'package:grad/app/ui/android/widgets/form/class/description.dart';
-import 'package:grad/app/ui/android/widgets/form/class/fee.dart';
-import 'package:grad/app/ui/android/widgets/form/class/payment_amount.dart';
-import 'package:grad/app/ui/android/widgets/form/class/payment_title.dart';
-import 'package:grad/app/ui/android/widgets/form/class/section.dart';
+import 'package:Grad/app/controller/menu/classes_controller.dart';
+import 'package:Grad/app/core/functions/functions.dart';
+import 'package:Grad/app/ui/android/widgets/form/class/campus.dart';
+import 'package:Grad/app/ui/android/widgets/form/class/class_arm.dart';
+import 'package:Grad/app/ui/android/widgets/form/class/class_name.dart';
+import 'package:Grad/app/ui/android/widgets/form/class/description.dart';
+import 'package:Grad/app/ui/android/widgets/form/class/fee.dart';
+import 'package:Grad/app/ui/android/widgets/form/class/payment_amount.dart';
+import 'package:Grad/app/ui/android/widgets/form/class/payment_title.dart';
+import 'package:Grad/app/ui/android/widgets/form/class/section.dart';
 
 final TextEditingController descriptionController = TextEditingController();
 final TextEditingController feeController = TextEditingController();

@@ -1,8 +1,8 @@
+import 'package:Grad/app/controller/auth/create_account_controller.dart';
+import 'package:Grad/app/ui/android/widgets/account/app_version.dart';
+import 'package:Grad/app/ui/android/widgets/custom/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
-import 'package:grad/app/controller/auth/create_account_controller.dart';
-import 'package:grad/app/ui/android/widgets/account/app_version.dart';
-import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
 
 class CreateAccount extends GetView<CreateAccountController> {
   @override

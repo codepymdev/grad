@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/others/success-page-controller.dart';
-import 'package:grad/app/core/constants/asset_path.dart';
+import 'package:Grad/app/controller/others/success-page-controller.dart';
+import 'package:Grad/app/core/constants/asset_path.dart';
 
 class SuccessPage extends GetView<SuccessPageController> {
   @override

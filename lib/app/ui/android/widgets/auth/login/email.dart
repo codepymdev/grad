@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/auth/login_controller.dart';
+import 'package:Grad/app/controller/auth/login_controller.dart';
 
 class EmailStudentIDField extends GetView<LoginController> {
   const EmailStudentIDField({

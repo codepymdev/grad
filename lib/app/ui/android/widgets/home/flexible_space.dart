@@ -1,9 +1,9 @@
+import 'package:Grad/app/controller/home/home_controller.dart';
+import 'package:Grad/app/core/functions/functions.dart';
+import 'package:Grad/app/ui/android/widgets/custom/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/state_manager.dart';
-import 'package:grad/app/controller/home/home_controller.dart';
-import 'package:grad/app/core/functions/functions.dart';
-import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
 
 class HomeFlexibleSpace extends GetView<HomeController> {
   const HomeFlexibleSpace({

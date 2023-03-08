@@ -1,7 +1,7 @@
+import 'package:Grad/app/controller/auth/forgotten_password_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/auth/forgotten_password_controller.dart';
 
 class ForgottenPassword extends GetView<ForgottenPassowrdController> {
   @override

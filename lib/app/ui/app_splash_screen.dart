@@ -1,5 +1,5 @@
+import 'package:Grad/app/ui/android/screen/splash_screen.dart';
 import 'package:flutter/widgets.dart';
-import 'package:grad/app/ui/android/screen/splash_screen.dart';
 import 'dart:io' show Platform;
 
 class AppSplashScreen extends StatelessWidget {

@@ -1,7 +1,7 @@
+import 'package:Grad/app/controller/menu/users_controller.dart';
+import 'package:Grad/app/ui/android/widgets/staffs/t-list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
-import 'package:grad/app/controller/menu/users_controller.dart';
-import 'package:grad/app/ui/android/widgets/staffs/t-list.dart';
 
 class Teachers extends GetView<UsersController> {
   @override

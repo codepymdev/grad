@@ -2,12 +2,12 @@ import 'package:badges/badges.dart' as badge;
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/navigation/navigation_controller.dart';
-import 'package:grad/app/ui/android/screen/account/account_page.dart';
-import 'package:grad/app/ui/android/screen/calendar/calendar_page.dart';
-import 'package:grad/app/ui/android/screen/chats/chatsPage.dart';
-import 'package:grad/app/ui/android/screen/home/home_page.dart';
-import 'package:grad/app/ui/android/screen/settings/settings_page.dart';
+import 'package:Grad/app/controller/navigation/navigation_controller.dart';
+import 'package:Grad/app/ui/android/screen/account/account_page.dart';
+import 'package:Grad/app/ui/android/screen/calendar/calendar_page.dart';
+import 'package:Grad/app/ui/android/screen/chats/chatsPage.dart';
+import 'package:Grad/app/ui/android/screen/home/home_page.dart';
+import 'package:Grad/app/ui/android/screen/settings/settings_page.dart';
 
 class Navigation extends GetView<NavigationController> {
   @override

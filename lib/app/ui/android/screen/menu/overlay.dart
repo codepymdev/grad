@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/home/home_controller.dart';
-import 'package:grad/app/ui/android/widgets/menu/admin-menu.dart';
-import 'package:grad/app/ui/android/widgets/menu/non-teacher-menu.dart';
-import 'package:grad/app/ui/android/widgets/menu/parent-menu.dart';
-import 'package:grad/app/ui/android/widgets/menu/student-menu.dart';
-import 'package:grad/app/ui/android/widgets/menu/teacher-menu.dart';
+import 'package:Grad/app/controller/home/home_controller.dart';
+import 'package:Grad/app/ui/android/widgets/menu/admin-menu.dart';
+import 'package:Grad/app/ui/android/widgets/menu/non-teacher-menu.dart';
+import 'package:Grad/app/ui/android/widgets/menu/parent-menu.dart';
+import 'package:Grad/app/ui/android/widgets/menu/student-menu.dart';
+import 'package:Grad/app/ui/android/widgets/menu/teacher-menu.dart';
 
 class MenuOverlay extends ModalRoute<void> {
   @override

@@ -1,9 +1,10 @@
+import 'package:Grad/app/controller/home/home_controller.dart';
+import 'package:Grad/app/ui/android/screen/chats/channelPage.dart';
+import 'package:Grad/app/ui/android/widgets/custom/cached_network_image.dart';
 import 'package:badges/badges.dart' as badge;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:grad/app/controller/home/home_controller.dart';
-import 'package:grad/app/ui/android/screen/chats/channelPage.dart';
-import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
+
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 class ChannelListPage extends StatefulWidget {

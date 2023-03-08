@@ -1,5 +1,5 @@
+import 'package:Grad/app/ui/android/screen/chats/threadPage.dart';
 import 'package:flutter/material.dart';
-import 'package:grad/app/ui/android/screen/chats/threadPage.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 class ChannelPage extends StatelessWidget {

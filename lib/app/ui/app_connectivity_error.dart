@@ -1,5 +1,5 @@
+import 'package:Grad/app/ui/android/screen/errors/connectivity_error.dart';
 import 'package:flutter/widgets.dart';
-import 'package:grad/app/ui/android/screen/errors/connectivity_error.dart';
 import 'dart:io' show Platform;
 
 class AppConnectivityError extends StatelessWidget {
