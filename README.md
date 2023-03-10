@@ -1,16 +1,29 @@
-# grad
+<a href="https://codepym.com/">
+  <div align="center">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://www.codepym.com/assets/img/logo-dark.png">
+      <img alt="Flutter" src="https://www.codepym.com/assets/img/logo-dark.png">
+    </picture>
+  </div>
+</a>
 
-this is a grad project 
+<hr/>
+<a href="https://codepym.com/">
+  <h1 align="center">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://www.codepym.com/assets/img/photos/grad.png">
+      <img alt="Flutter" width="100" src="https://www.codepym.com/assets/img/photos/grad.png">
+    </picture>
+  </h1>
+</a>
 
-## Getting Started
+[![Build Status - Cirrus][]][Build status]
+[![Discord badge][]][Discord instructions]
+[![Twitter handle][]][Twitter badge]
+[![codecov](https://codecov.io/gh/flutter/flutter/branch/master/graph/badge.svg?token=11yDrJU2M2)](https://codecov.io/gh/flutter/flutter)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/5631/badge)](https://bestpractices.coreinfrastructure.org/projects/5631)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/flutter/flutter/badge)](https://deps.dev/project/github/flutter%2Fflutter)
 
-An Saas Application
+Grad is Codepym's software for school management software
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Documentation
