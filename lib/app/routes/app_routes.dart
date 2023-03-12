@@ -62,19 +62,19 @@ abstract class Routes {
   static const TEACHER_CLASS = "/teacher-class";
   static const PARENT_CLASS = "/parent-class";
 
-  static const SUBJECTS = "/subjects";
-  static const SUBJECTS_ADD = "/subjects/add";
-  static const SUBJECTS_EDIT = "/subjects/edit";
-  static const SUBJECTS_VIEW = "/subjects/view";
+  static const subjects = "/subjects";
+  static const subjects_add = "/subjects/add";
+  static const subject_edit = "/subjects/edit";
+  static const subject_view = "/subjects/view";
 
-  static const STUDENT_SUBJECT = "/student-subject";
+  static const student_subject = "/student-subject";
 
-  static const CLASS_RESULTS = "/results";
-  static const STUDENTS_RESULTS = "/results/students";
-  static const PAST_RESULTS = "/results/past";
+  static const class_results = "/results";
+  static const students_result = "/results/students";
+  static const pasts_results = "/results/past";
 
-  static const CLASS_ATTENDANCE = "/attendance";
-  static const ATTENDANCE_ADD = "/attendance/add";
-  static const ATTENDANCE_VIEW = "/attendance/view";
-  static const ATTENDANCE_STUDENT = "/student/attendance";
+  static const class_attendance = "/attendance";
+  static const attendance_add = "/attendance/add";
+  static const attendance_view = "/attendance/view";
+  static const attendance_students = "/student/attendance";
 }
