@@ -1,39 +1,39 @@
 abstract class Routes {
-  static const INITIAL = '/';
-  static const HOME = '/home';
-  static const NEW_EVENT = '/new-event';
-  static const LOGIN = '/login';
-  static const FORGOTTEN_PASSWORD = '/forgotten-password';
-  static const CREATE_ACCOUNT = '/create-account';
-  static const VERIFY_ACCOUNT = '/verify-account';
-  static const CHANGE_PASSWORD = '/change-password';
-  static const CHANGE_PASSWORD_ACCOUNT = '/change-password-account';
-  static const EDIT_PROFILE = '/edit-profile';
-  static const SUCCESS_PAGE = "/success-page";
-  static const SCHOOL_CONFIGURATION = "/school-configuration";
-  static const SESSION = "/session";
-  static const TERM = "/term";
-  static const STAMP = "/stamp";
-  static const NOTIFICATIONS_SETTINGS = "/notification-settings";
-  static const BUGS = "/bugs";
+  static const  initial = '/';
+  static const home = '/home';
+  static const new_event = '/new-event';
+  static const login = '/login';
+  static const forgotten_password = '/forgotten-password';
+  static const create_account = '/create-account';
+  static const verify_password = '/verify-account';
+  static const change_password = '/change-password';
+  static const change_password_account = '/change-password-account';
+  static const edit_profile = '/edit-profile';
+  static const success_page = "/success-page";
+  static const school_configuration = "/school-configuration";
+  static const session = "/session";
+  static const term = "/term";
+  static const stamp = "/stamp";
+  static const notification_settings = "/notification-settings";
+  static const bugs = "/bugs";
 
   //menu
-  static const ANNOUNCEMENTS = "/announcements";
-  static const ANNOUNCEMENT_ADD = "/announcement/add";
-  static const ANNOUNCEMENT_EDIT = "/announcement/edit";
-  static const CALENDAR = "/calendar";
-  static const EDIT_CALENDAR = "/calendar/edit";
+  static const announcement = "/announcements";
+  static const announcement_add = "/announcement/add";
+  static const announcement_edit = "/announcement/edit";
+  static const calendar = "/calendar";
+  static const edit_calender = "/calendar/edit";
 
-  static const USERS = "/users";
-  static const USERS_ADD = "/users/add";
-  static const USERS_EDIT = "/users/edit";
-  static const USERS_VIEW = "/users/view";
+  static const users = "/users";
+  static const users_add = "/users/add";
+  static const users_edit = "/users/edit";
+  static const users_view = "/users/view";
 
-  static const CLASS_STUDENT = "/class-students";
-  static const STUDENTS = "/students";
-  static const STUDENT_EDIT = "/students/edit";
-  static const STUDENT_ADD = "/students/add";
-  static const STUDENT_VIEW = "/students/view";
+  static const class_students = "/class-students";
+  static const students = "/students";
+  static const students_edit = "/students/edit";
+  static const student_add = "/students/add";
+  static const student_view = "/students/view";
 
   static const CLASSMATES = "/students/classmates";
 
