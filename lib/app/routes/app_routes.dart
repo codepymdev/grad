@@ -1,11 +1,11 @@
 abstract class Routes {
-  static const  initial = '/';
+  static const initial = '/';
   static const home = '/home';
   static const new_event = '/new-event';
   static const login = '/login';
   static const forgotten_password = '/forgotten-password';
   static const create_account = '/create-account';
-  static const verify_password = '/verify-account';
+  static const verify_account = '/verify-account';
   static const change_password = '/change-password';
   static const change_password_account = '/change-password-account';
   static const edit_profile = '/edit-profile';
@@ -35,32 +35,32 @@ abstract class Routes {
   static const student_add = "/students/add";
   static const student_view = "/students/view";
 
-  static const CLASSMATES = "/students/classmates";
+  static const classmates = "/students/classmates";
 
-  static const TEACHERS = "/teachers";
+  static const teachers = "/teachers";
 
-  static const PARENTS = "/parents";
-  static const PARENTS_EDIT = "/parents/edit";
-  static const PARENTS_ADD = "/parents/add";
-  static const PARENTS_VIEW = "/parents/view";
+  static const parents = "/parents";
+  static const parents_edit = "/parents/edit";
+  static const parents_add = "/parents/add";
+  static const parents_view = "/parents/view";
 
-  static const MYPARENT = "/parents/myparent";
+  static const myparent = "/parents/myparent";
 
-  static const STAFFS = "/staffs";
-  static const STAFFS_EDIT = "/staffs/edit";
-  static const STAFFS_ADD = "/staffs/add";
-  static const STAFFS_VIEW = "/staffs/view";
+  static const staffs = "/staffs";
+  static const staffs_edit = "/staffs/edit";
+  static const staffs_add = "/staffs/add";
+  static const staffs_view = "/staffs/view";
 
-  static const MYTEACHER = "/staffs/myteacher";
+  static const myteacher = "/staffs/myteacher";
 
-  static const CLASSES = "/classes";
-  static const CLASSES_ADD = "/classes/add";
-  static const CLASSES_EDIT = "/classes/edit";
-  static const CLASSES_VIEW = "/classes/view";
+  static const classes = "/classes";
+  static const classes_add = "/classes/add";
+  static const classes_edit = "/classes/edit";
+  static const classes_view = "/classes/view";
 
-  static const STUDENT_CLASS = "/student-class";
-  static const TEACHER_CLASS = "/teacher-class";
-  static const PARENT_CLASS = "/parent-class";
+  static const student_class = "/student-class";
+  static const teacher_class = "/teacher-class";
+  static const parent_class = "/parent-class";
 
   static const subjects = "/subjects";
   static const subjects_add = "/subjects/add";

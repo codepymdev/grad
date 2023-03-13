@@ -51,7 +51,7 @@ class AndroidApp extends StatelessWidget {
         defaultTransition: Transition.fade,
         locale: Locale('pt', 'BR'),
         getPages: AppPages.pages,
-        initialRoute: Routes.INITIAL,
+        initialRoute: Routes.initial,
         initialBinding: AuthManagerBinding(),
         translationsKeys: AppTranslation.translations,
       ),

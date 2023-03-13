@@ -87,7 +87,7 @@ import 'package:get/route_manager.dart';
 class AppPages {
   static final pages = [
     GetPage(
-      name: Routes.INITIAL,
+      name: Routes.initial,
       page: () => OnBoard(),
       bindings: [
         AuthManagerBinding(),
@@ -100,108 +100,108 @@ class AppPages {
     ),
 
     GetPage(
-      name: Routes.NEW_EVENT,
+      name: Routes.new_event,
       page: () => NewEvent(),
       binding: NewEventBinding(),
     ),
     GetPage(
-      name: Routes.LOGIN,
+      name: Routes.login,
       page: () => Login(),
       binding: LoginBinding(),
     ),
     GetPage(
-      name: Routes.FORGOTTEN_PASSWORD,
+      name: Routes.forgotten_password,
       page: () => ForgottenPassword(),
       binding: ForgottenPasswordBinding(),
     ),
     GetPage(
-      name: Routes.CREATE_ACCOUNT,
+      name: Routes.create_account,
       page: () => CreateAccount(),
       binding: CreateAccountBinding(),
     ),
     GetPage(
-      name: Routes.VERIFY_ACCOUNT,
+      name: Routes.verify_account,
       page: () => VerifyAccount(),
       binding: VerifyAccountBinding(),
     ),
     GetPage(
-      name: Routes.CHANGE_PASSWORD,
+      name: Routes.change_password,
       page: () => ChangePassword(),
       binding: ChangePasswordBinding(),
     ),
     GetPage(
-      name: Routes.CHANGE_PASSWORD_ACCOUNT,
+      name: Routes.change_password_account,
       page: () => ChangePasswordAccount(),
       binding: ChangePasswordAccountBinding(),
     ),
     GetPage(
-      name: Routes.EDIT_PROFILE,
+      name: Routes.edit_profile,
       page: () => EditProfle(),
       binding: EditProfileBinding(),
     ),
     GetPage(
-      name: Routes.SUCCESS_PAGE,
+      name: Routes.success_page,
       page: () => SuccessPage(),
       binding: SuccessPageBinding(),
     ),
     GetPage(
-      name: Routes.SCHOOL_CONFIGURATION,
+      name: Routes.school_configuration,
       page: () => SchoolConfiguration(),
       binding: SettingsBinding(),
     ),
     GetPage(
-      name: Routes.SESSION,
+      name: Routes.session,
       page: () => Session(),
       binding: SettingsBinding(),
     ),
     GetPage(
-      name: Routes.TERM,
+      name: Routes.term,
       page: () => Term(),
       binding: SettingsBinding(),
     ),
     GetPage(
-      name: Routes.STAMP,
+      name: Routes.stamp,
       page: () => Stamp(),
       binding: SettingsBinding(),
     ),
     GetPage(
-      name: Routes.NOTIFICATIONS_SETTINGS,
+      name: Routes.notification_settings,
       page: () => Notification(),
       binding: SettingsBinding(),
     ),
     GetPage(
-      name: Routes.BUGS,
+      name: Routes.bugs,
       page: () => Bugs(),
       binding: SettingsBinding(),
     ),
 
     //menu
     GetPage(
-      name: Routes.ANNOUNCEMENTS,
+      name: Routes.announcement,
       page: () => Announcements(),
       binding: AnnouncementBinding(),
     ),
 
     GetPage(
-      name: Routes.ANNOUNCEMENT_ADD,
+      name: Routes.announcement_add,
       page: () => CreateAnnouncement(),
       binding: AnnouncementBinding(),
     ),
 
     GetPage(
-      name: Routes.ANNOUNCEMENT_EDIT,
+      name: Routes.announcement_edit,
       page: () => EditAnnouncement(),
       binding: AnnouncementBinding(),
     ),
 
     GetPage(
-      name: Routes.CALENDAR,
+      name: Routes.calendar,
       page: () => Calendar(),
       binding: CalendarBinding(),
     ),
 
     GetPage(
-      name: Routes.EDIT_CALENDAR,
+      name: Routes.edit_calender,
       page: () => EditEvent(),
       binding: NewEventBinding(),
     ),
@@ -210,25 +210,25 @@ class AppPages {
     /// admin or users
     ///
     GetPage(
-      name: Routes.USERS,
+      name: Routes.users,
       page: () => Users(),
       binding: UsersBinding(),
     ),
 
     GetPage(
-      name: Routes.USERS_ADD,
+      name: Routes.users_add,
       page: () => AddUser(),
       binding: UsersBinding(),
     ),
 
     GetPage(
-      name: Routes.USERS_EDIT,
+      name: Routes.users_edit,
       page: () => EditUser(),
       binding: UsersBinding(),
     ),
 
     GetPage(
-      name: Routes.USERS_VIEW,
+      name: Routes.users_view,
       page: () => ViewUser(),
       binding: UsersBinding(),
     ),
@@ -237,41 +237,41 @@ class AppPages {
     /// students
     ///
     GetPage(
-      name: Routes.CLASS_STUDENT,
+      name: Routes.class_students,
       page: () => ClassStudents(),
       binding: ClassesBinding(),
     ),
 
     GetPage(
-      name: Routes.STUDENTS,
+      name: Routes.students,
       page: () => Students(),
       binding: UsersBinding(),
     ),
 
     GetPage(
-      name: Routes.STUDENT_EDIT,
+      name: Routes.students_edit,
       page: () => EditStudent(),
       binding: UsersBinding(),
     ),
     GetPage(
-      name: Routes.STUDENT_VIEW,
+      name: Routes.student_view,
       page: () => ViewStudent(),
       binding: UsersBinding(),
     ),
     GetPage(
-      name: Routes.STUDENT_ADD,
+      name: Routes.student_add,
       page: () => AddStudent(),
       binding: UsersBinding(),
     ),
 
     GetPage(
-      name: Routes.TEACHERS,
+      name: Routes.teachers,
       page: () => Teachers(),
       binding: UsersBinding(),
     ),
 
     GetPage(
-      name: Routes.CLASSMATES,
+      name: Routes.classmates,
       page: () => ClassMates(),
       binding: UsersBinding(),
     ),
@@ -280,31 +280,31 @@ class AppPages {
     /// parents
     ///
     GetPage(
-      name: Routes.PARENTS,
+      name: Routes.parents,
       page: () => Parents(),
       binding: UsersBinding(),
     ),
 
     GetPage(
-      name: Routes.PARENTS_ADD,
+      name: Routes.parents_add,
       page: () => AddParent(),
       binding: UsersBinding(),
     ),
 
     GetPage(
-      name: Routes.PARENTS_EDIT,
+      name: Routes.parents_edit,
       page: () => EditParent(),
       binding: UsersBinding(),
     ),
 
     GetPage(
-      name: Routes.PARENTS_VIEW,
+      name: Routes.parents_view,
       page: () => ViewParent(),
       binding: UsersBinding(),
     ),
 
     GetPage(
-      name: Routes.MYPARENT,
+      name: Routes.myparent,
       page: () => MyParents(),
       binding: UsersBinding(),
     ),
@@ -313,29 +313,29 @@ class AppPages {
     /// staffs
     ///
     GetPage(
-      name: Routes.STAFFS,
+      name: Routes.staffs,
       page: () => Staffs(),
       binding: UsersBinding(),
     ),
     GetPage(
-      name: Routes.STAFFS_EDIT,
+      name: Routes.staffs_edit,
       page: () => EditStaff(),
       binding: UsersBinding(),
     ),
 
     GetPage(
-      name: Routes.STAFFS_ADD,
+      name: Routes.staffs_add,
       page: () => AddStaff(),
       binding: UsersBinding(),
     ),
     GetPage(
-      name: Routes.STAFFS_VIEW,
+      name: Routes.staffs_view,
       page: () => ViewStaff(),
       binding: UsersBinding(),
     ),
 
     GetPage(
-      name: Routes.MYTEACHER,
+      name: Routes.myteacher,
       page: () => MyTeacher(),
       binding: UsersBinding(),
     ),
@@ -344,46 +344,46 @@ class AppPages {
     ///  Classes
     ///
     GetPage(
-      name: Routes.CLASSES,
+      name: Routes.classes,
       page: () => Classes(),
       binding: ClassesBinding(),
     ),
 
     GetPage(
-      name: Routes.CLASSES_EDIT,
+      name: Routes.classes_edit,
       page: () => EditClass(),
       binding: ClassesBinding(),
     ),
 
     GetPage(
-      name: Routes.CLASSES_ADD,
+      name: Routes.classes_add,
       page: () => AddClass(),
       binding: ClassesBinding(),
     ),
 
     GetPage(
-      name: Routes.CLASSES_VIEW,
+      name: Routes.classes_view,
       page: () => ViewClass(),
       binding: ClassesBinding(),
     ),
 
     // student class
     GetPage(
-      name: Routes.STUDENT_CLASS,
+      name: Routes.student_view,
       page: () => StudentClass(),
       binding: ClassesBinding(),
     ),
 
     // teacher class
     GetPage(
-      name: Routes.TEACHER_CLASS,
+      name: Routes.teacher_class,
       page: () => TeacherClass(),
       binding: ClassesBinding(),
     ),
 
     // teacher class
     GetPage(
-      name: Routes.PARENT_CLASS,
+      name: Routes.parent_class,
       page: () => ParentClass(),
       binding: ClassesBinding(),
     ),
@@ -392,51 +392,51 @@ class AppPages {
     /// subjects
     ///
     GetPage(
-      name: Routes.SUBJECTS,
+      name: Routes.subjects,
       page: () => Subjects(),
       binding: SubjectsBinding(),
     ),
 
     GetPage(
-      name: Routes.SUBJECTS_EDIT,
+      name: Routes.subject_edit,
       page: () => EditSubject(),
       binding: SubjectsBinding(),
     ),
 
     GetPage(
-      name: Routes.SUBJECTS_ADD,
+      name: Routes.subjects_add,
       page: () => AddSubject(),
       binding: SubjectsBinding(),
     ),
 
     GetPage(
-      name: Routes.SUBJECTS_VIEW,
+      name: Routes.subject_view,
       page: () => ViewSubject(),
       binding: SubjectsBinding(),
     ),
 
     // student subject
     GetPage(
-      name: Routes.STUDENT_SUBJECT,
+      name: Routes.student_subject,
       page: () => StudentSubject(),
       binding: SubjectsBinding(),
     ),
 
     //results
     GetPage(
-      name: Routes.CLASS_RESULTS,
+      name: Routes.class_results,
       page: () => ClassResult(),
       binding: ClassesBinding(),
     ),
 
     GetPage(
-      name: Routes.STUDENTS_RESULTS,
+      name: Routes.students_result,
       page: () => StudentResults(),
       binding: ResultsBinding(),
     ),
 
     GetPage(
-      name: Routes.PAST_RESULTS,
+      name: Routes.pasts_results,
       page: () => PastResult(),
       binding: ResultsBinding(),
     ),
@@ -444,23 +444,23 @@ class AppPages {
     //attendance
 
     GetPage(
-      name: Routes.CLASS_ATTENDANCE,
+      name: Routes.class_attendance,
       page: () => ClassAttendance(),
       binding: ClassesBinding(),
     ),
 
     GetPage(
-      name: Routes.ATTENDANCE_VIEW,
+      name: Routes.attendance_view,
       page: () => ViewAttendance(),
       binding: AttendanceBinding(),
     ),
     GetPage(
-      name: Routes.ATTENDANCE_ADD,
+      name: Routes.attendance_add,
       page: () => AddAttendance(),
       binding: AttendanceBinding(),
     ),
     GetPage(
-      name: Routes.ATTENDANCE_STUDENT,
+      name: Routes.attendance_students,
       page: () => StudentAttendance(),
       binding: AttendanceBinding(),
     ),
