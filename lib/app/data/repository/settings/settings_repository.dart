@@ -11,7 +11,7 @@ class SettingsRepository {
 
   static Future<Map<String, dynamic>> recoveryCode(
       String email, String school) async {
-    var url = Uri.parse("$GRAD$RECOVERY_CODE");
+    var url = Uri.parse("$grad$recoveryCode");
     try {
       var response =
           await client.post(url, body: {"email": email, "school": school});
@@ -33,7 +33,7 @@ class SettingsRepository {
     String school,
     String code,
   ) async {
-    var url = Uri.parse("$GRAD$VERIFY_ACCOUNT");
+    var url = Uri.parse("$grad$verifyAccount");
     try {
       var response = await client.post(url, body: {
         "email": email,
@@ -56,7 +56,7 @@ class SettingsRepository {
   static Future<List<dynamic>> getConfigSettings({
     required school,
   }) async {
-    var url = Uri.parse("$GRAD$CONFIG_SETTINGS/$school");
+    var url = Uri.parse("$grad$configSettings/$school");
     try {
       var response = await client.get(url);
       if (response.statusCode == 200) {
@@ -75,7 +75,7 @@ class SettingsRepository {
   static Future<Map<String, dynamic>> updateSchoolConfig({
     required data,
   }) async {
-    var url = Uri.parse("$GRAD$CONFIG_SETTINGS/$SCHOOL_CONFIG");
+    var url = Uri.parse("$grad$configSettings/$schoolConfig");
     try {
       var response = await client.post(
         url,
@@ -98,7 +98,7 @@ class SettingsRepository {
   static Future<Map<String, dynamic>> updateSession({
     required data,
   }) async {
-    var url = Uri.parse("$GRAD$CONFIG_SETTINGS/$CONFIG_SESSION");
+    var url = Uri.parse("$grad$configSettings/$configSession");
     try {
       var response = await client.post(
         url,
@@ -121,7 +121,7 @@ class SettingsRepository {
   static Future<Map<String, dynamic>> updateTerm({
     required data,
   }) async {
-    var url = Uri.parse("$GRAD$CONFIG_SETTINGS/$CONFIG_TERM");
+    var url = Uri.parse("$grad$configSettings/$configTerm");
     try {
       var response = await client.post(
         url,
@@ -144,7 +144,7 @@ class SettingsRepository {
 
   static Future<Map<String, dynamic>> updateStamp(
       Map<String, dynamic> data) async {
-    var url = Uri.parse("$GRAD$CONFIG_SETTINGS/$CONFIG_STAMP");
+    var url = Uri.parse("$grad$configSettings/$configStamp");
     try {
       var request = await http.MultipartRequest(
         "POST",
@@ -181,7 +181,7 @@ class SettingsRepository {
   static Future<Map<String, dynamic>> submitBugIssue({
     required data,
   }) async {
-    var url = Uri.parse("$GRAD$CONFIG_SETTINGS/$BUG_ISSUE");
+    var url = Uri.parse("$grad$configSettings/$bugIssues");
     try {
       var response = await client.post(
         url,
@@ -204,7 +204,7 @@ class SettingsRepository {
   static Future<List<Campus>> getCampus({
     required school,
   }) async {
-    var url = Uri.parse("$GRAD$CONFIG_SETTINGS/campus/$school");
+    var url = Uri.parse("$grad$configSettings/campus/$school");
     try {
       var response = await client.get(url);
 
@@ -225,7 +225,7 @@ class SettingsRepository {
     required school,
     required type,
   }) async {
-    var url = Uri.parse("$GRAD$CONFIG_SETTINGS/roles/$school/$type");
+    var url = Uri.parse("$grad$configSettings/roles/$school/$type");
     try {
       var response = await client.get(url);
 

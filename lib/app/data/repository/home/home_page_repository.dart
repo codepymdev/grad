@@ -15,7 +15,7 @@ class HomePageRepository {
     required page,
   }) async {
     var url =
-        Uri.parse("$GRAD$PEOPLE/get/$school/$campus/$r/$type/$per_page/$page");
+        Uri.parse("$grad$people/get/$school/$campus/$r/$type/$per_page/$page");
     try {
       var response = await client.get(url);
       if (response.statusCode == 200) {
@@ -38,7 +38,7 @@ class HomePageRepository {
     required campus,
     required r,
   }) async {
-    var url = Uri.parse("$GRAD$COUNTER/$school/$campus/$r");
+    var url = Uri.parse("$grad$counter/$school/$campus/$r");
     try {
       var response = await client.get(url);
       if (response.statusCode == 200) {

@@ -15,7 +15,7 @@ class ClassRepository {
     required page,
   }) async {
     var url =
-        Uri.parse("$GRAD" + "classes/get/$school/$campus/$r/$per_page/$page");
+        Uri.parse("$grad" + "classes/get/$school/$campus/$r/$per_page/$page");
     try {
       var response = await client.get(url);
       if (response.statusCode == 200) {
@@ -33,7 +33,7 @@ class ClassRepository {
     required school,
     required id,
   }) async {
-    var url = Uri.parse("$GRAD" + "classes/delete/$school/$id");
+    var url = Uri.parse("$grad" + "classes/delete/$school/$id");
     try {
       var response = await client.delete(url);
       if (response.statusCode == 200) {
@@ -53,7 +53,7 @@ class ClassRepository {
 
   static Future<List<ClassCategoriesModel>> classCategories(
       {required school}) async {
-    var url = Uri.parse("$GRAD" + "classes/class-categories/$school");
+    var url = Uri.parse("$grad" + "classes/class-categories/$school");
     try {
       var response = await client.get(url);
       if (response.statusCode == 200) {
@@ -74,7 +74,7 @@ class ClassRepository {
   }
 
   static Future<Map<String, dynamic>> addClass({required data}) async {
-    var url = Uri.parse("$GRAD" + "classes/create");
+    var url = Uri.parse("$grad" + "classes/create");
     try {
       var response = await client.post(
         url,

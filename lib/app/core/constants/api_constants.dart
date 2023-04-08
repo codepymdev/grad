@@ -1,48 +1,48 @@
 ///
 /// API CONSTANTS
 ///
-const GRAD = 'https://grad.codepym.com/api/';
+const grad = 'https://grad.codepym.com/api/';
 
-const GRAD_URL = "https://grad.codepym.com/";
+const gradUrl = "https://grad.codepym.com/";
 
-const SCHOOLS = "schools";
+const schools = "schools";
 
-const ACTIVE_SCHOOLS = "schools/active";
+const activeSchools = "schools/active";
 
-const INACTIVE_SCHOOLS = "schools/inactive";
+const inactiveSchools = "schools/inactive";
 
-const LOGIN = "auth/login";
+const login = "auth/login";
 
-const RECOVERY_CODE = "auth/forgot-password";
+const recoveryCode = "auth/forgot-password";
 
-const VERIFY_ACCOUNT = "auth/verify-account";
+const verifyAccount = "auth/verify-account";
 
-const CHANGE_PASSWORD = "auth/change-password";
+const changePassword = "auth/change-password";
 
-const PEOPLE = "people";
+const people = "people";
 
-const COUNTER = "counter";
+const counter = "counter";
 
-const UPDATE_PROFILE = "account/update-profile";
+const updateProfile = "account/update-profile";
 
-const CHANGE_PASSWORD_ACCOUNT = "account/change-password-account";
+const changePasswordAccount = "account/change-password-account";
 
-const RECENT_ACTIVITIES = "account/recent-activities";
+const recentActivites = "account/recent-activities";
 
-const CONFIG_SETTINGS = "settings";
+const configSettings = "settings";
 
-const SCHOOL_CONFIG = "school-configuration";
+const schoolConfig = "school-configuration";
 
-const CONFIG_SESSION = "session";
+const configSession = "session";
 
-const CONFIG_TERM = "term";
+const configTerm = "term";
 
-const CONFIG_STAMP = "stamp";
+const configStamp = "stamp";
 
-const BUG_ISSUE = "bug";
+const bugIssues = "bug";
 
-const EVENTS = "events";
+const events = "events";
 
-const UPLOAD_EVENT = "upload-event";
+const updateEvent = "upload-event";
 
-const GET_EVENTS = "get";
+const getEvents = "get";

@@ -12,7 +12,7 @@ class AttendanceRepository {
     required year,
     required term,
   }) async {
-    var url = Uri.parse("$GRAD" + "attendance/get");
+    var url = Uri.parse("$grad" + "attendance/get");
     try {
       var response = await client.post(url, body: {
         "classId": classId,
@@ -40,7 +40,7 @@ class AttendanceRepository {
     required term,
     required date,
   }) async {
-    var url = Uri.parse("$GRAD" + "attendance/getAttendance");
+    var url = Uri.parse("$grad" + "attendance/getAttendance");
     try {
       var response = await client.post(url, body: {
         "classId": classId,
@@ -63,7 +63,7 @@ class AttendanceRepository {
   }
 
   static Future<Map<String, dynamic>> create({required data}) async {
-    var url = Uri.parse("$GRAD" + "attendance/create");
+    var url = Uri.parse("$grad" + "attendance/create");
 
     try {
       var response = await client.post(
@@ -99,7 +99,7 @@ class AttendanceRepository {
     required school,
     required id,
   }) async {
-    var url = Uri.parse("$GRAD" + "attendance/delete/$school/$id");
+    var url = Uri.parse("$grad" + "attendance/delete/$school/$id");
     try {
       var response = await client.delete(url);
       print(response.statusCode);

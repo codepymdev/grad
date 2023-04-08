@@ -7,7 +7,7 @@ class SchoolRepository {
   static var client = http.Client();
 
   static Future<List<dynamic>?> getSchools() async {
-    var url = Uri.parse("$GRAD$SCHOOLS");
+    var url = Uri.parse("$grad$schools");
 
     try {
       var response = await client.get(url);
@@ -27,7 +27,7 @@ class SchoolRepository {
   }
 
   static Future<Map<String, dynamic>> getSchoolData({required school}) async {
-    var url = Uri.parse("$GRAD$SCHOOLS/get/$school");
+    var url = Uri.parse("$grad$school/get/$school");
 
     try {
       var response = await client.get(url);

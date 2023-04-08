@@ -15,7 +15,7 @@ class PeopleRepository {
     required page,
   }) async {
     var url =
-        Uri.parse("$GRAD$PEOPLE/get/$school/$campus/$r/$type/$per_page/$page");
+        Uri.parse("$grad$people/get/$school/$campus/$r/$type/$per_page/$page");
     try {
       var response = await client.get(url);
       if (response.statusCode == 200) {
@@ -38,7 +38,7 @@ class PeopleRepository {
     required id,
     required type,
   }) async {
-    var url = Uri.parse("$GRAD$PEOPLE/delete/$school/$id/$type");
+    var url = Uri.parse("$grad$people/delete/$school/$id/$type");
     try {
       var response = await client.delete(url);
       if (response.statusCode == 200) {
@@ -57,7 +57,7 @@ class PeopleRepository {
   }
 
   static Future<Map<String, dynamic>> createUser(data) async {
-    var url = Uri.parse("$GRAD$PEOPLE/create");
+    var url = Uri.parse("$grad$people/create");
     try {
       var response = await client.post(
         url,
@@ -85,7 +85,7 @@ class PeopleRepository {
     required page,
   }) async {
     var url = Uri.parse(
-        "$GRAD$PEOPLE/class-students/student/$classId/$school/$per_page/$page");
+        "$grad$people/class-students/student/$classId/$school/$per_page/$page");
     try {
       var response = await client.get(url);
 

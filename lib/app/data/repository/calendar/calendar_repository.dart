@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 class CalendarRepository {
   static var client = http.Client();
   static Future<Map<String, dynamic>> uploadEvent({required data}) async {
-    var url = Uri.parse("$GRAD$EVENTS/$UPLOAD_EVENT");
+    var url = Uri.parse("$grad$events/$uploadEvent");
     try {
       var response = await client.post(
         url,
@@ -34,7 +34,7 @@ class CalendarRepository {
     required per_page,
     required page,
   }) async {
-    var url = Uri.parse("$GRAD$EVENTS/$GET_EVENTS/$per_page/$page");
+    var url = Uri.parse("$grad$events/$getEvents/$per_page/$page");
     try {
       var response = await client.post(url, body: {
         "school": school,
@@ -60,7 +60,7 @@ class CalendarRepository {
   /// update event
   ///
   static Future<Map<String, dynamic>> updateEvent({required data}) async {
-    var url = Uri.parse("$GRAD$EVENTS/update");
+    var url = Uri.parse("$grad$events/update");
     try {
       var response = await client.post(
         url,
@@ -85,7 +85,7 @@ class CalendarRepository {
   ///
   static Future<Map<String, dynamic>> deleteEvent(
       {required school, required id}) async {
-    var url = Uri.parse("$GRAD$EVENTS/delete/$id/$school");
+    var url = Uri.parse("$grad$events/delete/$id/$school");
     try {
       var response = await client.delete(url);
 

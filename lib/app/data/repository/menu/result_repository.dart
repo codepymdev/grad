@@ -10,7 +10,7 @@ class ResultRepository {
   static Future<Map<String, dynamic>> currentResult({
     required data,
   }) async {
-    var url = Uri.parse("$GRAD" + "results/currentResult");
+    var url = Uri.parse("$grad" + "results/currentResult");
     try {
       var response = await client.post(
         url,
@@ -34,7 +34,7 @@ class ResultRepository {
     required campus,
     required r,
   }) async {
-    var url = Uri.parse("$GRAD" + "results/getClasses/$school/$campus/$r");
+    var url = Uri.parse("$grad" + "results/getClasses/$school/$campus/$r");
     try {
       var response = await client.get(url);
 

@@ -7,7 +7,7 @@ class LoginRepository {
   static var client = http.Client();
 
   static Future<Map<String, dynamic>> login(Map<String, dynamic> data) async {
-    var url = Uri.parse("$GRAD$LOGIN");
+    var url = Uri.parse("$grad$login");
     try {
       var response = await client.post(url, body: {
         "email": data['email'],
@@ -29,7 +29,7 @@ class LoginRepository {
 
   static Future<Map<String, dynamic>> recoveryCode(
       String email, String school) async {
-    var url = Uri.parse("$GRAD$RECOVERY_CODE");
+    var url = Uri.parse("$grad$recoveryCode");
     try {
       var response =
           await client.post(url, body: {"email": email, "school": school});
@@ -51,7 +51,7 @@ class LoginRepository {
     String school,
     String code,
   ) async {
-    var url = Uri.parse("$GRAD$VERIFY_ACCOUNT");
+    var url = Uri.parse("$grad$verifyAccount");
     try {
       var response = await client.post(url, body: {
         "email": email,
@@ -77,7 +77,7 @@ class LoginRepository {
     required email,
     required school,
   }) async {
-    var url = Uri.parse("$GRAD$CHANGE_PASSWORD");
+    var url = Uri.parse("$grad$changePassword");
     try {
       var response = await client.post(url, body: {
         "email": email,
@@ -102,7 +102,7 @@ class LoginRepository {
     required id,
     required school,
   }) async {
-    var url = Uri.parse("$GRAD" + "auth/data/" + id + "/" + school);
+    var url = Uri.parse("$grad" + "auth/data/" + id + "/" + school);
     try {
       var response = await client.get(url);
       if (response.statusCode == 200) {

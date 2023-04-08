@@ -11,7 +11,7 @@ class AnnouncementRepository {
     required per_page,
     required page,
   }) async {
-    var url = Uri.parse("$GRAD" + "announcement/get/$school/$per_page/$page");
+    var url = Uri.parse("$grad" + "announcement/get/$school/$per_page/$page");
     try {
       var response = await client.get(url);
       if (response.statusCode == 200) {
@@ -30,7 +30,7 @@ class AnnouncementRepository {
   static Future<Map<String, dynamic>> getCurrentAnnouncement({
     required school,
   }) async {
-    var url = Uri.parse("$GRAD" + "announcement/current/$school");
+    var url = Uri.parse("$grad" + "announcement/current/$school");
     try {
       var response = await client.get(url);
       if (response.statusCode == 200) {
@@ -49,7 +49,7 @@ class AnnouncementRepository {
   static Future<Map<String, dynamic>> createAnnouncement({
     required data,
   }) async {
-    var url = Uri.parse("$GRAD" + "announcement/upload");
+    var url = Uri.parse("$grad" + "announcement/upload");
     try {
       var response = await client.post(
         url,
@@ -72,7 +72,7 @@ class AnnouncementRepository {
   static Future<Map<String, dynamic>> editAnnouncement({
     required data,
   }) async {
-    var url = Uri.parse("$GRAD" + "announcement/update");
+    var url = Uri.parse("$grad" + "announcement/update");
     try {
       var response = await client.post(
         url,
@@ -97,7 +97,7 @@ class AnnouncementRepository {
     required school,
     required id,
   }) async {
-    var url = Uri.parse("$GRAD" + "announcement/delete/$school/$id");
+    var url = Uri.parse("$grad" + "announcement/delete/$school/$id");
     try {
       var response = await client.delete(url);
       if (response.statusCode == 200) {
@@ -116,7 +116,7 @@ class AnnouncementRepository {
   static Future<Map<String, dynamic>> pin({
     required data,
   }) async {
-    var url = Uri.parse("$GRAD" + "announcement/pin");
+    var url = Uri.parse("$grad" + "announcement/pin");
     try {
       var response = await client.post(url, body: data);
       if (response.statusCode == 200) {
@@ -135,7 +135,7 @@ class AnnouncementRepository {
   static Future<Map<String, dynamic>> unpin({
     required data,
   }) async {
-    var url = Uri.parse("$GRAD" + "announcement/unpin");
+    var url = Uri.parse("$grad" + "announcement/unpin");
     try {
       var response = await client.post(url, body: data);
       if (response.statusCode == 200) {
