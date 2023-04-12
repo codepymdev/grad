@@ -75,7 +75,7 @@ Future<void> main() async {
   await Firebase.initializeApp();
 
   //Remove this method to stop OneSignal Debugging
-  // OneSignal.shared.setLogLevel(OSLogLevel.verbose, OSLogLevel.none);
+  OneSignal.shared.setLogLevel(OSLogLevel.verbose, OSLogLevel.none);
 
   OneSignal.shared.setAppId(ONE_SIGNAL_APP_ID);
 
