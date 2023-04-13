@@ -1,0 +1,21 @@
+{
+  "name": "grad",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">Welcome to grad 👋</h1>\r <p>\r   <a href=\"https://www.npmjs.com/package/grad\" target=\"_blank\">\r     <img alt=\"Version\" src=\"https://img.shields.io/npm/v/grad.svg\">\r   </a>\r   <a href=\"https://codepym.com/developers\" target=\"_blank\">\r     <img alt=\"Documentation\" src=\"https://img.shields.io/badge/documentation-yes-brightgreen.svg\" />\r   </a>\r   <a href=\"https://twitter.com/codepym\" target=\"_blank\">\r     <img alt=\"Twitter: codepym\" src=\"https://img.shields.io/twitter/follow/codepym.svg?style=social\" />\r   </a>\r </p>",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsonfile": "^6.1.0",
+    "moment": "^2.29.4",
+    "random": "^4.1.0",
+    "random-js": "^2.1.0",
+    "simple-git": "^3.17.0"
+  }
+}
