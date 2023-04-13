@@ -38,11 +38,9 @@ class QuickRecentActivity extends GetView<AccountController> {
                 children: [
                   Text(
                     "Recent Activities".toUpperCase(),
-                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                   Text(
                     "See All".toUpperCase(),
-                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                 ],
               ),

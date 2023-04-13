@@ -2,9 +2,16 @@ import 'package:Grad/app/controller/auth/create_account_controller.dart';
 import 'package:Grad/app/ui/android/widgets/account/app_version.dart';
 import 'package:Grad/app/ui/android/widgets/custom/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 
-class CreateAccount extends GetView<CreateAccountController> {
+class CreateAccount extends StatefulWidget {
+  @override
+  State<CreateAccount> createState() => _CreateAccountState();
+}
+
+class _CreateAccountState extends State<CreateAccount> {
+  CreateAccountController createAccountController =
+      Get.put(CreateAccountController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +25,7 @@ class CreateAccount extends GetView<CreateAccountController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CustomNetworkImage(
-                    url: "${controller.school['logo']}",
+                    url: "${createAccountController.school['logo']}",
                     wd: 100,
                     ht: 100,
                   ),
@@ -26,7 +33,7 @@ class CreateAccount extends GetView<CreateAccountController> {
                     height: 10,
                   ),
                   Text(
-                    "${controller.school['name']}",
+                    "${createAccountController.school['name']}",
                     style: TextStyle(
                       fontWeight: FontWeight.w900,
                       fontSize: 18,

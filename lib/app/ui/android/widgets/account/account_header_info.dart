@@ -39,7 +39,6 @@ class AccountHeaderInfo extends GetView<AccountController> {
                     children: [
                       Text(
                         "Classes".toUpperCase(),
-                        style: Theme.of(context).textTheme.subtitle2,
                       ),
                       Row(
                         children: [
@@ -86,7 +85,6 @@ class AccountHeaderInfo extends GetView<AccountController> {
                     children: [
                       Text(
                         "Students".toUpperCase(),
-                        style: Theme.of(context).textTheme.subtitle2,
                       ),
                       Row(
                         children: [
@@ -135,7 +133,6 @@ class AccountHeaderInfo extends GetView<AccountController> {
                     children: [
                       Text(
                         "Teachers".toUpperCase(),
-                        style: Theme.of(context).textTheme.subtitle2,
                       ),
                       Row(
                         children: [
@@ -182,7 +179,6 @@ class AccountHeaderInfo extends GetView<AccountController> {
                     children: [
                       Text(
                         "Non teaching".toUpperCase(),
-                        style: Theme.of(context).textTheme.subtitle2,
                       ),
                       Row(
                         children: [
@@ -229,7 +225,6 @@ class AccountHeaderInfo extends GetView<AccountController> {
                     children: [
                       Text(
                         "Parents".toUpperCase(),
-                        style: Theme.of(context).textTheme.subtitle2,
                       ),
                       Row(
                         children: [
@@ -276,7 +271,6 @@ class AccountHeaderInfo extends GetView<AccountController> {
                     children: [
                       Text(
                         "Subjects".toUpperCase(),
-                        style: Theme.of(context).textTheme.subtitle2,
                       ),
                       Row(
                         children: [
@@ -323,7 +317,6 @@ class AccountHeaderInfo extends GetView<AccountController> {
                     children: [
                       Text(
                         "Users".toUpperCase(),
-                        style: Theme.of(context).textTheme.subtitle2,
                       ),
                       Row(
                         children: [

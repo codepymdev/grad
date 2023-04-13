@@ -38,7 +38,6 @@ class AccountSection extends GetView<AccountController> {
                 children: [
                   Text(
                     "Account".toUpperCase(),
-                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                 ],
               ),
@@ -63,7 +62,6 @@ class AccountSection extends GetView<AccountController> {
                     ),
                     title: Text(
                       "Edit Account",
-                      style: Theme.of(context).textTheme.subtitle2,
                     ),
                   ),
                   Divider(),
@@ -76,7 +74,6 @@ class AccountSection extends GetView<AccountController> {
                     ),
                     title: Text(
                       "Change Password",
-                      style: Theme.of(context).textTheme.subtitle2,
                     ),
                   ),
                   Divider(),
@@ -89,7 +86,6 @@ class AccountSection extends GetView<AccountController> {
                     ),
                     title: Text(
                       "Logout",
-                      style: Theme.of(context).textTheme.subtitle2,
                     ),
                   ),
                 ],
