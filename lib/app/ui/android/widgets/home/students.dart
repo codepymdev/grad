@@ -5,14 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 
-class Students extends GetView<HomeController> {
+class Students extends StatefulWidget {
   const Students({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<Students> createState() => _StudentsState();
+}
+
+class _StudentsState extends State<Students> {
+  HomeController homeController = Get.put(HomeController());
+  @override
   Widget build(BuildContext context) {
-    List<dynamic> users = controller.students;
+    List<dynamic> users = homeController.students;
 
     if (users.isEmpty) return Container();
 
@@ -41,11 +47,9 @@ class Students extends GetView<HomeController> {
                 children: [
                   Text(
                     "Students".toUpperCase(),
-                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                   Text(
                     "See All".toUpperCase(),
-                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                 ],
               ),
@@ -117,7 +121,7 @@ class Students extends GetView<HomeController> {
                               child: GestureDetector(
                                 onTap: () async {
                                   await createChannel(context,
-                                      "${chatStreamId(controller.school.value, users[index]['id'])}");
+                                      "${chatStreamId(homeController.school.value, users[index]['id'])}");
                                 },
                                 child: Container(
                                   child: Icon(

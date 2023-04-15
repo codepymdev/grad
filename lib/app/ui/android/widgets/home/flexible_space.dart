@@ -3,13 +3,20 @@ import 'package:Grad/app/core/functions/functions.dart';
 import 'package:Grad/app/ui/android/widgets/custom/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 
-class HomeFlexibleSpace extends GetView<HomeController> {
+class HomeFlexibleSpace extends StatefulWidget {
   const HomeFlexibleSpace({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<HomeFlexibleSpace> createState() => _HomeFlexibleSpaceState();
+}
+
+class _HomeFlexibleSpaceState extends State<HomeFlexibleSpace> {
+  HomeController homeController = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -20,7 +27,7 @@ class HomeFlexibleSpace extends GetView<HomeController> {
           ///
           /// user data
           ///
-          var user = controller.user;
+          var user = homeController.user;
           if (user.isEmpty) return Container();
 
           return Stack(

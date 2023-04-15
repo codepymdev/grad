@@ -6,20 +6,27 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 
-class TList extends GetView<UsersController> {
+class TList extends StatefulWidget {
   final data;
   final type;
   TList({
     required this.data,
     required this.type,
   });
+
+  @override
+  State<TList> createState() => _TListState();
+}
+
+class _TListState extends State<TList> {
+  UsersController usersController = Get.put(UsersController());
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Slidable(
           // Specify a key if the Slidable is dismissible.
-          key: ValueKey(data['id']),
+          key: ValueKey(widget.data['id']),
           // The start action pane is the one at the left or the top side.
           startActionPane: ActionPane(
             // A motion is a widget used to control how the pane animates.
@@ -59,11 +66,11 @@ class TList extends GetView<UsersController> {
             // ),
             leading: ClipOval(
               child: CustomNetworkImage(
-                url: "${data['avatar']}",
+                url: "${widget.data['avatar']}",
               ),
             ),
             title: Text(
-              "${data['first_name']} ${data['last_name']} ${data['middle_name'] ?? ""}",
+              "${widget.data['first_name']} ${widget.data['last_name']} ${widget.data['middle_name'] ?? ""}",
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 18,
@@ -71,7 +78,7 @@ class TList extends GetView<UsersController> {
               ),
             ),
             subtitle: Text(
-              "${data['email']}",
+              "${widget.data['email']}",
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
             ),
@@ -79,7 +86,7 @@ class TList extends GetView<UsersController> {
             trailing: GestureDetector(
               onTap: () async {
                 await createChannel(context,
-                    "${chatStreamId(controller.school.value, data['id'])}");
+                    "${chatStreamId(usersController.school.value, widget.data['id'])}");
               },
               child: Container(
                 child: Icon(
@@ -121,7 +128,7 @@ class TList extends GetView<UsersController> {
       child: Text("Yes"),
       onPressed: () async {
         Navigator.pop(context);
-        await controller.deleteUser(
+        await usersController.deleteUser(
           id: id,
           type: type,
         );

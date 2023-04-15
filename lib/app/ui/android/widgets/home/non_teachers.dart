@@ -3,16 +3,22 @@ import 'package:Grad/app/core/functions/functions.dart';
 import 'package:Grad/app/ui/android/widgets/custom/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 
-class NonTeachers extends GetView<HomeController> {
+class NonTeachers extends StatefulWidget {
   const NonTeachers({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<NonTeachers> createState() => _NonTeachersState();
+}
+
+class _NonTeachersState extends State<NonTeachers> {
+  HomeController homeController = Get.put(HomeController());
+  @override
   Widget build(BuildContext context) {
-    List<dynamic> users = controller.non_teaching;
+    List<dynamic> users = homeController.non_teaching;
     if (users.isEmpty) return Container();
     return Container(
       margin: EdgeInsets.only(
@@ -39,11 +45,9 @@ class NonTeachers extends GetView<HomeController> {
                 children: [
                   Text(
                     "Non teachers".toUpperCase(),
-                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                   Text(
                     "See All".toUpperCase(),
-                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                 ],
               ),
@@ -115,7 +119,7 @@ class NonTeachers extends GetView<HomeController> {
                               child: GestureDetector(
                                 onTap: () async {
                                   await createChannel(context,
-                                      "${chatStreamId(controller.school.value, users[index]['id'])}");
+                                      "${chatStreamId(homeController.school.value, users[index]['id'])}");
                                 },
                                 child: Container(
                                   child: Icon(

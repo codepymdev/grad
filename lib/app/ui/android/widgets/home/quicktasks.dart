@@ -4,13 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-late bool themeMode;
-
-class QuickTasks extends GetView<HomeController> {
+class QuickTasks extends StatefulWidget {
   const QuickTasks({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<QuickTasks> createState() => _QuickTasksState();
+}
+
+class _QuickTasksState extends State<QuickTasks> {
+  late bool themeMode;
+
+  HomeController homeController = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
     if (Theme.of(context).brightness == Brightness.dark) {
@@ -47,13 +53,12 @@ class QuickTasks extends GetView<HomeController> {
                   children: [
                     Text(
                       "Students".toUpperCase(),
-                      style: Theme.of(context).textTheme.subtitle2,
                     ),
                     Row(
                       children: [
                         Expanded(
                           child: Text(
-                            "${controller.counter['students']}",
+                            "${homeController.counter['students']}",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
@@ -96,13 +101,12 @@ class QuickTasks extends GetView<HomeController> {
                   children: [
                     Text(
                       "Teachers".toUpperCase(),
-                      style: Theme.of(context).textTheme.subtitle2,
                     ),
                     Row(
                       children: [
                         Expanded(
                           child: Text(
-                            "${controller.counter['teaching']}",
+                            "${homeController.counter['teaching']}",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
@@ -145,13 +149,12 @@ class QuickTasks extends GetView<HomeController> {
                   children: [
                     Text(
                       "Non teaching".toUpperCase(),
-                      style: Theme.of(context).textTheme.subtitle2,
                     ),
                     Row(
                       children: [
                         Expanded(
                           child: Text(
-                            "${controller.counter['non_teaching']}",
+                            "${homeController.counter['non_teaching']}",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
@@ -194,13 +197,12 @@ class QuickTasks extends GetView<HomeController> {
                   children: [
                     Text(
                       "Parents".toUpperCase(),
-                      style: Theme.of(context).textTheme.subtitle2,
                     ),
                     Row(
                       children: [
                         Expanded(
                           child: Text(
-                            "${controller.counter['parents']}",
+                            "${homeController.counter['parents']}",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
@@ -243,13 +245,12 @@ class QuickTasks extends GetView<HomeController> {
                   children: [
                     Text(
                       "Classes".toUpperCase(),
-                      style: Theme.of(context).textTheme.subtitle2,
                     ),
                     Row(
                       children: [
                         Expanded(
                           child: Text(
-                            "${controller.counter['class']}",
+                            "${homeController.counter['class']}",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
@@ -292,13 +293,12 @@ class QuickTasks extends GetView<HomeController> {
                   children: [
                     Text(
                       "Subjects".toUpperCase(),
-                      style: Theme.of(context).textTheme.subtitle2,
                     ),
                     Row(
                       children: [
                         Expanded(
                           child: Text(
-                            "${controller.counter['subjects']}",
+                            "${homeController.counter['subjects']}",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
@@ -341,13 +341,12 @@ class QuickTasks extends GetView<HomeController> {
                   children: [
                     Text(
                       "Users".toUpperCase(),
-                      style: Theme.of(context).textTheme.subtitle2,
                     ),
                     Row(
                       children: [
                         Expanded(
                           child: Text(
-                            "${controller.counter['users']}",
+                            "${homeController.counter['users']}",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
