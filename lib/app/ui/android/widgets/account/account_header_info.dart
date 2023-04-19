@@ -4,11 +4,17 @@ import 'package:get/get.dart';
 import 'package:Grad/app/controller/account/account_controller.dart';
 import 'package:Grad/app/core/constants/asset_path.dart';
 
-class AccountHeaderInfo extends GetView<AccountController> {
+class AccountHeaderInfo extends StatefulWidget {
   const AccountHeaderInfo({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<AccountHeaderInfo> createState() => _AccountHeaderInfoState();
+}
+
+class _AccountHeaderInfoState extends State<AccountHeaderInfo> {
+  AccountController accountController = Get.put(AccountController());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,7 +50,7 @@ class AccountHeaderInfo extends GetView<AccountController> {
                         children: [
                           Expanded(
                             child: Text(
-                              "${controller.counter['class']}",
+                              "${accountController.counter['class']}",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 30,
@@ -90,7 +96,7 @@ class AccountHeaderInfo extends GetView<AccountController> {
                         children: [
                           Expanded(
                             child: Text(
-                              "${controller.counter['students']}",
+                              "${accountController.counter['students']}",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 30,
@@ -138,7 +144,7 @@ class AccountHeaderInfo extends GetView<AccountController> {
                         children: [
                           Expanded(
                             child: Text(
-                              "${controller.counter['teaching']}",
+                              "${accountController.counter['teaching']}",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 30,
@@ -184,7 +190,7 @@ class AccountHeaderInfo extends GetView<AccountController> {
                         children: [
                           Expanded(
                             child: Text(
-                              "${controller.counter['non_teaching']}",
+                              "${accountController.counter['non_teaching']}",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 30,
@@ -230,7 +236,7 @@ class AccountHeaderInfo extends GetView<AccountController> {
                         children: [
                           Expanded(
                             child: Text(
-                              "${controller.counter['parents']}",
+                              "${accountController.counter['parents']}",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 30,
@@ -276,7 +282,7 @@ class AccountHeaderInfo extends GetView<AccountController> {
                         children: [
                           Expanded(
                             child: Text(
-                              "${controller.counter['subjects']}",
+                              "${accountController.counter['subjects']}",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 30,
@@ -322,7 +328,7 @@ class AccountHeaderInfo extends GetView<AccountController> {
                         children: [
                           Expanded(
                             child: Text(
-                              "${controller.counter['users']}",
+                              "${accountController.counter['users']}",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 30,
