@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:get/get.dart';
+
 import 'package:Grad/app/core/functions/functions.dart';
 import 'package:Grad/app/ui/android/widgets/staffs/non-teachers.dart';
 import 'package:Grad/app/ui/android/widgets/staffs/teachers.dart';
@@ -36,17 +35,6 @@ class Staffs extends StatelessWidget {
           ],
         ),
         // floatingActionButton: _buildFloatActionButton(),
-      ),
-    );
-  }
-
-  Widget _buildFloatActionButton() {
-    return FloatingActionButton(
-      backgroundColor: Colors.white,
-      onPressed: () => Get.toNamed("/staffs/add"),
-      child: Icon(
-        FeatherIcons.plus,
-        color: Color(0xFF21B7CA),
       ),
     );
   }

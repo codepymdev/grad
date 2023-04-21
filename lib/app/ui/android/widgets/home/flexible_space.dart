@@ -4,7 +4,6 @@ import 'package:Grad/app/ui/android/widgets/custom/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 
 class HomeFlexibleSpace extends StatefulWidget {
   const HomeFlexibleSpace({

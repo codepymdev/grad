@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
-import 'package:Grad/app/controller/calendar/calendar_controller.dart';
 import 'package:Grad/app/ui/android/widgets/calendar/passed_event_list.dart';
 
-class PassedEvents extends GetView<CalendarController> {
+class PassedEvents extends StatefulWidget {
+  @override
+  State<PassedEvents> createState() => _PassedEventsState();
+}
+
+class _PassedEventsState extends State<PassedEvents> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
