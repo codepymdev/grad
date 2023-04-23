@@ -34,7 +34,6 @@ class StudentMenu extends StatelessWidget {
                 ),
                 Text(
                   "My Class",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -55,7 +54,6 @@ class StudentMenu extends StatelessWidget {
                 ),
                 Text(
                   "My Subjects",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -76,7 +74,6 @@ class StudentMenu extends StatelessWidget {
                 ),
                 Text(
                   "Class Mates",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -99,7 +96,6 @@ class StudentMenu extends StatelessWidget {
                 ),
                 Text(
                   "My Parents",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -122,7 +118,6 @@ class StudentMenu extends StatelessWidget {
                 ),
                 Text(
                   "My Teachers",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -143,7 +138,6 @@ class StudentMenu extends StatelessWidget {
                 ),
                 Text(
                   "Attendance",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
@@ -164,7 +158,6 @@ class StudentMenu extends StatelessWidget {
                 ),
                 Text(
                   "Results",
-                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ],
             ),
