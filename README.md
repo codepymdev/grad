@@ -17,20 +17,14 @@
 
 ### ✨ [Demo](https://codepym.com/grad)
 
-## Install
-
-```sh
-flutter pub get
-```
-
 ## Author
 
 👤 **Codepym**
 
 * Website: https://codepym.com
-* Twitter: [@codepym](https://twitter.com/codepym)
-* Github: [@codepymdev](https://github.com/codepymdev)
-* LinkedIn: [@codepym](https://linkedin.com/in/codepym)
+* Twitter: [@codepym](https://twitter.com/codepym_dev)
+* Github: [@codepymdev](https://github.com/codepym_dev)
+* LinkedIn: [@codepym](https://linkedin.com/in/codepym_dev)
 
 ## 🤝 Contributing
 
