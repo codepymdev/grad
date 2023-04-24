@@ -28,7 +28,7 @@
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://codepym.com/developers). You can also take a look at the [contributing guide](https://codepym.com/developers).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/codepymdev/grad/issues). You can also take a look at the [contributing guide](https://codepym.com/developers).
 
 ## Show your support
 
