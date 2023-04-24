@@ -22,13 +22,13 @@
 👤 **Codepym**
 
 * Website: https://codepym.com
-* Twitter: [@codepym](https://twitter.com/codepym_dev)
-* Github: [@codepymdev](https://github.com/codepym_dev)
-* LinkedIn: [@codepym](https://linkedin.com/in/codepym_dev)
+* Twitter: [@codepym](https://twitter.com/codepym)
+* Github: [@codepymdev](https://github.com/codepymdev)
+* LinkedIn: [@codepym](https://www.linkedin.com/company/codepym/)
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://codepym.com/issues). You can also take a look at the [contributing guide](https://codepym.com/developers/guide).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://codepym.com/developers). You can also take a look at the [contributing guide](https://codepym.com/developers).
 
 ## Show your support
 
