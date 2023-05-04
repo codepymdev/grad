@@ -5,20 +5,26 @@ import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
 import 'package:grad/app/ui/android/widgets/form/attendance/attendance_date.dart';
 
-class AddAttendance extends GetView<AttendanceController> {
+class AddAttendance extends StatefulWidget {
+  @override
+  State<AddAttendance> createState() => _AddAttendanceState();
+}
+
+class _AddAttendanceState extends State<AddAttendance> {
+  AttendanceController attendanceController = Get.put(AttendanceController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(name: "Add Attendance"),
       body: SingleChildScrollView(
         child: Obx(() {
-          if (controller.loading.value)
+          if (attendanceController.loading.value)
             return Container(
               child: Center(
                 child: CircularProgressIndicator(),
               ),
             );
-          var data = controller.students;
+          var data = attendanceController.students;
           return Column(
             children: [
               AttendanceDate(),
@@ -47,7 +53,7 @@ class AddAttendance extends GetView<AttendanceController> {
                 height: 50,
                 child: ElevatedButton(
                   style: ButtonStyle(),
-                  child: controller.processing.value
+                  child: attendanceController.processing.value
                       ? Center(
                           child: CircularProgressIndicator(
                             color: Colors.white,
@@ -60,20 +66,22 @@ class AddAttendance extends GetView<AttendanceController> {
                           ),
                         ),
                   onPressed: () async {
-                    if (!controller.processing.value) {
-                      await controller.addStudentAttendance();
-                      if (controller.error.value) {
+                    if (!attendanceController.processing.value) {
+                      await attendanceController.addStudentAttendance();
+                      if (attendanceController.error.value) {
                         final snackBar = SnackBar(
-                          content: Text('${controller.error_msg.value}'),
+                          content:
+                              Text('${attendanceController.error_msg.value}'),
                           backgroundColor: Colors.red,
                         );
                         // Find the ScaffoldMessenger in the widget tree
                         // and use it to show a SnackBar.
                         ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       }
-                      if (controller.success.value) {
+                      if (attendanceController.success.value) {
                         final snackBar = SnackBar(
-                          content: Text('${controller.success_msg.value}'),
+                          content:
+                              Text('${attendanceController.success_msg.value}'),
                           backgroundColor: Colors.green,
                         );
                         // Find the ScaffoldMessenger in the widget tree
@@ -98,7 +106,7 @@ class AddAttendance extends GetView<AttendanceController> {
   ) {
     bool isChecked = false;
     //check if id is in attendance
-    List<dynamic> attendance = controller.attendance_list;
+    List<dynamic> attendance = attendanceController.attendance_list;
     if (attendance.contains(data['student']['id'])) isChecked = true;
     return Column(
       children: [
@@ -127,9 +135,9 @@ class AddAttendance extends GetView<AttendanceController> {
             value: isChecked,
             onChanged: (value) {
               if (value!) {
-                controller.addAttendance(data['student']['id']);
+                attendanceController.addAttendance(data['student']['id']);
               } else {
-                controller.removeAttendance(data['student']['id']);
+                attendanceController.removeAttendance(data['student']['id']);
               }
             },
           ),

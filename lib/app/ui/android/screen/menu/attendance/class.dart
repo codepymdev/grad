@@ -3,19 +3,25 @@ import 'package:get/get.dart';
 import 'package:grad/app/controller/menu/classes_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
 
-class ClassAttendance extends GetView<ClassesController> {
+class ClassAttendance extends StatefulWidget {
+  @override
+  State<ClassAttendance> createState() => _ClassAttendanceState();
+}
+
+class _ClassAttendanceState extends State<ClassAttendance> {
+  ClassesController classesController = Get.put(ClassesController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(name: "Select Class"),
       body: Obx(() {
-        if (controller.loading.value)
+        if (classesController.loading.value)
           return Container(
             child: Center(
               child: CircularProgressIndicator(),
             ),
           );
-        var data = controller.classes;
+        var data = classesController.classes;
 
         if (data.length == 0)
           return Center(
