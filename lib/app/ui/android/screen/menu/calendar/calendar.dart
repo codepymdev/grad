@@ -5,19 +5,25 @@ import 'package:get/get.dart';
 import 'package:grad/app/controller/calendar/calendar_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
 
-class Calendar extends GetView<CalendarController> {
+class Calendar extends StatefulWidget {
+  @override
+  State<Calendar> createState() => _CalendarState();
+}
+
+class _CalendarState extends State<Calendar> {
+  CalendarController calendarController = Get.put(CalendarController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(name: "Calendar"),
       body: Obx(() {
-        if (controller.loading.value)
+        if (calendarController.loading.value)
           return Container(
             child: Center(
               child: CircularProgressIndicator(),
             ),
           );
-        var data = controller.other_events;
+        var data = calendarController.other_events;
         if (data.length == 0)
           return Center(
             child: Text("No Events"),
@@ -51,7 +57,7 @@ class Calendar extends GetView<CalendarController> {
               // A SlidableAction can have an icon and/or a label.
               SlidableAction(
                 onPressed: (_) async =>
-                    await controller.deleteEvent(data['id']),
+                    await calendarController.deleteEvent(data['id']),
                 backgroundColor: Color.fromARGB(255, 195, 39, 39),
                 foregroundColor: Colors.white,
                 icon: FeatherIcons.trash,
