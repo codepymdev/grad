@@ -22,9 +22,9 @@
 👤 **Codepym**
 
 * Website: https://codepym.com
-* Twitter: [@codepym](https://twitter.com/codepym)
-* Github: [@codepymdev](https://github.com/codepymdev)
-* LinkedIn: [@codepym](https://www.linkedin.com/company/codepym/)
+* Twitter: [@codepym](#)
+* Github: [@codepymdev](#)
+* LinkedIn: [@codepym](#)
 
 ## 🤝 Contributing
 
