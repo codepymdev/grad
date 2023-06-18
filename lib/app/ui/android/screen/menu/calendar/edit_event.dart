@@ -4,15 +4,19 @@ import 'package:get/get.dart';
 import 'package:grad/app/controller/calendar/new_event_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
 
-late TextEditingController titleController;
-late TextEditingController descriptioncontroller;
-late TextEditingController urlcontroller;
-late var data;
+class EditEvent extends StatefulWidget {
+  @override
+  State<EditEvent> createState() => _EditEventState();
+}
 
-class EditEvent extends GetView<NewEventController> {
+class _EditEventState extends State<EditEvent> {
+  NewEventController newEventController = Get.put(NewEventController());
+  late TextEditingController titleController;
+  late TextEditingController descriptioncontroller;
+  late TextEditingController urlcontroller;
+  var data = Get.arguments;
   @override
   Widget build(BuildContext context) {
-    data = Get.arguments;
     return Scaffold(
       appBar: customAppBar(name: "Edit Event"),
       body: SingleChildScrollView(
@@ -39,7 +43,7 @@ class EditEvent extends GetView<NewEventController> {
                   height: 50,
                   child: ElevatedButton(
                     style: ButtonStyle(),
-                    child: controller.processing.value
+                    child: newEventController.processing.value
                         ? Center(
                             child: CircularProgressIndicator(
                               color: Colors.white,
@@ -52,26 +56,28 @@ class EditEvent extends GetView<NewEventController> {
                             ),
                           ),
                     onPressed: () async {
-                      if (!controller.processing.value) {
-                        await controller.updateEvent({
+                      if (!newEventController.processing.value) {
+                        await newEventController.updateEvent({
                           "title": titleController.text,
                           "description": descriptioncontroller.text,
                           "url": urlcontroller.text,
                           "id": data['id'],
                         });
 
-                        if (controller.error.value) {
+                        if (newEventController.error.value) {
                           final snackBar = SnackBar(
-                            content: Text('${controller.error_msg.value}'),
+                            content:
+                                Text('${newEventController.error_msg.value}'),
                             backgroundColor: Colors.red,
                           );
                           // Find the ScaffoldMessenger in the widget tree
                           // and use it to show a SnackBar.
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         }
-                        if (controller.success.value) {
+                        if (newEventController.success.value) {
                           final snackBar = SnackBar(
-                            content: Text('${controller.success_msg.value}'),
+                            content:
+                                Text('${newEventController.success_msg.value}'),
                             backgroundColor: Colors.green,
                           );
                           // Find the ScaffoldMessenger in the widget tree
@@ -228,7 +234,7 @@ class EditEvent extends GetView<NewEventController> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  " ${controller.start_date.value}",
+                  " ${newEventController.start_date.value}",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
@@ -279,7 +285,7 @@ class EditEvent extends GetView<NewEventController> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  " ${controller.end_date.value}",
+                  " ${newEventController.end_date.value}",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
@@ -299,11 +305,11 @@ class EditEvent extends GetView<NewEventController> {
   Future<void> _selectDate(BuildContext context, String type) async {
     final DateTime? picked = await showDatePicker(
         context: context,
-        initialDate: controller.initial_date.value!,
+        initialDate: newEventController.initial_date.value!,
         firstDate: DateTime(2015, 8),
         lastDate: DateTime(2101));
-    if (picked != null && picked != controller.initial_date.value) {
-      controller.selectDate(picked, type);
+    if (picked != null && picked != newEventController.initial_date.value) {
+      newEventController.selectDate(picked, type);
     }
   }
 }
