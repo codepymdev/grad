@@ -1,40 +1,24 @@
-<h1 align="center">Welcome to grad 👋</h1>
-<p>
-  <a href="https://www.npmjs.com/package/grad" target="_blank">
-    <img alt="Version" src="https://img.shields.io/npm/v/grad.svg">
-  </a>
-  <a href="https://codepym.com/developers" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
-  </a>
-  <a href="https://twitter.com/codepym" target="_blank">
-    <img alt="Twitter: codepym" src="https://img.shields.io/twitter/follow/codepym.svg?style=social" />
-  </a>
-</p>
+## Grad SAAS Application
 
-> Welcome to our Saas edtech software app, designed to revolutionize the way you teach and learn! Grad offers a comprehensive platform for educational institutions, teachers, and students to connect, collaborate, and learn in a seamless and interactive way. With its user-friendly interface and powerful features, it has everything you need to create, manage, and deliver effective and engaging online cbt and results. Grad comes with a range of tools and functionalities, including course creation and management, interactive quizzes and assessments. Grad is built on a cloud-based infrastructure, ensuring that it is scalable, reliable and secure. Join and collaborate
+## Technology
+This project was built with Flutter and Dart.
 
-### 🏠 [Homepage](https://codepym.com/)
+## About 
+Grad is designed to help educational institutions manage their day-to-day operations. It typically includes a range of features that can help with tasks such as student enrollment, attendance tracking, grade management, scheduling, and communication with parents and staff.
 
-### ✨ [Demo](https://codepym.com/grad)
+## Installation
 
-## Author
+# Clone the repository 
+```
+  https://github.com/codepymdev/grad.git 
+```
+# Clean 
+```
+flutter clean 
+```
+# Install dependencies 
+```
+flutter pub get 
+```
 
-👤 **Codepym**
 
-* Website: https://codepym.com
-* Twitter: [@codepym](https://twitter.com/codepym)
-* Instagram: [@codepym](https://www.instagram.com/codepym/)
-* Facebook: [@codepymdev](https://facebook.com/codepymdev/)
-* Github: [@codepymdev](https://github.com/codepymdev/grad)
-* LinkedIn: [@codepym](https://www.linkedin.com/company/79796097)
-
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/codepymdev/grad/issues). You can also take a look at the [contributing guide](https://codepym.com/developers).
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
