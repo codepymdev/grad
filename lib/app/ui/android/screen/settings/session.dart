@@ -3,7 +3,13 @@ import 'package:get/get.dart';
 import 'package:grad/app/controller/settings/settings_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
 
-class Session extends GetView<SettingsController> {
+class Session extends StatefulWidget {
+  @override
+  State<Session> createState() => _SessionState();
+}
+
+class _SessionState extends State<Session> {
+  SettingsController settingsController = Get.put(SettingsController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +23,7 @@ class Session extends GetView<SettingsController> {
             bottom: 15,
           ),
           child: Obx(() {
-            if (controller.loading.value)
+            if (settingsController.loading.value)
               return Center(
                 child: CircularProgressIndicator(),
               );
@@ -34,7 +40,7 @@ class Session extends GetView<SettingsController> {
                   height: 50,
                   child: ElevatedButton(
                     style: ButtonStyle(),
-                    child: controller.processing.value
+                    child: settingsController.processing.value
                         ? Center(
                             child: CircularProgressIndicator(
                               color: Colors.white,
@@ -47,20 +53,22 @@ class Session extends GetView<SettingsController> {
                             ),
                           ),
                     onPressed: () async {
-                      if (!controller.processing.value) {
-                        await controller.updateSession();
-                        if (controller.error.value) {
+                      if (!settingsController.processing.value) {
+                        await settingsController.updateSession();
+                        if (settingsController.error.value) {
                           final snackBar = SnackBar(
-                            content: Text('${controller.error_msg.value}'),
+                            content:
+                                Text('${settingsController.error_msg.value}'),
                             backgroundColor: Colors.red,
                           );
                           // Find the ScaffoldMessenger in the widget tree
                           // and use it to show a SnackBar.
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         }
-                        if (controller.success.value) {
+                        if (settingsController.success.value) {
                           final snackBar = SnackBar(
-                            content: Text('${controller.success_msg.value}'),
+                            content:
+                                Text('${settingsController.success_msg.value}'),
                             backgroundColor: Colors.green,
                           );
                           // Find the ScaffoldMessenger in the widget tree
@@ -84,9 +92,9 @@ class Session extends GetView<SettingsController> {
       margin: EdgeInsets.all(5),
       child: DropdownButton<String>(
         isExpanded: true,
-        value: controller.termValue.value,
+        value: settingsController.termValue.value,
         onChanged: (String? value) {
-          if (value != null) controller.updateTermDropDown(value);
+          if (value != null) settingsController.updateTermDropDown(value);
         },
         items: <String>['First Term', 'Second Term', 'Third Term']
             .map<DropdownMenuItem<String>>((String value) {
@@ -105,9 +113,9 @@ class Session extends GetView<SettingsController> {
       margin: EdgeInsets.all(5),
       child: DropdownButton<String>(
         isExpanded: true,
-        value: controller.yearValue.value,
+        value: settingsController.yearValue.value,
         onChanged: (String? value) {
-          if (value != null) controller.updateYearDropDown(value);
+          if (value != null) settingsController.updateYearDropDown(value);
         },
         items: years.map<DropdownMenuItem<String>>((String value) {
           return DropdownMenuItem<String>(

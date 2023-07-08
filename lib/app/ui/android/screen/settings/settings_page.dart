@@ -5,7 +5,13 @@ import 'package:grad/app/controller/settings/settings_controller.dart';
 import 'package:grad/app/core/constants/asset_path.dart';
 import 'package:grad/app/ui/android/widgets/account/app_version.dart';
 
-class SettingsPage extends GetView<SettingsController> {
+class SettingsPage extends StatefulWidget {
+  @override
+  State<SettingsPage> createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
+  SettingsController settingsController = Get.put(SettingsController());
   @override
   Widget build(BuildContext context) {
     SettingsController settingsController = Get.put(SettingsController());

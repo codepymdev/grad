@@ -4,7 +4,13 @@ import 'package:grad/app/controller/settings/settings_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
 import 'package:grad/app/ui/android/widgets/custom/cached_network_image.dart';
 
-class Stamp extends GetView<SettingsController> {
+class Stamp extends StatefulWidget {
+  @override
+  State<Stamp> createState() => _StampState();
+}
+
+class _StampState extends State<Stamp> {
+  SettingsController settingsController = Get.put(SettingsController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +24,7 @@ class Stamp extends GetView<SettingsController> {
             bottom: 15,
           ),
           child: Obx(() {
-            if (controller.loading.value)
+            if (settingsController.loading.value)
               return Center(
                 child: CircularProgressIndicator(),
               );
@@ -40,21 +46,21 @@ class Stamp extends GetView<SettingsController> {
                   ),
                 ),
                 Container(
-                  child: controller.picked.value
-                      ? controller.stamp == ""
+                  child: settingsController.picked.value
+                      ? settingsController.stamp == ""
                           ? CustomNetworkImage(
-                              url: "${controller.stamp}",
+                              url: "${settingsController.stamp}",
                               ht: 100,
                               wd: 100,
                             )
                           : Image.file(
-                              controller.uploadStamp!,
+                              settingsController.uploadStamp!,
                               width: 100,
                               height: 100,
                               fit: BoxFit.cover,
                             )
                       : CustomNetworkImage(
-                          url: "${controller.stamp}",
+                          url: "${settingsController.stamp}",
                           ht: 100,
                           wd: 100,
                         ),
@@ -68,7 +74,7 @@ class Stamp extends GetView<SettingsController> {
                   height: 50,
                   child: ElevatedButton(
                     style: ButtonStyle(),
-                    child: controller.processing.value
+                    child: settingsController.processing.value
                         ? Center(
                             child: CircularProgressIndicator(
                               color: Colors.white,
@@ -81,20 +87,22 @@ class Stamp extends GetView<SettingsController> {
                             ),
                           ),
                     onPressed: () async {
-                      if (!controller.processing.value) {
-                        await controller.fetchImageFile();
-                        if (controller.error.value) {
+                      if (!settingsController.processing.value) {
+                        await settingsController.fetchImageFile();
+                        if (settingsController.error.value) {
                           final snackBar = SnackBar(
-                            content: Text('${controller.error_msg.value}'),
+                            content:
+                                Text('${settingsController.error_msg.value}'),
                             backgroundColor: Colors.red,
                           );
                           // Find the ScaffoldMessenger in the widget tree
                           // and use it to show a SnackBar.
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         }
-                        if (controller.success.value) {
+                        if (settingsController.success.value) {
                           final snackBar = SnackBar(
-                            content: Text('${controller.success_msg.value}'),
+                            content:
+                                Text('${settingsController.success_msg.value}'),
                             backgroundColor: Colors.green,
                           );
                           // Find the ScaffoldMessenger in the widget tree

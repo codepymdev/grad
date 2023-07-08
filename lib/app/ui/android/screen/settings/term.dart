@@ -4,7 +4,13 @@ import 'package:get/get.dart';
 import 'package:grad/app/controller/settings/settings_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
 
-class Term extends GetView<SettingsController> {
+class Term extends StatefulWidget {
+  @override
+  State<Term> createState() => _TermState();
+}
+
+class _TermState extends State<Term> {
+  SettingsController settingsController = Get.put(SettingsController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +24,7 @@ class Term extends GetView<SettingsController> {
             bottom: 15,
           ),
           child: Obx(() {
-            if (controller.loading.value)
+            if (settingsController.loading.value)
               return Center(
                 child: CircularProgressIndicator(),
               );
@@ -76,7 +82,7 @@ class Term extends GetView<SettingsController> {
                   height: 50,
                   child: ElevatedButton(
                     style: ButtonStyle(),
-                    child: controller.processing.value
+                    child: settingsController.processing.value
                         ? Center(
                             child: CircularProgressIndicator(
                               color: Colors.white,
@@ -89,20 +95,22 @@ class Term extends GetView<SettingsController> {
                             ),
                           ),
                     onPressed: () async {
-                      if (!controller.processing.value) {
-                        await controller.updateTerm();
-                        if (controller.error.value) {
+                      if (!settingsController.processing.value) {
+                        await settingsController.updateTerm();
+                        if (settingsController.error.value) {
                           final snackBar = SnackBar(
-                            content: Text('${controller.error_msg.value}'),
+                            content:
+                                Text('${settingsController.error_msg.value}'),
                             backgroundColor: Colors.red,
                           );
                           // Find the ScaffoldMessenger in the widget tree
                           // and use it to show a SnackBar.
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         }
-                        if (controller.success.value) {
+                        if (settingsController.success.value) {
                           final snackBar = SnackBar(
-                            content: Text('${controller.success_msg.value}'),
+                            content:
+                                Text('${settingsController.success_msg.value}'),
                             backgroundColor: Colors.green,
                           );
                           // Find the ScaffoldMessenger in the widget tree
@@ -139,7 +147,7 @@ class Term extends GetView<SettingsController> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "${controller.next_term_begins.value}",
+              "${settingsController.next_term_begins.value}",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
@@ -172,7 +180,7 @@ class Term extends GetView<SettingsController> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "${controller.term_ends.value}",
+              "${settingsController.term_ends.value}",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
@@ -205,7 +213,7 @@ class Term extends GetView<SettingsController> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "${controller.term_begins.value}",
+              "${settingsController.term_begins.value}",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
@@ -223,20 +231,21 @@ class Term extends GetView<SettingsController> {
   Future<void> _selectDate(BuildContext context, String type) async {
     final DateTime? picked = await showDatePicker(
         context: context,
-        initialDate: controller.initial_date.value!,
+        initialDate: settingsController.initial_date.value!,
         firstDate: DateTime(2015, 8),
         lastDate: DateTime(2101));
     if (type == "next_term") {
-      if (picked != null && picked != controller.next_term_begins.value) {
-        controller.selectDate(picked, type);
+      if (picked != null &&
+          picked != settingsController.next_term_begins.value) {
+        settingsController.selectDate(picked, type);
       }
     } else if (type == "term_end") {
-      if (picked != null && picked != controller.term_begins.value) {
-        controller.selectDate(picked, type);
+      if (picked != null && picked != settingsController.term_begins.value) {
+        settingsController.selectDate(picked, type);
       }
     } else if (type == "term_begins") {
-      if (picked != null && picked != controller.term_begins.value) {
-        controller.selectDate(picked, type);
+      if (picked != null && picked != settingsController.term_begins.value) {
+        settingsController.selectDate(picked, type);
       }
     }
   }
