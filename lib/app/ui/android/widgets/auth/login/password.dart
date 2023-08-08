@@ -3,21 +3,28 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/controller/auth/login_controller.dart';
 
-class PasswordField extends GetView<LoginController> {
+class PasswordField extends StatefulWidget {
   const PasswordField({
     Key? key,
     required this.c,
   }) : super(key: key);
 
   final c;
+
+  @override
+  State<PasswordField> createState() => _PasswordFieldState();
+}
+
+class _PasswordFieldState extends State<PasswordField> {
+  LoginController loginController = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
     return Obx(() => Container(
           margin: EdgeInsets.all(5),
           child: TextField(
-            controller: c,
+            controller: widget.c,
             keyboardType: TextInputType.visiblePassword,
-            obscureText: controller.toggleOff.value,
+            obscureText: loginController.toggleOff.value,
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
@@ -38,16 +45,16 @@ class PasswordField extends GetView<LoginController> {
                 borderRadius: BorderRadius.circular(5.0),
               ),
               labelText: 'Password',
-              errorText: controller.passworderror.value
-                  ? controller.password_msg.value
+              errorText: loginController.passworderror.value
+                  ? loginController.password_msg.value
                   : null,
-              suffix: controller.toggleOff.value
+              suffix: loginController.toggleOff.value
                   ? GestureDetector(
-                      onTap: () => controller.toggle(),
+                      onTap: () => loginController.toggle(),
                       child: Icon(FeatherIcons.eyeOff),
                     )
                   : GestureDetector(
-                      onTap: () => controller.toggle(),
+                      onTap: () => loginController.toggle(),
                       child: Icon(
                         FeatherIcons.eye,
                       ),

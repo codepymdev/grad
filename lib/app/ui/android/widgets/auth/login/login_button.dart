@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:grad/app/controller/auth/login_controller.dart';
 
-class LoginButton extends GetView<LoginController> {
+class LoginButton extends StatefulWidget {
   const LoginButton({
     Key? key,
     required this.emailcontroller,
@@ -15,6 +15,12 @@ class LoginButton extends GetView<LoginController> {
   final String slug;
 
   @override
+  State<LoginButton> createState() => _LoginButtonState();
+}
+
+class _LoginButtonState extends State<LoginButton> {
+  LoginController loginController = Get.put(LoginController());
+  @override
   Widget build(BuildContext context) {
     return Obx(
       () => Container(
@@ -26,7 +32,7 @@ class LoginButton extends GetView<LoginController> {
         height: 50.0,
         child: ElevatedButton(
           style: ButtonStyle(),
-          child: !controller.loginLoader.value
+          child: !loginController.loginLoader.value
               ? Text(
                   "Login",
                   style: TextStyle(
@@ -39,15 +45,15 @@ class LoginButton extends GetView<LoginController> {
                   ),
                 ),
           onPressed: () async {
-            if (!controller.loginLoader.value) {
-              await controller.login(
-                email: emailcontroller.text,
-                password: passwordcontroller.text,
-                school: slug,
+            if (!loginController.loginLoader.value) {
+              await loginController.login(
+                email: widget.emailcontroller.text,
+                password: widget.passwordcontroller.text,
+                school: widget.slug,
               );
-              if (controller.error.value) {
+              if (loginController.error.value) {
                 final snackBar = SnackBar(
-                  content: Text('${controller.error_msg.value}'),
+                  content: Text('${loginController.error_msg.value}'),
                   backgroundColor: Colors.red,
                 );
                 // Find the ScaffoldMessenger in the widget tree
@@ -58,7 +64,7 @@ class LoginButton extends GetView<LoginController> {
               ///
               /// redirect to dashbaord
               ///
-              if (controller.redirect.value) await _loginSuccess();
+              if (loginController.redirect.value) await _loginSuccess();
             }
           },
         ),

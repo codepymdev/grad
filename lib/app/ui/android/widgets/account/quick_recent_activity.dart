@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:grad/app/controller/account/account_controller.dart';
 import 'package:timelines/timelines.dart';
 
 const kTileHeight = 50.0;
 
-class QuickRecentActivity extends GetView<AccountController> {
+class QuickRecentActivity extends StatefulWidget {
   const QuickRecentActivity({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<QuickRecentActivity> createState() => _QuickRecentActivityState();
+}
+
+class _QuickRecentActivityState extends State<QuickRecentActivity> {
+  AccountController accountController = Get.put(AccountController());
+  @override
   Widget build(BuildContext context) {
-    List<dynamic> activities = controller.activities;
+    List<dynamic> activities = accountController.activities;
     return Container(
       margin: EdgeInsets.only(
         left: 5,
