@@ -3,18 +3,24 @@ import 'package:get/get.dart';
 import 'package:grad/app/controller/menu/classes_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
 
-class StudentClass extends GetView<ClassesController> {
+class StudentClass extends StatefulWidget {
+  @override
+  State<StudentClass> createState() => _StudentClassState();
+}
+
+class _StudentClassState extends State<StudentClass> {
+  ClassesController classesController = Get.put(ClassesController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(name: "My Class"),
       body: Obx(() {
-        if (controller.loading.value) {
+        if (classesController.loading.value) {
           return Center(
             child: CircularProgressIndicator(),
           );
         }
-        var me = controller.me;
+        var me = classesController.me;
         var myclass = me['param']['class'];
         return Container(
           child: Column(

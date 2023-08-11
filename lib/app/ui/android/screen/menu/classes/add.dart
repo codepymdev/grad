@@ -11,18 +11,24 @@ import 'package:grad/app/ui/android/widgets/form/class/payment_amount.dart';
 import 'package:grad/app/ui/android/widgets/form/class/payment_title.dart';
 import 'package:grad/app/ui/android/widgets/form/class/section.dart';
 
-final TextEditingController descriptionController = TextEditingController();
-final TextEditingController feeController = TextEditingController();
-final TextEditingController paymentTitleController = TextEditingController();
-final TextEditingController paymentAmountController = TextEditingController();
+class AddClass extends StatefulWidget {
+  @override
+  State<AddClass> createState() => _AddClassState();
+}
 
-class AddClass extends GetView<ClassesController> {
+class _AddClassState extends State<AddClass> {
+  ClassesController classesController = Get.put(ClassesController());
+  TextEditingController descriptionController = TextEditingController();
+  TextEditingController feeController = TextEditingController();
+  TextEditingController paymentTitleController = TextEditingController();
+  TextEditingController paymentAmountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(name: "Add Class"),
       body: Obx(() {
-        if (controller.loading.value)
+        if (classesController.loading.value)
           return Container(
             child: Center(
               child: CircularProgressIndicator(),
@@ -44,7 +50,7 @@ class AddClass extends GetView<ClassesController> {
                 ClassName(),
                 //class arm
                 ClassArm(
-                  c: controller,
+                  c: classesController,
                 ),
                 //fee
                 Fee(
@@ -56,7 +62,7 @@ class AddClass extends GetView<ClassesController> {
                 ),
                 //class section
                 ClassSection(
-                  c: controller,
+                  c: classesController,
                 ),
                 //campus
                 Campus(),
@@ -77,7 +83,7 @@ class AddClass extends GetView<ClassesController> {
                   height: 50,
                   child: ElevatedButton(
                     style: ButtonStyle(),
-                    child: controller.processing.value
+                    child: classesController.processing.value
                         ? Center(
                             child: CircularProgressIndicator(
                               color: Colors.white,
@@ -90,26 +96,28 @@ class AddClass extends GetView<ClassesController> {
                             ),
                           ),
                     onPressed: () async {
-                      if (!controller.processing.value) {
-                        await controller.createClass({
+                      if (!classesController.processing.value) {
+                        await classesController.createClass({
                           "description": descriptionController.text,
                           "fee": feeController.text,
                           "other_payment_title": paymentTitleController.text,
                           "amount": paymentAmountController.text,
                         });
 
-                        if (controller.error.value) {
+                        if (classesController.error.value) {
                           final snackBar = SnackBar(
-                            content: Text('${controller.error_msg.value}'),
+                            content:
+                                Text('${classesController.error_msg.value}'),
                             backgroundColor: Colors.red,
                           );
                           // Find the ScaffoldMessenger in the widget tree
                           // and use it to show a SnackBar.
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         }
-                        if (controller.success.value) {
+                        if (classesController.success.value) {
                           final snackBar = SnackBar(
-                            content: Text('${controller.success_msg.value}'),
+                            content:
+                                Text('${classesController.success_msg.value}'),
                             backgroundColor: Colors.green,
                           );
                           // Find the ScaffoldMessenger in the widget tree
@@ -121,7 +129,7 @@ class AddClass extends GetView<ClassesController> {
                           ///
                           Get.offNamed(
                             "/classes/view",
-                            arguments: controller.classId.value,
+                            arguments: classesController.classId.value,
                           );
                         }
                       }
