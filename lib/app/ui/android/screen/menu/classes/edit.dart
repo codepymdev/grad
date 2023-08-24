@@ -11,19 +11,24 @@ import 'package:grad/app/ui/android/widgets/form/class/payment_amount.dart';
 import 'package:grad/app/ui/android/widgets/form/class/payment_title.dart';
 import 'package:grad/app/ui/android/widgets/form/class/section.dart';
 
-final TextEditingController descriptionController = TextEditingController();
-final TextEditingController feeController = TextEditingController();
-final TextEditingController paymentTitleController = TextEditingController();
-final TextEditingController paymentAmountController = TextEditingController();
+class EditClass extends StatefulWidget {
+  @override
+  State<EditClass> createState() => _EditClassState();
+}
 
-class EditClass extends GetView<ClassesController> {
+class _EditClassState extends State<EditClass> {
+  TextEditingController descriptionController = TextEditingController();
+  TextEditingController feeController = TextEditingController();
+  TextEditingController paymentTitleController = TextEditingController();
+  TextEditingController paymentAmountController = TextEditingController();
+  ClassesController classesController = Get.put(ClassesController());
   @override
   Widget build(BuildContext context) {
     dynamic data = Get.arguments;
     return Scaffold(
       appBar: customAppBar(name: "Edit Class"),
       body: Obx(() {
-        if (controller.loading.value)
+        if (classesController.loading.value)
           return Container(
             child: Center(
               child: CircularProgressIndicator(),
@@ -33,8 +38,8 @@ class EditClass extends GetView<ClassesController> {
         ///
         /// pass value to controller
         ///
-        controller.arm.value = data['arm'];
-        controller.section.value = data['section'];
+        classesController.arm.value = data['arm'];
+        classesController.section.value = data['section'];
         // Rxn<ClassCategoriesModel> _model = Rxn<ClassCategoriesModel>();
         // controller.classCategory.value = _model.update((val) {
         //   val.!id = "";
@@ -56,7 +61,7 @@ class EditClass extends GetView<ClassesController> {
                 ClassName(),
                 //class arm
                 ClassArm(
-                  c: controller,
+                  c: classesController,
                 ),
                 //fee
                 Fee(
@@ -72,7 +77,7 @@ class EditClass extends GetView<ClassesController> {
                 ),
                 //class section
                 ClassSection(
-                  c: controller,
+                  c: classesController,
                 ),
                 //campus
                 Campus(),
