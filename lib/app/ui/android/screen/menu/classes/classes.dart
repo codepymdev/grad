@@ -5,19 +5,25 @@ import 'package:get/get.dart';
 import 'package:grad/app/controller/menu/classes_controller.dart';
 import 'package:grad/app/core/functions/functions.dart';
 
-class Classes extends GetView<ClassesController> {
+class Classes extends StatefulWidget {
+  @override
+  State<Classes> createState() => _ClassesState();
+}
+
+class _ClassesState extends State<Classes> {
+  ClassesController classesController = Get.put(ClassesController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(name: "Classes"),
       body: Obx(() {
-        if (controller.loading.value)
+        if (classesController.loading.value)
           return Container(
             child: Center(
               child: CircularProgressIndicator(),
             ),
           );
-        var data = controller.classes;
+        var data = classesController.classes;
 
         if (data.length == 0)
           return Center(
@@ -125,7 +131,7 @@ class Classes extends GetView<ClassesController> {
       child: Text("Yes"),
       onPressed: () async {
         Navigator.pop(context);
-        await controller.deleteClass(id);
+        await classesController.deleteClass(id);
       },
     );
     // set up the AlertDialog
